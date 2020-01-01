@@ -1,0 +1,1217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classfirmata_1_1_firmata_parser" kind="class" language="C++" prot="public">
+    <compoundname>firmata::FirmataParser</compoundname>
+    <includes refid="_firmata_parser_8h" local="no">FirmataParser.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classfirmata_1_1_firmata_parser_1a40cc69b4997fad3335a34cc083894ea1" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* firmata::FirmataParser::callbackFunction) (void *context, uint8_t command, uint16_t value)</definition>
+        <argsstring>)(void *context, uint8_t command, uint16_t value)</argsstring>
+        <name>callbackFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="31" column="13" bodyfile="arduino/FirmataParser.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classfirmata_1_1_firmata_parser_1a7ba04f2773f1052fc014c93d309fe069" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* firmata::FirmataParser::dataBufferOverflowCallbackFunction) (void *context)</definition>
+        <argsstring>)(void *context)</argsstring>
+        <name>dataBufferOverflowCallbackFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="32" column="13" bodyfile="arduino/FirmataParser.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classfirmata_1_1_firmata_parser_1a6cee4285d9cd5cdba702b720ae10a9b8" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* firmata::FirmataParser::stringCallbackFunction) (void *context, const char *c_str)</definition>
+        <argsstring>)(void *context, const char *c_str)</argsstring>
+        <name>stringCallbackFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="33" column="13" bodyfile="arduino/FirmataParser.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classfirmata_1_1_firmata_parser_1a9f1b158e9366cdca7f9f743011359b13" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* firmata::FirmataParser::sysexCallbackFunction) (void *context, uint8_t command, size_t argc, uint8_t *argv)</definition>
+        <argsstring>)(void *context, uint8_t command, size_t argc, uint8_t *argv)</argsstring>
+        <name>sysexCallbackFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="34" column="13" bodyfile="arduino/FirmataParser.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classfirmata_1_1_firmata_parser_1ad0655dab3f791c7c46c8412ae13f0d3a" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* firmata::FirmataParser::systemCallbackFunction) (void *context)</definition>
+        <argsstring>)(void *context)</argsstring>
+        <name>systemCallbackFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="35" column="13" bodyfile="arduino/FirmataParser.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classfirmata_1_1_firmata_parser_1a6be4a3c92941c1de63b44918bbbda545" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* firmata::FirmataParser::versionCallbackFunction) (void *context, size_t sv_major, size_t sv_minor, const char *firmware)</definition>
+        <argsstring>)(void *context, size_t sv_major, size_t sv_minor, const char *firmware)</argsstring>
+        <name>versionCallbackFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="36" column="13" bodyfile="arduino/FirmataParser.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1ac24adec2fc8a814614834d35bdc118a7" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool firmata::FirmataParser::allowBufferUpdate</definition>
+        <argsstring></argsstring>
+        <name>allowBufferUpdate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="57" column="10" bodyfile="arduino/FirmataParser.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a2a982e7a552e5f43fc37d7332f40da3e" prot="private" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* firmata::FirmataParser::dataBuffer</definition>
+        <argsstring></argsstring>
+        <name>dataBuffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="58" column="14" bodyfile="arduino/FirmataParser.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a3bc7f7977dddc020fbcae49ff9ae4c7a" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t firmata::FirmataParser::dataBufferSize</definition>
+        <argsstring></argsstring>
+        <name>dataBufferSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="59" column="12" bodyfile="arduino/FirmataParser.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a5f6a6991db22ad9c7672b621ed931e55" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t firmata::FirmataParser::executeMultiByteCommand</definition>
+        <argsstring></argsstring>
+        <name>executeMultiByteCommand</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="60" column="13" bodyfile="arduino/FirmataParser.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a41168966f79b0536d00bb126789bb914" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t firmata::FirmataParser::multiByteChannel</definition>
+        <argsstring></argsstring>
+        <name>multiByteChannel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="61" column="13" bodyfile="arduino/FirmataParser.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a7d0d8b3f80f6a971a7806512349e8502" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t firmata::FirmataParser::waitForData</definition>
+        <argsstring></argsstring>
+        <name>waitForData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="62" column="12" bodyfile="arduino/FirmataParser.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1af5acafd415b4bac6b5b527c78c3461d5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool firmata::FirmataParser::parsingSysex</definition>
+        <argsstring></argsstring>
+        <name>parsingSysex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="65" column="10" bodyfile="arduino/FirmataParser.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a05cc4bedbf2fff41eb5c2e7ee61a0522" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t firmata::FirmataParser::sysexBytesRead</definition>
+        <argsstring></argsstring>
+        <name>sysexBytesRead</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="66" column="12" bodyfile="arduino/FirmataParser.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1aa99e5deed342904c2fb8d640d0df9bc9" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* firmata::FirmataParser::currentAnalogCallbackContext</definition>
+        <argsstring></argsstring>
+        <name>currentAnalogCallbackContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="69" column="11" bodyfile="arduino/FirmataParser.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a583fa5f0d47c9a78bf1742731f8f5a75" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* firmata::FirmataParser::currentDigitalCallbackContext</definition>
+        <argsstring></argsstring>
+        <name>currentDigitalCallbackContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="70" column="11" bodyfile="arduino/FirmataParser.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1af48b08cbe21d18c1e6846eab68ca8723" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* firmata::FirmataParser::currentReportAnalogCallbackContext</definition>
+        <argsstring></argsstring>
+        <name>currentReportAnalogCallbackContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="71" column="11" bodyfile="arduino/FirmataParser.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1ad8e76850d9e85b21679242e93167583d" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* firmata::FirmataParser::currentReportDigitalCallbackContext</definition>
+        <argsstring></argsstring>
+        <name>currentReportDigitalCallbackContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="72" column="11" bodyfile="arduino/FirmataParser.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a40f7c3fa755c9de0cd10bfdbac3b89a2" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* firmata::FirmataParser::currentPinModeCallbackContext</definition>
+        <argsstring></argsstring>
+        <name>currentPinModeCallbackContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="73" column="11" bodyfile="arduino/FirmataParser.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1afff5cbd94cd1f3f4113f5a9c6f1c7649" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* firmata::FirmataParser::currentPinValueCallbackContext</definition>
+        <argsstring></argsstring>
+        <name>currentPinValueCallbackContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="74" column="11" bodyfile="arduino/FirmataParser.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a2df89be5ceee5dcc90ac7010453ccda0" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* firmata::FirmataParser::currentReportFirmwareCallbackContext</definition>
+        <argsstring></argsstring>
+        <name>currentReportFirmwareCallbackContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="75" column="11" bodyfile="arduino/FirmataParser.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a405d95ff057e78b104dcf0a245971a8d" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* firmata::FirmataParser::currentReportVersionCallbackContext</definition>
+        <argsstring></argsstring>
+        <name>currentReportVersionCallbackContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="76" column="11" bodyfile="arduino/FirmataParser.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a22f943ba1ad6d208dd54afa55383f0ad" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* firmata::FirmataParser::currentDataBufferOverflowCallbackContext</definition>
+        <argsstring></argsstring>
+        <name>currentDataBufferOverflowCallbackContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="77" column="11" bodyfile="arduino/FirmataParser.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1af6eb394d8caa0953634d5df5aeeaf1a8" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* firmata::FirmataParser::currentStringCallbackContext</definition>
+        <argsstring></argsstring>
+        <name>currentStringCallbackContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="78" column="11" bodyfile="arduino/FirmataParser.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1ac406b4ed18e1cd8e960ecbf9e598ed7e" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* firmata::FirmataParser::currentSysexCallbackContext</definition>
+        <argsstring></argsstring>
+        <name>currentSysexCallbackContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="79" column="11" bodyfile="arduino/FirmataParser.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1af89b68d6e73369d407c1e742b645e81d" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* firmata::FirmataParser::currentSystemResetCallbackContext</definition>
+        <argsstring></argsstring>
+        <name>currentSystemResetCallbackContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="80" column="11" bodyfile="arduino/FirmataParser.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a8214a9ed9469750cb11abdb31ef83955" prot="private" static="no" mutable="no">
+        <type><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref></type>
+        <definition>callbackFunction firmata::FirmataParser::currentAnalogCallback</definition>
+        <argsstring></argsstring>
+        <name>currentAnalogCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="83" column="22" bodyfile="arduino/FirmataParser.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a6b76a897e0da926a83a34c38e0b6ac26" prot="private" static="no" mutable="no">
+        <type><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref></type>
+        <definition>callbackFunction firmata::FirmataParser::currentDigitalCallback</definition>
+        <argsstring></argsstring>
+        <name>currentDigitalCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="84" column="22" bodyfile="arduino/FirmataParser.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a3f25514febedad5d2e0be97c99872727" prot="private" static="no" mutable="no">
+        <type><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref></type>
+        <definition>callbackFunction firmata::FirmataParser::currentReportAnalogCallback</definition>
+        <argsstring></argsstring>
+        <name>currentReportAnalogCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="85" column="22" bodyfile="arduino/FirmataParser.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1aa4c875ab8f6ccf2238f604fc177f8ec1" prot="private" static="no" mutable="no">
+        <type><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref></type>
+        <definition>callbackFunction firmata::FirmataParser::currentReportDigitalCallback</definition>
+        <argsstring></argsstring>
+        <name>currentReportDigitalCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="86" column="22" bodyfile="arduino/FirmataParser.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a176f8cb93b98942359e4ae5fb29b2ffd" prot="private" static="no" mutable="no">
+        <type><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref></type>
+        <definition>callbackFunction firmata::FirmataParser::currentPinModeCallback</definition>
+        <argsstring></argsstring>
+        <name>currentPinModeCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="87" column="22" bodyfile="arduino/FirmataParser.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1acc7f385ab20a5a97b5f88f5522bf9aae" prot="private" static="no" mutable="no">
+        <type><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref></type>
+        <definition>callbackFunction firmata::FirmataParser::currentPinValueCallback</definition>
+        <argsstring></argsstring>
+        <name>currentPinValueCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="88" column="22" bodyfile="arduino/FirmataParser.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1aa7f6b550544d0f8598e6407fd120e0a6" prot="private" static="no" mutable="no">
+        <type><ref refid="classfirmata_1_1_firmata_parser_1a7ba04f2773f1052fc014c93d309fe069" kindref="member">dataBufferOverflowCallbackFunction</ref></type>
+        <definition>dataBufferOverflowCallbackFunction firmata::FirmataParser::currentDataBufferOverflowCallback</definition>
+        <argsstring></argsstring>
+        <name>currentDataBufferOverflowCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="89" column="40" bodyfile="arduino/FirmataParser.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a557cea537c746c54bc9ce3917ec1acd7" prot="private" static="no" mutable="no">
+        <type><ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref></type>
+        <definition>stringCallbackFunction firmata::FirmataParser::currentStringCallback</definition>
+        <argsstring></argsstring>
+        <name>currentStringCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="90" column="28" bodyfile="arduino/FirmataParser.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a29396fbea686bd63185da28b5eb6a9ac" prot="private" static="no" mutable="no">
+        <type><ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref></type>
+        <definition>sysexCallbackFunction firmata::FirmataParser::currentSysexCallback</definition>
+        <argsstring></argsstring>
+        <name>currentSysexCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="91" column="27" bodyfile="arduino/FirmataParser.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a34fa85eda249aa672f7e68b1b61f6801" prot="private" static="no" mutable="no">
+        <type><ref refid="classfirmata_1_1_firmata_parser_1a6be4a3c92941c1de63b44918bbbda545" kindref="member">versionCallbackFunction</ref></type>
+        <definition>versionCallbackFunction firmata::FirmataParser::currentReportFirmwareCallback</definition>
+        <argsstring></argsstring>
+        <name>currentReportFirmwareCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="92" column="29" bodyfile="arduino/FirmataParser.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1afc2a6e9839e08c4d59350784f8413546" prot="private" static="no" mutable="no">
+        <type><ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref></type>
+        <definition>systemCallbackFunction firmata::FirmataParser::currentReportVersionCallback</definition>
+        <argsstring></argsstring>
+        <name>currentReportVersionCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="93" column="28" bodyfile="arduino/FirmataParser.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_parser_1a34d0c46a419037ad763c87205860a185" prot="private" static="no" mutable="no">
+        <type><ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref></type>
+        <definition>systemCallbackFunction firmata::FirmataParser::currentSystemResetCallback</definition>
+        <argsstring></argsstring>
+        <name>currentSystemResetCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="94" column="28" bodyfile="arduino/FirmataParser.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1ac8c388b593a00e88856646712beae68b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FirmataParser::FirmataParser</definition>
+        <argsstring>(uint8_t *dataBuffer=(uint8_t *) NULL, size_t dataBufferSize=0)</argsstring>
+        <name>FirmataParser</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>dataBuffer</declname>
+          <defval>(uint8_t *) NULL</defval>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>dataBufferSize</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="classfirmata_1_1_firmata_parser" kindref="compound">FirmataParser</ref> class. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to an external buffer used to store parsed data </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dataBufferSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the external buffer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="38" column="5" bodyfile="arduino/FirmataParser.cpp" bodystart="33" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataParser::parse</definition>
+        <argsstring>(uint8_t value)</argsstring>
+        <name>parse</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>value</declname>
+          <defname>inputData</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parse data from the input stream. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inputData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A single byte to be added to the parser. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="41" column="10" bodyfile="arduino/FirmataParser.cpp" bodystart="81" bodyend="171"/>
+        <references refid="namespacefirmata_1aea14613546a585cfec72d5b0f79365ef" compoundref="_firmata_constants_8h" startline="39">firmata::ANALOG_MESSAGE</references>
+        <references refid="namespacefirmata_1a49bf6564630519f4293bd39a71a95b00" compoundref="_firmata_constants_8h" startline="38">firmata::DIGITAL_MESSAGE</references>
+        <references refid="namespacefirmata_1aa4c7b2c2365334150eff56b64c87e6e0" compoundref="_firmata_constants_8h" startline="50">firmata::END_SYSEX</references>
+        <references refid="namespacefirmata_1aea1b306b1e7d3751bba41f311b755a99" compoundref="_firmata_constants_8h" startline="40">firmata::REPORT_ANALOG</references>
+        <references refid="namespacefirmata_1a00a56f93ad64fa08998b7db2054180a6" compoundref="_firmata_constants_8h" startline="41">firmata::REPORT_DIGITAL</references>
+        <references refid="namespacefirmata_1a7aa955ae4335c171096a0224bf279f5b" compoundref="_firmata_constants_8h" startline="46">firmata::REPORT_VERSION</references>
+        <references refid="namespacefirmata_1a0a75e8e1855e7dedbbbfd17711f152af" compoundref="_firmata_constants_8h" startline="44">firmata::SET_DIGITAL_PIN_VALUE</references>
+        <references refid="namespacefirmata_1a5ecb59a9641299fcaf2e4ce96587c1f8" compoundref="_firmata_constants_8h" startline="43">firmata::SET_PIN_MODE</references>
+        <references refid="namespacefirmata_1a8210ab38d9279ef1ea406ff7e1db0893" compoundref="_firmata_constants_8h" startline="49">firmata::START_SYSEX</references>
+        <references refid="namespacefirmata_1abba911f61c8df9fc6f6ea7bf041a22b5" compoundref="_firmata_constants_8h" startline="47">firmata::SYSTEM_RESET</references>
+        <referencedby refid="classfirmata_1_1_firmata_class_1aaeaac8b1f8facf070615b0035120c432" compoundref="_firmata_8cpp" startline="264" endline="267">firmata::FirmataClass::parse</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1aa698f5f5a234173d5eebb54831350676" compoundref="_firmata_8cpp" startline="252" endline="258">firmata::FirmataClass::processInput</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1a67902b70695eaf0cf8f7b06175ca3902" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FirmataParser::isParsingMessage</definition>
+        <argsstring>(void) const</argsstring>
+        <name>isParsingMessage</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Returns true if the parser is actively parsing data. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="42" column="10" bodyfile="arduino/FirmataParser.cpp" bodystart="176" bodyend="180"/>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a58e9d787957c3085f22d33b59b1f6ea6" compoundref="_firmata_8cpp" startline="272" endline="275">firmata::FirmataClass::isParsingMessage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1a8fbe143ddb428a97c00a15993c31a516" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FirmataParser::setDataBufferOfSize</definition>
+        <argsstring>(uint8_t *dataBuffer, size_t dataBufferSize)</argsstring>
+        <name>setDataBufferOfSize</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>dataBuffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>dataBufferSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Provides a mechanism to either set or update the working buffer of the parser. The method will be enabled when no buffer has been provided, or an overflow condition exists. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to an external buffer used to store parsed data </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dataBufferSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the external buffer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="43" column="9" bodyfile="arduino/FirmataParser.cpp" bodystart="189" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataParser::attach</definition>
+        <argsstring>(uint8_t command, callbackFunction newFunction, void *context=NULL)</argsstring>
+        <name>attach</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref></type>
+          <declname>newFunction</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>context</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attach a generic sysex callback function to a command (options are: ANALOG_MESSAGE, DIGITAL_MESSAGE, REPORT_ANALOG, REPORT DIGITAL, SET_PIN_MODE and SET_DIGITAL_PIN_VALUE). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the command to attach a callback function to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newFunction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reference to the callback function to attach. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional context to be provided to the callback function (NULL by default). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The context parameter is provided so you can pass a parameter, by reference, to your callback function. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="46" column="10" bodyfile="arduino/FirmataParser.cpp" bodystart="216" bodyend="244"/>
+        <references refid="namespacefirmata_1aea14613546a585cfec72d5b0f79365ef" compoundref="_firmata_constants_8h" startline="39">firmata::ANALOG_MESSAGE</references>
+        <references refid="namespacefirmata_1a49bf6564630519f4293bd39a71a95b00" compoundref="_firmata_constants_8h" startline="38">firmata::DIGITAL_MESSAGE</references>
+        <references refid="namespacefirmata_1aea1b306b1e7d3751bba41f311b755a99" compoundref="_firmata_constants_8h" startline="40">firmata::REPORT_ANALOG</references>
+        <references refid="namespacefirmata_1a00a56f93ad64fa08998b7db2054180a6" compoundref="_firmata_constants_8h" startline="41">firmata::REPORT_DIGITAL</references>
+        <references refid="namespacefirmata_1a0a75e8e1855e7dedbbbfd17711f152af" compoundref="_firmata_constants_8h" startline="44">firmata::SET_DIGITAL_PIN_VALUE</references>
+        <references refid="namespacefirmata_1a5ecb59a9641299fcaf2e4ce96587c1f8" compoundref="_firmata_constants_8h" startline="43">firmata::SET_PIN_MODE</references>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a7cd707386c0807bee733a3e27d161c7d" compoundref="_firmata_parser_8cpp" startline="337" endline="357">detach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" compoundref="_firmata_8cpp" startline="80" endline="100">firmata::FirmataClass::FirmataClass</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1ae176414892a2d240b921c2b8037a8ade" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataParser::attach</definition>
+        <argsstring>(dataBufferOverflowCallbackFunction newFunction, void *context=NULL)</argsstring>
+        <name>attach</name>
+        <param>
+          <type><ref refid="classfirmata_1_1_firmata_parser_1a7ba04f2773f1052fc014c93d309fe069" kindref="member">dataBufferOverflowCallbackFunction</ref></type>
+          <declname>newFunction</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>context</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attach a buffer overflow callback <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newFunction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reference to the buffer overflow callback function to attach. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional context to be provided to the callback function (NULL by default). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The context parameter is provided so you can pass a parameter, by reference, to your callback function. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="47" column="10" bodyfile="arduino/FirmataParser.cpp" bodystart="326" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1a239b37e09dea042d229fc2171d3a1979" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataParser::attach</definition>
+        <argsstring>(uint8_t command, stringCallbackFunction newFunction, void *context=NULL)</argsstring>
+        <name>attach</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type><ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref></type>
+          <declname>newFunction</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>context</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attach a callback function for the STRING_DATA command. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Must be set to STRING_DATA or it will be ignored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newFunction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reference to the string callback function to attach. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional context to be provided to the callback function (NULL by default). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The context parameter is provided so you can pass a parameter, by reference, to your callback function. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="48" column="10" bodyfile="arduino/FirmataParser.cpp" bodystart="294" bodyend="302"/>
+        <references refid="namespacefirmata_1ada4a2133aced1b1051f4663a8365bbc6" compoundref="_firmata_constants_8h" startline="58">firmata::STRING_DATA</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1aaa1d755b20b21e528bfa62d6a7c2dc0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataParser::attach</definition>
+        <argsstring>(uint8_t command, sysexCallbackFunction newFunction, void *context=NULL)</argsstring>
+        <name>attach</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type><ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref></type>
+          <declname>newFunction</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>context</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attach a generic sysex callback function to sysex command. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the command to attach a callback function to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newFunction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reference to the sysex callback function to attach. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional context to be provided to the callback function (NULL by default). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The context parameter is provided so you can pass a parameter, by reference, to your callback function. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="49" column="10" bodyfile="arduino/FirmataParser.cpp" bodystart="312" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1affc821e7742d889965e61b248c204842" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataParser::attach</definition>
+        <argsstring>(uint8_t command, systemCallbackFunction newFunction, void *context=NULL)</argsstring>
+        <name>attach</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type><ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref></type>
+          <declname>newFunction</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>context</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attach a system callback function (supported options are: SYSTEM_RESET, REPORT_VERSION). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the command to attach a callback function to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newFunction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reference to the callback function to attach. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional context to be provided to the callback function (NULL by default). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The context parameter is provided so you can pass a parameter, by reference, to your callback function. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="50" column="10" bodyfile="arduino/FirmataParser.cpp" bodystart="272" bodyend="284"/>
+        <references refid="namespacefirmata_1a7aa955ae4335c171096a0224bf279f5b" compoundref="_firmata_constants_8h" startline="46">firmata::REPORT_VERSION</references>
+        <references refid="namespacefirmata_1abba911f61c8df9fc6f6ea7bf041a22b5" compoundref="_firmata_constants_8h" startline="47">firmata::SYSTEM_RESET</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1a876105f2203f5e8f1fb06c8236a96933" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataParser::attach</definition>
+        <argsstring>(uint8_t command, versionCallbackFunction newFunction, void *context=NULL)</argsstring>
+        <name>attach</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type><ref refid="classfirmata_1_1_firmata_parser_1a6be4a3c92941c1de63b44918bbbda545" kindref="member">versionCallbackFunction</ref></type>
+          <declname>newFunction</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>context</declname>
+          <defval>NULL</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attach a version callback function (supported option: REPORT_FIRMWARE). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the command to attach a callback function to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newFunction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reference to the callback function to attach. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional context to be provided to the callback function (NULL by default). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The context parameter is provided so you can pass a parameter, by reference, to your callback function. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="51" column="10" bodyfile="arduino/FirmataParser.cpp" bodystart="254" bodyend="262"/>
+        <references refid="namespacefirmata_1a27aae72a38fab1b0b039d7687e294398" compoundref="_firmata_constants_8h" startline="65">firmata::REPORT_FIRMWARE</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1a7cd707386c0807bee733a3e27d161c7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataParser::detach</definition>
+        <argsstring>(uint8_t command)</argsstring>
+        <name>detach</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Detach a callback function for a specified command (such as SYSTEM_RESET, STRING_DATA, ANALOG_MESSAGE, DIGITAL_MESSAGE, etc). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the command to detatch the callback function from. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="52" column="10" bodyfile="arduino/FirmataParser.cpp" bodystart="337" bodyend="357"/>
+        <references refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" compoundref="_firmata_parser_8cpp" startline="216" endline="244">attach</references>
+        <references refid="namespacefirmata_1a27aae72a38fab1b0b039d7687e294398" compoundref="_firmata_constants_8h" startline="65">firmata::REPORT_FIRMWARE</references>
+        <references refid="namespacefirmata_1a7aa955ae4335c171096a0224bf279f5b" compoundref="_firmata_constants_8h" startline="46">firmata::REPORT_VERSION</references>
+        <references refid="namespacefirmata_1a8210ab38d9279ef1ea406ff7e1db0893" compoundref="_firmata_constants_8h" startline="49">firmata::START_SYSEX</references>
+        <references refid="namespacefirmata_1ada4a2133aced1b1051f4663a8365bbc6" compoundref="_firmata_constants_8h" startline="58">firmata::STRING_DATA</references>
+        <references refid="namespacefirmata_1abba911f61c8df9fc6f6ea7bf041a22b5" compoundref="_firmata_constants_8h" startline="47">firmata::SYSTEM_RESET</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1a280ac17e428f8374afd30bce75e9a861" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataParser::detach</definition>
+        <argsstring>(dataBufferOverflowCallbackFunction)</argsstring>
+        <name>detach</name>
+        <param>
+          <type><ref refid="classfirmata_1_1_firmata_parser_1a7ba04f2773f1052fc014c93d309fe069" kindref="member">dataBufferOverflowCallbackFunction</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Detach the buffer overflow callback <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>&lt;unused&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Any pointer of type dataBufferOverflowCallbackFunction. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="53" column="10" bodyfile="arduino/FirmataParser.cpp" bodystart="363" bodyend="367"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1ac5421453ed0d7c8f7b3753d81280d97e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FirmataParser::bufferDataAtPosition</definition>
+        <argsstring>(const uint8_t data, const size_t pos)</argsstring>
+        <name>bufferDataAtPosition</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const size_t</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Buffer abstraction to prevent memory corruption <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The byte to put into the buffer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The position to insert the byte into the buffer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>writeError A boolean to indicate if an error occured </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="97" column="10" bodyfile="arduino/FirmataParser.cpp" bodystart="380" bodyend="401"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1a8803a3e0252cee0cb9d036abfc475c76" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t FirmataParser::decodeByteStream</definition>
+        <argsstring>(size_t bytec, uint8_t *bytev)</argsstring>
+        <name>decodeByteStream</name>
+        <param>
+          <type>size_t</type>
+          <declname>bytec</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>bytev</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Transform 7-bit firmata message into 8-bit stream <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bytec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The encoded data byte length of the message (max: 16383). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the encoded array of data bytes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The length of the decoded data. </para>
+</simplesect>
+<simplesect kind="note"><para>The conversion will be done in place on the provided buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="98" column="12" bodyfile="arduino/FirmataParser.cpp" bodystart="411" bodyend="420"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1a2ea49ebf4506a09c353cd81f55f36f44" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataParser::processSysexMessage</definition>
+        <argsstring>(void)</argsstring>
+        <name>processSysexMessage</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Process incoming sysex messages. Handles REPORT_FIRMWARE and STRING_DATA internally. Calls callback function for STRING_DATA and all other sysex messages. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="99" column="10" bodyfile="arduino/FirmataParser.cpp" bodystart="427" bodyend="457"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_parser_1abfe293459591eabd66ca673ea93c2e39" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataParser::systemReset</definition>
+        <argsstring>(void)</argsstring>
+        <name>systemReset</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the system state upon a SYSTEM_RESET message from the host software. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataParser.h" line="100" column="10" bodyfile="arduino/FirmataParser.cpp" bodystart="463" bodyend="480"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>firmata::FirmataParser</label>
+        <link refid="classfirmata_1_1_firmata_parser"/>
+      </node>
+    </collaborationgraph>
+    <location file="arduino/FirmataParser.h" line="28" column="1" bodyfile="arduino/FirmataParser.h" bodystart="27" bodyend="101"/>
+    <listofallmembers>
+      <member refid="classfirmata_1_1_firmata_parser_1ac24adec2fc8a814614834d35bdc118a7" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>allowBufferUpdate</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>attach</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1ae176414892a2d240b921c2b8037a8ade" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>attach</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a239b37e09dea042d229fc2171d3a1979" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>attach</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1aaa1d755b20b21e528bfa62d6a7c2dc0f" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>attach</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1affc821e7742d889965e61b248c204842" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>attach</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a876105f2203f5e8f1fb06c8236a96933" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>attach</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1ac5421453ed0d7c8f7b3753d81280d97e" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>bufferDataAtPosition</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a40cc69b4997fad3335a34cc083894ea1" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>callbackFunction</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a8214a9ed9469750cb11abdb31ef83955" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentAnalogCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1aa99e5deed342904c2fb8d640d0df9bc9" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentAnalogCallbackContext</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1aa7f6b550544d0f8598e6407fd120e0a6" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentDataBufferOverflowCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a22f943ba1ad6d208dd54afa55383f0ad" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentDataBufferOverflowCallbackContext</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a6b76a897e0da926a83a34c38e0b6ac26" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentDigitalCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a583fa5f0d47c9a78bf1742731f8f5a75" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentDigitalCallbackContext</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a176f8cb93b98942359e4ae5fb29b2ffd" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentPinModeCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a40f7c3fa755c9de0cd10bfdbac3b89a2" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentPinModeCallbackContext</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1acc7f385ab20a5a97b5f88f5522bf9aae" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentPinValueCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1afff5cbd94cd1f3f4113f5a9c6f1c7649" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentPinValueCallbackContext</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a3f25514febedad5d2e0be97c99872727" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentReportAnalogCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1af48b08cbe21d18c1e6846eab68ca8723" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentReportAnalogCallbackContext</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1aa4c875ab8f6ccf2238f604fc177f8ec1" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentReportDigitalCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1ad8e76850d9e85b21679242e93167583d" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentReportDigitalCallbackContext</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a34fa85eda249aa672f7e68b1b61f6801" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentReportFirmwareCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a2df89be5ceee5dcc90ac7010453ccda0" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentReportFirmwareCallbackContext</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1afc2a6e9839e08c4d59350784f8413546" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentReportVersionCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a405d95ff057e78b104dcf0a245971a8d" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentReportVersionCallbackContext</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a557cea537c746c54bc9ce3917ec1acd7" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentStringCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1af6eb394d8caa0953634d5df5aeeaf1a8" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentStringCallbackContext</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a29396fbea686bd63185da28b5eb6a9ac" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentSysexCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1ac406b4ed18e1cd8e960ecbf9e598ed7e" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentSysexCallbackContext</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a34d0c46a419037ad763c87205860a185" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentSystemResetCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1af89b68d6e73369d407c1e742b645e81d" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>currentSystemResetCallbackContext</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a2a982e7a552e5f43fc37d7332f40da3e" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>dataBuffer</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a7ba04f2773f1052fc014c93d309fe069" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>dataBufferOverflowCallbackFunction</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a3bc7f7977dddc020fbcae49ff9ae4c7a" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>dataBufferSize</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a8803a3e0252cee0cb9d036abfc475c76" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>decodeByteStream</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a7cd707386c0807bee733a3e27d161c7d" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>detach</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a280ac17e428f8374afd30bce75e9a861" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>detach</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a5f6a6991db22ad9c7672b621ed931e55" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>executeMultiByteCommand</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1ac8c388b593a00e88856646712beae68b" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>FirmataParser</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a67902b70695eaf0cf8f7b06175ca3902" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>isParsingMessage</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a41168966f79b0536d00bb126789bb914" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>multiByteChannel</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>parse</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1af5acafd415b4bac6b5b527c78c3461d5" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>parsingSysex</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a2ea49ebf4506a09c353cd81f55f36f44" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>processSysexMessage</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a8fbe143ddb428a97c00a15993c31a516" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>setDataBufferOfSize</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a6cee4285d9cd5cdba702b720ae10a9b8" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>stringCallbackFunction</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a05cc4bedbf2fff41eb5c2e7ee61a0522" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>sysexBytesRead</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a9f1b158e9366cdca7f9f743011359b13" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>sysexCallbackFunction</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1ad0655dab3f791c7c46c8412ae13f0d3a" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>systemCallbackFunction</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1abfe293459591eabd66ca673ea93c2e39" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>systemReset</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a6be4a3c92941c1de63b44918bbbda545" prot="public" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>versionCallbackFunction</name></member>
+      <member refid="classfirmata_1_1_firmata_parser_1a7d0d8b3f80f6a971a7806512349e8502" prot="private" virt="non-virtual"><scope>firmata::FirmataParser</scope><name>waitForData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

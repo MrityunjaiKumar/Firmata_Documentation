@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="protocol_2readme_8md" kind="file" language="Markdown">
+    <compoundname>protocol/readme.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Firmata<sp/>Protocol<sp/>Documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[![Join<sp/>the<sp/>chat<sp/>at<sp/>https://gitter.im/firmata/protocol](https://badges.gitter.im/firmata/protocol.svg)](https://gitter.im/firmata/protocol?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Firmata<sp/>is<sp/>a<sp/>protocol<sp/>for<sp/>communicating<sp/>with<sp/>microcontrollers<sp/>from<sp/>software<sp/>on<sp/>a<sp/>computer<sp/>(or<sp/>smartphone/tablet,<sp/>etc).<sp/>The<sp/>protocol<sp/>can<sp/>be<sp/>implemented<sp/>in<sp/>firmware<sp/>on<sp/>any<sp/>microcontroller<sp/>architecture<sp/>as<sp/>well<sp/>as<sp/>software<sp/>on<sp/>any<sp/>computer<sp/>software<sp/>package<sp/>(see<sp/>list<sp/>of<sp/>client<sp/>libraries<sp/>below).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Firmata<sp/>is<sp/>based<sp/>on<sp/>the<sp/>[midi<sp/>message<sp/>format](http://www.midi.org/techspecs/midimessages.php)<sp/>in<sp/>that<sp/>commands<sp/>bytes<sp/>are<sp/>8<sp/>bits<sp/>and<sp/>data<sp/>bytes<sp/>are<sp/>7<sp/>bits.<sp/>For<sp/>example<sp/>the<sp/>midi<sp/>Channel<sp/>Pressure<sp/>(Command:<sp/>0xD0)<sp/>message<sp/>is<sp/>2<sp/>bytes<sp/>long,<sp/>in<sp/>Firmata<sp/>the<sp/>Command<sp/>0xD0<sp/>is<sp/>used<sp/>to<sp/>enable<sp/>reporting<sp/>for<sp/>a<sp/>digital<sp/>port<sp/>(collection<sp/>of<sp/>8<sp/>pins).<sp/>Both<sp/>the<sp/>midi<sp/>and<sp/>Firmata<sp/>versions<sp/>are<sp/>2<sp/>bytes<sp/>long,<sp/>but<sp/>the<sp/>meaning<sp/>is<sp/>obviously<sp/>different.<sp/>In<sp/>Firmata,<sp/>the<sp/>number<sp/>of<sp/>bytes<sp/>in<sp/>a<sp/>message<sp/>must<sp/>conform<sp/>with<sp/>the<sp/>corresponding<sp/>midi<sp/>message.<sp/>Midi<sp/>[System<sp/>Exclusive](http://www.2writers.com/eddie/tutsysex.htm)<sp/>(Sysex)<sp/>messages<sp/>however,<sp/>can<sp/>be<sp/>any<sp/>length<sp/>and<sp/>are<sp/>therefore<sp/>used<sp/>most<sp/>prominently<sp/>throughout<sp/>the<sp/>Firmata<sp/>protocol.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>repository<sp/>contains<sp/>documentation<sp/>of<sp/>the<sp/>Firmata<sp/>protocol.<sp/>The<sp/>core<sp/>of<sp/>the<sp/>protocol<sp/>is<sp/>described<sp/>in<sp/>the<sp/>[protocol.md<sp/>file](protocol.md)<sp/>file.<sp/>Feature-specific<sp/>documentation<sp/>is<sp/>described<sp/>in<sp/>individual<sp/>markdown<sp/>files<sp/>([i2c.md](i2c.md),<sp/>[accelStepperFirmata.md](https://github.com/firmata/protocol/blob/master/accelStepperFirmata.md),<sp/>[servos.md](servos.md),<sp/>etc).<sp/>Files<sp/>added<sp/>to<sp/>the<sp/>proposals<sp/>directory<sp/>are<sp/>proposals<sp/>for<sp/>new<sp/>features<sp/>that<sp/>have<sp/>not<sp/>yet<sp/>been<sp/>finalized.<sp/>See<sp/>[firmata-registry.md](https://github.com/firmata/protocol/blob/master/feature-registry.md)<sp/>for<sp/>the<sp/>full<sp/>list<sp/>of<sp/>documented<sp/>firmata<sp/>features.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>Firmata<sp/>protocol<sp/>could<sp/>theoretically<sp/>be<sp/>implemented<sp/>for<sp/>any<sp/>microcontroller<sp/>platform.<sp/>Currently<sp/>however,<sp/>the<sp/>most<sp/>complete<sp/>implementation<sp/>is<sp/>for<sp/>[Arduino](http://arduino.cc)<sp/>(including<sp/>Arduino-compatible<sp/>microcontrollers).<sp/>Here<sp/>are<sp/>the<sp/>known<sp/>Firmata<sp/>microcontroller<sp/>platform<sp/>implementations:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>[Firmata<sp/>for<sp/>Arduino](https://github.com/firmata/arduino)</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>[Firmata<sp/>for<sp/>Spark.io](https://github.com/firmata/spark)</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*Please<sp/>note:<sp/>I&apos;m<sp/>sure<sp/>there<sp/>are<sp/>other<sp/>implementations.<sp/>If<sp/>you<sp/>know<sp/>of<sp/>others,<sp/>please<sp/>submit<sp/>a<sp/>pull<sp/>request<sp/>to<sp/>update<sp/>this<sp/>readme<sp/>file,<sp/>or<sp/>open<sp/>an<sp/>issue<sp/>providing<sp/>the<sp/>link<sp/>to<sp/>be<sp/>added<sp/>to<sp/>this<sp/>document.*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Firmata<sp/>client<sp/>libraries</highlight></codeline>
+<codeline><highlight class="normal">There<sp/>are<sp/>several<sp/>client<sp/>libraries.<sp/>These<sp/>are<sp/>libraries<sp/>that<sp/>implement<sp/>the<sp/>Firmata<sp/>protocol<sp/>in<sp/>order<sp/>to<sp/>communicate<sp/>(from<sp/>a<sp/>computer,<sp/>smartphone<sp/>or<sp/>tablet<sp/>for<sp/>example)<sp/>with<sp/>Firmata<sp/>firmware<sp/>running<sp/>on<sp/>a<sp/>microcontroller<sp/>platform.<sp/>The<sp/>following<sp/>is<sp/>a<sp/>list<sp/>of<sp/>Firmata<sp/>client<sp/>library<sp/>implementations:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>processing</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/firmata/processing]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[http://funnel.cc]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>python</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/firmata/pyduino]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/lupeke/python-firmata]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/tino/pyFirmata]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/MrYsLab/PyMata]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/MrYsLab/pymata-aio]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>perl</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/ntruchsess/perl-firmata]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/rcaputo/rx-firmata]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>ruby</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/hardbap/firmata]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/PlasticLizard/rufinol]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[http://funnel.cc]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>clojure</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/nakkaya/clodiuno]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/peterschwarz/clj-firmata]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>javascript</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/jgautier/firmata]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[http://breakoutjs.com]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/rwldrn/johnny-five]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>java</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/4ntoine/Firmata]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/kurbatov/firmata4j]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/reapzor/FiloFirmata]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>.NET</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/SolidSoils/Arduino]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[http://www.imagitronics.org/projects/firmatanet/]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/wbadry/FirmataCSharpClientClass]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Flash/AS3</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[http://funnel.cc]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[http://code.google.com/p/as3glue/]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>PHP</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://bitbucket.org/ThomasWeinert/carica-firmata]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/oasynnoum/phpmake_firmata]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Haskell</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[http://hackage.haskell.org/package/hArduino]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>iOS</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/jacobrosenthal/iosfirmata]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Dart</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/nfrancois/firmata]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Max/MSP</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[http://www.maxuino.org/]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Elixir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/kfatehi/firmata]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Modelica</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://www.wolfram.com/system-modeler/libraries/model-plug/]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>golang</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/kraman/go-firmata]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Qt/QML</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/callaa/qfirmata]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Android/Kotlin</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/xujiaao/android-firmata]</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Smalltalk</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>[https://github.com/pharo-iot/Firmata]<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*Each<sp/>client<sp/>library<sp/>may<sp/>not<sp/>support<sp/>the<sp/>most<sp/>recent<sp/>version<sp/>of<sp/>the<sp/>Firmata<sp/>protocol<sp/>and<sp/>all<sp/>features<sp/>described<sp/>in<sp/>this<sp/>reposity.*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Contributing</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>submit<sp/>a<sp/>proposal<sp/>for<sp/>a<sp/>new<sp/>feature,<sp/>create<sp/>a<sp/>[markdown](https://help.github.com/articles/github-flavored-markdown/)<sp/>file<sp/>for<sp/>your<sp/>proposal<sp/>and<sp/>append<sp/>&quot;-proposal&quot;<sp/>to<sp/>the<sp/>filename.<sp/>Submit<sp/>a<sp/>pull<sp/>request<sp/>to<sp/>add<sp/>the<sp/>proposal.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>make<sp/>a<sp/>change<sp/>to<sp/>an<sp/>existing<sp/>protocol,<sp/>submit<sp/>a<sp/>pull<sp/>request<sp/>with<sp/>your<sp/>proposed<sp/>changes.<sp/>Be<sp/>sure<sp/>to<sp/>provide<sp/>any<sp/>rationale<sp/>in<sp/>the<sp/>pull<sp/>request<sp/>description.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Some<sp/>hints<sp/>for<sp/>drafting<sp/>a<sp/>new<sp/>proposal:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>See<sp/>[feature-registry.md](https://github.com/firmata/protocol/blob/master/feature-registry.md)<sp/>for<sp/>information<sp/>on<sp/>proposing<sp/>a<sp/>new<sp/>feature<sp/>and<sp/>requesting<sp/>a<sp/>feature<sp/>ID.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Use<sp/>sub-commands<sp/>(3rd<sp/>byte)<sp/>as<sp/>necessary<sp/>if<sp/>you<sp/>have<sp/>more<sp/>than<sp/>one<sp/>message.<sp/>See<sp/>the<sp/>[accelStepperFirmata.md](https://github.com/firmata/protocol/blob/master/accelStepperFirmata.md)<sp/>file<sp/>for<sp/>an<sp/>example.<sp/>Note<sp/>the<sp/>use<sp/>of<sp/>`0x62`<sp/>for<sp/>the<sp/>feature<sp/>ID<sp/>and<sp/>how<sp/>each<sp/>section<sp/>has<sp/>an<sp/>enumerated<sp/>set<sp/>of<sp/>subcommands<sp/>(0x00<sp/>=<sp/>config,<sp/>0x01<sp/>=<sp/>zero,<sp/>02<sp/>=<sp/>step,<sp/>etc).</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>It&apos;s<sp/>okay<sp/>to<sp/>have<sp/>optional<sp/>values<sp/>in<sp/>a<sp/>sysex<sp/>message<sp/>as<sp/>long<sp/>as<sp/>those<sp/>values<sp/>are<sp/>all<sp/>at<sp/>the<sp/>end<sp/>of<sp/>the<sp/>message.<sp/>See<sp/>the<sp/>bytes<sp/>6<sp/>&amp;<sp/>7<sp/>of<sp/>the<sp/>`SERIAL_CONFIG`<sp/>message<sp/>in<sp/>[serial-1.0.md](https://github.com/firmata/protocol/blob/master/serial-1.0.md)</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Try<sp/>to<sp/>keep<sp/>your<sp/>sysex<sp/>messages<sp/>as<sp/>short<sp/>as<sp/>possible.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Pack<sp/>bits<sp/>if<sp/>necessary.<sp/>See<sp/>the<sp/>Response<sp/>message<sp/>for<sp/>**Report<sp/>encoder&apos;s<sp/>position**<sp/>in<sp/>[encoder.md](encoder.md)<sp/>for<sp/>an<sp/>example<sp/>(also<sp/>note<sp/>how<sp/>this<sp/>was<sp/>documented<sp/>following<sp/>the<sp/>response<sp/>message...<sp/>please<sp/>include<sp/>similar<sp/>documentation<sp/>if<sp/>you<sp/>use<sp/>bit<sp/>packing<sp/>in<sp/>your<sp/>proposal).</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>If<sp/>your<sp/>proposal<sp/>uses<sp/>any<sp/>of<sp/>the<sp/>available<sp/>non-sysex<sp/>midi<sp/>messages,<sp/>the<sp/>number<sp/>of<sp/>bytes<sp/>in<sp/>the<sp/>message<sp/>must<sp/>correspond<sp/>to<sp/>the<sp/>number<sp/>of<sp/>bytes<sp/>in<sp/>the<sp/>midi<sp/>message.<sp/>The<sp/>meaning<sp/>however<sp/>does<sp/>not<sp/>need<sp/>to<sp/>be<sp/>the<sp/>same.<sp/>However<sp/>if<sp/>the<sp/>midi<sp/>message<sp/>uses<sp/>channels<sp/>(such<sp/>as<sp/>Note<sp/>Off<sp/>(0x80))<sp/>then<sp/>the<sp/>Firmata<sp/>message<sp/>must<sp/>also<sp/>use<sp/>channels<sp/>since<sp/>a<sp/>midi<sp/>parser<sp/>may<sp/>expect<sp/>this.</highlight></codeline>
+    </programlisting>
+    <location file="protocol/README.md"/>
+  </compounddef>
+</doxygen>

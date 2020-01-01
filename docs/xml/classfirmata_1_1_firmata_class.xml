@@ -1,0 +1,1667 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classfirmata_1_1_firmata_class" kind="class" language="C++" prot="public">
+    <compoundname>firmata::FirmataClass</compoundname>
+    <includes refid="_firmata_8h" local="no">Firmata.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classfirmata_1_1_firmata_class_1a3e5ee128a6c5054863dc7718d7a1f285" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* firmata::FirmataClass::callbackFunction) (uint8_t, int)</definition>
+        <argsstring>)(uint8_t, int)</argsstring>
+        <name>callbackFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="57" column="13" bodyfile="arduino/Firmata.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classfirmata_1_1_firmata_class_1af0a7eb3dbe1432de1727d9f14b5b1dab" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* firmata::FirmataClass::systemCallbackFunction) (void)</definition>
+        <argsstring>)(void)</argsstring>
+        <name>systemCallbackFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="58" column="13" bodyfile="arduino/Firmata.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classfirmata_1_1_firmata_class_1afb5aa833e160037296f447ac208c95c1" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* firmata::FirmataClass::stringCallbackFunction) (char *)</definition>
+        <argsstring>)(char *)</argsstring>
+        <name>stringCallbackFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="59" column="13" bodyfile="arduino/Firmata.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classfirmata_1_1_firmata_class_1ab7c5e806cee9fd7dfe3600525f86c595" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* firmata::FirmataClass::sysexCallbackFunction) (uint8_t command, uint8_t argc, uint8_t *argv)</definition>
+        <argsstring>)(uint8_t command, uint8_t argc, uint8_t *argv)</argsstring>
+        <name>sysexCallbackFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="60" column="13" bodyfile="arduino/Firmata.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1a899199d98221fec5186fc1183b587900" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t firmata::FirmataClass::parserBuffer[MAX_DATA_BYTES]</definition>
+        <argsstring>[MAX_DATA_BYTES]</argsstring>
+        <name>parserBuffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="114" column="13" bodyfile="arduino/Firmata.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1a4fa9cece5cc0dc197ef6e35422e83176" prot="private" static="no" mutable="no">
+        <type><ref refid="classfirmata_1_1_firmata_marshaller" kindref="compound">FirmataMarshaller</ref></type>
+        <definition>FirmataMarshaller firmata::FirmataClass::marshaller</definition>
+        <argsstring></argsstring>
+        <name>marshaller</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="115" column="23" bodyfile="arduino/Firmata.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1a163d801e0f6656b27b7f414ea73a1d71" prot="private" static="no" mutable="no">
+        <type><ref refid="classfirmata_1_1_firmata_parser" kindref="compound">FirmataParser</ref></type>
+        <definition>FirmataParser firmata::FirmataClass::parser</definition>
+        <argsstring></argsstring>
+        <name>parser</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="116" column="19" bodyfile="arduino/Firmata.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1a711225c6928462533c94b253b1f16ac1" prot="private" static="no" mutable="no">
+        <type>Stream *</type>
+        <definition>Stream* firmata::FirmataClass::FirmataStream</definition>
+        <argsstring></argsstring>
+        <name>FirmataStream</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="117" column="12" bodyfile="arduino/Firmata.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1a60490115146edb986cb0d84f6e4d9597" prot="private" static="no" mutable="no">
+        <type>byte</type>
+        <definition>byte firmata::FirmataClass::firmwareVersionCount</definition>
+        <argsstring></argsstring>
+        <name>firmwareVersionCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="120" column="10" bodyfile="arduino/Firmata.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1aa4e2003faa990457cc520db034b48808" prot="private" static="no" mutable="no">
+        <type>byte *</type>
+        <definition>byte* firmata::FirmataClass::firmwareVersionVector</definition>
+        <argsstring></argsstring>
+        <name>firmwareVersionVector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="121" column="10" bodyfile="arduino/Firmata.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1ada752ae1a08a58eb4a15a2561c5f9382" prot="private" static="no" mutable="no">
+        <type>byte</type>
+        <definition>byte firmata::FirmataClass::pinConfig[TOTAL_PINS]</definition>
+        <argsstring>[TOTAL_PINS]</argsstring>
+        <name>pinConfig</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="124" column="10" bodyfile="arduino/Firmata.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1a629addd97d2850fee60dcc2bbb414df6" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int firmata::FirmataClass::pinState[TOTAL_PINS]</definition>
+        <argsstring>[TOTAL_PINS]</argsstring>
+        <name>pinState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="125" column="9" bodyfile="arduino/Firmata.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1ab30bbfe2981cfbae2249dc0443521646" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean firmata::FirmataClass::blinkVersionDisabled</definition>
+        <argsstring></argsstring>
+        <name>blinkVersionDisabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="127" column="13" bodyfile="arduino/Firmata.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1aa43a6bab813f495b4f6e74b8258b9458" prot="private" static="yes" mutable="no">
+        <type><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref></type>
+        <definition>callbackFunction FirmataClass::currentAnalogCallback</definition>
+        <argsstring></argsstring>
+        <name>currentAnalogCallback</name>
+        <initializer>= (<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="134" column="29" bodyfile="arduino/Firmata.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1aa15a8c9ab2b97f167ea438159bf90851" prot="private" static="yes" mutable="no">
+        <type><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref></type>
+        <definition>callbackFunction FirmataClass::currentDigitalCallback</definition>
+        <argsstring></argsstring>
+        <name>currentDigitalCallback</name>
+        <initializer>= (<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="135" column="29" bodyfile="arduino/Firmata.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1ac18c917533c09ebf162a61eae719f960" prot="private" static="yes" mutable="no">
+        <type><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref></type>
+        <definition>callbackFunction FirmataClass::currentPinModeCallback</definition>
+        <argsstring></argsstring>
+        <name>currentPinModeCallback</name>
+        <initializer>= (<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="136" column="29" bodyfile="arduino/Firmata.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1a2f5030633b92a8ca5f1c148629391d48" prot="private" static="yes" mutable="no">
+        <type><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref></type>
+        <definition>callbackFunction FirmataClass::currentPinValueCallback</definition>
+        <argsstring></argsstring>
+        <name>currentPinValueCallback</name>
+        <initializer>= (<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="137" column="29" bodyfile="arduino/Firmata.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1a940366a7f67f3cc32bb4906a89e93c5a" prot="private" static="yes" mutable="no">
+        <type><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref></type>
+        <definition>callbackFunction FirmataClass::currentReportAnalogCallback</definition>
+        <argsstring></argsstring>
+        <name>currentReportAnalogCallback</name>
+        <initializer>= (<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="138" column="29" bodyfile="arduino/Firmata.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1af93379692618e082abf82df67fac215d" prot="private" static="yes" mutable="no">
+        <type><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref></type>
+        <definition>callbackFunction FirmataClass::currentReportDigitalCallback</definition>
+        <argsstring></argsstring>
+        <name>currentReportDigitalCallback</name>
+        <initializer>= (<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="139" column="29" bodyfile="arduino/Firmata.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1ad56e72ab5683486ece2b64e933dc9520" prot="private" static="yes" mutable="no">
+        <type><ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref></type>
+        <definition>stringCallbackFunction FirmataClass::currentStringCallback</definition>
+        <argsstring></argsstring>
+        <name>currentStringCallback</name>
+        <initializer>= (<ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref>)NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="140" column="35" bodyfile="arduino/Firmata.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1a854f0987eb3573bc2c9d4457787b2877" prot="private" static="yes" mutable="no">
+        <type><ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref></type>
+        <definition>sysexCallbackFunction FirmataClass::currentSysexCallback</definition>
+        <argsstring></argsstring>
+        <name>currentSysexCallback</name>
+        <initializer>= (<ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref>)NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="141" column="34" bodyfile="arduino/Firmata.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_class_1a7d78d7d7f5389bd3df319cb5528c3e4e" prot="private" static="yes" mutable="no">
+        <type><ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref></type>
+        <definition>systemCallbackFunction FirmataClass::currentSystemResetCallback</definition>
+        <argsstring></argsstring>
+        <name>currentSystemResetCallback</name>
+        <initializer>= (<ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref>)NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="142" column="35" bodyfile="arduino/Firmata.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FirmataClass::FirmataClass</definition>
+        <argsstring>()</argsstring>
+        <name>FirmataClass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Firmata class. An instance named &quot;Firmata&quot; is created automatically for the user. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="62" column="5" bodyfile="arduino/Firmata.cpp" bodystart="80" bodyend="100"/>
+        <references refid="namespacefirmata_1aea14613546a585cfec72d5b0f79365ef" compoundref="_firmata_constants_8h" startline="39">firmata::ANALOG_MESSAGE</references>
+        <references refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" compoundref="_firmata_parser_8cpp" startline="216" endline="244">firmata::FirmataParser::attach</references>
+        <references refid="namespacefirmata_1a49bf6564630519f4293bd39a71a95b00" compoundref="_firmata_constants_8h" startline="38">firmata::DIGITAL_MESSAGE</references>
+        <references refid="namespacefirmata_1aea1b306b1e7d3751bba41f311b755a99" compoundref="_firmata_constants_8h" startline="40">firmata::REPORT_ANALOG</references>
+        <references refid="namespacefirmata_1a00a56f93ad64fa08998b7db2054180a6" compoundref="_firmata_constants_8h" startline="41">firmata::REPORT_DIGITAL</references>
+        <references refid="namespacefirmata_1a27aae72a38fab1b0b039d7687e294398" compoundref="_firmata_constants_8h" startline="65">firmata::REPORT_FIRMWARE</references>
+        <references refid="namespacefirmata_1a7aa955ae4335c171096a0224bf279f5b" compoundref="_firmata_constants_8h" startline="46">firmata::REPORT_VERSION</references>
+        <references refid="namespacefirmata_1a0a75e8e1855e7dedbbbfd17711f152af" compoundref="_firmata_constants_8h" startline="44">firmata::SET_DIGITAL_PIN_VALUE</references>
+        <references refid="namespacefirmata_1a5ecb59a9641299fcaf2e4ce96587c1f8" compoundref="_firmata_constants_8h" startline="43">firmata::SET_PIN_MODE</references>
+        <references refid="namespacefirmata_1a8210ab38d9279ef1ea406ff7e1db0893" compoundref="_firmata_constants_8h" startline="49">firmata::START_SYSEX</references>
+        <references refid="namespacefirmata_1ada4a2133aced1b1051f4663a8365bbc6" compoundref="_firmata_constants_8h" startline="58">firmata::STRING_DATA</references>
+        <references refid="namespacefirmata_1abba911f61c8df9fc6f6ea7bf041a22b5" compoundref="_firmata_constants_8h" startline="47">firmata::SYSTEM_RESET</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a2fddcc643892bec2f4aa7aef6dba70eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the default Serial transport at the default baud of 57600. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="65" column="10" bodyfile="arduino/Firmata.cpp" bodystart="109" bodyend="112"/>
+        <referencedby refid="classfirmata_1_1_firmata_class_1ab0b7b837d2c32b4ce79e62895ced2731" compoundref="_firmata_8cpp" startline="121" endline="126">begin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1ab0b7b837d2c32b4ce79e62895ced2731" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::begin</definition>
+        <argsstring>(long)</argsstring>
+        <name>begin</name>
+        <param>
+          <type>long</type>
+          <defname>speed</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the default Serial transport and override the default baud. Sends the protocol version to the host application followed by the firmware version and name. blinkVersion is also called. To skip the call to blinkVersion, call Firmata.disableBlinkVersion() before calling Firmata.begin(baud). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>speed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The baud to use. 57600 baud is the default value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="66" column="10" bodyfile="arduino/Firmata.cpp" bodystart="121" bodyend="126"/>
+        <references refid="classfirmata_1_1_firmata_class_1a2fddcc643892bec2f4aa7aef6dba70eb" compoundref="_firmata_8cpp" startline="109" endline="112">begin</references>
+        <references refid="classfirmata_1_1_firmata_class_1a9421550f2501fc1df60fd174b154e606" compoundref="_firmata_8cpp" startline="159" endline="170">blinkVersion</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a0c7b0e10168e3c5dc6442d77c65a156e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::begin</definition>
+        <argsstring>(Stream &amp;s)</argsstring>
+        <name>begin</name>
+        <param>
+          <type>Stream &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reassign the Firmata stream transport. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reference to the Stream transport object. This can be any type of transport that implements the Stream interface. Some examples include Ethernet, WiFi and other UARTs on the board (Serial1, Serial2, etc). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="67" column="10" bodyfile="arduino/Firmata.cpp" bodystart="134" bodyend="142"/>
+        <references refid="classfirmata_1_1_firmata_marshaller_1a5be18ca3658875dbe5580c2254071c76" compoundref="_firmata_marshaller_8cpp" startline="145" endline="148">firmata::FirmataMarshaller::begin</references>
+        <references refid="classfirmata_1_1_firmata_class_1abe49261eab0bd4892a09fa8b8980b11a" compoundref="_firmata_8cpp" startline="187" endline="192">printFirmwareVersion</references>
+        <references refid="classfirmata_1_1_firmata_class_1abd8a0370db6d9e923e7e3d5836e78d7a" compoundref="_firmata_8cpp" startline="147" endline="150">printVersion</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1abd8a0370db6d9e923e7e3d5836e78d7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::printVersion</definition>
+        <argsstring>(void)</argsstring>
+        <name>printVersion</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send the Firmata protocol version to the Firmata host application. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="70" column="10" bodyfile="arduino/Firmata.cpp" bodystart="147" bodyend="150"/>
+        <references refid="_firmata_defines_8h_1afa9a1d1c37c3f731317e30fb878cdd85" compoundref="_firmata_defines_8h" startline="31">FIRMATA_PROTOCOL_MAJOR_VERSION</references>
+        <references refid="_firmata_defines_8h_1a8a9497c6c1f6dfe9a3b829134bae23ac" compoundref="_firmata_defines_8h" startline="32">FIRMATA_PROTOCOL_MINOR_VERSION</references>
+        <references refid="classfirmata_1_1_firmata_marshaller_1a95d58949e32ad285088705dbe5680b29" compoundref="_firmata_marshaller_8cpp" startline="339" endline="346">firmata::FirmataMarshaller::sendVersion</references>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a0c7b0e10168e3c5dc6442d77c65a156e" compoundref="_firmata_8cpp" startline="134" endline="142">begin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a9421550f2501fc1df60fd174b154e606" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::blinkVersion</definition>
+        <argsstring>(void)</argsstring>
+        <name>blinkVersion</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Blink the Firmata protocol version to the onboard LEDs (if the board has an onboard LED). If VERSION_BLINK_PIN is not defined in <ref refid="_boards_8h" kindref="compound">Boards.h</ref> for a particular board, then this method does nothing. The first series of flashes indicates the firmware major version (2 flashes = 2). The second series of flashes indicates the firmware minor version (5 flashes = 5). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="71" column="10" bodyfile="arduino/Firmata.cpp" bodystart="159" bodyend="170"/>
+        <references refid="_firmata_defines_8h_1aeab219e509c31f82bf63d465571d06c2" compoundref="_firmata_defines_8h" startline="23">FIRMATA_FIRMWARE_MAJOR_VERSION</references>
+        <references refid="_firmata_defines_8h_1a131668cd19362aee81144d79e0f46451" compoundref="_firmata_defines_8h" startline="24">FIRMATA_FIRMWARE_MINOR_VERSION</references>
+        <referencedby refid="classfirmata_1_1_firmata_class_1ab0b7b837d2c32b4ce79e62895ced2731" compoundref="_firmata_8cpp" startline="121" endline="126">begin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1abe49261eab0bd4892a09fa8b8980b11a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::printFirmwareVersion</definition>
+        <argsstring>(void)</argsstring>
+        <name>printFirmwareVersion</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends the firmware name and version to the Firmata host application. The major and minor version numbers are the first 2 bytes in the message. The following bytes are the characters of the firmware name. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="72" column="10" bodyfile="arduino/Firmata.cpp" bodystart="187" bodyend="192"/>
+        <references refid="classfirmata_1_1_firmata_marshaller_1aed71d62cc41f2e0bf3f161894b91be7c" compoundref="_firmata_marshaller_8cpp" startline="319" endline="332">firmata::FirmataMarshaller::sendFirmwareVersion</references>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a0c7b0e10168e3c5dc6442d77c65a156e" compoundref="_firmata_8cpp" startline="134" endline="142">begin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1ab7aa66b528027566c15b7d64c8cd0f89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::setFirmwareNameAndVersion</definition>
+        <argsstring>(const char *name, byte major, byte minor)</argsstring>
+        <name>setFirmwareNameAndVersion</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>byte</type>
+          <declname>major</declname>
+        </param>
+        <param>
+          <type>byte</type>
+          <declname>minor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the name and version of the firmware. This is not the same version as the Firmata protocol (although at times the firmware version and protocol version may be the same number). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the name char array </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>major</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The major version number </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>minor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The minor version number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="75" column="10" bodyfile="arduino/Firmata.cpp" bodystart="201" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a5ddba465c3772f841828ef82c79d4307" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::disableBlinkVersion</definition>
+        <argsstring>()</argsstring>
+        <name>disableBlinkVersion</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Provides a means to disable the version blink sequence on the onboard LED, trimming startup time by a couple of seconds. Call this before Firmata.begin(). It only applies when using the default Serial transport. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="76" column="10" bodyfile="arduino/Firmata.cpp" bodystart="177" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a119734b867186567c1cd011e52e59d2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FirmataClass::available</definition>
+        <argsstring>(void)</argsstring>
+        <name>available</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A wrapper for Stream::available() <simplesect kind="return"><para>The number of bytes remaining in the input stream buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="79" column="9" bodyfile="arduino/Firmata.cpp" bodystart="244" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1aa698f5f5a234173d5eebb54831350676" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::processInput</definition>
+        <argsstring>(void)</argsstring>
+        <name>processInput</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read a single int from the input stream. If the value is not = -1, pass it on to parse(byte) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="80" column="10" bodyfile="arduino/Firmata.cpp" bodystart="252" bodyend="258"/>
+        <references refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" compoundref="_firmata_parser_8cpp" startline="81" endline="171">firmata::FirmataParser::parse</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1aaeaac8b1f8facf070615b0035120c432" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::parse</definition>
+        <argsstring>(unsigned char value)</argsstring>
+        <name>parse</name>
+        <param>
+          <type>unsigned char</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parse data from the input stream. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inputData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A single byte to be added to the parser. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="81" column="10" bodyfile="arduino/Firmata.cpp" bodystart="264" bodyend="267"/>
+        <references refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" compoundref="_firmata_parser_8cpp" startline="81" endline="171">firmata::FirmataParser::parse</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a58e9d787957c3085f22d33b59b1f6ea6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean FirmataClass::isParsingMessage</definition>
+        <argsstring>(void)</argsstring>
+        <name>isParsingMessage</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Returns true if the parser is actively parsing data. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="82" column="13" bodyfile="arduino/Firmata.cpp" bodystart="272" bodyend="275"/>
+        <references refid="classfirmata_1_1_firmata_parser_1a67902b70695eaf0cf8f7b06175ca3902" compoundref="_firmata_parser_8cpp" startline="176" endline="180">firmata::FirmataParser::isParsingMessage</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1ae14e1d8d9bd72068f6e8ca07721e8dda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::sendAnalog</definition>
+        <argsstring>(byte pin, int value)</argsstring>
+        <name>sendAnalog</name>
+        <param>
+          <type>byte</type>
+          <declname>pin</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send an analog message to the Firmata host application. The range of pins is limited to [0..15] when using the ANALOG_MESSAGE. The maximum value of the ANALOG_MESSAGE is limited to 14 bits (16384). To increase the pin range or value, see the documentation for the EXTENDED_ANALOG message. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The analog pin to send the value of (limited to pins 0 - 15). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the analog pin (0 - 1024 for 10-bit analog, 0 - 4096 for 12-bit, etc). The maximum value is 14-bits (16384). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="85" column="10" bodyfile="arduino/Firmata.cpp" bodystart="289" bodyend="292"/>
+        <references refid="classfirmata_1_1_firmata_marshaller_1a4d9f2d3bb058237404dfe433cfe7571a" compoundref="_firmata_marshaller_8cpp" startline="245" endline="255">firmata::FirmataMarshaller::sendAnalog</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a50a87e8339cf46fb787759603603e225" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::sendDigital</definition>
+        <argsstring>(byte pin, int value)</argsstring>
+        <name>sendDigital</name>
+        <param>
+          <type>byte</type>
+          <declname>pin</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="86" column="10" bodyfile="arduino/Firmata.cpp" bodystart="300" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a799b91e5a888dd21b066a2020d8e2b68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::sendDigitalPort</definition>
+        <argsstring>(byte portNumber, int portData)</argsstring>
+        <name>sendDigitalPort</name>
+        <param>
+          <type>byte</type>
+          <declname>portNumber</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>portData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send an 8-bit port in a single digital message (protocol v2 and later). Send 14-bits in a single digital message (protocol v1). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>portNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The port number to send. Note that this is not the same as a &quot;port&quot; on the physical microcontroller. Ports are defined in order per every 8 pins in ascending order of the Arduino digital pin numbering scheme. Port 0 = pins D0 - D7, port 1 = pins D8 - D15, etc. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>portData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the port. The value of each pin in the port is represented by a bit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="87" column="10" bodyfile="arduino/Firmata.cpp" bodystart="330" bodyend="333"/>
+        <references refid="classfirmata_1_1_firmata_marshaller_1a346dcb4487a51efaa95de42d292ad951" compoundref="_firmata_marshaller_8cpp" startline="302" endline="310">firmata::FirmataMarshaller::sendDigitalPort</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1abe11f621154afd308926129de349fc6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::sendString</definition>
+        <argsstring>(const char *string)</argsstring>
+        <name>sendString</name>
+        <param>
+          <type>const char *</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send a string to the Firmata host application. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the char string </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="88" column="10" bodyfile="arduino/Firmata.cpp" bodystart="363" bodyend="366"/>
+        <references refid="classfirmata_1_1_firmata_marshaller_1a483ac2dea885ab3472dc38b99bfdec2f" compoundref="_firmata_marshaller_8cpp" startline="405" endline="409">firmata::FirmataMarshaller::sendString</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1ab139c0d784e69003c88eb5be8807dcdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::sendString</definition>
+        <argsstring>(byte command, const char *string)</argsstring>
+        <name>sendString</name>
+        <param>
+          <type>byte</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send a string to the Firmata host application. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Must be STRING_DATA </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the char string </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="89" column="10" bodyfile="arduino/Firmata.cpp" bodystart="352" bodyend="357"/>
+        <references refid="classfirmata_1_1_firmata_marshaller_1a483ac2dea885ab3472dc38b99bfdec2f" compoundref="_firmata_marshaller_8cpp" startline="405" endline="409">firmata::FirmataMarshaller::sendString</references>
+        <references refid="namespacefirmata_1ada4a2133aced1b1051f4663a8365bbc6" compoundref="_firmata_constants_8h" startline="58">firmata::STRING_DATA</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a81e2de5b37eb2372c8a3d9a43d5eb0cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::sendSysex</definition>
+        <argsstring>(byte command, byte bytec, byte *bytev)</argsstring>
+        <name>sendSysex</name>
+        <param>
+          <type>byte</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type>byte</type>
+          <declname>bytec</declname>
+        </param>
+        <param>
+          <type>byte *</type>
+          <declname>bytev</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send a sysex message where all values after the command byte are packet as 2 7-bit bytes (this is not always the case so this function is not always used to send sysex messages). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The sysex command byte. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of data bytes in the message (excludes start, command and end bytes). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the array of data bytes to send in the message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="90" column="10" bodyfile="arduino/Firmata.cpp" bodystart="342" bodyend="345"/>
+        <references refid="classfirmata_1_1_firmata_marshaller_1ade4f4592877ec0b9f8d6c74e909bad8e" compoundref="_firmata_marshaller_8cpp" startline="388" endline="399">firmata::FirmataMarshaller::sendSysex</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1ae8f29a829e17379602fcb9fd6a497807" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::write</definition>
+        <argsstring>(byte c)</argsstring>
+        <name>write</name>
+        <param>
+          <type>byte</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A wrapper for Stream::available(). Write a single byte to the output stream. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The byte to be written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="91" column="10" bodyfile="arduino/Firmata.cpp" bodystart="373" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a1ae572e88ec810dd49516e53c5f32d2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void firmata::FirmataClass::attach</definition>
+        <argsstring>(uint8_t command, callbackFunction newFunction)</argsstring>
+        <name>attach</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref></type>
+          <declname>newFunction</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="94" column="10"/>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a5db0faee74b9291d1b783d2dde0929d1" compoundref="_firmata_8cpp" startline="452" endline="468">detach</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1adc3db897058f33e902097ce89bb01bb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::attach</definition>
+        <argsstring>(uint8_t command, systemCallbackFunction newFunction)</argsstring>
+        <name>attach</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type><ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref></type>
+          <declname>newFunction</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attach a callback function for the SYSTEM_RESET command. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Must be set to SYSTEM_RESET or it will be ignored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newFunction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reference to the system reset callback function to attach. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="95" column="10" bodyfile="arduino/Firmata.cpp" bodystart="413" bodyend="420"/>
+        <references refid="namespacefirmata_1abba911f61c8df9fc6f6ea7bf041a22b5" compoundref="_firmata_constants_8h" startline="47">firmata::SYSTEM_RESET</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a074887a70f9aca0c0aae7e9bdc103f77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::attach</definition>
+        <argsstring>(uint8_t command, stringCallbackFunction newFunction)</argsstring>
+        <name>attach</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type><ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref></type>
+          <declname>newFunction</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attach a callback function for the STRING_DATA command. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Must be set to STRING_DATA or it will be ignored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newFunction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reference to the string callback function to attach. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="96" column="10" bodyfile="arduino/Firmata.cpp" bodystart="427" bodyend="434"/>
+        <references refid="namespacefirmata_1ada4a2133aced1b1051f4663a8365bbc6" compoundref="_firmata_constants_8h" startline="58">firmata::STRING_DATA</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a78e360c0c8d70cffeb9c935fdec23f77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::attach</definition>
+        <argsstring>(uint8_t command, sysexCallbackFunction newFunction)</argsstring>
+        <name>attach</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type><ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref></type>
+          <declname>newFunction</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attach a generic sysex callback function to sysex command. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the command to attach a callback function to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newFunction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reference to the sysex callback function to attach. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="97" column="10" bodyfile="arduino/Firmata.cpp" bodystart="441" bodyend="445"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a5db0faee74b9291d1b783d2dde0929d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::detach</definition>
+        <argsstring>(uint8_t command)</argsstring>
+        <name>detach</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Detach a callback function for a specified command (such as SYSTEM_RESET, STRING_DATA, ANALOG_MESSAGE, DIGITAL_MESSAGE, etc). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the command to detatch the callback function from. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="98" column="10" bodyfile="arduino/Firmata.cpp" bodystart="452" bodyend="468"/>
+        <references refid="classfirmata_1_1_firmata_class_1a1ae572e88ec810dd49516e53c5f32d2d">attach</references>
+        <references refid="namespacefirmata_1a8210ab38d9279ef1ea406ff7e1db0893" compoundref="_firmata_constants_8h" startline="49">firmata::START_SYSEX</references>
+        <references refid="namespacefirmata_1ada4a2133aced1b1051f4663a8365bbc6" compoundref="_firmata_constants_8h" startline="58">firmata::STRING_DATA</references>
+        <references refid="namespacefirmata_1abba911f61c8df9fc6f6ea7bf041a22b5" compoundref="_firmata_constants_8h" startline="47">firmata::SYSTEM_RESET</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a0c434227456ce2ba97b3b1142c329f96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>byte</type>
+        <definition>byte FirmataClass::getPinMode</definition>
+        <argsstring>(byte pin)</argsstring>
+        <name>getPinMode</name>
+        <param>
+          <type>byte</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pin to get the configuration of. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The configuration of the specified pin. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="101" column="10" bodyfile="arduino/Firmata.cpp" bodystart="474" bodyend="477"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a32c41dd94c1d23aa0e6d3d1dbe5c0c04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::setPinMode</definition>
+        <argsstring>(byte pin, byte config)</argsstring>
+        <name>setPinMode</name>
+        <param>
+          <type>byte</type>
+          <declname>pin</declname>
+        </param>
+        <param>
+          <type>byte</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the pin mode/configuration. The pin configuration (or mode) in Firmata represents the current function of the pin. Examples are digital input or output, analog input, pwm, i2c, serial (uart), etc. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pin to configure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The configuration value for the specified pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="102" column="10" bodyfile="arduino/Firmata.cpp" bodystart="486" bodyend="492"/>
+        <references refid="namespacefirmata_1ac10cf5b5b05ab1b1277d98c82c1fb8d1" compoundref="_firmata_constants_8h" startline="91">firmata::PIN_MODE_IGNORE</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1acf5d4f460b9a2298653d4a71de918dfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FirmataClass::getPinState</definition>
+        <argsstring>(byte pin)</argsstring>
+        <name>getPinState</name>
+        <param>
+          <type>byte</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pin to get the state of. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The state of the specified pin. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="105" column="9" bodyfile="arduino/Firmata.cpp" bodystart="498" bodyend="501"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1aa9f98ba5069823b4c1d08db9f8999ba8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::setPinState</definition>
+        <argsstring>(byte pin, int state)</argsstring>
+        <name>setPinState</name>
+        <param>
+          <type>byte</type>
+          <declname>pin</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the pin state. The pin state of an output pin is the pin value. The state of an input pin is 0, unless the pin has it&apos;s internal pull up resistor enabled, then the value is 1. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pin to set the state of </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Set the state of the specified pin </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="106" column="10" bodyfile="arduino/Firmata.cpp" bodystart="509" bodyend="512"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a770e43f26f18204e43acebf9202a6d39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::sendValueAsTwo7bitBytes</definition>
+        <argsstring>(int value)</argsstring>
+        <name>sendValueAsTwo7bitBytes</name>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Split a 16-bit byte into two 7-bit values and write each value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 16-bit value to be split and written separately. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="109" column="10" bodyfile="arduino/Firmata.cpp" bodystart="51" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a3cc7ea1af348bca3ea0bd570314cada3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::startSysex</definition>
+        <argsstring>(void)</argsstring>
+        <name>startSysex</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A helper method to write the beginning of a Sysex message transmission. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="110" column="10" bodyfile="arduino/Firmata.cpp" bodystart="59" bodyend="62"/>
+        <references refid="namespacefirmata_1a8210ab38d9279ef1ea406ff7e1db0893" compoundref="_firmata_constants_8h" startline="49">firmata::START_SYSEX</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a9bb68afbb1d37a7990f59a1d419e64c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::endSysex</definition>
+        <argsstring>(void)</argsstring>
+        <name>endSysex</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A helper method to write the end of a Sysex message transmission. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="111" column="10" bodyfile="arduino/Firmata.cpp" bodystart="67" bodyend="70"/>
+        <references refid="namespacefirmata_1aa4c7b2c2365334150eff56b64c87e6e0" compoundref="_firmata_constants_8h" startline="50">firmata::END_SYSEX</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a4893ccec400cdb2ab5c073ff9f22e65e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataClass::strobeBlinkPin</definition>
+        <argsstring>(byte pin, int count, int onInterval, int offInterval)</argsstring>
+        <name>strobeBlinkPin</name>
+        <param>
+          <type>byte</type>
+          <declname>pin</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>onInterval</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>offInterval</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flashing the pin for the version number</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pin the LED is attached to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of times to flash the LED. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>onInterval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of milliseconds for the LED to be ON during each interval. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offInterval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of milliseconds for the LED to be OFF during each interval. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="130" column="10" bodyfile="arduino/Firmata.cpp" bodystart="544" bodyend="553"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classfirmata_1_1_firmata_class_1a1d0b7f94cabd839426f49b7ade73ef9f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void FirmataMarshaller::encodeByteStream</definition>
+        <argsstring>(size_t bytec, uint8_t *bytev, size_t max_bytes) const</argsstring>
+        <name>FirmataMarshaller::encodeByteStream</name>
+        <param>
+          <type>size_t</type>
+          <declname>bytec</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>bytev</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>max_bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="131" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1aca6c3d8c62c07a057cc53124d3404717" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void firmata::FirmataClass::staticAnalogCallback</definition>
+        <argsstring>(void *, uint8_t command, uint16_t value)</argsstring>
+        <name>staticAnalogCallback</name>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="145" column="24" bodyfile="arduino/Firmata.h" bodystart="145" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a14645ffc27cbac8a68cbe5bef45c1513" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void firmata::FirmataClass::staticDigitalCallback</definition>
+        <argsstring>(void *, uint8_t command, uint16_t value)</argsstring>
+        <name>staticDigitalCallback</name>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="146" column="24" bodyfile="arduino/Firmata.h" bodystart="146" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1ad7ff31c183e27de409becad6a4561fb4" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void firmata::FirmataClass::staticPinModeCallback</definition>
+        <argsstring>(void *, uint8_t command, uint16_t value)</argsstring>
+        <name>staticPinModeCallback</name>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="147" column="24" bodyfile="arduino/Firmata.h" bodystart="147" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a35ef49d535c2f67afd5631c51a11a278" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void firmata::FirmataClass::staticPinValueCallback</definition>
+        <argsstring>(void *, uint8_t command, uint16_t value)</argsstring>
+        <name>staticPinValueCallback</name>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="148" column="24" bodyfile="arduino/Firmata.h" bodystart="148" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a450f9157490047e3c0a1919924ad1596" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void firmata::FirmataClass::staticReportAnalogCallback</definition>
+        <argsstring>(void *, uint8_t command, uint16_t value)</argsstring>
+        <name>staticReportAnalogCallback</name>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="149" column="24" bodyfile="arduino/Firmata.h" bodystart="149" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a36413ef2155f9b6b0798a6f03ab470e7" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void firmata::FirmataClass::staticReportDigitalCallback</definition>
+        <argsstring>(void *, uint8_t command, uint16_t value)</argsstring>
+        <name>staticReportDigitalCallback</name>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="150" column="24" bodyfile="arduino/Firmata.h" bodystart="150" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a3d739b3fba1cc53b58cae7eaa5562974" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void firmata::FirmataClass::staticStringCallback</definition>
+        <argsstring>(void *, const char *c_str)</argsstring>
+        <name>staticStringCallback</name>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>c_str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="151" column="24" bodyfile="arduino/Firmata.h" bodystart="151" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1ac63fe85213dff99228d90bb98aed9754" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void firmata::FirmataClass::staticSysexCallback</definition>
+        <argsstring>(void *, uint8_t command, size_t argc, uint8_t *argv)</argsstring>
+        <name>staticSysexCallback</name>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="152" column="24" bodyfile="arduino/Firmata.h" bodystart="152" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1ab6db1052fbc65b33909a47305c9b6185" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void firmata::FirmataClass::staticReportFirmwareCallback</definition>
+        <argsstring>(void *context, size_t, size_t, const char *)</argsstring>
+        <name>staticReportFirmwareCallback</name>
+        <param>
+          <type>void *</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+        </param>
+        <param>
+          <type>size_t</type>
+        </param>
+        <param>
+          <type>const char *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="153" column="24" bodyfile="arduino/Firmata.h" bodystart="153" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a89c544bd5e086d663de5dde6a82441a3" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void firmata::FirmataClass::staticReportVersionCallback</definition>
+        <argsstring>(void *context)</argsstring>
+        <name>staticReportVersionCallback</name>
+        <param>
+          <type>void *</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="154" column="24" bodyfile="arduino/Firmata.h" bodystart="154" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_class_1a8df96cd066d3c4eff65c0bf5ec914371" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void firmata::FirmataClass::staticSystemResetCallback</definition>
+        <argsstring>(void *)</argsstring>
+        <name>staticSystemResetCallback</name>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="155" column="24" bodyfile="arduino/Firmata.h" bodystart="155" bodyend="155"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>firmata::FirmataClass</label>
+        <link refid="classfirmata_1_1_firmata_class"/>
+      </node>
+    </collaborationgraph>
+    <location file="arduino/Firmata.h" line="55" column="1" bodyfile="arduino/Firmata.h" bodystart="54" bodyend="156"/>
+    <listofallmembers>
+      <member refid="classfirmata_1_1_firmata_class_1a1ae572e88ec810dd49516e53c5f32d2d" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>attach</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1adc3db897058f33e902097ce89bb01bb3" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>attach</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a074887a70f9aca0c0aae7e9bdc103f77" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>attach</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a78e360c0c8d70cffeb9c935fdec23f77" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>attach</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a119734b867186567c1cd011e52e59d2d" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>available</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a2fddcc643892bec2f4aa7aef6dba70eb" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>begin</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1ab0b7b837d2c32b4ce79e62895ced2731" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>begin</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a0c7b0e10168e3c5dc6442d77c65a156e" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>begin</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a9421550f2501fc1df60fd174b154e606" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>blinkVersion</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1ab30bbfe2981cfbae2249dc0443521646" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>blinkVersionDisabled</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a3e5ee128a6c5054863dc7718d7a1f285" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>callbackFunction</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1aa43a6bab813f495b4f6e74b8258b9458" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>currentAnalogCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1aa15a8c9ab2b97f167ea438159bf90851" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>currentDigitalCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1ac18c917533c09ebf162a61eae719f960" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>currentPinModeCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a2f5030633b92a8ca5f1c148629391d48" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>currentPinValueCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a940366a7f67f3cc32bb4906a89e93c5a" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>currentReportAnalogCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1af93379692618e082abf82df67fac215d" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>currentReportDigitalCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1ad56e72ab5683486ece2b64e933dc9520" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>currentStringCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a854f0987eb3573bc2c9d4457787b2877" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>currentSysexCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a7d78d7d7f5389bd3df319cb5528c3e4e" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>currentSystemResetCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a5db0faee74b9291d1b783d2dde0929d1" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>detach</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a5ddba465c3772f841828ef82c79d4307" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>disableBlinkVersion</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a9bb68afbb1d37a7990f59a1d419e64c9" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>endSysex</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>FirmataClass</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a1d0b7f94cabd839426f49b7ade73ef9f" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>FirmataMarshaller::encodeByteStream</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a711225c6928462533c94b253b1f16ac1" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>FirmataStream</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a60490115146edb986cb0d84f6e4d9597" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>firmwareVersionCount</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1aa4e2003faa990457cc520db034b48808" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>firmwareVersionVector</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a0c434227456ce2ba97b3b1142c329f96" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>getPinMode</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1acf5d4f460b9a2298653d4a71de918dfe" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>getPinState</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a58e9d787957c3085f22d33b59b1f6ea6" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>isParsingMessage</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a4fa9cece5cc0dc197ef6e35422e83176" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>marshaller</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1aaeaac8b1f8facf070615b0035120c432" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>parse</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a163d801e0f6656b27b7f414ea73a1d71" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>parser</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a899199d98221fec5186fc1183b587900" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>parserBuffer</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1ada752ae1a08a58eb4a15a2561c5f9382" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>pinConfig</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a629addd97d2850fee60dcc2bbb414df6" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>pinState</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1abe49261eab0bd4892a09fa8b8980b11a" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>printFirmwareVersion</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1abd8a0370db6d9e923e7e3d5836e78d7a" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>printVersion</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1aa698f5f5a234173d5eebb54831350676" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>processInput</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1ae14e1d8d9bd72068f6e8ca07721e8dda" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>sendAnalog</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a50a87e8339cf46fb787759603603e225" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>sendDigital</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a799b91e5a888dd21b066a2020d8e2b68" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>sendDigitalPort</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1abe11f621154afd308926129de349fc6e" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>sendString</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1ab139c0d784e69003c88eb5be8807dcdf" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>sendString</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a81e2de5b37eb2372c8a3d9a43d5eb0cc" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>sendSysex</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a770e43f26f18204e43acebf9202a6d39" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>sendValueAsTwo7bitBytes</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1ab7aa66b528027566c15b7d64c8cd0f89" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>setFirmwareNameAndVersion</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a32c41dd94c1d23aa0e6d3d1dbe5c0c04" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>setPinMode</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1aa9f98ba5069823b4c1d08db9f8999ba8" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>setPinState</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a3cc7ea1af348bca3ea0bd570314cada3" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>startSysex</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1aca6c3d8c62c07a057cc53124d3404717" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>staticAnalogCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a14645ffc27cbac8a68cbe5bef45c1513" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>staticDigitalCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1ad7ff31c183e27de409becad6a4561fb4" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>staticPinModeCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a35ef49d535c2f67afd5631c51a11a278" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>staticPinValueCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a450f9157490047e3c0a1919924ad1596" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>staticReportAnalogCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a36413ef2155f9b6b0798a6f03ab470e7" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>staticReportDigitalCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1ab6db1052fbc65b33909a47305c9b6185" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>staticReportFirmwareCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a89c544bd5e086d663de5dde6a82441a3" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>staticReportVersionCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a3d739b3fba1cc53b58cae7eaa5562974" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>staticStringCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1ac63fe85213dff99228d90bb98aed9754" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>staticSysexCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a8df96cd066d3c4eff65c0bf5ec914371" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>staticSystemResetCallback</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1afb5aa833e160037296f447ac208c95c1" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>stringCallbackFunction</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1a4893ccec400cdb2ab5c073ff9f22e65e" prot="private" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>strobeBlinkPin</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1ab7c5e806cee9fd7dfe3600525f86c595" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>sysexCallbackFunction</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1af0a7eb3dbe1432de1727d9f14b5b1dab" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>systemCallbackFunction</name></member>
+      <member refid="classfirmata_1_1_firmata_class_1ae8f29a829e17379602fcb9fd6a497807" prot="public" virt="non-virtual"><scope>firmata::FirmataClass</scope><name>write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

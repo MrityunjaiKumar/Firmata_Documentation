@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md__g_1__arduino-workspace__firmata_protocol_servos" kind="page">
+    <compoundname>md_G:_Arduino-workspace_Firmata_protocol_servos</compoundname>
+    <title>Servo</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Send a Servo config message to configure a pin a servo. Then use the <computeroutput>SET_PIN_MODE</computeroutput> message to attach/detach Servo support to a pin. This saves space in the protocol by reusing the <computeroutput>SET_PIN_MODE</computeroutput> message, but the host software implementation could have a different interface, e.g. Arduino&apos;s <computeroutput>attach()</computeroutput> and <computeroutput>detach()</computeroutput>.</para>
+<para>The <computeroutput>SERVO_CONFIG</computeroutput> message can be sent at any time to chang the settings.</para>
+<para>Added in Firmata protocol version 2.1.0.</para>
+<para>Servo config <programlisting><codeline><highlight class="normal">//<sp/>minPulse<sp/>and<sp/>maxPulse<sp/>are<sp/>14-bit<sp/>unsigned<sp/>integers</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERVO_CONFIG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x70)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>pin<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>minPulse<sp/>LSB<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-6)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>minPulse<sp/>MSB<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(7-13)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>maxPulse<sp/>LSB<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-6)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>maxPulse<sp/>MSB<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(7-13)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><emphasis>This is just the standard <computeroutput>SET_PIN_MODE</computeroutput> message:</emphasis> Set digital pin mode <programlisting><codeline><highlight class="normal">0<sp/><sp/>set<sp/>digital<sp/>pin<sp/>mode<sp/>(0xF4)<sp/>(MIDI<sp/>Undefined)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>pin<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>state<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(SERVO,<sp/>4)</highlight></codeline>
+</programlisting></para>
+<para>Write to servo, servo write is performed if the pin mode is SERVO <programlisting><codeline><highlight class="normal">0<sp/><sp/>ANALOG_MESSAGE<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xE0-0xEF)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>value<sp/>LSB</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>value<sp/>MSB</highlight></codeline>
+</programlisting></para>
+<para>If the pin number is higher than 15, or if the value to write to the servo is greater than 14 bits, then the Extended Analog message can be used in place of the standard <computeroutput>ANALOG_MESSAGE</computeroutput>:</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>extended<sp/>analog<sp/>message<sp/><sp/>(0x6F)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>bits<sp/>0-6<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(least<sp/>significant<sp/>byte)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>bits<sp/>7-13<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(most<sp/>significant<sp/>byte)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>additionaly<sp/>bytes<sp/>may<sp/>be<sp/>sent<sp/>if<sp/>more<sp/>bits<sp/>are<sp/>needed</highlight></codeline>
+<codeline><highlight class="normal">N<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,54 @@
+Enables communication with I2C devices. Currently only supports one I2C port per board.
+
+Added in Firmata protocol version 2.\+1.\+0.\hypertarget{md_protocol_i2c_autotoc_md29}{}\doxysubsection{I2\+C read/write request}\label{md_protocol_i2c_autotoc_md29}
+Updated in Firmata 2.\+5.\+1 to enable setting auto-\/restart by setting bit 6 of byte 3.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX (0xF0)}
+\DoxyCodeLine{1  I2C\_REQUEST (0x76)}
+\DoxyCodeLine{2  slave address (LSB)}
+\DoxyCodeLine{3  slave address (MSB) + read/write and address mode bits}
+\DoxyCodeLine{     \{bit 7: always 0\}}
+\DoxyCodeLine{     \{bit 6: auto restart transmission, 0 = stop (default), 1 = restart\}}
+\DoxyCodeLine{     \{bit 5: address mode, 1 = 10-\/bit mode\}}
+\DoxyCodeLine{     \{bits 4-\/3: read/write, 00 = write, 01 = read once, 10 = read continuously, 11 = stop reading\}}
+\DoxyCodeLine{     \{bits 2-\/0: slave address MSB in 10-\/bit mode, not used in 7-\/bit mode\}}
+\DoxyCodeLine{4  data 0 (LSB)}
+\DoxyCodeLine{5  data 0 (MSB)}
+\DoxyCodeLine{6  data 1 (LSB)}
+\DoxyCodeLine{7  data 1 (MSB)}
+\DoxyCodeLine{...}
+\DoxyCodeLine{n  END\_SYSEX (0xF7)}
+\end{DoxyCode}
+
+
+A note about read/write modes (above). The {\ttfamily read continuously} mode indicates that the firmware should continuously read the device at the rate specified by the \href{https://github.com/firmata/protocol/blob/master/protocol.md}{\texttt{ sampling interval}}. A firmware implementation should support read continuous mode for several I2C devices simultaneously. Sending the {\ttfamily stop reading} command will end read continuous mode for that particular device.
+
+{\itshape auto-\/restart (byte 3, bit 6) is needed by some devices such as the M\+M\+A8452Q accelerometer and the M\+P\+L3115\+As altimeter}\hypertarget{md_protocol_i2c_autotoc_md30}{}\doxysubsection{I2\+C reply}\label{md_protocol_i2c_autotoc_md30}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX (0xF0)}
+\DoxyCodeLine{1  I2C\_REPLY (0x77)}
+\DoxyCodeLine{2  slave address (LSB)}
+\DoxyCodeLine{3  slave address (MSB)}
+\DoxyCodeLine{4  register (LSB)}
+\DoxyCodeLine{5  register (MSB)}
+\DoxyCodeLine{6  data 0 (LSB)}
+\DoxyCodeLine{7  data 0 (MSB)}
+\DoxyCodeLine{...}
+\DoxyCodeLine{n  END\_SYSEX (0XF7)}
+\end{DoxyCode}
+\hypertarget{md_protocol_i2c_autotoc_md31}{}\doxysubsection{I2\+C config}\label{md_protocol_i2c_autotoc_md31}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX (0xF0)}
+\DoxyCodeLine{1  I2C\_CONFIG (0x78)}
+\DoxyCodeLine{2  Delay in microseconds (LSB) [optional]}
+\DoxyCodeLine{3  Delay in microseconds (MSB) [optional]}
+\DoxyCodeLine{... user defined for special cases, etc}
+\DoxyCodeLine{n  END\_SYSEX (0xF7)}
+\end{DoxyCode}
+
+
+The optional {\ttfamily Delay} is for I2C devices that require a delay between when the register is written to and the data in that register can be read. 

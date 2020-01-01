@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md__g_1__arduino-workspace__firmata_protocol_feature-registry" kind="page">
+    <compoundname>md_G:_Arduino-workspace_Firmata_protocol_feature-registry</compoundname>
+    <title>Firmata sysex feature registry</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The feature registry defines allocated and proposed Firmata feature IDs. The feature ID is the 2nd byte in the sysex message. An extended set of IDs is also available by setting the initial ID byte to <computeroutput>00H</computeroutput> and then following with a 2 byte ID. All bytes between <computeroutput>START_SYSEX</computeroutput> and <computeroutput>END_SYSEX</computeroutput> must have the most significant bit set to 0.</para>
+<para><table rows="3" cols="4"><row>
+<entry thead="yes"><para>byte 0  </para>
+</entry><entry thead="yes"><para>byte 1  </para>
+</entry><entry thead="yes"><para>bytes 2 - N-1  </para>
+</entry><entry thead="yes"><para>byte N   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>START_SYSEX  </para>
+</entry><entry thead="no"><para>ID (01H-7DH)  </para>
+</entry><entry thead="no"><para>PAYLOAD  </para>
+</entry><entry thead="no"><para>END_SYSEX   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>START_SYSEX  </para>
+</entry><entry thead="no"><para>ID (00H)  </para>
+</entry><entry thead="no"><para>EXTENDED_ID (00H 00H - 7FH 7FH) + PAYLOAD  </para>
+</entry><entry thead="no"><para>END_SYSEX   </para>
+</entry></row>
+</table>
+</para>
+<sect1 id="md__g_1__arduino-workspace__firmata_protocol_feature-registry_1autotoc_md25">
+<title>Proposing a new feature</title>
+<para>There are two different feature sets: <ulink url="#core-feature-set">Core features</ulink> and <ulink url="#optional-feature-set">optional features</ulink>. See the descriptions for each type of feature set below. To propose a new core feature, open an issue to start a discussion. To propose a new optional feature, <ulink url="https://github.com/firmata/protocol/issues">open an issue</ulink>/and or a pull request adding a markdown file for the proposed feature. Also edit the <ulink url="#optional-feature-set">optional feature set table</ulink> to reserve an ID for the proposed feature and enter the status as &quot;proposed&quot;. If the proposed feature exposes a very specific device or device driver (a NeoPixel light strip for example), assign an ID in the extended ID set (<computeroutput>00H nnH nnH</computeroutput>).</para>
+</sect1>
+<sect1 id="md__g_1__arduino-workspace__firmata_protocol_feature-registry_1autotoc_md26">
+<title>Core feature set</title>
+<para>Core features are related to functionality such as digital and analog I/O, querying information about the state and capabilities of the microcontroller board and the firmware running on the board. The core features are documented in the <ulink url="https://github.com/firmata/protocol/blob/master/protocol.md">protocol.md</ulink> file and the full set of core features is versioned together using <ulink url="http://semver.org/">semver</ulink> notation. The current protocol version is 2.5.1.</para>
+<para>Firmata firmware should report the current protocol version (using the <ulink url="https://github.com/firmata/protocol/blob/master/protocol.md#message-types">protocol version command: 0xF9</ulink>) and implement the full set of current core features defined for that version (with the exception of very limited hardware which can implement a subset of the core feature set).</para>
+<para><emphasis>The range 01H - 0FH is reserved for user-defined features that are not added to this registry.</emphasis></para>
+<para><table rows="19" cols="3"><row>
+<entry thead="yes"><para>Feature ID  </para>
+</entry><entry thead="yes"><para>Feature name / link to documentation  </para>
+</entry><entry thead="yes"><para>Status   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>00H  </para>
+</entry><entry thead="no"><para>EXTENDED_ID  </para>
+</entry><entry thead="no"><para>proposed   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>01H - 0FH  </para>
+</entry><entry thead="no"><para><emphasis>Reserved for user features</emphasis>  </para>
+</entry><entry thead="no"><para>n/a   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>63H  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/issues/68#issuecomment-257105540">REPORT_DIGTIAL_PIN - proposal</ulink>  </para>
+</entry><entry thead="no"><para>proposed   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>64H  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/issues/68#issuecomment-258748963">EXTENDED_REPORT_ANALOG - proposal</ulink>  </para>
+</entry><entry thead="no"><para>proposed   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>65H  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/issues/41">REPORT_FEATURES - proposal</ulink>  </para>
+</entry><entry thead="no"><para>proposed   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>69H  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/protocol.md#analog-mapping-query">ANALOG_MAPPING_QUERY</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>6AH  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/protocol.md#analog-mapping-query">ANALOG_MAPPING_RESPONSE</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>6BH  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/protocol.md#capability-query">CAPABILITY_QUERY</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>6CH  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/protocol.md#capability-query">CAPABILITY_RESPONSE</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>6DH  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/protocol.md#pin-state-query">PIN_STATE_QUERY</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>6EH  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/protocol.md#pin-state-query">PIN_STATE_RESPONSE</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>6FH  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/protocol.md#extended-analog">EXTENDED_ANALOG</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>71H  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/protocol.md#string">STRING_DATA</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>79H  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/protocol.md#query-firmware-name-and-version">REPORT_FIRMWARE</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>7AH  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/protocol.md#sampling-interval">SAMPLING_INTERVAL</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>7CH  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/pull/8/files">ANALOG_CONFIG - proposal</ulink>  </para>
+</entry><entry thead="no"><para>proposed   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>7EH  </para>
+</entry><entry thead="no"><para>SYSEX_NON_REALTIME*  </para>
+</entry><entry thead="no"><para>n/a   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>7FH  </para>
+</entry><entry thead="no"><para>SYSEX_REALTIME*  </para>
+</entry><entry thead="no"><para>n/a   </para>
+</entry></row>
+</table>
+</para>
+<para>**7EH and 7FH are reserved because they have a special meaning to midi parsers.*</para>
+</sect1>
+<sect1 id="md__g_1__arduino-workspace__firmata_protocol_feature-registry_1autotoc_md27">
+<title>Optional feature set</title>
+<para>Optional features extend the hardware capabilities beyond basic digital I/O and analog I/O (eg: I2C, Serial/UART, etc). Optional features also provide APIs to interface with general components (eg: servo, stepper, rotary encoder, etc) as well as specific components (eg: DHT11, NeoPixel, etc). The optional feature set also encompass functionality such as a general purpose scheduler API and a standardized device interface API. General features should use the single byte feature ID (allocating new IDs in descending order). However, any feature that wraps a specific driver, specific sensor, one-off custom component, etc should use the extended feature ID (<computeroutput>00H nnH nnH</computeroutput>) or should use the <computeroutput>DEVICE_QUERY/RESPONSE</computeroutput> API.</para>
+<para>Each feature should be documented in a markdown file and versioned independently using <ulink url="http://semver.org/">semver</ulink> notation. In the case where a feature spans multiple IDs (I2C for example), that entire set is documented in a single file and versioned together.</para>
+<para><table rows="20" cols="4"><row>
+<entry thead="yes"><para>Feature ID  </para>
+</entry><entry thead="yes"><para>Feature name  </para>
+</entry><entry thead="yes"><para>Link to documentation  </para>
+</entry><entry thead="yes"><para>Status   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>5CH  </para>
+</entry><entry thead="no"><para>RCOUTPUT_DATA  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/proposals/rcswitch-proposal.md">rcswitch-proposal.md</ulink>  </para>
+</entry><entry thead="no"><para>proposed   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>5DH  </para>
+</entry><entry thead="no"><para>RCINPUT_DATA  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/proposals/rcswitch-proposal.md">rcswitch-proposal.md</ulink>  </para>
+</entry><entry thead="no"><para>proposed   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>5EH  </para>
+</entry><entry thead="no"><para>DEVICE_QUERY  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/finson-release/Luni/blob/master/extras/v0.9/v0.8-device-driver-C-firmata-messages.md">proposal</ulink>  </para>
+</entry><entry thead="no"><para>proposed   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>5FH  </para>
+</entry><entry thead="no"><para>DEVICE_RESPONSE  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/finson-release/Luni/blob/master/extras/v0.9/v0.8-device-driver-C-firmata-messages.md">proposal</ulink>  </para>
+</entry><entry thead="no"><para>proposed   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>60H  </para>
+</entry><entry thead="no"><para>SERIAL_DATA (1.0)  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/serial.md">serial-1.0.md</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>61H  </para>
+</entry><entry thead="no"><para>ENCODER_DATA  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/encoder.md">encoder.md</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>62H  </para>
+</entry><entry thead="no"><para>ACCELSTEPPER_DATA  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/accelStepperFirmata.md">accelStepperFirmata.md</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>67H  </para>
+</entry><entry thead="no"><para>SERIAL_DATA (2.0)  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/proposals/serial-2.0-proposal.md">proposal</ulink>  </para>
+</entry><entry thead="no"><para>proposed   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>68H  </para>
+</entry><entry thead="no"><para>SPI_DATA  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/proposals/spi-proposal.md">proposal</ulink>  </para>
+</entry><entry thead="no"><para>proposed   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>70H  </para>
+</entry><entry thead="no"><para>SERVO_CONFIG  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/servos.md">servos.md</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>72H  </para>
+</entry><entry thead="no"><para>STEPPER_DATA  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/stepper-legacy.md">stepper-legacy.md</ulink>  </para>
+</entry><entry thead="no"><para>deprecated   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>73H  </para>
+</entry><entry thead="no"><para>ONEWIRE_DATA  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/onewire.md">onewire.md</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>75H  </para>
+</entry><entry thead="no"><para>SHIFT_DATA  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/proposals/shift-proposal.md">shift-proposal.md</ulink>  </para>
+</entry><entry thead="no"><para>proposed   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>76H  </para>
+</entry><entry thead="no"><para>I2C_REQUEST  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/i2c.md">i2c.md</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>77H  </para>
+</entry><entry thead="no"><para>I2C_REPLY  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/i2c.md">i2c.md</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>78H  </para>
+</entry><entry thead="no"><para>I2C_CONFIG  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/i2c.md">i2c.md</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>7BH  </para>
+</entry><entry thead="no"><para>SCHEDULER_DATA  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/firmata/protocol/blob/master/scheduler.md">scheduler.md</ulink>  </para>
+</entry><entry thead="no"><para>current   </para>
+</entry></row>
+<row>
+<entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no"><para>00H nnH nnH  </para>
+</entry><entry thead="no"><para>(start of extended feature ID set)  </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+</table>
+</para>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

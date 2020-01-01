@@ -1,0 +1,167 @@
+\#\+Encoder Feature
+
+Provide incremental encoders support, for both \href{http://en.wikipedia.org/wiki/Linear_encoder}{\texttt{ linear}} and \href{http://en.wikipedia.org/wiki/Rotary_encoder\#Incremental_rotary_encoder}{\texttt{ rotary}} encoders.
+
+This feature is based on based on \href{http://www.pjrc.com/teensy/td_libs_Encoder.html}{\texttt{ P\+J\+RC\textquotesingle{}s implementation}}. See \href{http://www.pjrc.com/teensy/td_libs_Encoder.html}{\texttt{ this article}} for more informations about how it works (well explained!).
+
+Current implementation supports 5 encoders at the same time (\#\mbox{[}0-\/4\mbox{]}) and you can activate automatic position reports every (S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+I\+N\+T\+E\+R\+V\+AL)ms. Reports are disabled by default.
+
+For best Performances, connect only interrupt pins.
+
+Added in Firmata protocol version 2.\+4.\+0.
+
+Example files \+:
+\begin{DoxyItemize}
+\item Encoder\+Feature is a contributed feature for \href{https://github.com/firmata/arduino/blob/configurable/examples/ConfigurableFirmata/ConfigurableFirmata.ino}{\texttt{ Configurable\+Firmata.\+ino}}.
+\item A dedicated example is available. See \href{https://github.com/firmata/FirmataEncoder/tree/master/examples/SimpleFirmataEncoder}{\texttt{ Simple\+Encoder\+Firmata.\+ino}}.
+\end{DoxyItemize}\hypertarget{md_protocol_encoder_autotoc_md15}{}\doxysubsection{Compatible client librairies}\label{md_protocol_encoder_autotoc_md15}
+T\+O\+DO \+: Update this\hypertarget{md_protocol_encoder_autotoc_md16}{}\doxysubsection{Tested boards}\label{md_protocol_encoder_autotoc_md16}
+This feature has been tested on \+:
+\begin{DoxyItemize}
+\item Arduino Uno
+\item Arduino Mega
+\item Arduino Leonardo
+\item Arduino Due
+\end{DoxyItemize}\hypertarget{md_protocol_encoder_autotoc_md17}{}\doxysubsection{Protocol details}\label{md_protocol_encoder_autotoc_md17}
+The protocol below use exclusively Sys\+Ex queries and Sys\+Ex responses.\hypertarget{md_protocol_encoder_autotoc_md18}{}\doxysubsubsection{Attach encoder query}\label{md_protocol_encoder_autotoc_md18}
+Query \+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{* 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{* 1 ENCODER\_DATA               (0x61)}}
+\DoxyCodeLine{\textcolor{comment}{* 2 ENCODER\_ATTACH             (0x00)}}
+\DoxyCodeLine{\textcolor{comment}{* 3 encoder \#                  ([0 -\/ MAX\_ENCODERS-\/1])}}
+\DoxyCodeLine{\textcolor{comment}{* 4 pin A \#                    (first pin) }}
+\DoxyCodeLine{\textcolor{comment}{* 5 pin B \#                    (second pin)}}
+\DoxyCodeLine{\textcolor{comment}{* 6 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\end{DoxyCode}
+ No response.\hypertarget{md_protocol_encoder_autotoc_md19}{}\doxysubsubsection{Report encoder\textquotesingle{}s position}\label{md_protocol_encoder_autotoc_md19}
+Query 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{* 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{* 1 ENCODER\_DATA               (0x61)}}
+\DoxyCodeLine{\textcolor{comment}{* 2 ENCODER\_REPORT\_POSITION    (0x01)}}
+\DoxyCodeLine{\textcolor{comment}{* 3 Encoder \#                  ([0 -\/ MAX\_ENCODERS-\/1])}}
+\DoxyCodeLine{\textcolor{comment}{* 4 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\end{DoxyCode}
+
+
+Response 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{* 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{* 1 ENCODER\_DATA               (0x61)}}
+\DoxyCodeLine{\textcolor{comment}{* 2 Encoder \#  \&  DIRECTION    [= (direction << 6) | (\#)]}}
+\DoxyCodeLine{\textcolor{comment}{* 3 current position, bits 0-\/6}}
+\DoxyCodeLine{\textcolor{comment}{* 4 current position, bits 7-\/13}}
+\DoxyCodeLine{\textcolor{comment}{* 5 current position, bits 14-\/20}}
+\DoxyCodeLine{\textcolor{comment}{* 6 current position, bits 21-\/27}}
+\DoxyCodeLine{\textcolor{comment}{* 7 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\end{DoxyCode}
+ Note \+: Byte \#2 contains both encoder\textquotesingle{}s number (i.\+e. channel) and encoder\textquotesingle{}s direction. Direction is stored on the seventh bit, 0 (L\+OW) for positive and 1 (H\+I\+GH) for negative. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{directionMask = 0x40; \textcolor{comment}{// B01000000}}
+\DoxyCodeLine{channelMask   = 0x3F; \textcolor{comment}{// B00111111 }}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//ex direction is negative and encoder is on index 2}}
+\DoxyCodeLine{direction = 1;}
+\DoxyCodeLine{channel = 2;}
+\DoxyCodeLine{bytes[2] =  (direction << 6) | (channel);}
+\end{DoxyCode}
+\hypertarget{md_protocol_encoder_autotoc_md20}{}\doxysubsubsection{Report all encoders positions}\label{md_protocol_encoder_autotoc_md20}
+Query 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{* 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{* 1 ENCODER\_DATA               (0x61)}}
+\DoxyCodeLine{\textcolor{comment}{* 2 ENCODER\_REPORT\_POSITIONS   (0x02)}}
+\DoxyCodeLine{\textcolor{comment}{* 3 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\end{DoxyCode}
+
+
+Response 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{* 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{* 1 ENCODER\_DATA               (0x61)}}
+\DoxyCodeLine{\textcolor{comment}{* 2 first enc. \#  \& first enc. dir. }}
+\DoxyCodeLine{\textcolor{comment}{* 4 first enc. position, bits 0-\/6}}
+\DoxyCodeLine{\textcolor{comment}{* 5 first enc. position, bits 7-\/13}}
+\DoxyCodeLine{\textcolor{comment}{* 6 first enc. position, bits 14-\/20}}
+\DoxyCodeLine{\textcolor{comment}{* 7 first enc. position, bits 21-\/27}}
+\DoxyCodeLine{\textcolor{comment}{* 8 second enc. \#  \& second enc. dir. }}
+\DoxyCodeLine{\textcolor{comment}{* ...}}
+\DoxyCodeLine{\textcolor{comment}{* N END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\end{DoxyCode}
+ Note \+: {\ttfamily Report encoder\textquotesingle{}s position} response is a special case of {\ttfamily Report all encoders positions} response.\hypertarget{md_protocol_encoder_autotoc_md21}{}\doxysubsubsection{Reset encoder position to zero}\label{md_protocol_encoder_autotoc_md21}
+Query 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{* 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{* 1 ENCODER\_DATA               (0x61)}}
+\DoxyCodeLine{\textcolor{comment}{* 2 ENCODER\_RESET\_POSITION     (0x03)}}
+\DoxyCodeLine{\textcolor{comment}{* 3 encoder \#                  ([0 -\/ MAX\_ENCODERS-\/1])}}
+\DoxyCodeLine{\textcolor{comment}{* 4 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\end{DoxyCode}
+
+
+No response.\hypertarget{md_protocol_encoder_autotoc_md22}{}\doxysubsubsection{Enable/disable reporting}\label{md_protocol_encoder_autotoc_md22}
+Query 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{* 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{* 1 ENCODER\_DATA               (0x61)}}
+\DoxyCodeLine{\textcolor{comment}{* 2 ENCODER\_REPORT\_AUTO        (0x04)}}
+\DoxyCodeLine{\textcolor{comment}{* 3 enable                     (0x00 => false, true otherwise)}}
+\DoxyCodeLine{\textcolor{comment}{* 4 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\end{DoxyCode}
+
+
+No response.
+
+Note \+: when reports are enabled, Encoder\+Firmata feature send the message below at every S\+A\+M\+P\+L\+I\+NG interval (19ms by default) \+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{* 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{* 1 ENCODER\_DATA               (0x61)}}
+\DoxyCodeLine{\textcolor{comment}{* 2 first enc. \#  \& first enc. dir.   [= (direction << 6) | (\#)] }}
+\DoxyCodeLine{\textcolor{comment}{* 4 first enc. position, bits 0-\/6}}
+\DoxyCodeLine{\textcolor{comment}{* 5 first enc. position, bits 7-\/13}}
+\DoxyCodeLine{\textcolor{comment}{* 6 first enc. position, bits 14-\/20}}
+\DoxyCodeLine{\textcolor{comment}{* 7 first enc. position, bits 21-\/27}}
+\DoxyCodeLine{\textcolor{comment}{* 8 second enc. \#  \& second enc. dir. [= (direction << 6) | (\#)]}}
+\DoxyCodeLine{\textcolor{comment}{* ...}}
+\DoxyCodeLine{\textcolor{comment}{* N END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\end{DoxyCode}
+\hypertarget{md_protocol_encoder_autotoc_md23}{}\doxysubsubsection{Detach encoder}\label{md_protocol_encoder_autotoc_md23}
+Query 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{* 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{* 1 ENCODER\_DATA               (0x61)}}
+\DoxyCodeLine{\textcolor{comment}{* 2 ENCODER\_DETACH             (0x05)}}
+\DoxyCodeLine{\textcolor{comment}{* 3 encoder \#                  ([0 -\/ MAX\_ENCODERS-\/1])}}
+\DoxyCodeLine{\textcolor{comment}{* 4 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\end{DoxyCode}
+
+
+No response. 

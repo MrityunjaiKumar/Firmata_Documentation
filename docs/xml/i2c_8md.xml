@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="i2c_8md" kind="file" language="Markdown">
+    <compoundname>i2c.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>I2C</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Enables<sp/>communication<sp/>with<sp/>I2C<sp/>devices.<sp/>Currently<sp/>only<sp/>supports<sp/>one<sp/>I2C<sp/>port<sp/>per<sp/>board.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Added<sp/>in<sp/>Firmata<sp/>protocol<sp/>version<sp/>2.1.0.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>I2C<sp/>read/write<sp/>request</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Updated<sp/>in<sp/>Firmata<sp/>2.5.1<sp/>to<sp/>enable<sp/>setting<sp/>auto-restart<sp/>by<sp/>setting<sp/>bit<sp/>6<sp/>of<sp/>byte<sp/>3.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>I2C_REQUEST<sp/>(0x76)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>slave<sp/>address<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>slave<sp/>address<sp/>(MSB)<sp/>+<sp/>read/write<sp/>and<sp/>address<sp/>mode<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>{bit<sp/>7:<sp/>always<sp/>0}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>{bit<sp/>6:<sp/>auto<sp/>restart<sp/>transmission,<sp/>0<sp/>=<sp/>stop<sp/>(default),<sp/>1<sp/>=<sp/>restart}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>{bit<sp/>5:<sp/>address<sp/>mode,<sp/>1<sp/>=<sp/>10-bit<sp/>mode}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>{bits<sp/>4-3:<sp/>read/write,<sp/>00<sp/>=<sp/>write,<sp/>01<sp/>=<sp/>read<sp/>once,<sp/>10<sp/>=<sp/>read<sp/>continuously,<sp/>11<sp/>=<sp/>stop<sp/>reading}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>{bits<sp/>2-0:<sp/>slave<sp/>address<sp/>MSB<sp/>in<sp/>10-bit<sp/>mode,<sp/>not<sp/>used<sp/>in<sp/>7-bit<sp/>mode}</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>data<sp/>0<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>data<sp/>0<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>data<sp/>1<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>data<sp/>1<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>END_SYSEX<sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>note<sp/>about<sp/>read/write<sp/>modes<sp/>(above).<sp/>The<sp/>```read<sp/>continuously```<sp/>mode<sp/>indicates<sp/>that</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>firmware<sp/>should<sp/>continuously<sp/>read<sp/>the<sp/>device<sp/>at<sp/>the<sp/>rate<sp/>specified<sp/>by<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">[sampling<sp/>interval](https://github.com/firmata/protocol/blob/master/protocol.md).<sp/>A<sp/>firmware<sp/>implementation<sp/>should<sp/>support<sp/>read<sp/>continuous<sp/>mode</highlight></codeline>
+<codeline><highlight class="normal">for<sp/>several<sp/>I2C<sp/>devices<sp/>simultaneously.<sp/>Sending<sp/>the<sp/>```stop<sp/>reading```<sp/>command<sp/>will</highlight></codeline>
+<codeline><highlight class="normal">end<sp/>read<sp/>continuous<sp/>mode<sp/>for<sp/>that<sp/>particular<sp/>device.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*auto-restart<sp/>(byte<sp/>3,<sp/>bit<sp/>6)<sp/>is<sp/>needed<sp/>by<sp/>some<sp/>devices<sp/>such<sp/>as<sp/>the<sp/>MMA8452Q<sp/>accelerometer<sp/>and<sp/>the<sp/>MPL3115As<sp/>altimeter*</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>I2C<sp/>reply</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>I2C_REPLY<sp/>(0x77)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>slave<sp/>address<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>slave<sp/>address<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>register<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>register<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>data<sp/>0<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>data<sp/>0<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>END_SYSEX<sp/>(0XF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>I2C<sp/>config</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>I2C_CONFIG<sp/>(0x78)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>Delay<sp/>in<sp/>microseconds<sp/>(LSB)<sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>Delay<sp/>in<sp/>microseconds<sp/>(MSB)<sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>user<sp/>defined<sp/>for<sp/>special<sp/>cases,<sp/>etc</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>END_SYSEX<sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>optional<sp/>```Delay```<sp/>is<sp/>for<sp/>I2C<sp/>devices<sp/>that<sp/>require<sp/>a<sp/>delay<sp/>between<sp/>when<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">register<sp/>is<sp/>written<sp/>to<sp/>and<sp/>the<sp/>data<sp/>in<sp/>that<sp/>register<sp/>can<sp/>be<sp/>read.</highlight></codeline>
+    </programlisting>
+    <location file="protocol/i2c.md"/>
+  </compounddef>
+</doxygen>

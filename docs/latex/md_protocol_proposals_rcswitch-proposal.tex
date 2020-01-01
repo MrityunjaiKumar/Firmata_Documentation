@@ -1,0 +1,252 @@
+\href{https://github.com/git-developer/RCSwitchFirmata}{\texttt{ R\+C\+Switch\+Firmata}} is an adapter between \href{https://github.com/firmata/ConfigurableFirmata}{\texttt{ Configurable\+Firmata}} and the \href{https://github.com/sui77/rc-switch}{\texttt{ R\+C\+Switch}} library.
+
+R\+C\+Switch is a library to send and receive messages to/from radio controlled devices. Sender and receiver are referred to as {\itshape devices} within the context of this document. Multiple devices may be used at the same time; the only requirement is a pin per device. All devices may be used and configured independently. Thus, this document separates the main functions {\itshape send} and {\itshape receive}. R\+C\+Switch\+Firmata is subdivided into {\itshape R\+C\+Output\+Firmata} implementing the send function and {\itshape R\+C\+Input\+Firmata} implementing the receive function.\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md45}{}\doxysection{Protocol details}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md45}
+A common pattern of all queries is that they echo the query message as response. This pattern allows for detection of unsupported or wrong messages.\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md46}{}\doxysubsection{Tristate bits}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md46}
+R\+C\+Switch supports -\/ besides the types {\ttfamily long} and {\ttfamily char\mbox{[}\mbox{]}} -\/ so-\/called {\itshape tristate} bits. A tristate bit has one of the values 0, 1, or F. Each tristate bit is coded as 2 bits as follows\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{TRISTATE\_0              0x00}
+\DoxyCodeLine{TRISTATE\_F              0x01}
+\DoxyCodeLine{TRISTATE\_RESERVED       0x02}
+\DoxyCodeLine{TRISTATE\_1              0x03}
+\end{DoxyCode}
+ Thus, 1 byte consisting of 8 bits A\+B\+C\+D\+E\+F\+GH may hold up to 4 tristate bits AB, CD, EF and GH. The leftmost 2 bits represent the first tristate bit, the rightmost 2 bits represent the fourth tristate bit. If less than 4 tristate bits are used, the byte is filled with the reserved value {\ttfamily 0x02}.\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md47}{}\doxysubsection{Send}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md47}
+\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md48}{}\doxysubsubsection{Attach sender}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md48}
+Query\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ * 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{ * 1 RCOUTPUT\_DATA              (0x5C)}}
+\DoxyCodeLine{\textcolor{comment}{ * 2 RCOUTPUT\_ATTACH            (0x01)}}
+\DoxyCodeLine{\textcolor{comment}{ * 3 pin                        (pin number)}}
+\DoxyCodeLine{\textcolor{comment}{ * 4 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\end{DoxyCode}
+
+
+Response\+: the query message\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md49}{}\doxysubsubsection{Detach sender}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md49}
+Query\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ * 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{ * 1 RCOUTPUT\_DATA              (0x5C)}}
+\DoxyCodeLine{\textcolor{comment}{ * 2 RCOUTPUT\_DETACH            (0x02)}}
+\DoxyCodeLine{\textcolor{comment}{ * 3 pin                        (pin number)}}
+\DoxyCodeLine{\textcolor{comment}{ * 4 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\end{DoxyCode}
+
+
+Response\+: the query message\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md50}{}\doxysubsubsection{Configuration of rcswitch parameter $<$tt$>$protocol$<$/tt$>$}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md50}
+Query\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ * 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{ * 1 RCOUTPUT\_DATA              (0x5C)}}
+\DoxyCodeLine{\textcolor{comment}{ * 2 RCOUTPUT\_PROTOCOL          (0x11)}}
+\DoxyCodeLine{\textcolor{comment}{ * 3 pin                        (pin number)}}
+\DoxyCodeLine{\textcolor{comment}{ * 4 protocol (int), bits 0-\/6}}
+\DoxyCodeLine{\textcolor{comment}{ * 5 protocol (int), bits 7-\/13}}
+\DoxyCodeLine{\textcolor{comment}{ * 6 protocol (int), bits 14-\/15}}
+\DoxyCodeLine{\textcolor{comment}{ * 7 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\end{DoxyCode}
+
+
+Response\+: the query message\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md51}{}\doxysubsubsection{Configuration of rcswitch parameter $<$tt$>$pulse length$<$/tt$>$}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md51}
+Query\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ * 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{ * 1 RCOUTPUT\_DATA              (0x5C)}}
+\DoxyCodeLine{\textcolor{comment}{ * 2 RCOUTPUT\_PULSE\_LENGTH      (0x12)}}
+\DoxyCodeLine{\textcolor{comment}{ * 3 pin                        (pin number)}}
+\DoxyCodeLine{\textcolor{comment}{ * 4 pulse length (int), bits 0-\/6}}
+\DoxyCodeLine{\textcolor{comment}{ * 5 pulse length (int), bits 7-\/13}}
+\DoxyCodeLine{\textcolor{comment}{ * 6 pulse length (int), bits 14-\/15}}
+\DoxyCodeLine{\textcolor{comment}{ * 7 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\end{DoxyCode}
+
+
+Response\+: the query message\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md52}{}\doxysubsubsection{Configuration of rcswitch parameter $<$tt$>$repeat transmit$<$/tt$>$}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md52}
+Query\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ * 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{ * 1 RCOUTPUT\_DATA              (0x5C)}}
+\DoxyCodeLine{\textcolor{comment}{ * 2 RCOUTPUT\_PULSE\_LENGTH      (0x14)}}
+\DoxyCodeLine{\textcolor{comment}{ * 3 pin                        (pin number)}}
+\DoxyCodeLine{\textcolor{comment}{ * 4 repeat transmit (int), bits 0-\/6}}
+\DoxyCodeLine{\textcolor{comment}{ * 5 repeat transmit (int), bits 7-\/13}}
+\DoxyCodeLine{\textcolor{comment}{ * 6 repeat transmit (int), bits 14-\/15}}
+\DoxyCodeLine{\textcolor{comment}{ * 7 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\end{DoxyCode}
+
+
+Response\+: the query message\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md53}{}\doxysubsubsection{Send tristate code as char array}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md53}
+Query\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ * 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{ * 1 RCOUTPUT\_DATA              (0x5C)}}
+\DoxyCodeLine{\textcolor{comment}{ * 2 RCOUTPUT\_TRISTATE          (0x21)}}
+\DoxyCodeLine{\textcolor{comment}{ * 3 pin                        (pin number)}}
+\DoxyCodeLine{\textcolor{comment}{ * 4..n-\/1 RC data (packed as 7-\/bit): char array with tristate bits ('0', '1', 'F')}}
+\DoxyCodeLine{\textcolor{comment}{ * n END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\end{DoxyCode}
+
+
+Response\+: the query message\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md54}{}\doxysubsubsection{Send long code}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md54}
+Query\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ * 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{ * 1 RCOUTPUT\_DATA              (0x5C)}}
+\DoxyCodeLine{\textcolor{comment}{ * 2 RCOUTPUT\_CODE\_LONG         (0x22)}}
+\DoxyCodeLine{\textcolor{comment}{ * 3 pin                        (pin number)}}
+\DoxyCodeLine{\textcolor{comment}{ * 4..n-\/1 RC data (packed as 7-\/bit): 2 bytes (int) with the number of bits to send, 4 bytes (long) data bits}}
+\DoxyCodeLine{\textcolor{comment}{ * n END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\end{DoxyCode}
+
+
+Response\+: the query message\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md55}{}\doxysubsubsection{Send char array}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md55}
+Query\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ * 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{ * 1 RCOUTPUT\_DATA              (0x5C)}}
+\DoxyCodeLine{\textcolor{comment}{ * 2 RCOUTPUT\_CODE\_CHAR         (0x24)}}
+\DoxyCodeLine{\textcolor{comment}{ * 3 pin                        (pin number)}}
+\DoxyCodeLine{\textcolor{comment}{ * 4..n-\/1 RC data (packed as 7-\/bit): char array with characters to send}}
+\DoxyCodeLine{\textcolor{comment}{ * n END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\end{DoxyCode}
+
+
+Response\+: the query message\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md56}{}\doxysubsubsection{Send tristate code as packed tristate bits}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md56}
+Query\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ * 0 START\_SYSEX                   (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{ * 1 RCOUTPUT\_DATA                 (0x5C)}}
+\DoxyCodeLine{\textcolor{comment}{ * 2 RCOUTPUT\_CODE\_TRISTATE\_PACKED (0x28)}}
+\DoxyCodeLine{\textcolor{comment}{ * 3 pin                           (pin number)}}
+\DoxyCodeLine{\textcolor{comment}{ * 4..n-\/1 RC data (packed as 7-\/bit): byte array with 4 tristate bits per byte}}
+\DoxyCodeLine{\textcolor{comment}{ * n END\_SYSEX                     (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\end{DoxyCode}
+
+
+Response\+: the query message\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md57}{}\doxysubsection{Receive}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md57}
+\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md58}{}\doxysubsubsection{Attach receiver}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md58}
+Query\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ * 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{ * 1 RCINPUT\_DATA               (0x5D)}}
+\DoxyCodeLine{\textcolor{comment}{ * 2 RCINPUT\_ATTACH             (0x01)}}
+\DoxyCodeLine{\textcolor{comment}{ * 3 pin                        (pin number)}}
+\DoxyCodeLine{\textcolor{comment}{ * 4 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\end{DoxyCode}
+
+
+Response\+: the query message\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md59}{}\doxysubsubsection{Detach receiver}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md59}
+Query\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ * 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{ * 1 RCINPUT\_DATA               (0x5D)}}
+\DoxyCodeLine{\textcolor{comment}{ * 2 RCINPUT\_DETACH             (0x02)}}
+\DoxyCodeLine{\textcolor{comment}{ * 3 pin                        (pin number)}}
+\DoxyCodeLine{\textcolor{comment}{ * 4 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\end{DoxyCode}
+
+
+Response\+: the query message\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md60}{}\doxysubsubsection{Configuration of rcswitch parameter $<$tt$>$receive tolerance$<$/tt$>$ (in percent)}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md60}
+Query\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ * 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{ * 1 RCINPUT\_DATA               (0x5D)}}
+\DoxyCodeLine{\textcolor{comment}{ * 2 RCINPUT\_TOLERANCE          (0x31)}}
+\DoxyCodeLine{\textcolor{comment}{ * 3 pin                        (pin number)}}
+\DoxyCodeLine{\textcolor{comment}{ * 4 tolerance                  (percent)}}
+\DoxyCodeLine{\textcolor{comment}{ * 5 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\end{DoxyCode}
+
+
+Response\+: the query message\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md61}{}\doxysubsubsection{Configuration parameter $<$tt$>$enable raw data$<$/tt$>$}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md61}
+Query\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ * 0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{ * 1 RCINPUT\_DATA               (0x5D)}}
+\DoxyCodeLine{\textcolor{comment}{ * 2 RCINPUT\_ENABLE\_RAW\_DATA    (0x32)}}
+\DoxyCodeLine{\textcolor{comment}{ * 3 pin                        (pin number)}}
+\DoxyCodeLine{\textcolor{comment}{ * 4 rawdataEnabled             (0 for disabled, 1 for enabled)}}
+\DoxyCodeLine{\textcolor{comment}{ * 5 END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\end{DoxyCode}
+\hypertarget{md_protocol_proposals_rcswitch-proposal_autotoc_md62}{}\doxysubsubsection{Receive a R\+F message}\label{md_protocol_proposals_rcswitch-proposal_autotoc_md62}
+Query\+: none
+
+Response\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ *  0 START\_SYSEX                (0xF0)}}
+\DoxyCodeLine{\textcolor{comment}{ *  1 RCINPUT\_DATA               (0x5D)}}
+\DoxyCodeLine{\textcolor{comment}{ *  2 RCINPUT\_MESSAGE            (0x41)}}
+\DoxyCodeLine{\textcolor{comment}{ *  3 pin                        (pin number)}}
+\DoxyCodeLine{\textcolor{comment}{ *  4 message value (long), bits 0-\/6}}
+\DoxyCodeLine{\textcolor{comment}{ *  5 message value (long), bits 7-\/13}}
+\DoxyCodeLine{\textcolor{comment}{ *  6 message value (long), bits 14-\/20}}
+\DoxyCodeLine{\textcolor{comment}{ *  7 message value (long), bits 21-\/27}}
+\DoxyCodeLine{\textcolor{comment}{ *  8 message value (long), bits 28-\/32}}
+\DoxyCodeLine{\textcolor{comment}{ *  9 bitlength (int), bits 0-\/6}}
+\DoxyCodeLine{\textcolor{comment}{ * 10 bitlength (int), bits 7-\/13}}
+\DoxyCodeLine{\textcolor{comment}{ * 11 bitlength (int), bits 14-\/15}}
+\DoxyCodeLine{\textcolor{comment}{ * 12 delay (int), bits 0-\/6}}
+\DoxyCodeLine{\textcolor{comment}{ * 13 delay (int), bits 7-\/13}}
+\DoxyCodeLine{\textcolor{comment}{ * 14 delay (int), bits 14-\/15}}
+\DoxyCodeLine{\textcolor{comment}{ * 15 protocol (int), bits 0-\/6}}
+\DoxyCodeLine{\textcolor{comment}{ * 16 protocol (int), bits 7-\/13}}
+\DoxyCodeLine{\textcolor{comment}{ * 17 protocol (int), bits 14-\/15}}
+\DoxyCodeLine{\textcolor{comment}{ * 18..n-\/1 raw data (int[]); optional: only if rawdata was enabled}}
+\DoxyCodeLine{\textcolor{comment}{ * n END\_SYSEX                  (0xF7)}}
+\DoxyCodeLine{\textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\end{DoxyCode}
+ 

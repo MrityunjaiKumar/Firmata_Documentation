@@ -1,0 +1,1070 @@
+\begin{theindex}
+
+  \item {\_MAX\_ATTR\_DATA\_LEN\_}
+    \subitem {BLEStream.h}, \hyperpage{201}
+  \item {\_client}
+    \subitem {WiFiStream}, \hyperpage{196}
+  \item {\_connected}
+    \subitem {WiFiStream}, \hyperpage{196}
+  \item {\_currentHostConnectionCallback}
+    \subitem {WiFiStream}, \hyperpage{196}
+  \item {\_gateway}
+    \subitem {WiFiStream}, \hyperpage{197}
+  \item {\_key}
+    \subitem {WiFiStream}, \hyperpage{197}
+  \item {\_key\_idx}
+    \subitem {WiFiStream}, \hyperpage{197}
+  \item {\_listening}
+    \subitem {WiFiServerStream}, \hyperpage{187}
+  \item {\_local\_ip}
+    \subitem {WiFiStream}, \hyperpage{197}
+  \item {\_passphrase}
+    \subitem {WiFiStream}, \hyperpage{197}
+  \item {\_port}
+    \subitem {WiFiStream}, \hyperpage{197}
+  \item {\_remote\_ip}
+    \subitem {WiFiStream}, \hyperpage{198}
+  \item {\_server}
+    \subitem {WiFiServerStream}, \hyperpage{187}
+  \item {\_ssid}
+    \subitem {WiFiStream}, \hyperpage{198}
+  \item {\_subnet}
+    \subitem {WiFiStream}, \hyperpage{198}
+  \item {\_time\_connect}
+    \subitem {WiFiClientStream}, \hyperpage{181}
+
+  \indexspace
+
+  \item {accelStepperFirmata.md}, \hyperpage{199}
+  \item {ANALOG}
+    \subitem {Firmata.h}, \hyperpage{212}
+  \item {ANALOG\_MAPPING\_QUERY}
+    \subitem {firmata}, \hyperpage{82}
+    \subitem {FirmataDefines.h}, \hyperpage{221}
+  \item {ANALOG\_MAPPING\_RESPONSE}
+    \subitem {firmata}, \hyperpage{82}
+    \subitem {FirmataDefines.h}, \hyperpage{221}
+  \item {ANALOG\_MESSAGE}
+    \subitem {firmata}, \hyperpage{82}
+    \subitem {FirmataDefines.h}, \hyperpage{221}
+  \item {attach}
+    \subitem {firmata::FirmataClass}, \hyperpage{123, 124}
+    \subitem {firmata::FirmataParser}, \hyperpage{160}, 
+		\hyperpage{162--164}
+    \subitem {WiFiStream}, \hyperpage{191}
+  \item {available}
+    \subitem {BLEStream}, \hyperpage{95}
+    \subitem {BluefruitLE\_SPI\_Stream}, \hyperpage{102}
+    \subitem {EthernetClientStream}, \hyperpage{108}
+    \subitem {EthernetServerStream}, \hyperpage{115}
+    \subitem {firmata::FirmataClass}, \hyperpage{124}
+    \subitem {WiFiStream}, \hyperpage{191}
+
+  \indexspace
+
+  \item {begin}
+    \subitem {BLEStream}, \hyperpage{95}
+    \subitem {BluefruitLE\_SPI\_Stream}, \hyperpage{102}
+    \subitem {firmata::FirmataClass}, \hyperpage{125, 126}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{145}
+    \subitem {WiFiStream}, \hyperpage{191, 192}
+  \item {bleConfig.h}, \hyperpage{199}
+    \subitem {FIRMATA\_BLE\_LOCAL\_NAME}, \hyperpage{199}
+    \subitem {FIRMATA\_BLE\_MAX\_INTERVAL}, \hyperpage{199}
+    \subitem {FIRMATA\_BLE\_MIN\_INTERVAL}, \hyperpage{199}
+    \subitem {FIRMATA\_BLE\_TXBUFFER\_FLUSH\_INTERVAL}, \hyperpage{200}
+  \item {BLEStream}, \hyperpage{93}
+    \subitem {available}, \hyperpage{95}
+    \subitem {begin}, \hyperpage{95}
+    \subitem {BLEStream}, \hyperpage{94}
+    \subitem {end}, \hyperpage{96}
+    \subitem {flush}, \hyperpage{96}
+    \subitem {operator bool}, \hyperpage{97}
+    \subitem {peek}, \hyperpage{97}
+    \subitem {poll}, \hyperpage{97}
+    \subitem {read}, \hyperpage{98}
+    \subitem {setFlushInterval}, \hyperpage{98}
+    \subitem {write}, \hyperpage{98}
+  \item {BLEStream.cpp}, \hyperpage{200}
+  \item {BLEStream.h}, \hyperpage{200}
+    \subitem {\_MAX\_ATTR\_DATA\_LEN\_}, \hyperpage{201}
+    \subitem {BLESTREAM\_MIN\_FLUSH\_INTERVAL}, \hyperpage{201}
+    \subitem {BLESTREAM\_TXBUFFER\_FLUSH\_INTERVAL}, \hyperpage{201}
+  \item {BLESTREAM\_MIN\_FLUSH\_INTERVAL}
+    \subitem {BLEStream.h}, \hyperpage{201}
+  \item {BLESTREAM\_TXBUFFER\_FLUSH\_INTERVAL}
+    \subitem {BLEStream.h}, \hyperpage{201}
+  \item {blinkVersion}
+    \subitem {firmata::FirmataClass}, \hyperpage{127}
+  \item {BluefruitLE\_SPI\_Stream}, \hyperpage{99}
+    \subitem {available}, \hyperpage{102}
+    \subitem {begin}, \hyperpage{102}
+    \subitem {BluefruitLE\_SPI\_Stream}, \hyperpage{102}
+    \subitem {end}, \hyperpage{103}
+    \subitem {flush}, \hyperpage{103}
+    \subitem {peek}, \hyperpage{104}
+    \subitem {poll}, \hyperpage{104}
+    \subitem {read}, \hyperpage{105}
+    \subitem {setAdvertisingInterval}, \hyperpage{105}
+    \subitem {setConnectionInterval}, \hyperpage{105}
+    \subitem {setFlushInterval}, \hyperpage{105}
+    \subitem {setLocalName}, \hyperpage{105}
+    \subitem {write}, \hyperpage{106}
+  \item {BluefruitLE\_SPI\_Stream.cpp}, \hyperpage{201}
+  \item {BluefruitLE\_SPI\_Stream.h}, \hyperpage{201}
+  \item {Boards.h}, \hyperpage{202}
+    \subitem {DEFAULT\_PWM\_RESOLUTION}, \hyperpage{203}
+    \subitem {digitalPinHasPWM}, \hyperpage{203}
+    \subitem {IS\_PIN\_SERIAL}, \hyperpage{203}
+    \subitem {IS\_PIN\_SPI}, \hyperpage{203}
+    \subitem {MAX\_SERVOS}, \hyperpage{204}
+    \subitem {readPort}, \hyperpage{204}
+    \subitem {TOTAL\_PORTS}, \hyperpage{204}
+    \subitem {unused}, \hyperpage{205}
+    \subitem {writePort}, \hyperpage{204}
+
+  \indexspace
+
+  \item {callbackFunction}
+    \subitem {Firmata.h}, \hyperpage{215}
+    \subitem {firmata::FirmataClass}, \hyperpage{121}
+    \subitem {firmata::FirmataParser}, \hyperpage{158}
+  \item {CAPABILITY\_QUERY}
+    \subitem {firmata}, \hyperpage{83}
+    \subitem {FirmataDefines.h}, \hyperpage{221}
+  \item {CAPABILITY\_RESPONSE}
+    \subitem {firmata}, \hyperpage{83}
+    \subitem {FirmataDefines.h}, \hyperpage{221}
+  \item {checkSerial}
+    \subitem {SerialFirmata}, \hyperpage{171}
+  \item {client}
+    \subitem {ethernetConfig.h}, \hyperpage{208}
+  \item {config}
+    \subitem {WiFiStream}, \hyperpage{192}
+  \item {connect\_client}
+    \subitem {EthernetServerStream}, \hyperpage{115}
+    \subitem {WiFiClientStream}, \hyperpage{178}
+    \subitem {WiFiServerStream}, \hyperpage{184}
+    \subitem {WiFiStream}, \hyperpage{193}
+
+  \indexspace
+
+  \item {dataBufferOverflowCallbackFunction}
+    \subitem {firmata::FirmataParser}, \hyperpage{158}
+  \item {DEBUG\_BEGIN}
+    \subitem {firmataDebug.h}, \hyperpage{218}
+  \item {DEBUG\_PRINT}
+    \subitem {firmataDebug.h}, \hyperpage{218}
+  \item {DEBUG\_PRINTLN}
+    \subitem {firmataDebug.h}, \hyperpage{218}
+  \item {DEFAULT\_PWM\_RESOLUTION}
+    \subitem {Boards.h}, \hyperpage{203}
+  \item {detach}
+    \subitem {firmata::FirmataClass}, \hyperpage{127}
+    \subitem {firmata::FirmataParser}, \hyperpage{164, 165}
+  \item {DIGITAL\_MESSAGE}
+    \subitem {firmata}, \hyperpage{83}
+    \subitem {FirmataDefines.h}, \hyperpage{221}
+  \item {digitalPinHasPWM}
+    \subitem {Boards.h}, \hyperpage{203}
+  \item {disableBlinkVersion}
+    \subitem {firmata::FirmataClass}, \hyperpage{128}
+
+  \indexspace
+
+  \item {ENCODER}
+    \subitem {Firmata.h}, \hyperpage{212}
+  \item {encoder.md}, \hyperpage{206}
+  \item {ENCODER\_DATA}
+    \subitem {firmata}, \hyperpage{83}
+    \subitem {FirmataDefines.h}, \hyperpage{222}
+  \item {end}
+    \subitem {BLEStream}, \hyperpage{96}
+    \subitem {BluefruitLE\_SPI\_Stream}, \hyperpage{103}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{146}
+  \item {END\_SYSEX}
+    \subitem {firmata}, \hyperpage{83}
+    \subitem {FirmataDefines.h}, \hyperpage{222}
+  \item {endSysex}
+    \subitem {firmata::FirmataClass}, \hyperpage{128}
+  \item {EthernetClientStream}, \hyperpage{106}
+    \subitem {available}, \hyperpage{108}
+    \subitem {EthernetClientStream}, \hyperpage{108}
+    \subitem {flush}, \hyperpage{109}
+    \subitem {maintain}, \hyperpage{109}
+    \subitem {peek}, \hyperpage{111}
+    \subitem {read}, \hyperpage{111}
+    \subitem {write}, \hyperpage{111}
+  \item {EthernetClientStream.cpp}, \hyperpage{206}
+  \item {EthernetClientStream.h}, \hyperpage{206}
+    \subitem {MILLIS\_RECONNECT}, \hyperpage{206}
+  \item {ethernetConfig.h}, \hyperpage{207}
+    \subitem {client}, \hyperpage{208}
+    \subitem {IS\_IGNORE\_PIN}, \hyperpage{207}
+    \subitem {local\_ip}, \hyperpage{207}
+    \subitem {mac}, \hyperpage{208}
+    \subitem {network\_port}, \hyperpage{208}
+    \subitem {remote\_ip}, \hyperpage{208}
+    \subitem {WIZ5100\_ETHERNET}, \hyperpage{208}
+  \item {EthernetServerStream}, \hyperpage{112}
+    \subitem {available}, \hyperpage{115}
+    \subitem {connect\_client}, \hyperpage{115}
+    \subitem {EthernetServerStream}, \hyperpage{115}
+    \subitem {flush}, \hyperpage{116}
+    \subitem {listening}, \hyperpage{119}
+    \subitem {maintain}, \hyperpage{116}
+    \subitem {peek}, \hyperpage{118}
+    \subitem {read}, \hyperpage{118}
+    \subitem {server}, \hyperpage{119}
+    \subitem {write}, \hyperpage{118}
+  \item {EthernetServerStream.cpp}, \hyperpage{209}
+  \item {EthernetServerStream.h}, \hyperpage{209}
+  \item {EXTENDED\_ANALOG}
+    \subitem {firmata}, \hyperpage{84}
+    \subitem {FirmataDefines.h}, \hyperpage{222}
+
+  \indexspace
+
+  \item {feature-\/registry.md}, \hyperpage{209}
+  \item {Firmata}
+    \subitem {Firmata.cpp}, \hyperpage{210}
+    \subitem {Firmata.h}, \hyperpage{215}
+  \item {firmata}, \hyperpage{81}
+    \subitem {ANALOG\_MAPPING\_QUERY}, \hyperpage{82}
+    \subitem {ANALOG\_MAPPING\_RESPONSE}, \hyperpage{82}
+    \subitem {ANALOG\_MESSAGE}, \hyperpage{82}
+    \subitem {CAPABILITY\_QUERY}, \hyperpage{83}
+    \subitem {CAPABILITY\_RESPONSE}, \hyperpage{83}
+    \subitem {DIGITAL\_MESSAGE}, \hyperpage{83}
+    \subitem {ENCODER\_DATA}, \hyperpage{83}
+    \subitem {END\_SYSEX}, \hyperpage{83}
+    \subitem {EXTENDED\_ANALOG}, \hyperpage{84}
+    \subitem {FIRMWARE\_BUGFIX\_VERSION}, \hyperpage{84}
+    \subitem {FIRMWARE\_MAJOR\_VERSION}, \hyperpage{84}
+    \subitem {FIRMWARE\_MINOR\_VERSION}, \hyperpage{84}
+    \subitem {I2C\_CONFIG}, \hyperpage{84}
+    \subitem {I2C\_REPLY}, \hyperpage{84}
+    \subitem {I2C\_REQUEST}, \hyperpage{85}
+    \subitem {MAX\_DATA\_BYTES}, \hyperpage{85}
+    \subitem {ONEWIRE\_DATA}, \hyperpage{85}
+    \subitem {PIN\_MODE\_ANALOG}, \hyperpage{85}
+    \subitem {PIN\_MODE\_ENCODER}, \hyperpage{85}
+    \subitem {PIN\_MODE\_I2C}, \hyperpage{85}
+    \subitem {PIN\_MODE\_IGNORE}, \hyperpage{86}
+    \subitem {PIN\_MODE\_INPUT}, \hyperpage{86}
+    \subitem {PIN\_MODE\_ONEWIRE}, \hyperpage{86}
+    \subitem {PIN\_MODE\_OUTPUT}, \hyperpage{86}
+    \subitem {PIN\_MODE\_PULLUP}, \hyperpage{86}
+    \subitem {PIN\_MODE\_PWM}, \hyperpage{86}
+    \subitem {PIN\_MODE\_SERIAL}, \hyperpage{87}
+    \subitem {PIN\_MODE\_SERVO}, \hyperpage{87}
+    \subitem {PIN\_MODE\_SHIFT}, \hyperpage{87}
+    \subitem {PIN\_MODE\_STEPPER}, \hyperpage{87}
+    \subitem {PIN\_STATE\_QUERY}, \hyperpage{87}
+    \subitem {PIN\_STATE\_RESPONSE}, \hyperpage{87}
+    \subitem {PROTOCOL\_BUGFIX\_VERSION}, \hyperpage{88}
+    \subitem {PROTOCOL\_MAJOR\_VERSION}, \hyperpage{88}
+    \subitem {PROTOCOL\_MINOR\_VERSION}, \hyperpage{88}
+    \subitem {REPORT\_ANALOG}, \hyperpage{88}
+    \subitem {REPORT\_DIGITAL}, \hyperpage{88}
+    \subitem {REPORT\_FIRMWARE}, \hyperpage{88}
+    \subitem {REPORT\_VERSION}, \hyperpage{89}
+    \subitem {SAMPLING\_INTERVAL}, \hyperpage{89}
+    \subitem {SCHEDULER\_DATA}, \hyperpage{89}
+    \subitem {SERIAL\_DATA}, \hyperpage{89}
+    \subitem {SERVO\_CONFIG}, \hyperpage{89}
+    \subitem {SET\_DIGITAL\_PIN\_VALUE}, \hyperpage{90}
+    \subitem {SET\_PIN\_MODE}, \hyperpage{90}
+    \subitem {SHIFT\_DATA}, \hyperpage{90}
+    \subitem {START\_SYSEX}, \hyperpage{90}
+    \subitem {STEPPER\_DATA}, \hyperpage{90}
+    \subitem {STRING\_DATA}, \hyperpage{91}
+    \subitem {SYSEX\_NON\_REALTIME}, \hyperpage{91}
+    \subitem {SYSEX\_REALTIME}, \hyperpage{91}
+    \subitem {SYSTEM\_RESET}, \hyperpage{91}
+    \subitem {TOTAL\_PIN\_MODES}, \hyperpage{91}
+  \item {Firmata.cpp}, \hyperpage{209}
+    \subitem {Firmata}, \hyperpage{210}
+  \item {Firmata.h}, \hyperpage{210}
+    \subitem {ANALOG}, \hyperpage{212}
+    \subitem {callbackFunction}, \hyperpage{215}
+    \subitem {ENCODER}, \hyperpage{212}
+    \subitem {Firmata}, \hyperpage{215}
+    \subitem {FIRMATA\_BUGFIX\_VERSION}, \hyperpage{212}
+    \subitem {FIRMATA\_MAJOR\_VERSION}, \hyperpage{212}
+    \subitem {FIRMATA\_MINOR\_VERSION}, \hyperpage{212}
+    \subitem {FIRMATA\_STRING}, \hyperpage{213}
+    \subitem {I2C}, \hyperpage{213}
+    \subitem {IGNORE}, \hyperpage{213}
+    \subitem {ONEWIRE}, \hyperpage{213}
+    \subitem {PWM}, \hyperpage{213}
+    \subitem {SERVO}, \hyperpage{213}
+    \subitem {setFirmwareVersion}, \hyperpage{214}
+    \subitem {SHIFT}, \hyperpage{214}
+    \subitem {STEPPER}, \hyperpage{214}
+    \subitem {stringCallbackFunction}, \hyperpage{215}
+    \subitem {SYSEX\_I2C\_REPLY}, \hyperpage{214}
+    \subitem {SYSEX\_I2C\_REQUEST}, \hyperpage{214}
+    \subitem {SYSEX\_SAMPLING\_INTERVAL}, \hyperpage{214}
+    \subitem {sysexCallbackFunction}, \hyperpage{215}
+    \subitem {systemCallbackFunction}, \hyperpage{215}
+  \item {firmata::FirmataClass}, \hyperpage{120}
+    \subitem {attach}, \hyperpage{123, 124}
+    \subitem {available}, \hyperpage{124}
+    \subitem {begin}, \hyperpage{125, 126}
+    \subitem {blinkVersion}, \hyperpage{127}
+    \subitem {callbackFunction}, \hyperpage{121}
+    \subitem {detach}, \hyperpage{127}
+    \subitem {disableBlinkVersion}, \hyperpage{128}
+    \subitem {endSysex}, \hyperpage{128}
+    \subitem {FirmataClass}, \hyperpage{122}
+    \subitem {FirmataMarshaller::encodeByteStream}, \hyperpage{140}
+    \subitem {getPinMode}, \hyperpage{129}
+    \subitem {getPinState}, \hyperpage{129}
+    \subitem {isParsingMessage}, \hyperpage{129}
+    \subitem {parse}, \hyperpage{130}
+    \subitem {printFirmwareVersion}, \hyperpage{131}
+    \subitem {printVersion}, \hyperpage{132}
+    \subitem {processInput}, \hyperpage{132}
+    \subitem {sendAnalog}, \hyperpage{133}
+    \subitem {sendDigital}, \hyperpage{134}
+    \subitem {sendDigitalPort}, \hyperpage{134}
+    \subitem {sendString}, \hyperpage{135}
+    \subitem {sendSysex}, \hyperpage{136}
+    \subitem {sendValueAsTwo7bitBytes}, \hyperpage{137}
+    \subitem {setFirmwareNameAndVersion}, \hyperpage{137}
+    \subitem {setPinMode}, \hyperpage{138}
+    \subitem {setPinState}, \hyperpage{138}
+    \subitem {startSysex}, \hyperpage{140}
+    \subitem {stringCallbackFunction}, \hyperpage{121}
+    \subitem {sysexCallbackFunction}, \hyperpage{121}
+    \subitem {systemCallbackFunction}, \hyperpage{122}
+    \subitem {write}, \hyperpage{140}
+  \item {firmata::FirmataMarshaller}, \hyperpage{143}
+    \subitem {begin}, \hyperpage{145}
+    \subitem {end}, \hyperpage{146}
+    \subitem {FirmataClass}, \hyperpage{157}
+    \subitem {FirmataMarshaller}, \hyperpage{144}
+    \subitem {queryFirmwareVersion}, \hyperpage{146}
+    \subitem {queryVersion}, \hyperpage{146}
+    \subitem {reportAnalogDisable}, \hyperpage{147}
+    \subitem {reportAnalogEnable}, \hyperpage{147}
+    \subitem {reportDigitalPortDisable}, \hyperpage{148}
+    \subitem {reportDigitalPortEnable}, \hyperpage{148}
+    \subitem {sendAnalog}, \hyperpage{148}
+    \subitem {sendAnalogMappingQuery}, \hyperpage{149}
+    \subitem {sendCapabilityQuery}, \hyperpage{150}
+    \subitem {sendDigital}, \hyperpage{150}
+    \subitem {sendDigitalPort}, \hyperpage{151}
+    \subitem {sendFirmwareVersion}, \hyperpage{151}
+    \subitem {sendPinMode}, \hyperpage{152}
+    \subitem {sendPinStateQuery}, \hyperpage{153}
+    \subitem {sendString}, \hyperpage{153}
+    \subitem {sendSysex}, \hyperpage{154}
+    \subitem {sendVersion}, \hyperpage{155}
+    \subitem {setSamplingInterval}, \hyperpage{156}
+    \subitem {systemReset}, \hyperpage{156}
+  \item {firmata::FirmataParser}, \hyperpage{157}
+    \subitem {attach}, \hyperpage{160}, \hyperpage{162--164}
+    \subitem {callbackFunction}, \hyperpage{158}
+    \subitem {dataBufferOverflowCallbackFunction}, \hyperpage{158}
+    \subitem {detach}, \hyperpage{164, 165}
+    \subitem {FirmataParser}, \hyperpage{159}
+    \subitem {isParsingMessage}, \hyperpage{165}
+    \subitem {parse}, \hyperpage{166}
+    \subitem {setDataBufferOfSize}, \hyperpage{168}
+    \subitem {stringCallbackFunction}, \hyperpage{158}
+    \subitem {sysexCallbackFunction}, \hyperpage{159}
+    \subitem {systemCallbackFunction}, \hyperpage{159}
+    \subitem {versionCallbackFunction}, \hyperpage{159}
+  \item {FIRMATA\_BLE\_LOCAL\_NAME}
+    \subitem {bleConfig.h}, \hyperpage{199}
+  \item {FIRMATA\_BLE\_MAX\_INTERVAL}
+    \subitem {bleConfig.h}, \hyperpage{199}
+  \item {FIRMATA\_BLE\_MIN\_INTERVAL}
+    \subitem {bleConfig.h}, \hyperpage{199}
+  \item {FIRMATA\_BLE\_TXBUFFER\_FLUSH\_INTERVAL}
+    \subitem {bleConfig.h}, \hyperpage{200}
+  \item {FIRMATA\_BUGFIX\_VERSION}
+    \subitem {Firmata.h}, \hyperpage{212}
+  \item {FIRMATA\_FIRMWARE\_BUGFIX\_VERSION}
+    \subitem {FirmataDefines.h}, \hyperpage{222}
+  \item {FIRMATA\_FIRMWARE\_MAJOR\_VERSION}
+    \subitem {FirmataDefines.h}, \hyperpage{222}
+  \item {FIRMATA\_FIRMWARE\_MINOR\_VERSION}
+    \subitem {FirmataDefines.h}, \hyperpage{222}
+  \item {FIRMATA\_MAJOR\_VERSION}
+    \subitem {Firmata.h}, \hyperpage{212}
+  \item {FIRMATA\_MINOR\_VERSION}
+    \subitem {Firmata.h}, \hyperpage{212}
+  \item {FIRMATA\_PROTOCOL\_BUGFIX\_VERSION}
+    \subitem {FirmataDefines.h}, \hyperpage{223}
+  \item {FIRMATA\_PROTOCOL\_MAJOR\_VERSION}
+    \subitem {FirmataDefines.h}, \hyperpage{223}
+  \item {FIRMATA\_PROTOCOL\_MINOR\_VERSION}
+    \subitem {FirmataDefines.h}, \hyperpage{223}
+  \item {FIRMATA\_SERIAL\_FEATURE}
+    \subitem {SerialFirmata.h}, \hyperpage{238}
+  \item {FIRMATA\_STRING}
+    \subitem {Firmata.h}, \hyperpage{213}
+  \item {FirmataClass}
+    \subitem {firmata::FirmataClass}, \hyperpage{122}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{157}
+  \item {FirmataConstants.h}, \hyperpage{216}
+  \item {firmataDebug.h}, \hyperpage{218}
+    \subitem {DEBUG\_BEGIN}, \hyperpage{218}
+    \subitem {DEBUG\_PRINT}, \hyperpage{218}
+    \subitem {DEBUG\_PRINTLN}, \hyperpage{218}
+  \item {FirmataDefines.h}, \hyperpage{219}
+    \subitem {ANALOG\_MAPPING\_QUERY}, \hyperpage{221}
+    \subitem {ANALOG\_MAPPING\_RESPONSE}, \hyperpage{221}
+    \subitem {ANALOG\_MESSAGE}, \hyperpage{221}
+    \subitem {CAPABILITY\_QUERY}, \hyperpage{221}
+    \subitem {CAPABILITY\_RESPONSE}, \hyperpage{221}
+    \subitem {DIGITAL\_MESSAGE}, \hyperpage{221}
+    \subitem {ENCODER\_DATA}, \hyperpage{222}
+    \subitem {END\_SYSEX}, \hyperpage{222}
+    \subitem {EXTENDED\_ANALOG}, \hyperpage{222}
+    \subitem {FIRMATA\_FIRMWARE\_BUGFIX\_VERSION}, \hyperpage{222}
+    \subitem {FIRMATA\_FIRMWARE\_MAJOR\_VERSION}, \hyperpage{222}
+    \subitem {FIRMATA\_FIRMWARE\_MINOR\_VERSION}, \hyperpage{222}
+    \subitem {FIRMATA\_PROTOCOL\_BUGFIX\_VERSION}, \hyperpage{223}
+    \subitem {FIRMATA\_PROTOCOL\_MAJOR\_VERSION}, \hyperpage{223}
+    \subitem {FIRMATA\_PROTOCOL\_MINOR\_VERSION}, \hyperpage{223}
+    \subitem {I2C\_CONFIG}, \hyperpage{223}
+    \subitem {I2C\_REPLY}, \hyperpage{223}
+    \subitem {I2C\_REQUEST}, \hyperpage{223}
+    \subitem {MAX\_DATA\_BYTES}, \hyperpage{224}
+    \subitem {ONEWIRE\_DATA}, \hyperpage{224}
+    \subitem {PIN\_MODE\_ANALOG}, \hyperpage{224}
+    \subitem {PIN\_MODE\_ENCODER}, \hyperpage{224}
+    \subitem {PIN\_MODE\_I2C}, \hyperpage{224}
+    \subitem {PIN\_MODE\_IGNORE}, \hyperpage{224}
+    \subitem {PIN\_MODE\_INPUT}, \hyperpage{225}
+    \subitem {PIN\_MODE\_ONEWIRE}, \hyperpage{225}
+    \subitem {PIN\_MODE\_OUTPUT}, \hyperpage{225}
+    \subitem {PIN\_MODE\_PULLUP}, \hyperpage{225}
+    \subitem {PIN\_MODE\_PWM}, \hyperpage{225}
+    \subitem {PIN\_MODE\_SERIAL}, \hyperpage{225}
+    \subitem {PIN\_MODE\_SERVO}, \hyperpage{226}
+    \subitem {PIN\_MODE\_SHIFT}, \hyperpage{226}
+    \subitem {PIN\_MODE\_STEPPER}, \hyperpage{226}
+    \subitem {PIN\_STATE\_QUERY}, \hyperpage{226}
+    \subitem {PIN\_STATE\_RESPONSE}, \hyperpage{226}
+    \subitem {REPORT\_ANALOG}, \hyperpage{226}
+    \subitem {REPORT\_DIGITAL}, \hyperpage{227}
+    \subitem {REPORT\_FIRMWARE}, \hyperpage{227}
+    \subitem {REPORT\_VERSION}, \hyperpage{227}
+    \subitem {SAMPLING\_INTERVAL}, \hyperpage{227}
+    \subitem {SCHEDULER\_DATA}, \hyperpage{227}
+    \subitem {SERIAL\_MESSAGE}, \hyperpage{227}
+    \subitem {SERVO\_CONFIG}, \hyperpage{228}
+    \subitem {SET\_DIGITAL\_PIN\_VALUE}, \hyperpage{228}
+    \subitem {SET\_PIN\_MODE}, \hyperpage{228}
+    \subitem {SHIFT\_DATA}, \hyperpage{228}
+    \subitem {START\_SYSEX}, \hyperpage{228}
+    \subitem {STEPPER\_DATA}, \hyperpage{228}
+    \subitem {STRING\_DATA}, \hyperpage{229}
+    \subitem {SYSEX\_NON\_REALTIME}, \hyperpage{229}
+    \subitem {SYSEX\_REALTIME}, \hyperpage{229}
+    \subitem {SYSTEM\_RESET}, \hyperpage{229}
+    \subitem {TOTAL\_PIN\_MODES}, \hyperpage{229}
+  \item {FirmataFeature}, \hyperpage{141}
+    \subitem {handleCapability}, \hyperpage{142}
+    \subitem {handlePinMode}, \hyperpage{142}
+    \subitem {handleSysex}, \hyperpage{142}
+    \subitem {reset}, \hyperpage{143}
+  \item {FirmataFeature.h}, \hyperpage{230}
+  \item {FirmataMarshaller}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{144}
+  \item {FirmataMarshaller.cpp}, \hyperpage{230}
+  \item {FirmataMarshaller.h}, \hyperpage{231}
+  \item {FirmataMarshaller::encodeByteStream}
+    \subitem {firmata::FirmataClass}, \hyperpage{140}
+  \item {FirmataParser}
+    \subitem {firmata::FirmataParser}, \hyperpage{159}
+  \item {FirmataParser.cpp}, \hyperpage{232}
+  \item {FirmataParser.h}, \hyperpage{233}
+  \item {FIRMWARE\_BUGFIX\_VERSION}
+    \subitem {firmata}, \hyperpage{84}
+  \item {FIRMWARE\_MAJOR\_VERSION}
+    \subitem {firmata}, \hyperpage{84}
+  \item {FIRMWARE\_MINOR\_VERSION}
+    \subitem {firmata}, \hyperpage{84}
+  \item {flush}
+    \subitem {BLEStream}, \hyperpage{96}
+    \subitem {BluefruitLE\_SPI\_Stream}, \hyperpage{103}
+    \subitem {EthernetClientStream}, \hyperpage{109}
+    \subitem {EthernetServerStream}, \hyperpage{116}
+    \subitem {WiFiStream}, \hyperpage{193}
+
+  \indexspace
+
+  \item {getLocalIP}
+    \subitem {WiFiStream}, \hyperpage{194}
+  \item {getPinMode}
+    \subitem {firmata::FirmataClass}, \hyperpage{129}
+  \item {getPinState}
+    \subitem {firmata::FirmataClass}, \hyperpage{129}
+
+  \indexspace
+
+  \item {handleCapability}
+    \subitem {FirmataFeature}, \hyperpage{142}
+    \subitem {SerialFirmata}, \hyperpage{172}
+  \item {handlePinMode}
+    \subitem {FirmataFeature}, \hyperpage{142}
+    \subitem {SerialFirmata}, \hyperpage{172}
+  \item {handleSysex}
+    \subitem {FirmataFeature}, \hyperpage{142}
+    \subitem {SerialFirmata}, \hyperpage{172}
+  \item {HOST\_CONNECTION\_CONNECTED}
+    \subitem {WiFiStream.h}, \hyperpage{248}
+  \item {HOST\_CONNECTION\_DISCONNECTED}
+    \subitem {WiFiStream.h}, \hyperpage{248}
+  \item {hostConnectionCallbackFunction}
+    \subitem {WiFiStream.h}, \hyperpage{248}
+  \item {HW\_SERIAL0}
+    \subitem {SerialFirmata.h}, \hyperpage{238}
+  \item {HW\_SERIAL1}
+    \subitem {SerialFirmata.h}, \hyperpage{238}
+  \item {HW\_SERIAL2}
+    \subitem {SerialFirmata.h}, \hyperpage{238}
+  \item {HW\_SERIAL3}
+    \subitem {SerialFirmata.h}, \hyperpage{238}
+  \item {HW\_SERIAL4}
+    \subitem {SerialFirmata.h}, \hyperpage{239}
+  \item {HW\_SERIAL5}
+    \subitem {SerialFirmata.h}, \hyperpage{239}
+  \item {HW\_SERIAL6}
+    \subitem {SerialFirmata.h}, \hyperpage{239}
+
+  \indexspace
+
+  \item {I2C}
+    \subitem {Firmata.h}, \hyperpage{213}
+  \item {i2c.md}, \hyperpage{235}
+  \item {I2C\_CONFIG}
+    \subitem {firmata}, \hyperpage{84}
+    \subitem {FirmataDefines.h}, \hyperpage{223}
+  \item {I2C\_REPLY}
+    \subitem {firmata}, \hyperpage{84}
+    \subitem {FirmataDefines.h}, \hyperpage{223}
+  \item {I2C\_REQUEST}
+    \subitem {firmata}, \hyperpage{85}
+    \subitem {FirmataDefines.h}, \hyperpage{223}
+  \item {IGNORE}
+    \subitem {Firmata.h}, \hyperpage{213}
+  \item {IS\_IGNORE\_PIN}
+    \subitem {ethernetConfig.h}, \hyperpage{207}
+  \item {IS\_PIN\_SERIAL}
+    \subitem {Boards.h}, \hyperpage{203}
+  \item {IS\_PIN\_SPI}
+    \subitem {Boards.h}, \hyperpage{203}
+  \item {isParsingMessage}
+    \subitem {firmata::FirmataClass}, \hyperpage{129}
+    \subitem {firmata::FirmataParser}, \hyperpage{165}
+
+  \indexspace
+
+  \item {listening}
+    \subitem {EthernetServerStream}, \hyperpage{119}
+  \item {local\_ip}
+    \subitem {ethernetConfig.h}, \hyperpage{207}
+
+  \indexspace
+
+  \item {mac}
+    \subitem {ethernetConfig.h}, \hyperpage{208}
+  \item {maintain}
+    \subitem {EthernetClientStream}, \hyperpage{109}
+    \subitem {EthernetServerStream}, \hyperpage{116}
+    \subitem {WiFiClientStream}, \hyperpage{179}
+    \subitem {WiFiServerStream}, \hyperpage{185}
+    \subitem {WiFiStream}, \hyperpage{194}
+  \item {MAX\_DATA\_BYTES}
+    \subitem {firmata}, \hyperpage{85}
+    \subitem {FirmataDefines.h}, \hyperpage{224}
+  \item {MAX\_SERIAL\_PORTS}
+    \subitem {SerialFirmata.h}, \hyperpage{239}
+  \item {MAX\_SERVOS}
+    \subitem {Boards.h}, \hyperpage{204}
+  \item {MILLIS\_RECONNECT}
+    \subitem {EthernetClientStream.h}, \hyperpage{206}
+    \subitem {WiFiClientStream.h}, \hyperpage{245}
+
+  \indexspace
+
+  \item {network\_port}
+    \subitem {ethernetConfig.h}, \hyperpage{208}
+
+  \indexspace
+
+  \item {ONEWIRE}
+    \subitem {Firmata.h}, \hyperpage{213}
+  \item {onewire.md}, \hyperpage{235}
+  \item {ONEWIRE\_DATA}
+    \subitem {firmata}, \hyperpage{85}
+    \subitem {FirmataDefines.h}, \hyperpage{224}
+  \item {operator bool}
+    \subitem {BLEStream}, \hyperpage{97}
+
+  \indexspace
+
+  \item {parse}
+    \subitem {firmata::FirmataClass}, \hyperpage{130}
+    \subitem {firmata::FirmataParser}, \hyperpage{166}
+  \item {peek}
+    \subitem {BLEStream}, \hyperpage{97}
+    \subitem {BluefruitLE\_SPI\_Stream}, \hyperpage{104}
+    \subitem {EthernetClientStream}, \hyperpage{111}
+    \subitem {EthernetServerStream}, \hyperpage{118}
+    \subitem {WiFiStream}, \hyperpage{194}
+  \item {PIN\_MODE\_ANALOG}
+    \subitem {firmata}, \hyperpage{85}
+    \subitem {FirmataDefines.h}, \hyperpage{224}
+  \item {PIN\_MODE\_ENCODER}
+    \subitem {firmata}, \hyperpage{85}
+    \subitem {FirmataDefines.h}, \hyperpage{224}
+  \item {PIN\_MODE\_I2C}
+    \subitem {firmata}, \hyperpage{85}
+    \subitem {FirmataDefines.h}, \hyperpage{224}
+  \item {PIN\_MODE\_IGNORE}
+    \subitem {firmata}, \hyperpage{86}
+    \subitem {FirmataDefines.h}, \hyperpage{224}
+  \item {PIN\_MODE\_INPUT}
+    \subitem {firmata}, \hyperpage{86}
+    \subitem {FirmataDefines.h}, \hyperpage{225}
+  \item {PIN\_MODE\_ONEWIRE}
+    \subitem {firmata}, \hyperpage{86}
+    \subitem {FirmataDefines.h}, \hyperpage{225}
+  \item {PIN\_MODE\_OUTPUT}
+    \subitem {firmata}, \hyperpage{86}
+    \subitem {FirmataDefines.h}, \hyperpage{225}
+  \item {PIN\_MODE\_PULLUP}
+    \subitem {firmata}, \hyperpage{86}
+    \subitem {FirmataDefines.h}, \hyperpage{225}
+  \item {PIN\_MODE\_PWM}
+    \subitem {firmata}, \hyperpage{86}
+    \subitem {FirmataDefines.h}, \hyperpage{225}
+  \item {PIN\_MODE\_SERIAL}
+    \subitem {firmata}, \hyperpage{87}
+    \subitem {FirmataDefines.h}, \hyperpage{225}
+  \item {PIN\_MODE\_SERVO}
+    \subitem {firmata}, \hyperpage{87}
+    \subitem {FirmataDefines.h}, \hyperpage{226}
+  \item {PIN\_MODE\_SHIFT}
+    \subitem {firmata}, \hyperpage{87}
+    \subitem {FirmataDefines.h}, \hyperpage{226}
+  \item {PIN\_MODE\_STEPPER}
+    \subitem {firmata}, \hyperpage{87}
+    \subitem {FirmataDefines.h}, \hyperpage{226}
+  \item {PIN\_STATE\_QUERY}
+    \subitem {firmata}, \hyperpage{87}
+    \subitem {FirmataDefines.h}, \hyperpage{226}
+  \item {PIN\_STATE\_RESPONSE}
+    \subitem {firmata}, \hyperpage{87}
+    \subitem {FirmataDefines.h}, \hyperpage{226}
+  \item {pingroups-\/proposal.md}, \hyperpage{235}
+  \item {poll}
+    \subitem {BLEStream}, \hyperpage{97}
+    \subitem {BluefruitLE\_SPI\_Stream}, \hyperpage{104}
+  \item {printFirmwareVersion}
+    \subitem {firmata::FirmataClass}, \hyperpage{131}
+  \item {printVersion}
+    \subitem {firmata::FirmataClass}, \hyperpage{132}
+  \item {processInput}
+    \subitem {firmata::FirmataClass}, \hyperpage{132}
+  \item {protocol.md}, \hyperpage{235}
+  \item {PROTOCOL\_BUGFIX\_VERSION}
+    \subitem {firmata}, \hyperpage{88}
+  \item {PROTOCOL\_MAJOR\_VERSION}
+    \subitem {firmata}, \hyperpage{88}
+  \item {PROTOCOL\_MINOR\_VERSION}
+    \subitem {firmata}, \hyperpage{88}
+  \item {PWM}
+    \subitem {Firmata.h}, \hyperpage{213}
+
+  \indexspace
+
+  \item {queryFirmwareVersion}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{146}
+  \item {queryVersion}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{146}
+
+  \indexspace
+
+  \item {rcswitch-\/proposal.md}, \hyperpage{235}
+  \item {read}
+    \subitem {BLEStream}, \hyperpage{98}
+    \subitem {BluefruitLE\_SPI\_Stream}, \hyperpage{105}
+    \subitem {EthernetClientStream}, \hyperpage{111}
+    \subitem {EthernetServerStream}, \hyperpage{118}
+    \subitem {WiFiStream}, \hyperpage{195}
+  \item {README.md}, \hyperpage{235}
+  \item {readme.md}, \hyperpage{235}
+  \item {readPort}
+    \subitem {Boards.h}, \hyperpage{204}
+  \item {remote\_ip}
+    \subitem {ethernetConfig.h}, \hyperpage{208}
+  \item {REPORT\_ANALOG}
+    \subitem {firmata}, \hyperpage{88}
+    \subitem {FirmataDefines.h}, \hyperpage{226}
+  \item {REPORT\_DIGITAL}
+    \subitem {firmata}, \hyperpage{88}
+    \subitem {FirmataDefines.h}, \hyperpage{227}
+  \item {REPORT\_FIRMWARE}
+    \subitem {firmata}, \hyperpage{88}
+    \subitem {FirmataDefines.h}, \hyperpage{227}
+  \item {REPORT\_VERSION}
+    \subitem {firmata}, \hyperpage{89}
+    \subitem {FirmataDefines.h}, \hyperpage{227}
+  \item {reportAnalogDisable}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{147}
+  \item {reportAnalogEnable}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{147}
+  \item {reportDigitalPortDisable}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{148}
+  \item {reportDigitalPortEnable}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{148}
+  \item {RES\_RX1}
+    \subitem {SerialFirmata.h}, \hyperpage{239}
+  \item {RES\_RX2}
+    \subitem {SerialFirmata.h}, \hyperpage{239}
+  \item {RES\_RX3}
+    \subitem {SerialFirmata.h}, \hyperpage{240}
+  \item {RES\_RX4}
+    \subitem {SerialFirmata.h}, \hyperpage{240}
+  \item {RES\_RX5}
+    \subitem {SerialFirmata.h}, \hyperpage{240}
+  \item {RES\_RX6}
+    \subitem {SerialFirmata.h}, \hyperpage{240}
+  \item {RES\_TX1}
+    \subitem {SerialFirmata.h}, \hyperpage{240}
+  \item {RES\_TX2}
+    \subitem {SerialFirmata.h}, \hyperpage{240}
+  \item {RES\_TX3}
+    \subitem {SerialFirmata.h}, \hyperpage{241}
+  \item {RES\_TX4}
+    \subitem {SerialFirmata.h}, \hyperpage{241}
+  \item {RES\_TX5}
+    \subitem {SerialFirmata.h}, \hyperpage{241}
+  \item {RES\_TX6}
+    \subitem {SerialFirmata.h}, \hyperpage{241}
+  \item {reset}
+    \subitem {FirmataFeature}, \hyperpage{143}
+    \subitem {SerialFirmata}, \hyperpage{175}
+  \item {revisions.md}, \hyperpage{235}
+
+  \indexspace
+
+  \item {SAMPLING\_INTERVAL}
+    \subitem {firmata}, \hyperpage{89}
+    \subitem {FirmataDefines.h}, \hyperpage{227}
+  \item {scheduler.md}, \hyperpage{235}
+  \item {SCHEDULER\_DATA}
+    \subitem {firmata}, \hyperpage{89}
+    \subitem {FirmataDefines.h}, \hyperpage{227}
+  \item {sendAnalog}
+    \subitem {firmata::FirmataClass}, \hyperpage{133}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{148}
+  \item {sendAnalogMappingQuery}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{149}
+  \item {sendCapabilityQuery}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{150}
+  \item {sendDigital}
+    \subitem {firmata::FirmataClass}, \hyperpage{134}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{150}
+  \item {sendDigitalPort}
+    \subitem {firmata::FirmataClass}, \hyperpage{134}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{151}
+  \item {sendFirmwareVersion}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{151}
+  \item {sendPinMode}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{152}
+  \item {sendPinStateQuery}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{153}
+  \item {sendString}
+    \subitem {firmata::FirmataClass}, \hyperpage{135}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{153}
+  \item {sendSysex}
+    \subitem {firmata::FirmataClass}, \hyperpage{136}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{154}
+  \item {sendValueAsTwo7bitBytes}
+    \subitem {firmata::FirmataClass}, \hyperpage{137}
+  \item {sendVersion}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{155}
+  \item {serial-\/1.0.md}, \hyperpage{235}
+  \item {serial-\/2.0-\/proposal.md}, \hyperpage{235}
+  \item {SERIAL\_CLOSE}
+    \subitem {SerialFirmata.h}, \hyperpage{241}
+  \item {SERIAL\_CONFIG}
+    \subitem {SerialFirmata.h}, \hyperpage{241}
+  \item {SERIAL\_DATA}
+    \subitem {firmata}, \hyperpage{89}
+  \item {SERIAL\_FLUSH}
+    \subitem {SerialFirmata.h}, \hyperpage{242}
+  \item {SERIAL\_LISTEN}
+    \subitem {SerialFirmata.h}, \hyperpage{242}
+  \item {SERIAL\_MESSAGE}
+    \subitem {FirmataDefines.h}, \hyperpage{227}
+  \item {SERIAL\_MODE\_MASK}
+    \subitem {SerialFirmata.h}, \hyperpage{242}
+  \item {SERIAL\_PORT\_ID\_MASK}
+    \subitem {SerialFirmata.h}, \hyperpage{242}
+  \item {SERIAL\_READ}
+    \subitem {SerialFirmata.h}, \hyperpage{242}
+  \item {SERIAL\_READ\_ARR\_LEN}
+    \subitem {SerialFirmata.h}, \hyperpage{242}
+  \item {SERIAL\_READ\_CONTINUOUSLY}
+    \subitem {SerialFirmata.h}, \hyperpage{243}
+  \item {SERIAL\_REPLY}
+    \subitem {SerialFirmata.h}, \hyperpage{243}
+  \item {SERIAL\_STOP\_READING}
+    \subitem {SerialFirmata.h}, \hyperpage{243}
+  \item {SERIAL\_WRITE}
+    \subitem {SerialFirmata.h}, \hyperpage{243}
+  \item {SerialFirmata}, \hyperpage{169}
+    \subitem {checkSerial}, \hyperpage{171}
+    \subitem {handleCapability}, \hyperpage{172}
+    \subitem {handlePinMode}, \hyperpage{172}
+    \subitem {handleSysex}, \hyperpage{172}
+    \subitem {reset}, \hyperpage{175}
+    \subitem {SerialFirmata}, \hyperpage{170}
+    \subitem {update}, \hyperpage{175}
+  \item {SerialFirmata.cpp}, \hyperpage{235}
+  \item {SerialFirmata.h}, \hyperpage{236}
+    \subitem {FIRMATA\_SERIAL\_FEATURE}, \hyperpage{238}
+    \subitem {HW\_SERIAL0}, \hyperpage{238}
+    \subitem {HW\_SERIAL1}, \hyperpage{238}
+    \subitem {HW\_SERIAL2}, \hyperpage{238}
+    \subitem {HW\_SERIAL3}, \hyperpage{238}
+    \subitem {HW\_SERIAL4}, \hyperpage{239}
+    \subitem {HW\_SERIAL5}, \hyperpage{239}
+    \subitem {HW\_SERIAL6}, \hyperpage{239}
+    \subitem {MAX\_SERIAL\_PORTS}, \hyperpage{239}
+    \subitem {RES\_RX1}, \hyperpage{239}
+    \subitem {RES\_RX2}, \hyperpage{239}
+    \subitem {RES\_RX3}, \hyperpage{240}
+    \subitem {RES\_RX4}, \hyperpage{240}
+    \subitem {RES\_RX5}, \hyperpage{240}
+    \subitem {RES\_RX6}, \hyperpage{240}
+    \subitem {RES\_TX1}, \hyperpage{240}
+    \subitem {RES\_TX2}, \hyperpage{240}
+    \subitem {RES\_TX3}, \hyperpage{241}
+    \subitem {RES\_TX4}, \hyperpage{241}
+    \subitem {RES\_TX5}, \hyperpage{241}
+    \subitem {RES\_TX6}, \hyperpage{241}
+    \subitem {SERIAL\_CLOSE}, \hyperpage{241}
+    \subitem {SERIAL\_CONFIG}, \hyperpage{241}
+    \subitem {SERIAL\_FLUSH}, \hyperpage{242}
+    \subitem {SERIAL\_LISTEN}, \hyperpage{242}
+    \subitem {SERIAL\_MODE\_MASK}, \hyperpage{242}
+    \subitem {SERIAL\_PORT\_ID\_MASK}, \hyperpage{242}
+    \subitem {SERIAL\_READ}, \hyperpage{242}
+    \subitem {SERIAL\_READ\_ARR\_LEN}, \hyperpage{242}
+    \subitem {SERIAL\_READ\_CONTINUOUSLY}, \hyperpage{243}
+    \subitem {SERIAL\_REPLY}, \hyperpage{243}
+    \subitem {SERIAL\_STOP\_READING}, \hyperpage{243}
+    \subitem {SERIAL\_WRITE}, \hyperpage{243}
+    \subitem {SW\_SERIAL0}, \hyperpage{243}
+    \subitem {SW\_SERIAL1}, \hyperpage{243}
+    \subitem {SW\_SERIAL2}, \hyperpage{244}
+    \subitem {SW\_SERIAL3}, \hyperpage{244}
+  \item {server}
+    \subitem {EthernetServerStream}, \hyperpage{119}
+  \item {SERVER\_PORT}
+    \subitem {wifiConfig.h}, \hyperpage{245}
+  \item {SERVO}
+    \subitem {Firmata.h}, \hyperpage{213}
+  \item {SERVO\_CONFIG}
+    \subitem {firmata}, \hyperpage{89}
+    \subitem {FirmataDefines.h}, \hyperpage{228}
+  \item {servos.md}, \hyperpage{244}
+  \item {SET\_DIGITAL\_PIN\_VALUE}
+    \subitem {firmata}, \hyperpage{90}
+    \subitem {FirmataDefines.h}, \hyperpage{228}
+  \item {SET\_PIN\_MODE}
+    \subitem {firmata}, \hyperpage{90}
+    \subitem {FirmataDefines.h}, \hyperpage{228}
+  \item {setAdvertisingInterval}
+    \subitem {BluefruitLE\_SPI\_Stream}, \hyperpage{105}
+  \item {setConnectionInterval}
+    \subitem {BluefruitLE\_SPI\_Stream}, \hyperpage{105}
+  \item {setDataBufferOfSize}
+    \subitem {firmata::FirmataParser}, \hyperpage{168}
+  \item {setFirmwareNameAndVersion}
+    \subitem {firmata::FirmataClass}, \hyperpage{137}
+  \item {setFirmwareVersion}
+    \subitem {Firmata.h}, \hyperpage{214}
+  \item {setFlushInterval}
+    \subitem {BLEStream}, \hyperpage{98}
+    \subitem {BluefruitLE\_SPI\_Stream}, \hyperpage{105}
+  \item {setLocalName}
+    \subitem {BluefruitLE\_SPI\_Stream}, \hyperpage{105}
+  \item {setPinMode}
+    \subitem {firmata::FirmataClass}, \hyperpage{138}
+  \item {setPinState}
+    \subitem {firmata::FirmataClass}, \hyperpage{138}
+  \item {setSamplingInterval}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{156}
+  \item {SHIFT}
+    \subitem {Firmata.h}, \hyperpage{214}
+  \item {shift-\/proposal.md}, \hyperpage{244}
+  \item {SHIFT\_DATA}
+    \subitem {firmata}, \hyperpage{90}
+    \subitem {FirmataDefines.h}, \hyperpage{228}
+  \item {spi-\/proposal.md}, \hyperpage{244}
+  \item {ssid}
+    \subitem {wifiConfig.h}, \hyperpage{246}
+  \item {START\_SYSEX}
+    \subitem {firmata}, \hyperpage{90}
+    \subitem {FirmataDefines.h}, \hyperpage{228}
+  \item {startSysex}
+    \subitem {firmata::FirmataClass}, \hyperpage{140}
+  \item {STEPPER}
+    \subitem {Firmata.h}, \hyperpage{214}
+  \item {stepper-\/legacy.md}, \hyperpage{244}
+  \item {STEPPER\_DATA}
+    \subitem {firmata}, \hyperpage{90}
+    \subitem {FirmataDefines.h}, \hyperpage{228}
+  \item {stop}
+    \subitem {WiFiClientStream}, \hyperpage{180}
+    \subitem {WiFiServerStream}, \hyperpage{186}
+    \subitem {WiFiStream}, \hyperpage{195}
+  \item {stream}
+    \subitem {wifiConfig.h}, \hyperpage{246}
+  \item {STRING\_DATA}
+    \subitem {firmata}, \hyperpage{91}
+    \subitem {FirmataDefines.h}, \hyperpage{229}
+  \item {stringCallbackFunction}
+    \subitem {Firmata.h}, \hyperpage{215}
+    \subitem {firmata::FirmataClass}, \hyperpage{121}
+    \subitem {firmata::FirmataParser}, \hyperpage{158}
+  \item {SW\_SERIAL0}
+    \subitem {SerialFirmata.h}, \hyperpage{243}
+  \item {SW\_SERIAL1}
+    \subitem {SerialFirmata.h}, \hyperpage{243}
+  \item {SW\_SERIAL2}
+    \subitem {SerialFirmata.h}, \hyperpage{244}
+  \item {SW\_SERIAL3}
+    \subitem {SerialFirmata.h}, \hyperpage{244}
+  \item {SYSEX\_I2C\_REPLY}
+    \subitem {Firmata.h}, \hyperpage{214}
+  \item {SYSEX\_I2C\_REQUEST}
+    \subitem {Firmata.h}, \hyperpage{214}
+  \item {SYSEX\_NON\_REALTIME}
+    \subitem {firmata}, \hyperpage{91}
+    \subitem {FirmataDefines.h}, \hyperpage{229}
+  \item {SYSEX\_REALTIME}
+    \subitem {firmata}, \hyperpage{91}
+    \subitem {FirmataDefines.h}, \hyperpage{229}
+  \item {SYSEX\_SAMPLING\_INTERVAL}
+    \subitem {Firmata.h}, \hyperpage{214}
+  \item {sysexCallbackFunction}
+    \subitem {Firmata.h}, \hyperpage{215}
+    \subitem {firmata::FirmataClass}, \hyperpage{121}
+    \subitem {firmata::FirmataParser}, \hyperpage{159}
+  \item {SYSTEM\_RESET}
+    \subitem {firmata}, \hyperpage{91}
+    \subitem {FirmataDefines.h}, \hyperpage{229}
+  \item {systemCallbackFunction}
+    \subitem {Firmata.h}, \hyperpage{215}
+    \subitem {firmata::FirmataClass}, \hyperpage{122}
+    \subitem {firmata::FirmataParser}, \hyperpage{159}
+  \item {systemReset}
+    \subitem {firmata::FirmataMarshaller}, \hyperpage{156}
+
+  \indexspace
+
+  \item {tone-\/proposal.md}, \hyperpage{244}
+  \item {TOTAL\_PIN\_MODES}
+    \subitem {firmata}, \hyperpage{91}
+    \subitem {FirmataDefines.h}, \hyperpage{229}
+  \item {TOTAL\_PORTS}
+    \subitem {Boards.h}, \hyperpage{204}
+
+  \indexspace
+
+  \item {unused}
+    \subitem {Boards.h}, \hyperpage{205}
+  \item {update}
+    \subitem {SerialFirmata}, \hyperpage{175}
+
+  \indexspace
+
+  \item {versionCallbackFunction}
+    \subitem {firmata::FirmataParser}, \hyperpage{159}
+
+  \indexspace
+
+  \item {WIFI\_WPA\_SECURITY}
+    \subitem {wifiConfig.h}, \hyperpage{245}
+  \item {WiFiClientStream}, \hyperpage{176}
+    \subitem {\_time\_connect}, \hyperpage{181}
+    \subitem {connect\_client}, \hyperpage{178}
+    \subitem {maintain}, \hyperpage{179}
+    \subitem {stop}, \hyperpage{180}
+    \subitem {WiFiClientStream}, \hyperpage{178}
+  \item {WiFiClientStream.h}, \hyperpage{244}
+    \subitem {MILLIS\_RECONNECT}, \hyperpage{245}
+  \item {wifiConfig.h}, \hyperpage{245}
+    \subitem {SERVER\_PORT}, \hyperpage{245}
+    \subitem {ssid}, \hyperpage{246}
+    \subitem {stream}, \hyperpage{246}
+    \subitem {WIFI\_WPA\_SECURITY}, \hyperpage{245}
+    \subitem {wpa\_passphrase}, \hyperpage{246}
+  \item {WiFiServerStream}, \hyperpage{181}
+    \subitem {\_listening}, \hyperpage{187}
+    \subitem {\_server}, \hyperpage{187}
+    \subitem {connect\_client}, \hyperpage{184}
+    \subitem {maintain}, \hyperpage{185}
+    \subitem {stop}, \hyperpage{186}
+    \subitem {WiFiServerStream}, \hyperpage{184}
+  \item {WiFiServerStream.h}, \hyperpage{246}
+  \item {WiFiStream}, \hyperpage{188}
+    \subitem {\_client}, \hyperpage{196}
+    \subitem {\_connected}, \hyperpage{196}
+    \subitem {\_currentHostConnectionCallback}, \hyperpage{196}
+    \subitem {\_gateway}, \hyperpage{197}
+    \subitem {\_key}, \hyperpage{197}
+    \subitem {\_key\_idx}, \hyperpage{197}
+    \subitem {\_local\_ip}, \hyperpage{197}
+    \subitem {\_passphrase}, \hyperpage{197}
+    \subitem {\_port}, \hyperpage{197}
+    \subitem {\_remote\_ip}, \hyperpage{198}
+    \subitem {\_ssid}, \hyperpage{198}
+    \subitem {\_subnet}, \hyperpage{198}
+    \subitem {attach}, \hyperpage{191}
+    \subitem {available}, \hyperpage{191}
+    \subitem {begin}, \hyperpage{191, 192}
+    \subitem {config}, \hyperpage{192}
+    \subitem {connect\_client}, \hyperpage{193}
+    \subitem {flush}, \hyperpage{193}
+    \subitem {getLocalIP}, \hyperpage{194}
+    \subitem {maintain}, \hyperpage{194}
+    \subitem {peek}, \hyperpage{194}
+    \subitem {read}, \hyperpage{195}
+    \subitem {stop}, \hyperpage{195}
+    \subitem {WiFiStream}, \hyperpage{190}
+    \subitem {write}, \hyperpage{195}
+  \item {WiFiStream.cpp}, \hyperpage{247}
+  \item {WiFiStream.h}, \hyperpage{247}
+    \subitem {HOST\_CONNECTION\_CONNECTED}, \hyperpage{248}
+    \subitem {HOST\_CONNECTION\_DISCONNECTED}, \hyperpage{248}
+    \subitem {hostConnectionCallbackFunction}, \hyperpage{248}
+  \item {WIZ5100\_ETHERNET}
+    \subitem {ethernetConfig.h}, \hyperpage{208}
+  \item {wpa\_passphrase}
+    \subitem {wifiConfig.h}, \hyperpage{246}
+  \item {write}
+    \subitem {BLEStream}, \hyperpage{98}
+    \subitem {BluefruitLE\_SPI\_Stream}, \hyperpage{106}
+    \subitem {EthernetClientStream}, \hyperpage{111}
+    \subitem {EthernetServerStream}, \hyperpage{118}
+    \subitem {firmata::FirmataClass}, \hyperpage{140}
+    \subitem {WiFiStream}, \hyperpage{195}
+  \item {writePort}
+    \subitem {Boards.h}, \hyperpage{204}
+
+\end{theindex}

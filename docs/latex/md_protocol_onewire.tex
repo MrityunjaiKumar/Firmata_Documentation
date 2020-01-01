@@ -1,0 +1,122 @@
+The idea is to configure Arduino Pins as One\+Wire Busmaster. The may be more than one pin configured for One\+Wire and there may be more than one device connected to such a pin.
+
+Each one-\/wire-\/device has a unique identifier which is 8 bytes long and comes factory-\/programmed into the the device. To scan all devices connected to a pin configured for onewire a S\+E\+A\+R\+C\+H-\/request message is sent. The response contains all addresses of devices found. Having the address of a device One\+Wire-\/command-\/messages may be sent to this device.
+
+The actual commands executed on the One\+Wire-\/bus are \textquotesingle{}reset\textquotesingle{}, \textquotesingle{}skip\textquotesingle{}, \textquotesingle{}select\textquotesingle{}, \textquotesingle{}read\textquotesingle{}, \textquotesingle{}delay\textquotesingle{} and \textquotesingle{}write\textquotesingle{} All these commands may be executed with a single One\+Wire-\/command-\/message. The subcommand-\/byte contains these commands bit-\/encoded. The data required to execute each bus-\/command must only be included in the message when the corresponding bit is set.
+
+The order of execution of bus commands is\+: \textquotesingle{}reset\textquotesingle{}-\/$>$\textquotesingle{}skip\textquotesingle{}-\/$>$\textquotesingle{}select\textquotesingle{}-\/$>$\textquotesingle{}write\textquotesingle{}-\/$>$\textquotesingle{}read\textquotesingle{}-\/$>$\textquotesingle{}delay\textquotesingle{} (remember\+: each of these steps is optional. Also some combinations don\textquotesingle{}t make sense and in fact are mutual exclusive in terms of One\+Wire bus protocol, so you cannot run a \textquotesingle{}skip\textquotesingle{} followed by a \textquotesingle{}select\textquotesingle{}) The delay is useful for One\+Wire-\/commands included into taskdata (see \href{https://github.com/firmata/protocol/blob/master/scheduler.md}{\texttt{ Firmata-\/scheduler proposal}}).
+
+Some One\+Wire-\/devices require some time to carry out e.\+g. a a/d-\/conversion after receiving the appropriate command. Including a delay into a One\+Wire-\/message saves some bytes in the taskdata (in comparism to the inclusion of a \textquotesingle{}delay\+\_\+task\textquotesingle{} scheduler message). One\+Wire Read-\/ and Read\+Reply messages are correlated using a correlationid (16bits). The reply contains the correlationid-\/value that was sent with the original request.
+
+Added in Firmata protocol version 2.\+4.\+0.\hypertarget{md_protocol_onewire_autotoc_md32}{}\doxysubsection{Example files\+:}\label{md_protocol_onewire_autotoc_md32}
+
+\begin{DoxyItemize}
+\item One\+Wire is include by default in \href{https://github.com/firmata/ConfigurableFirmata/blob/master/examples/ConfigurableFirmata/ConfigurableFirmata.ino}{\texttt{ Configurable\+Firmata.\+ino}}.
+\item \href{https://github.com/firmata/ConfigurableFirmata/blob/master/src/OneWireFirmata.cpp}{\texttt{ Example implementation}} as a configurable Firmata feature class.
+\end{DoxyItemize}\hypertarget{md_protocol_onewire_autotoc_md33}{}\doxysubsection{Compatible host implementations}\label{md_protocol_onewire_autotoc_md33}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/firmata/ConfigurableFirmata}{\texttt{ Configurable\+Firmata}}
+\end{DoxyItemize}\hypertarget{md_protocol_onewire_autotoc_md34}{}\doxysubsection{Compatible client librairies}\label{md_protocol_onewire_autotoc_md34}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/ntruchsess/perl-firmata}{\texttt{ perl-\/firmata}}
+\item \href{https://github.com/jgautier/firmata/blob/master/lib/firmata.js}{\texttt{ node-\/firmata}}
+\end{DoxyItemize}\hypertarget{md_protocol_onewire_autotoc_md35}{}\doxysubsection{Protocol details}\label{md_protocol_onewire_autotoc_md35}
+One\+Wire S\+E\+A\+R\+CH request 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX      (0xF0)}
+\DoxyCodeLine{1  OneWire Command  (0x73)}
+\DoxyCodeLine{2  search command   (0x40|0x44) 0x40 normal search for all devices on the bus}
+\DoxyCodeLine{                                0x44 SEARCH\_ALARMS request to find only those}
+\DoxyCodeLine{                                devices that are in alarmed state.}
+\DoxyCodeLine{3  pin              (0-\/127)}
+\DoxyCodeLine{4  END\_SYSEX        (0xF7)}
+\end{DoxyCode}
+
+
+One\+Wire S\+E\+A\+R\+CH reply 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX      (0xF0)}
+\DoxyCodeLine{1  OneWire Command  (0x73)}
+\DoxyCodeLine{2  search reply command (0x42|0x45) 0x42 normal search reply}
+\DoxyCodeLine{                                    0x45 reply to a SEARCH\_ALARMS request}
+\DoxyCodeLine{3  pin              (0-\/127)}
+\DoxyCodeLine{4  bit 0-\/6   [optional] address bytes encoded using 8 times 7 bit for 7 bytes of 8 bit}
+\DoxyCodeLine{5  bit 7-\/13  [optional] 1.address[0] = byte[0]    + byte[1]<<7 \& 0x7F}
+\DoxyCodeLine{6  bit 14-\/20 [optional] 1.address[1] = byte[1]>>1 + byte[2]<<6 \& 0x7F}
+\DoxyCodeLine{7  ....                 ...}
+\DoxyCodeLine{11 bit 49-\/55            1.address[6] = byte[6]>>6 + byte[7]<<1 \& 0x7F}
+\DoxyCodeLine{12 bit 56-\/63            1.address[7] = byte[8]    + byte[9]<<7 \& 0x7F}
+\DoxyCodeLine{13 bit 64-\/69            2.address[0] = byte[9]>>1 + byte[10]<<6 \&0x7F}
+\DoxyCodeLine{n  ... as many bytes as needed (don't exceed MAX\_DATA\_BYTES though)}
+\DoxyCodeLine{n+1  END\_SYSEX      (0xF7)}
+\end{DoxyCode}
+
+
+One\+Wire C\+O\+N\+F\+IG request 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX      (0xF0)}
+\DoxyCodeLine{1  OneWire Command  (0x73)}
+\DoxyCodeLine{2  config command   (0x41)}
+\DoxyCodeLine{3  pin              (0-\/127)}
+\DoxyCodeLine{4  power            (0x00|0x01) 0x00 = leave pin on state high after write to support}
+\DoxyCodeLine{                                parasitic power}
+\DoxyCodeLine{                                0x01 = don't leave pin on high after write}
+\DoxyCodeLine{5  END\_SYSEX (0xF7)}
+\end{DoxyCode}
+
+
+One\+Wire C\+O\+M\+M\+A\+ND request 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX      (0xF0)}
+\DoxyCodeLine{1  OneWire Command  (0x73)}
+\DoxyCodeLine{2  command bits     (0x00-\/0x2F) bit 0 = reset, bit 1 = skip, bit 2 = select,}
+\DoxyCodeLine{                                bit 3 = read, bit 4 = delay, bit 5 = write}
+\DoxyCodeLine{3  pin              (0-\/127)}
+\DoxyCodeLine{4  bit 0-\/6   [optional] data bytes encoded using 8 times 7 bit for 7 bytes of 8 bit}
+\DoxyCodeLine{5  bit 7-\/13  [optional] data[0] = byte[0]   + byte[1]<<7 \& 0x7F}
+\DoxyCodeLine{6  bit 14-\/20 [optional] data[1] = byte[1]>1 + byte[2]<<6 \& 0x7F}
+\DoxyCodeLine{7  ....                 data[2] = byte = byte[2]>2 + byte[3]<<5 \& 0x7F ...}
+\DoxyCodeLine{n  ... as many bytes as needed (don't exceed MAX\_DATA\_BYTES though)}
+\DoxyCodeLine{n+1  END\_SYSEX      (0xF7)}
+\DoxyCodeLine{}
+\DoxyCodeLine{// data bytes within OneWire Request Command message}
+\DoxyCodeLine{0  address[0]                    [optional, if bit 2 set]}
+\DoxyCodeLine{1  address[1]                              "}
+\DoxyCodeLine{2  address[2]                              "}
+\DoxyCodeLine{3  address[3]                              "}
+\DoxyCodeLine{4  address[4]                              "}
+\DoxyCodeLine{5  address[5]                              "}
+\DoxyCodeLine{6  address[6]                              "}
+\DoxyCodeLine{7  address[7]                              "}
+\DoxyCodeLine{8  number of bytes to read (LSB) [optional, if bit 3 set]}
+\DoxyCodeLine{9  number of bytes to read (MSB)           "}
+\DoxyCodeLine{10 request correlationid byte 0            "}
+\DoxyCodeLine{11 request correlationid byte 1            "}
+\DoxyCodeLine{10 delay in ms      (bits 0-\/7)   [optional, if bit 4 set]}
+\DoxyCodeLine{11 delay in ms      (bits 8-\/15)            "}
+\DoxyCodeLine{12 delay in ms      (bits 16-\/23)           "}
+\DoxyCodeLine{13 delay in ms      (bits 24-\/31)           "}
+\DoxyCodeLine{14 data to write    (bits 0-\/7)   [optional, if bit 5 set]}
+\DoxyCodeLine{15 data to write    (bits 8-\/15)            "}
+\DoxyCodeLine{16 data to write    (bits 16-\/23)           "}
+\DoxyCodeLine{n  ... as many bytes as needed (don't exceed MAX\_DATA\_BYTES though)}
+\end{DoxyCode}
+
+
+One\+Wire R\+E\+AD reply 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX          (0xF0)}
+\DoxyCodeLine{1  OneWire Command      (0x73)}
+\DoxyCodeLine{2  read reply command   (0x43)}
+\DoxyCodeLine{3  pin                  (0-\/127)}
+\DoxyCodeLine{4  bit 0-\/6   [optional] data bytes encoded using 8 times 7 bit for 7 bytes of 8 bit}
+\DoxyCodeLine{5  bit 7-\/13  [optional] correlationid[0] = byte[0]   + byte[1]<<7 \& 0x7F}
+\DoxyCodeLine{6  bit 14-\/20 [optional] correlationid[1] = byte[1]>1 + byte[2]<<6 \& 0x7F}
+\DoxyCodeLine{7  bit 21-\/27 [optional] data[0] = byte[2]>2 + byte[3]<<5 \& 0x7F}
+\DoxyCodeLine{8  ....                 data[1] = byte[3]>3 + byte[4]<<4 \& 0x7F}
+\DoxyCodeLine{n  ... as many bytes as needed (don't exceed MAX\_DATA\_BYTES though)}
+\DoxyCodeLine{n+1  END\_SYSEX          (0xF7)}
+\end{DoxyCode}
+ 

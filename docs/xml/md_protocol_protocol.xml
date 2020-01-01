@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md_protocol_protocol" kind="page">
+    <compoundname>md_protocol_protocol</compoundname>
+    <title>protocol</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Current version: 2.6.0</para>
+<para>The intention of this protocol is to allow as much of the microcontroller to be controlled as possible from the host computer. This protocol was designed for the direct communication between a microcontroller and a software object on a host computer. The host software object should then provide an interface that makes sense in that environment.</para>
+<para>The data communication format uses MIDI messages. It is not necessarily a MIDI device, first it uses a faster serial speed, and second, the messages don&apos;t always map the same.</para>
+<sect1 id="md_protocol_protocol_1autotoc_md93">
+<title>Message Types</title>
+<para>This protocol uses the <ulink url="http://www.midi.org/techspecs/midimessages.php">MIDI message format</ulink>, but does not use the whole protocol. Most of the command mappings here will not be directly usable in terms of MIDI controllers and synths. It should co-exist with MIDI without trouble and can be parsed by standard MIDI interpreters. Just some of the message data is used differently.</para>
+<para><table rows="12" cols="5"><row>
+<entry thead="yes"><para>type  </para>
+</entry><entry thead="yes"><para>command  </para>
+</entry><entry thead="yes"><para>MIDI channel  </para>
+</entry><entry thead="yes"><para>first byte  </para>
+</entry><entry thead="yes"><para>second byte   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>analog I/O message  </para>
+</entry><entry thead="no"><para>0xE0  </para>
+</entry><entry thead="no"><para>pin #  </para>
+</entry><entry thead="no"><para>LSB(bits 0-6)  </para>
+</entry><entry thead="no"><para>MSB(bits 7-13)   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>digital I/O message  </para>
+</entry><entry thead="no"><para>0x90  </para>
+</entry><entry thead="no"><para>port  </para>
+</entry><entry thead="no"><para>LSB(bits 0-6)  </para>
+</entry><entry thead="no"><para>MSB(bits 7-13)   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>report analog pin  </para>
+</entry><entry thead="no"><para>0xC0  </para>
+</entry><entry thead="no"><para>pin #  </para>
+</entry><entry thead="no"><para>disable/enable(0/1)  </para>
+</entry><entry thead="no"><para>- n/a -   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>report digital port  </para>
+</entry><entry thead="no"><para>0xD0  </para>
+</entry><entry thead="no"><para>port  </para>
+</entry><entry thead="no"><para>disable/enable(0/1)  </para>
+</entry><entry thead="no"><para>- n/a -   </para>
+</entry></row>
+<row>
+<entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no"><para>start sysex  </para>
+</entry><entry thead="no"><para>0xF0  </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no"><para>set pin mode(I/O)  </para>
+</entry><entry thead="no"><para>0xF4  </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>pin # (0-127)  </para>
+</entry><entry thead="no"><para>pin mode   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>set digital pin value  </para>
+</entry><entry thead="no"><para>0xF5  </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>pin # (0-127)  </para>
+</entry><entry thead="no"><para>pin value(0/1)   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>sysex end  </para>
+</entry><entry thead="no"><para>0xF7  </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no"><para>protocol version  </para>
+</entry><entry thead="no"><para>0xF9  </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para>major version  </para>
+</entry><entry thead="no"><para>minor version   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>system reset  </para>
+</entry><entry thead="no"><para>0xFF  </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+</table>
+</para>
+<para>Sysex-based sub-commands (0x00 - 0x7F) are used for an extended command set.</para>
+<para><table rows="3" cols="5"><row>
+<entry thead="yes"><para>type  </para>
+</entry><entry thead="yes"><para>sub-command  </para>
+</entry><entry thead="yes"><para>first byte  </para>
+</entry><entry thead="yes"><para>second byte  </para>
+</entry><entry thead="yes"><para>...   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>string  </para>
+</entry><entry thead="no"><para>0x71  </para>
+</entry><entry thead="no"><para>char *string ...  </para>
+</entry><entry thead="no"><para></para>
+</entry><entry thead="no"><para></para>
+</entry></row>
+<row>
+<entry thead="no"><para>firmware name/version  </para>
+</entry><entry thead="no"><para>0x79  </para>
+</entry><entry thead="no"><para>major version  </para>
+</entry><entry thead="no"><para>minor version  </para>
+</entry><entry thead="no"><para>char *name ...   </para>
+</entry></row>
+</table>
+</para>
+</sect1>
+<sect1 id="md_protocol_protocol_1autotoc_md94">
+<title>Data Message Expansion</title>
+<para>Two byte digital data format, second nibble of byte 0 gives the port number (eg 0x92 is the third port, port 2) <programlisting><codeline><highlight class="normal">0<sp/><sp/>digital<sp/>data,<sp/>0x90-0x9F,<sp/>(MIDI<sp/>NoteOn,<sp/>bud<sp/>different<sp/>data<sp/>format)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>digital<sp/>pins<sp/>0-6<sp/>bitmask</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>digital<sp/>pin<sp/>7<sp/>bitmask</highlight></codeline>
+</programlisting></para>
+<para>Analog 14-bit data format <programlisting><codeline><highlight class="normal">0<sp/><sp/>analog<sp/>pin,<sp/>0xE0-0xEF,<sp/>(MIDI<sp/>Pitch<sp/>Wheel)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>analog<sp/>least<sp/>significant<sp/>7<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>analog<sp/>most<sp/>significant<sp/>7<sp/>bits</highlight></codeline>
+</programlisting> Version report format <programlisting><codeline><highlight class="normal">0<sp/><sp/>version<sp/>report<sp/>header<sp/>(0xF9)<sp/>(MIDI<sp/>Undefined)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>major<sp/>version<sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>minor<sp/>version<sp/>(0-127)</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="md_protocol_protocol_1autotoc_md95">
+<title>Control Messages Expansion</title>
+<para>Set pin mode <programlisting><codeline><highlight class="normal">0<sp/><sp/>set<sp/>digital<sp/>pin<sp/>mode<sp/>(0xF4)<sp/>(MIDI<sp/>Undefined)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>set<sp/>pin<sp/>number<sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>mode<sp/>(INPUT/OUTPUT/ANALOG/PWM/SERVO/I2C/ONEWIRE/STEPPER/ENCODER/SERIAL/PULLUP,<sp/>0/1/2/3/4/6/7/8/9/10/11)</highlight></codeline>
+</programlisting></para>
+<para>Set digital pin value (added in v2.5) <programlisting><codeline><highlight class="normal">0<sp/><sp/>set<sp/>digital<sp/>pin<sp/>value<sp/>(0xF5)<sp/>(MIDI<sp/>Undefined)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>set<sp/>pin<sp/>number<sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>value<sp/>(LOW/HIGH,<sp/>0/1)</highlight></codeline>
+</programlisting></para>
+<para>Toggle analogIn reporting by pin <programlisting><codeline><highlight class="normal">0<sp/><sp/>toggle<sp/>analogIn<sp/>reporting<sp/>(0xC0-0xCF)<sp/>(MIDI<sp/>Program<sp/>Change)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>disable(0)<sp/>/<sp/>enable(non-zero)</highlight></codeline>
+</programlisting> <emphasis>As of Firmata 2.4.0, upon enabling an analog pin, the pin value should be reported to the client application.</emphasis></para>
+<para>Toggle digital port reporting by port (second nibble of byte 0), eg 0xD1 is port 1 is pins 8 to 15 <programlisting><codeline><highlight class="normal">0<sp/><sp/>toggle<sp/>digital<sp/>port<sp/>reporting<sp/>(0xD0-0xDF)<sp/>(MIDI<sp/>Aftertouch)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>disable(0)<sp/>/<sp/>enable(non-zero)</highlight></codeline>
+</programlisting> <emphasis>As of Firmata 2.4.0, upon enabling a digital port, the port value should be reported to the client application.</emphasis></para>
+<para>Request version report <programlisting><codeline><highlight class="normal">0<sp/><sp/>request<sp/>version<sp/>report<sp/>(0xF9)<sp/>(MIDI<sp/>Undefined)</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="md_protocol_protocol_1autotoc_md96">
+<title>Sysex Message Format</title>
+<para>System exclusive (sysex) messages are used to define sets of core and optional firmata features. Core features are related to functionality such as digital and analog I/O, querying information about the state and capabilities of the microcontroller board and the firmware running on the board. All core features are documented in this <ref refid="protocol_8md" kindref="compound">protocol.md</ref> file. Optional features extend the hardware capabilities beyond basic digital I/O and analog I/O and also provide APIs to interface with general and specific components and system services. Optional features are individually documented in separate markdown files.</para>
+<para>Each firmata sysex message has a feature ID composed of either a single byte or an extended ID composed of 3 bytes where the first byte is always 0 to indicate it&apos;s an extended ID. The following table illustrates the structure. The most significant bit must be set to 0 in each byte between the <computeroutput>START_SYSEX</computeroutput> and <computeroutput>END_SYSEX</computeroutput> which frame the message.</para>
+<para><table rows="3" cols="4"><row>
+<entry thead="yes"><para>byte 0  </para>
+</entry><entry thead="yes"><para>byte 1  </para>
+</entry><entry thead="yes"><para>bytes 2 - N-1  </para>
+</entry><entry thead="yes"><para>byte N   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>START_SYSEX  </para>
+</entry><entry thead="no"><para>ID (01H-7DH)  </para>
+</entry><entry thead="no"><para>PAYLOAD  </para>
+</entry><entry thead="no"><para>END_SYSEX   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>START_SYSEX  </para>
+</entry><entry thead="no"><para>ID (00H)  </para>
+</entry><entry thead="no"><para>EXTENDED_ID (00H 00H - 7FH 7FH) + PAYLOAD  </para>
+</entry><entry thead="no"><para>END_SYSEX   </para>
+</entry></row>
+</table>
+</para>
+<para>Following are SysEx commands used for core features defined in this version of the protocol:</para>
+<para><programlisting><codeline><highlight class="normal">EXTENDED_ID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00<sp/>//<sp/>A<sp/>value<sp/>of<sp/>0x00<sp/>indicates<sp/>the<sp/>next<sp/>2<sp/>bytes<sp/>define<sp/>the<sp/>extended<sp/>ID</highlight></codeline>
+<codeline><highlight class="normal">RESERVED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x01-0x0F<sp/>//<sp/>IDs<sp/>0x01<sp/>-<sp/>0x0F<sp/>are<sp/>reserved<sp/>for<sp/>user<sp/>defined<sp/>commands</highlight></codeline>
+<codeline><highlight class="normal">ANALOG_MAPPING_QUERY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x69<sp/>//<sp/>ask<sp/>for<sp/>mapping<sp/>of<sp/>analog<sp/>to<sp/>pin<sp/>numbers</highlight></codeline>
+<codeline><highlight class="normal">ANALOG_MAPPING_RESPONSE<sp/><sp/><sp/><sp/><sp/>0x6A<sp/>//<sp/>reply<sp/>with<sp/>mapping<sp/>info</highlight></codeline>
+<codeline><highlight class="normal">CAPABILITY_QUERY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x6B<sp/>//<sp/>ask<sp/>for<sp/>supported<sp/>modes<sp/>and<sp/>resolution<sp/>of<sp/>all<sp/>pins</highlight></codeline>
+<codeline><highlight class="normal">CAPABILITY_RESPONSE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x6C<sp/>//<sp/>reply<sp/>with<sp/>supported<sp/>modes<sp/>and<sp/>resolution</highlight></codeline>
+<codeline><highlight class="normal">PIN_STATE_QUERY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x6D<sp/>//<sp/>ask<sp/>for<sp/>a<sp/>pin&apos;s<sp/>current<sp/>mode<sp/>and<sp/>state<sp/>(different<sp/>than<sp/>value)</highlight></codeline>
+<codeline><highlight class="normal">PIN_STATE_RESPONSE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x6E<sp/>//<sp/>reply<sp/>with<sp/>a<sp/>pin&apos;s<sp/>current<sp/>mode<sp/>and<sp/>state<sp/>(different<sp/>than<sp/>value)</highlight></codeline>
+<codeline><highlight class="normal">EXTENDED_ANALOG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x6F<sp/>//<sp/>analog<sp/>write<sp/>(PWM,<sp/>Servo,<sp/>etc)<sp/>to<sp/>any<sp/>pin</highlight></codeline>
+<codeline><highlight class="normal">STRING_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x71<sp/>//<sp/>a<sp/>string<sp/>message<sp/>with<sp/>14-bits<sp/>per<sp/>char</highlight></codeline>
+<codeline><highlight class="normal">REPORT_FIRMWARE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x79<sp/>//<sp/>report<sp/>name<sp/>and<sp/>version<sp/>of<sp/>the<sp/>firmware</highlight></codeline>
+<codeline><highlight class="normal">SAMPLING_INTERVAL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x7A<sp/>//<sp/>the<sp/>interval<sp/>at<sp/>which<sp/>analog<sp/>input<sp/>is<sp/>sampled<sp/>(default<sp/>=<sp/>19ms)</highlight></codeline>
+<codeline><highlight class="normal">SYSEX_NON_REALTIME<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x7E<sp/>//<sp/>MIDI<sp/>Reserved<sp/>for<sp/>non-realtime<sp/>messages</highlight></codeline>
+<codeline><highlight class="normal">SYSEX_REALTIME<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0X7F<sp/>//<sp/>MIDI<sp/>Reserved<sp/>for<sp/>realtime<sp/>messages</highlight></codeline>
+</programlisting></para>
+<para>The full set of core and optional Firmata feature IDs is defined in the <ulink url="https://github.com/firmata/protocol/blob/master/feature-registry.md">firmata-registry.md</ulink> file. See the registry for more info on proposing a new feature and obtaining an feature ID.</para>
+<sect2 id="md_protocol_protocol_1autotoc_md97">
+<title>Query Firmware Name and Version</title>
+<para>The firmware name to be reported should be exactly the same as the name of the Firmata client file, minus the file extension. So for StandardFirmata.ino, the firmware name is: StandardFirmata.</para>
+<para>Query firmware Name and Version <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>queryFirmware<sp/><sp/><sp/><sp/><sp/>(0x79)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>Receive Firmware Name and Version (after query) <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>queryFirmware<sp/><sp/><sp/><sp/><sp/>(0x79)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>major<sp/>version<sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>minor<sp/>version<sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>first<sp/>char<sp/>of<sp/>firmware<sp/>name<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>first<sp/>char<sp/>of<sp/>firmware<sp/>name<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>second<sp/>char<sp/>of<sp/>firmware<sp/>name<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>second<sp/>char<sp/>of<sp/>firmware<sp/>name<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>for<sp/>as<sp/>many<sp/>bytes<sp/>as<sp/>it<sp/>needs</highlight></codeline>
+<codeline><highlight class="normal">N<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_protocol_protocol_1autotoc_md98">
+<title>Extended Analog</title>
+<para>As an alternative to the normal analog message, this extended version allows addressing beyond pin 15 and supports sending analog values with any number of bits. The number of data bits is inferred by the length of the message.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>extended<sp/>analog<sp/>message<sp/><sp/>(0x6F)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>bits<sp/>0-6<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(least<sp/>significant<sp/>byte)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>bits<sp/>7-13<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(most<sp/>significant<sp/>byte)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>additional<sp/>bytes<sp/>may<sp/>be<sp/>sent<sp/>if<sp/>more<sp/>bits<sp/>are<sp/>needed</highlight></codeline>
+<codeline><highlight class="normal">N<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_protocol_protocol_1autotoc_md99">
+<title>Capability Query</title>
+<para>The capability query provides a list of all modes supported by each pin. Each mode is described by 2 bytes where the first byte is the pin mode (such as digital input, digital output, PWM) and the second byte is the resolution (or sometimes the type of pin such as RX or TX for a UART pin). A value of <computeroutput>0x7F</computeroutput> is used as a separator to mark the end each pin&apos;s list of modes. The number of pins supported is inferred by the message length.</para>
+<sect3 id="md_protocol_protocol_1autotoc_md100">
+<title>Capabilities query</title>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>CAPABILITY_QUERY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x6B)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md_protocol_protocol_1autotoc_md101">
+<title>Capabilities response</title>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>CAPABILITY_RESPONSE<sp/><sp/><sp/><sp/><sp/><sp/>(0x6C)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>1st<sp/>supported<sp/>mode<sp/>of<sp/>pin<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>1st<sp/>mode&apos;s<sp/>resolution<sp/>of<sp/>pin<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>2nd<sp/>supported<sp/>mode<sp/>of<sp/>pin<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>2nd<sp/>mode&apos;s<sp/>resolution<sp/>of<sp/>pin<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>additional<sp/>modes/resolutions,<sp/>followed<sp/>by<sp/>`0x7F`,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>to<sp/>mark<sp/>the<sp/>end<sp/>of<sp/>the<sp/>pin&apos;s<sp/>modes.<sp/>Subsequently,<sp/>each<sp/>pin</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>follows<sp/>with<sp/>its<sp/>modes/resolutions<sp/>and<sp/>`0x7F`,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>until<sp/>all<sp/>pins<sp/>are<sp/>defined.</highlight></codeline>
+<codeline><highlight class="normal">N<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<sect4 id="md_protocol_protocol_1autotoc_md102">
+<title>Supported Modes</title>
+<para>The modes in the following list are the modes of operation that can be returned during the capability response: <programlisting><codeline><highlight class="normal">DIGITAL_INPUT<sp/><sp/><sp/><sp/><sp/><sp/>(0x00)</highlight></codeline>
+<codeline><highlight class="normal">DIGITAL_OUTPUT<sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">ANALOG_INPUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="normal">PWM<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x03)</highlight></codeline>
+<codeline><highlight class="normal">SERVO<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x04)</highlight></codeline>
+<codeline><highlight class="normal">SHIFT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x05)</highlight></codeline>
+<codeline><highlight class="normal">I2C<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x06)</highlight></codeline>
+<codeline><highlight class="normal">ONEWIRE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x07)</highlight></codeline>
+<codeline><highlight class="normal">STEPPER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x08)</highlight></codeline>
+<codeline><highlight class="normal">ENCODER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x09)</highlight></codeline>
+<codeline><highlight class="normal">SERIAL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x0A)</highlight></codeline>
+<codeline><highlight class="normal">INPUT_PULLUP<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x0B)</highlight></codeline>
+</programlisting></para>
+<para><emphasis>If no modes are defined for a pin, no values are returned (other than the separator value <computeroutput>0x7F</computeroutput>) and it should be assumed that pin is unsupported by Firmata.</emphasis></para>
+</sect4>
+<sect4 id="md_protocol_protocol_1autotoc_md103">
+<title>Mode Resolution</title>
+<para>The resolution byte serves a couple of different purpose:</para>
+<para><orderedlist>
+<listitem><para>The original purpose was to define the resolution for analog input, pwm, servo and other modes that define a specific resolution (such as 10-bit for analog).</para>
+</listitem><listitem><para>The resolution byte has been adapted for another purpose for Serial/UART pins, it defines if the pin is RX or TX and which UART it belongs to. <ulink url="https://github.com/firmata/protocol/blob/master/serial.md#serial-pin-capability-response">RX0</ulink> is the RX pin of UART0 (Serial on an Arduino for example), TX1 if the TX pin of UART1 (Serial1 on an Arduino).</para>
+</listitem></orderedlist>
+</para>
+<para>Modes utilizing the resolution byte as resolution data: <programlisting><codeline><highlight class="normal">DIGITAL_INPUT<sp/><sp/><sp/><sp/><sp/><sp/>(0x00)<sp/>//<sp/>resolution<sp/>is<sp/>1<sp/>(binary)</highlight></codeline>
+<codeline><highlight class="normal">DIGITAL_OUTPUT<sp/><sp/><sp/><sp/><sp/>(0x01)<sp/>//<sp/>resolution<sp/>is<sp/>1<sp/>(binary)</highlight></codeline>
+<codeline><highlight class="normal">ANALOG_INPUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)<sp/>//<sp/>analog<sp/>input<sp/>resolution<sp/>in<sp/>number<sp/>of<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal">PWM<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x03)<sp/>//<sp/>pwm<sp/>resolution<sp/>in<sp/>number<sp/>of<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal">SERVO<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x04)<sp/>//<sp/>servo<sp/>resolution<sp/>in<sp/>number<sp/>of<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal">STEPPER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x08)<sp/>//<sp/>resolution<sp/>is<sp/>number<sp/>number<sp/>of<sp/>bits<sp/>in<sp/>max<sp/>number<sp/>of<sp/>steps</highlight></codeline>
+<codeline><highlight class="normal">INPUT_PULLUP<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x0B)<sp/>//<sp/>resolution<sp/>is<sp/>1<sp/>(binary)</highlight></codeline>
+</programlisting></para>
+<para>Modes utilizing the resolution byte to define type of pin: <programlisting><codeline><highlight class="normal">SERIAL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x0A)<sp/>//<sp/>See<sp/>description<sp/>in<sp/>[serial.md](https://github.com/firmata/protocol/blob/master/serial.md#serial-pin-capability-response)</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>also<sp/>to<sp/>be<sp/>added<sp/>to<sp/>I2C<sp/>in<sp/>the<sp/>future<sp/>to<sp/>define<sp/>SCL<sp/>and<sp/>SDA<sp/>pins</highlight></codeline>
+</programlisting></para>
+<para><emphasis>For other features (including I2C until updated) the resolution information is less important so a value of 1 is used.</emphasis></para>
+</sect4>
+</sect3>
+</sect2>
+<sect2 id="md_protocol_protocol_1autotoc_md104">
+<title>Analog Mapping Query</title>
+<para>Analog messages are numbered 0 to 15, which traditionally refer to the Arduino pins labeled A0, A1, A2, etc. However, these pins are actually configured using &quot;normal&quot; pin numbers in the pin mode message, and when those pins are used for non-analog functions. The analog mapping query provides the information about which pins (as used with Firmata&apos;s pin mode message) correspond to the analog channels.</para>
+<para>Analog mapping query <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>analog<sp/>mapping<sp/>query<sp/><sp/><sp/><sp/><sp/>(0x69)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>Analog mapping response <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>analog<sp/>mapping<sp/>response<sp/><sp/>(0x6A)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>analog<sp/>channel<sp/>corresponding<sp/>to<sp/>pin<sp/>0,<sp/>or<sp/>127<sp/>if<sp/>pin<sp/>0<sp/>does<sp/>not<sp/>support<sp/>analog</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>analog<sp/>channel<sp/>corresponding<sp/>to<sp/>pin<sp/>1,<sp/>or<sp/>127<sp/>if<sp/>pin<sp/>1<sp/>does<sp/>not<sp/>support<sp/>analog</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>analog<sp/>channel<sp/>corresponding<sp/>to<sp/>pin<sp/>2,<sp/>or<sp/>127<sp/>if<sp/>pin<sp/>2<sp/>does<sp/>not<sp/>support<sp/>analog</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>etc,<sp/>one<sp/>byte<sp/>for<sp/>each<sp/>pin</highlight></codeline>
+<codeline><highlight class="normal">N<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><emphasis>The above 2 queries provide static data (should never change for a particular board). Because this information is fixed and should only need to be read once, these messages are designed for a simple implementation in StandardFirmata, rather that bandwidth savings (eg, using packed bit fields).</emphasis></para>
+</sect2>
+<sect2 id="md_protocol_protocol_1autotoc_md105">
+<title>Pin State Query</title>
+<para>The pin <bold>state</bold> is any data written to the pin (<emphasis>it is important to note that pin state != pin value</emphasis>). For output modes (digital output, PWM, and Servo), the state is any value that has been previously written to the pin. For input modes, typically the state is zero. However, for digital inputs, the state is the status of the pull-up resistor which is 1 if enabled, 0 if disabled.</para>
+<para>The pin state query can also be used as a verification after sending pin modes or data messages.</para>
+<para>Pin state query <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>pin<sp/>state<sp/>query<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x6D)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>Pin state response <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>pin<sp/>state<sp/>response<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x6E)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>pin<sp/>mode<sp/>(the<sp/>currently<sp/>configured<sp/>mode)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>pin<sp/>state,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>(optional)<sp/>pin<sp/>state,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>(optional)<sp/>pin<sp/>state,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>additional<sp/>optional<sp/>bytes,<sp/>as<sp/>many<sp/>as<sp/>needed</highlight></codeline>
+<codeline><highlight class="normal">N<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_protocol_protocol_1autotoc_md106">
+<title>String</title>
+<para>Send short string messages between the board and the client application. String length is limited to half the buffer size - 3 (for Arduino this limits strings to 30 chars). Commonly used to report error messages to the client. <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>STRING_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x71)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>first<sp/>char<sp/>LSB</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>first<sp/>char<sp/>MSB</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>second<sp/>char<sp/>LSB</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>second<sp/>char<sp/>MSB</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>additional<sp/>bytes<sp/>up<sp/>to<sp/>half<sp/>the<sp/>buffer<sp/>size<sp/>-<sp/>3<sp/>(START_SYSEX,<sp/>STRING_DATA,<sp/>END_SYSEX)</highlight></codeline>
+<codeline><highlight class="normal">N<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_protocol_protocol_1autotoc_md107">
+<title>Sampling Interval</title>
+<para>The sampling interval sets how often analog data and i2c data is reported to the client. The default for the arduino implementation is 19ms. This means that every 19ms analog data will be reported and any i2c devices with read continuous mode will be read. <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SAMPLING_INTERVAL<sp/><sp/>(0x7A)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>sampling<sp/>interval<sp/>on<sp/>the<sp/>millisecond<sp/>time<sp/>scale<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>sampling<sp/>interval<sp/>on<sp/>the<sp/>millisecond<sp/>time<sp/>scale<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting> </para>
+</sect2>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

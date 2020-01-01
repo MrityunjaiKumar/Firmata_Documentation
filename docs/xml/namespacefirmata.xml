@@ -1,0 +1,825 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="namespacefirmata" kind="namespace" language="C++">
+    <compoundname>firmata</compoundname>
+    <innerclass refid="classfirmata_1_1_firmata_class" prot="public">firmata::FirmataClass</innerclass>
+    <innerclass refid="classfirmata_1_1_firmata_marshaller" prot="public">firmata::FirmataMarshaller</innerclass>
+    <innerclass refid="classfirmata_1_1_firmata_parser" prot="public">firmata::FirmataParser</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacefirmata_1a907b23d622ab39dca9100d7561799cf4" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::FIRMWARE_MAJOR_VERSION</definition>
+        <argsstring></argsstring>
+        <name>FIRMWARE_MAJOR_VERSION</name>
+        <initializer>=  2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="22" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a9ea3a70946c3a81038b8b76794baf8c5" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::FIRMWARE_MINOR_VERSION</definition>
+        <argsstring></argsstring>
+        <name>FIRMWARE_MINOR_VERSION</name>
+        <initializer>=  5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="23" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a046a3736802341efb94c4ad58b1db402" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::FIRMWARE_BUGFIX_VERSION</definition>
+        <argsstring></argsstring>
+        <name>FIRMWARE_BUGFIX_VERSION</name>
+        <initializer>= 7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="24" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a53075f2525bc88855c69b9c488c2d999" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PROTOCOL_MAJOR_VERSION</definition>
+        <argsstring></argsstring>
+        <name>PROTOCOL_MAJOR_VERSION</name>
+        <initializer>=  2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="30" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1afd8cbb884ac87d8b228011942a4263aa" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PROTOCOL_MINOR_VERSION</definition>
+        <argsstring></argsstring>
+        <name>PROTOCOL_MINOR_VERSION</name>
+        <initializer>=  5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="31" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a8797b4b9df3f5a3d854f063d7bf6d4b7" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PROTOCOL_BUGFIX_VERSION</definition>
+        <argsstring></argsstring>
+        <name>PROTOCOL_BUGFIX_VERSION</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="32" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1ad8f1fd3a3919e434ea4d86ce1a39a77e" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::MAX_DATA_BYTES</definition>
+        <argsstring></argsstring>
+        <name>MAX_DATA_BYTES</name>
+        <initializer>=          64</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="34" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a49bf6564630519f4293bd39a71a95b00" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::DIGITAL_MESSAGE</definition>
+        <argsstring></argsstring>
+        <name>DIGITAL_MESSAGE</name>
+        <initializer>=         0x90</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="38" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="38" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" compoundref="_firmata_parser_8cpp" startline="216" endline="244">firmata::FirmataParser::attach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" compoundref="_firmata_8cpp" startline="80" endline="100">firmata::FirmataClass::FirmataClass</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" compoundref="_firmata_parser_8cpp" startline="81" endline="171">firmata::FirmataParser::parse</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1a346dcb4487a51efaa95de42d292ad951" compoundref="_firmata_marshaller_8cpp" startline="302" endline="310">firmata::FirmataMarshaller::sendDigitalPort</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1aea14613546a585cfec72d5b0f79365ef" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::ANALOG_MESSAGE</definition>
+        <argsstring></argsstring>
+        <name>ANALOG_MESSAGE</name>
+        <initializer>=          0xE0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="39" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="39" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" compoundref="_firmata_parser_8cpp" startline="216" endline="244">firmata::FirmataParser::attach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" compoundref="_firmata_8cpp" startline="80" endline="100">firmata::FirmataClass::FirmataClass</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" compoundref="_firmata_parser_8cpp" startline="81" endline="171">firmata::FirmataParser::parse</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1a4d9f2d3bb058237404dfe433cfe7571a" compoundref="_firmata_marshaller_8cpp" startline="245" endline="255">firmata::FirmataMarshaller::sendAnalog</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1aea1b306b1e7d3751bba41f311b755a99" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::REPORT_ANALOG</definition>
+        <argsstring></argsstring>
+        <name>REPORT_ANALOG</name>
+        <initializer>=           0xC0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="40" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="40" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" compoundref="_firmata_parser_8cpp" startline="216" endline="244">firmata::FirmataParser::attach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" compoundref="_firmata_8cpp" startline="80" endline="100">firmata::FirmataClass::FirmataClass</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" compoundref="_firmata_parser_8cpp" startline="81" endline="171">firmata::FirmataParser::parse</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a00a56f93ad64fa08998b7db2054180a6" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::REPORT_DIGITAL</definition>
+        <argsstring></argsstring>
+        <name>REPORT_DIGITAL</name>
+        <initializer>=          0xD0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="41" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="41" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" compoundref="_firmata_parser_8cpp" startline="216" endline="244">firmata::FirmataParser::attach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" compoundref="_firmata_8cpp" startline="80" endline="100">firmata::FirmataClass::FirmataClass</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" compoundref="_firmata_parser_8cpp" startline="81" endline="171">firmata::FirmataParser::parse</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a5ecb59a9641299fcaf2e4ce96587c1f8" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::SET_PIN_MODE</definition>
+        <argsstring></argsstring>
+        <name>SET_PIN_MODE</name>
+        <initializer>=            0xF4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="43" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="43" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" compoundref="_firmata_parser_8cpp" startline="216" endline="244">firmata::FirmataParser::attach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" compoundref="_firmata_8cpp" startline="80" endline="100">firmata::FirmataClass::FirmataClass</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" compoundref="_firmata_parser_8cpp" startline="81" endline="171">firmata::FirmataParser::parse</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1a36b6cc103609d900cce36149a239f221" compoundref="_firmata_marshaller_8cpp" startline="355" endline="362">firmata::FirmataMarshaller::sendPinMode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a0a75e8e1855e7dedbbbfd17711f152af" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::SET_DIGITAL_PIN_VALUE</definition>
+        <argsstring></argsstring>
+        <name>SET_DIGITAL_PIN_VALUE</name>
+        <initializer>=   0xF5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="44" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="44" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" compoundref="_firmata_parser_8cpp" startline="216" endline="244">firmata::FirmataParser::attach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" compoundref="_firmata_8cpp" startline="80" endline="100">firmata::FirmataClass::FirmataClass</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" compoundref="_firmata_parser_8cpp" startline="81" endline="171">firmata::FirmataParser::parse</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1a2d90627f0543b6298be71f7d903399b3" compoundref="_firmata_marshaller_8cpp" startline="284" endline="291">firmata::FirmataMarshaller::sendDigital</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a7aa955ae4335c171096a0224bf279f5b" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::REPORT_VERSION</definition>
+        <argsstring></argsstring>
+        <name>REPORT_VERSION</name>
+        <initializer>=          0xF9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="46" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="46" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1affc821e7742d889965e61b248c204842" compoundref="_firmata_parser_8cpp" startline="272" endline="284">firmata::FirmataParser::attach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a7cd707386c0807bee733a3e27d161c7d" compoundref="_firmata_parser_8cpp" startline="337" endline="357">firmata::FirmataParser::detach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" compoundref="_firmata_8cpp" startline="80" endline="100">firmata::FirmataClass::FirmataClass</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" compoundref="_firmata_parser_8cpp" startline="81" endline="171">firmata::FirmataParser::parse</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1a488fbbd372c894ec78ebb99e0faf5167" compoundref="_firmata_marshaller_8cpp" startline="177" endline="182">firmata::FirmataMarshaller::queryVersion</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1a95d58949e32ad285088705dbe5680b29" compoundref="_firmata_marshaller_8cpp" startline="339" endline="346">firmata::FirmataMarshaller::sendVersion</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1abba911f61c8df9fc6f6ea7bf041a22b5" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::SYSTEM_RESET</definition>
+        <argsstring></argsstring>
+        <name>SYSTEM_RESET</name>
+        <initializer>=            0xFF</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="47" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="47" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1affc821e7742d889965e61b248c204842" compoundref="_firmata_parser_8cpp" startline="272" endline="284">firmata::FirmataParser::attach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1adc3db897058f33e902097ce89bb01bb3" compoundref="_firmata_8cpp" startline="413" endline="420">firmata::FirmataClass::attach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a7cd707386c0807bee733a3e27d161c7d" compoundref="_firmata_parser_8cpp" startline="337" endline="357">firmata::FirmataParser::detach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a5db0faee74b9291d1b783d2dde0929d1" compoundref="_firmata_8cpp" startline="452" endline="468">firmata::FirmataClass::detach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" compoundref="_firmata_8cpp" startline="80" endline="100">firmata::FirmataClass::FirmataClass</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" compoundref="_firmata_parser_8cpp" startline="81" endline="171">firmata::FirmataParser::parse</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1a3a585937f94b1f9e51797e5950a33206" compoundref="_firmata_marshaller_8cpp" startline="426" endline="431">firmata::FirmataMarshaller::systemReset</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a8210ab38d9279ef1ea406ff7e1db0893" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::START_SYSEX</definition>
+        <argsstring></argsstring>
+        <name>START_SYSEX</name>
+        <initializer>=             0xF0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="49" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="49" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a7cd707386c0807bee733a3e27d161c7d" compoundref="_firmata_parser_8cpp" startline="337" endline="357">firmata::FirmataParser::detach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a5db0faee74b9291d1b783d2dde0929d1" compoundref="_firmata_8cpp" startline="452" endline="468">firmata::FirmataClass::detach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" compoundref="_firmata_8cpp" startline="80" endline="100">firmata::FirmataClass::FirmataClass</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" compoundref="_firmata_parser_8cpp" startline="81" endline="171">firmata::FirmataParser::parse</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1af954bcf09b77458b3c4f032897d14697" compoundref="_firmata_marshaller_8cpp" startline="165" endline="172">firmata::FirmataMarshaller::queryFirmwareVersion</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1aed71d62cc41f2e0bf3f161894b91be7c" compoundref="_firmata_marshaller_8cpp" startline="319" endline="332">firmata::FirmataMarshaller::sendFirmwareVersion</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1afc378ab4a39c843d4419acdee944972b" compoundref="_firmata_marshaller_8cpp" startline="371" endline="379">firmata::FirmataMarshaller::sendPinStateQuery</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1ade4f4592877ec0b9f8d6c74e909bad8e" compoundref="_firmata_marshaller_8cpp" startline="388" endline="399">firmata::FirmataMarshaller::sendSysex</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a3cc7ea1af348bca3ea0bd570314cada3" compoundref="_firmata_8cpp" startline="59" endline="62">firmata::FirmataClass::startSysex</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1aa4c7b2c2365334150eff56b64c87e6e0" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::END_SYSEX</definition>
+        <argsstring></argsstring>
+        <name>END_SYSEX</name>
+        <initializer>=               0xF7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="50" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a9bb68afbb1d37a7990f59a1d419e64c9" compoundref="_firmata_8cpp" startline="67" endline="70">firmata::FirmataClass::endSysex</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" compoundref="_firmata_parser_8cpp" startline="81" endline="171">firmata::FirmataParser::parse</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1af954bcf09b77458b3c4f032897d14697" compoundref="_firmata_marshaller_8cpp" startline="165" endline="172">firmata::FirmataMarshaller::queryFirmwareVersion</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1aed71d62cc41f2e0bf3f161894b91be7c" compoundref="_firmata_marshaller_8cpp" startline="319" endline="332">firmata::FirmataMarshaller::sendFirmwareVersion</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1afc378ab4a39c843d4419acdee944972b" compoundref="_firmata_marshaller_8cpp" startline="371" endline="379">firmata::FirmataMarshaller::sendPinStateQuery</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1ade4f4592877ec0b9f8d6c74e909bad8e" compoundref="_firmata_marshaller_8cpp" startline="388" endline="399">firmata::FirmataMarshaller::sendSysex</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1aff1edac3f296b33699e56c901453aaee" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::SERIAL_DATA</definition>
+        <argsstring></argsstring>
+        <name>SERIAL_DATA</name>
+        <initializer>=             0x60</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="55" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a91befd7ce756ed98c5c12a5db6de8e87" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::ENCODER_DATA</definition>
+        <argsstring></argsstring>
+        <name>ENCODER_DATA</name>
+        <initializer>=            0x61</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="56" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a279c8797403c34fdd23641b256dd4ce8" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::SERVO_CONFIG</definition>
+        <argsstring></argsstring>
+        <name>SERVO_CONFIG</name>
+        <initializer>=            0x70</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="57" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1ada4a2133aced1b1051f4663a8365bbc6" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::STRING_DATA</definition>
+        <argsstring></argsstring>
+        <name>STRING_DATA</name>
+        <initializer>=             0x71</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="58" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="58" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a239b37e09dea042d229fc2171d3a1979" compoundref="_firmata_parser_8cpp" startline="294" endline="302">firmata::FirmataParser::attach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a074887a70f9aca0c0aae7e9bdc103f77" compoundref="_firmata_8cpp" startline="427" endline="434">firmata::FirmataClass::attach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a7cd707386c0807bee733a3e27d161c7d" compoundref="_firmata_parser_8cpp" startline="337" endline="357">firmata::FirmataParser::detach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a5db0faee74b9291d1b783d2dde0929d1" compoundref="_firmata_8cpp" startline="452" endline="468">firmata::FirmataClass::detach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" compoundref="_firmata_8cpp" startline="80" endline="100">firmata::FirmataClass::FirmataClass</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1a483ac2dea885ab3472dc38b99bfdec2f" compoundref="_firmata_marshaller_8cpp" startline="405" endline="409">firmata::FirmataMarshaller::sendString</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1ab139c0d784e69003c88eb5be8807dcdf" compoundref="_firmata_8cpp" startline="352" endline="357">firmata::FirmataClass::sendString</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1ad4499419fd18eab3ca0bad7948cb537b" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::STEPPER_DATA</definition>
+        <argsstring></argsstring>
+        <name>STEPPER_DATA</name>
+        <initializer>=            0x72</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="59" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a4b2f055735709d33578080e32d4017e4" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::ONEWIRE_DATA</definition>
+        <argsstring></argsstring>
+        <name>ONEWIRE_DATA</name>
+        <initializer>=            0x73</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="60" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a124878990c7a28410e182929f1a1f41d" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::SHIFT_DATA</definition>
+        <argsstring></argsstring>
+        <name>SHIFT_DATA</name>
+        <initializer>=              0x75</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="61" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1abf19783b34390b352e0604cd3dad612e" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::I2C_REQUEST</definition>
+        <argsstring></argsstring>
+        <name>I2C_REQUEST</name>
+        <initializer>=             0x76</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="62" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1ad7edf4e8855f4d63bdb15217315315f9" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::I2C_REPLY</definition>
+        <argsstring></argsstring>
+        <name>I2C_REPLY</name>
+        <initializer>=               0x77</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="63" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1aa5505f86d327e487e3fe0838bff6287e" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::I2C_CONFIG</definition>
+        <argsstring></argsstring>
+        <name>I2C_CONFIG</name>
+        <initializer>=              0x78</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="64" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a27aae72a38fab1b0b039d7687e294398" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::REPORT_FIRMWARE</definition>
+        <argsstring></argsstring>
+        <name>REPORT_FIRMWARE</name>
+        <initializer>=         0x79</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="65" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="65" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a876105f2203f5e8f1fb06c8236a96933" compoundref="_firmata_parser_8cpp" startline="254" endline="262">firmata::FirmataParser::attach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_parser_1a7cd707386c0807bee733a3e27d161c7d" compoundref="_firmata_parser_8cpp" startline="337" endline="357">firmata::FirmataParser::detach</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" compoundref="_firmata_8cpp" startline="80" endline="100">firmata::FirmataClass::FirmataClass</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1af954bcf09b77458b3c4f032897d14697" compoundref="_firmata_marshaller_8cpp" startline="165" endline="172">firmata::FirmataMarshaller::queryFirmwareVersion</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1aed71d62cc41f2e0bf3f161894b91be7c" compoundref="_firmata_marshaller_8cpp" startline="319" endline="332">firmata::FirmataMarshaller::sendFirmwareVersion</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1af63c2236acda8928ec0f40b5455012f7" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::EXTENDED_ANALOG</definition>
+        <argsstring></argsstring>
+        <name>EXTENDED_ANALOG</name>
+        <initializer>=         0x6F</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="66" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a6a99bd6639cb0c31e495a06299235400" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_STATE_QUERY</definition>
+        <argsstring></argsstring>
+        <name>PIN_STATE_QUERY</name>
+        <initializer>=         0x6D</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="67" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="67" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1afc378ab4a39c843d4419acdee944972b" compoundref="_firmata_marshaller_8cpp" startline="371" endline="379">firmata::FirmataMarshaller::sendPinStateQuery</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1af68a2192b3313782e859066eaea00eaa" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_STATE_RESPONSE</definition>
+        <argsstring></argsstring>
+        <name>PIN_STATE_RESPONSE</name>
+        <initializer>=      0x6E</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="68" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a5e9aa179fe2a6f6fc8cf1111dfb10fcc" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::CAPABILITY_QUERY</definition>
+        <argsstring></argsstring>
+        <name>CAPABILITY_QUERY</name>
+        <initializer>=        0x6B</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="69" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="69" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1a1f1c5ce29ba4488306c9a1e3f158b781" compoundref="_firmata_marshaller_8cpp" startline="273" endline="277">firmata::FirmataMarshaller::sendCapabilityQuery</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a2d55580a4960b036ec4a82d3d3183ca0" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::CAPABILITY_RESPONSE</definition>
+        <argsstring></argsstring>
+        <name>CAPABILITY_RESPONSE</name>
+        <initializer>=     0x6C</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="70" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a2dafec1845e07af47dca44cfb7c2a845" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::ANALOG_MAPPING_QUERY</definition>
+        <argsstring></argsstring>
+        <name>ANALOG_MAPPING_QUERY</name>
+        <initializer>=    0x69</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="71" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="71" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1a1c987a534cc8dd197eb2f2a728bdacb3" compoundref="_firmata_marshaller_8cpp" startline="262" endline="266">firmata::FirmataMarshaller::sendAnalogMappingQuery</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a1812af7d171ffa0ec2fa767ac2ee640c" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::ANALOG_MAPPING_RESPONSE</definition>
+        <argsstring></argsstring>
+        <name>ANALOG_MAPPING_RESPONSE</name>
+        <initializer>= 0x6A</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="72" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a10cd53a86cb2598fdd5d451e4262365c" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::SAMPLING_INTERVAL</definition>
+        <argsstring></argsstring>
+        <name>SAMPLING_INTERVAL</name>
+        <initializer>=       0x7A</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="73" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="73" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1abb8f4c79dd8a0dbee3f5e04c587ae20c" compoundref="_firmata_marshaller_8cpp" startline="416" endline="420">firmata::FirmataMarshaller::setSamplingInterval</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a81438cb25eabc504edf9ce3f89af715d" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::SCHEDULER_DATA</definition>
+        <argsstring></argsstring>
+        <name>SCHEDULER_DATA</name>
+        <initializer>=          0x7B</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="74" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1af8c2c1cb74851d367ace1c8fbee13ed4" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::SYSEX_NON_REALTIME</definition>
+        <argsstring></argsstring>
+        <name>SYSEX_NON_REALTIME</name>
+        <initializer>=      0x7E</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="75" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a69f9c9aaae87d16f8e49eac52f8ba763" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::SYSEX_REALTIME</definition>
+        <argsstring></argsstring>
+        <name>SYSEX_REALTIME</name>
+        <initializer>=          0x7F</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="76" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a31958a7d613c3be66f64914179eea023" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_MODE_INPUT</definition>
+        <argsstring></argsstring>
+        <name>PIN_MODE_INPUT</name>
+        <initializer>=          0x00</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="79" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1ad7065dc798a0be02ba59314678cb54df" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_MODE_OUTPUT</definition>
+        <argsstring></argsstring>
+        <name>PIN_MODE_OUTPUT</name>
+        <initializer>=         0x01</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="80" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a4277f9143d618a708ab570e939605d8b" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_MODE_ANALOG</definition>
+        <argsstring></argsstring>
+        <name>PIN_MODE_ANALOG</name>
+        <initializer>=         0x02</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="81" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a88cb1b4ea3d32539e8f4f849cc434069" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_MODE_PWM</definition>
+        <argsstring></argsstring>
+        <name>PIN_MODE_PWM</name>
+        <initializer>=            0x03</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="82" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a217981318c36c51aa93506ebcc7cdf1e" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_MODE_SERVO</definition>
+        <argsstring></argsstring>
+        <name>PIN_MODE_SERVO</name>
+        <initializer>=          0x04</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="83" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a7c98683168966b850a80d8f9a3ad6093" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_MODE_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>PIN_MODE_SHIFT</name>
+        <initializer>=          0x05</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="84" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a81399476761b40d54282f591a5b2599d" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_MODE_I2C</definition>
+        <argsstring></argsstring>
+        <name>PIN_MODE_I2C</name>
+        <initializer>=            0x06</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="85" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a7ca99c1ad705a43355d38e617d97a35f" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_MODE_ONEWIRE</definition>
+        <argsstring></argsstring>
+        <name>PIN_MODE_ONEWIRE</name>
+        <initializer>=        0x07</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="86" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a3365d8e49a6f8ddc705ed0453731ae07" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_MODE_STEPPER</definition>
+        <argsstring></argsstring>
+        <name>PIN_MODE_STEPPER</name>
+        <initializer>=        0x08</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="87" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1aa099c6fdc37560f4681de95c55d2b271" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_MODE_ENCODER</definition>
+        <argsstring></argsstring>
+        <name>PIN_MODE_ENCODER</name>
+        <initializer>=        0x09</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="88" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a1707b5256ac545f5d07f19a646a6d842" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_MODE_SERIAL</definition>
+        <argsstring></argsstring>
+        <name>PIN_MODE_SERIAL</name>
+        <initializer>=         0x0A</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="89" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a9bedf1d06787c7168dfbfc2937484631" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_MODE_PULLUP</definition>
+        <argsstring></argsstring>
+        <name>PIN_MODE_PULLUP</name>
+        <initializer>=         0x0B</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="90" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1ac10cf5b5b05ab1b1277d98c82c1fb8d1" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::PIN_MODE_IGNORE</definition>
+        <argsstring></argsstring>
+        <name>PIN_MODE_IGNORE</name>
+        <initializer>=         0x7F</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="91" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="91" bodyend="-1"/>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a32c41dd94c1d23aa0e6d3d1dbe5c0c04" compoundref="_firmata_8cpp" startline="486" endline="492">firmata::FirmataClass::setPinMode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefirmata_1a82f29141a1ea4d51be325f6224deee24" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int firmata::TOTAL_PIN_MODES</definition>
+        <argsstring></argsstring>
+        <name>TOTAL_PIN_MODES</name>
+        <initializer>=         13</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataConstants.h" line="93" column="18" bodyfile="arduino/FirmataConstants.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="arduino/Firmata.h" line="51" column="17"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,320 @@
+Current version\+: 2.\+6.\+0
+
+The intention of this protocol is to allow as much of the microcontroller to be controlled as possible from the host computer. This protocol was designed for the direct communication between a microcontroller and a software object on a host computer. The host software object should then provide an interface that makes sense in that environment.
+
+The data communication format uses M\+I\+DI messages. It is not necessarily a M\+I\+DI device, first it uses a faster serial speed, and second, the messages don\textquotesingle{}t always map the same.\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md93}{}\doxysection{Message Types}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md93}
+This protocol uses the \href{http://www.midi.org/techspecs/midimessages.php}{\texttt{ M\+I\+DI message format}}, but does not use the whole protocol. Most of the command mappings here will not be directly usable in terms of M\+I\+DI controllers and synths. It should co-\/exist with M\+I\+DI without trouble and can be parsed by standard M\+I\+DI interpreters. Just some of the message data is used differently.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ type  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ command  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ M\+I\+DI channel  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ first byte  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ second byte   }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ type  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ command  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ M\+I\+DI channel  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ first byte  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ second byte   }\\\cline{1-5}
+\endhead
+analog I/O message  &0x\+E0  &pin \#  &L\+SB(bits 0-\/6)  &M\+SB(bits 7-\/13)   \\\cline{1-5}
+digital I/O message  &0x90  &port  &L\+SB(bits 0-\/6)  &M\+SB(bits 7-\/13)   \\\cline{1-5}
+report analog pin  &0x\+C0  &pin \#  &disable/enable(0/1)  &-\/ n/a -\/   \\\cline{1-5}
+report digital port  &0x\+D0  &port  &disable/enable(0/1)  &-\/ n/a -\/   \\\cline{1-5}
+&&&&\\\cline{1-5}
+start sysex  &0x\+F0  &&&\\\cline{1-5}
+set pin mode(I/O)  &0x\+F4  &&pin \# (0-\/127)  &pin mode   \\\cline{1-5}
+set digital pin value  &0x\+F5  &&pin \# (0-\/127)  &pin value(0/1)   \\\cline{1-5}
+sysex end  &0x\+F7  &&&\\\cline{1-5}
+protocol version  &0x\+F9  &&major version  &minor version   \\\cline{1-5}
+system reset  &0x\+FF  &&&\\\cline{1-5}
+\end{longtabu}
+
+
+Sysex-\/based sub-\/commands (0x00 -\/ 0x7F) are used for an extended command set.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ type  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ sub-\/command  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ first byte  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ second byte  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ ...   }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ type  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ sub-\/command  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ first byte  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ second byte  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ ...   }\\\cline{1-5}
+\endhead
+string  &0x71  &char $\ast$string ...  &&\\\cline{1-5}
+firmware name/version  &0x79  &major version  &minor version  &char $\ast$name ...   \\\cline{1-5}
+\end{longtabu}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md94}{}\doxysection{Data Message Expansion}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md94}
+Two byte digital data format, second nibble of byte 0 gives the port number (eg 0x92 is the third port, port 2) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  digital data, 0x90-\/0x9F, (MIDI NoteOn, bud different data format)}
+\DoxyCodeLine{1  digital pins 0-\/6 bitmask}
+\DoxyCodeLine{2  digital pin 7 bitmask}
+\end{DoxyCode}
+
+
+Analog 14-\/bit data format 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  analog pin, 0xE0-\/0xEF, (MIDI Pitch Wheel)}
+\DoxyCodeLine{1  analog least significant 7 bits}
+\DoxyCodeLine{2  analog most significant 7 bits}
+\end{DoxyCode}
+ Version report format 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  version report header (0xF9) (MIDI Undefined)}
+\DoxyCodeLine{1  major version (0-\/127)}
+\DoxyCodeLine{2  minor version (0-\/127)}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md95}{}\doxysection{Control Messages Expansion}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md95}
+Set pin mode 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  set digital pin mode (0xF4) (MIDI Undefined)}
+\DoxyCodeLine{1  set pin number (0-\/127)}
+\DoxyCodeLine{2  mode (INPUT/OUTPUT/ANALOG/PWM/SERVO/I2C/ONEWIRE/STEPPER/ENCODER/SERIAL/PULLUP, 0/1/2/3/4/6/7/8/9/10/11)}
+\end{DoxyCode}
+
+
+Set digital pin value (added in v2.\+5) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  set digital pin value (0xF5) (MIDI Undefined)}
+\DoxyCodeLine{1  set pin number (0-\/127)}
+\DoxyCodeLine{2  value (LOW/HIGH, 0/1)}
+\end{DoxyCode}
+
+
+Toggle analog\+In reporting by pin 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  toggle analogIn reporting (0xC0-\/0xCF) (MIDI Program Change)}
+\DoxyCodeLine{1  disable(0) / enable(non-\/zero)}
+\end{DoxyCode}
+ {\itshape As of Firmata 2.\+4.\+0, upon enabling an analog pin, the pin value should be reported to the client application.}
+
+Toggle digital port reporting by port (second nibble of byte 0), eg 0x\+D1 is port 1 is pins 8 to 15 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  toggle digital port reporting (0xD0-\/0xDF) (MIDI Aftertouch)}
+\DoxyCodeLine{1  disable(0) / enable(non-\/zero)}
+\end{DoxyCode}
+ {\itshape As of Firmata 2.\+4.\+0, upon enabling a digital port, the port value should be reported to the client application.}
+
+Request version report 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  request version report (0xF9) (MIDI Undefined)}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md96}{}\doxysection{Sysex Message Format}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md96}
+System exclusive (sysex) messages are used to define sets of core and optional firmata features. Core features are related to functionality such as digital and analog I/O, querying information about the state and capabilities of the microcontroller board and the firmware running on the board. All core features are documented in this \mbox{\hyperlink{protocol_8md}{protocol.\+md}} file. Optional features extend the hardware capabilities beyond basic digital I/O and analog I/O and also provide A\+P\+Is to interface with general and specific components and system services. Optional features are individually documented in separate markdown files.
+
+Each firmata sysex message has a feature ID composed of either a single byte or an extended ID composed of 3 bytes where the first byte is always 0 to indicate it\textquotesingle{}s an extended ID. The following table illustrates the structure. The most significant bit must be set to 0 in each byte between the {\ttfamily S\+T\+A\+R\+T\+\_\+\+S\+Y\+S\+EX} and {\ttfamily E\+N\+D\+\_\+\+S\+Y\+S\+EX} which frame the message.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ byte 0  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ byte 1  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ bytes 2 -\/ N-\/1  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ byte N   }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ byte 0  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ byte 1  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ bytes 2 -\/ N-\/1  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ byte N   }\\\cline{1-4}
+\endhead
+S\+T\+A\+R\+T\+\_\+\+S\+Y\+S\+EX  &ID (01H-\/7\+DH)  &P\+A\+Y\+L\+O\+AD  &E\+N\+D\+\_\+\+S\+Y\+S\+EX   \\\cline{1-4}
+S\+T\+A\+R\+T\+\_\+\+S\+Y\+S\+EX  &ID (00H)  &E\+X\+T\+E\+N\+D\+E\+D\+\_\+\+ID (00H 00H -\/ 7FH 7FH) + P\+A\+Y\+L\+O\+AD  &E\+N\+D\+\_\+\+S\+Y\+S\+EX   \\\cline{1-4}
+\end{longtabu}
+
+
+Following are Sys\+Ex commands used for core features defined in this version of the protocol\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{EXTENDED\_ID                 0x00 // A value of 0x00 indicates the next 2 bytes define the extended ID}
+\DoxyCodeLine{RESERVED               0x01-\/0x0F // IDs 0x01 -\/ 0x0F are reserved for user defined commands}
+\DoxyCodeLine{ANALOG\_MAPPING\_QUERY        0x69 // ask for mapping of analog to pin numbers}
+\DoxyCodeLine{ANALOG\_MAPPING\_RESPONSE     0x6A // reply with mapping info}
+\DoxyCodeLine{CAPABILITY\_QUERY            0x6B // ask for supported modes and resolution of all pins}
+\DoxyCodeLine{CAPABILITY\_RESPONSE         0x6C // reply with supported modes and resolution}
+\DoxyCodeLine{PIN\_STATE\_QUERY             0x6D // ask for a pin's current mode and state (different than value)}
+\DoxyCodeLine{PIN\_STATE\_RESPONSE          0x6E // reply with a pin's current mode and state (different than value)}
+\DoxyCodeLine{EXTENDED\_ANALOG             0x6F // analog write (PWM, Servo, etc) to any pin}
+\DoxyCodeLine{STRING\_DATA                 0x71 // a string message with 14-\/bits per char}
+\DoxyCodeLine{REPORT\_FIRMWARE             0x79 // report name and version of the firmware}
+\DoxyCodeLine{SAMPLING\_INTERVAL           0x7A // the interval at which analog input is sampled (default = 19ms)}
+\DoxyCodeLine{SYSEX\_NON\_REALTIME          0x7E // MIDI Reserved for non-\/realtime messages}
+\DoxyCodeLine{SYSEX\_REALTIME              0X7F // MIDI Reserved for realtime messages}
+\end{DoxyCode}
+
+
+The full set of core and optional Firmata feature I\+Ds is defined in the \href{https://github.com/firmata/protocol/blob/master/feature-registry.md}{\texttt{ firmata-\/registry.\+md}} file. See the registry for more info on proposing a new feature and obtaining an feature ID.\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md97}{}\doxysubsection{Query Firmware Name and Version}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md97}
+The firmware name to be reported should be exactly the same as the name of the Firmata client file, minus the file extension. So for Standard\+Firmata.\+ino, the firmware name is\+: Standard\+Firmata.
+
+Query firmware Name and Version 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX       (0xF0)}
+\DoxyCodeLine{1  queryFirmware     (0x79)}
+\DoxyCodeLine{2  END\_SYSEX         (0xF7)}
+\end{DoxyCode}
+
+
+Receive Firmware Name and Version (after query) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX       (0xF0)}
+\DoxyCodeLine{1  queryFirmware     (0x79)}
+\DoxyCodeLine{2  major version     (0-\/127)}
+\DoxyCodeLine{3  minor version     (0-\/127)}
+\DoxyCodeLine{4  first char of firmware name (LSB)}
+\DoxyCodeLine{5  first char of firmware name (MSB)}
+\DoxyCodeLine{6  second char of firmware name (LSB)}
+\DoxyCodeLine{7  second char of firmware name (MSB)}
+\DoxyCodeLine{... for as many bytes as it needs}
+\DoxyCodeLine{N  END\_SYSEX         (0xF7)}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md98}{}\doxysubsection{Extended Analog}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md98}
+As an alternative to the normal analog message, this extended version allows addressing beyond pin 15 and supports sending analog values with any number of bits. The number of data bits is inferred by the length of the message.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX              (0xF0)}
+\DoxyCodeLine{1  extended analog message  (0x6F)}
+\DoxyCodeLine{2  pin                      (0-\/127)}
+\DoxyCodeLine{3  bits 0-\/6                 (least significant byte)}
+\DoxyCodeLine{4  bits 7-\/13                (most significant byte)}
+\DoxyCodeLine{... additional bytes may be sent if more bits are needed}
+\DoxyCodeLine{N  END\_SYSEX                (0xF7)}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md99}{}\doxysubsection{Capability Query}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md99}
+The capability query provides a list of all modes supported by each pin. Each mode is described by 2 bytes where the first byte is the pin mode (such as digital input, digital output, P\+WM) and the second byte is the resolution (or sometimes the type of pin such as RX or TX for a U\+A\+RT pin). A value of {\ttfamily 0x7F} is used as a separator to mark the end each pin\textquotesingle{}s list of modes. The number of pins supported is inferred by the message length.\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md100}{}\doxysubsubsection{Capabilities query}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md100}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX              (0xF0)}
+\DoxyCodeLine{1  CAPABILITY\_QUERY         (0x6B)}
+\DoxyCodeLine{2  END\_SYSEX                (0xF7)}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md101}{}\doxysubsubsection{Capabilities response}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md101}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX              (0xF0)}
+\DoxyCodeLine{1  CAPABILITY\_RESPONSE      (0x6C)}
+\DoxyCodeLine{2  1st supported mode of pin 0}
+\DoxyCodeLine{3  1st mode's resolution of pin 0}
+\DoxyCodeLine{4  2nd supported mode of pin 0}
+\DoxyCodeLine{5  2nd mode's resolution of pin 0}
+\DoxyCodeLine{... additional modes/resolutions, followed by `0x7F`,}
+\DoxyCodeLine{    to mark the end of the pin's modes. Subsequently, each pin}
+\DoxyCodeLine{    follows with its modes/resolutions and `0x7F`,}
+\DoxyCodeLine{    until all pins are defined.}
+\DoxyCodeLine{N  END\_SYSEX                (0xF7)}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md102}{}\doxyparagraph{Supported Modes}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md102}
+The modes in the following list are the modes of operation that can be returned during the capability response\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DIGITAL\_INPUT      (0x00)}
+\DoxyCodeLine{DIGITAL\_OUTPUT     (0x01)}
+\DoxyCodeLine{ANALOG\_INPUT       (0x02)}
+\DoxyCodeLine{PWM                (0x03)}
+\DoxyCodeLine{SERVO              (0x04)}
+\DoxyCodeLine{SHIFT              (0x05)}
+\DoxyCodeLine{I2C                (0x06)}
+\DoxyCodeLine{ONEWIRE            (0x07)}
+\DoxyCodeLine{STEPPER            (0x08)}
+\DoxyCodeLine{ENCODER            (0x09)}
+\DoxyCodeLine{SERIAL             (0x0A)}
+\DoxyCodeLine{INPUT\_PULLUP       (0x0B)}
+\end{DoxyCode}
+
+
+{\itshape If no modes are defined for a pin, no values are returned (other than the separator value {\ttfamily 0x7F}) and it should be assumed that pin is unsupported by Firmata.}\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md103}{}\doxyparagraph{Mode Resolution}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md103}
+The resolution byte serves a couple of different purpose\+:
+
+
+\begin{DoxyEnumerate}
+\item The original purpose was to define the resolution for analog input, pwm, servo and other modes that define a specific resolution (such as 10-\/bit for analog).
+\item The resolution byte has been adapted for another purpose for Serial/\+U\+A\+RT pins, it defines if the pin is RX or TX and which U\+A\+RT it belongs to. \href{https://github.com/firmata/protocol/blob/master/serial.md\#serial-pin-capability-response}{\texttt{ R\+X0}} is the RX pin of U\+A\+R\+T0 (Serial on an Arduino for example), T\+X1 if the TX pin of U\+A\+R\+T1 (Serial1 on an Arduino).
+\end{DoxyEnumerate}
+
+Modes utilizing the resolution byte as resolution data\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DIGITAL\_INPUT      (0x00) // resolution is 1 (binary)}
+\DoxyCodeLine{DIGITAL\_OUTPUT     (0x01) // resolution is 1 (binary)}
+\DoxyCodeLine{ANALOG\_INPUT       (0x02) // analog input resolution in number of bits}
+\DoxyCodeLine{PWM                (0x03) // pwm resolution in number of bits}
+\DoxyCodeLine{SERVO              (0x04) // servo resolution in number of bits}
+\DoxyCodeLine{STEPPER            (0x08) // resolution is number number of bits in max number of steps}
+\DoxyCodeLine{INPUT\_PULLUP       (0x0B) // resolution is 1 (binary)}
+\end{DoxyCode}
+
+
+Modes utilizing the resolution byte to define type of pin\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{SERIAL             (0x0A) // See description in [serial.md](https://github.com/firmata/protocol/blob/master/serial.md\#serial-\/pin-\/capability-\/response)}
+\DoxyCodeLine{// also to be added to I2C in the future to define SCL and SDA pins}
+\end{DoxyCode}
+
+
+{\itshape For other features (including I2C until updated) the resolution information is less important so a value of 1 is used.}\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md104}{}\doxysubsection{Analog Mapping Query}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md104}
+Analog messages are numbered 0 to 15, which traditionally refer to the Arduino pins labeled A0, A1, A2, etc. However, these pins are actually configured using \char`\"{}normal\char`\"{} pin numbers in the pin mode message, and when those pins are used for non-\/analog functions. The analog mapping query provides the information about which pins (as used with Firmata\textquotesingle{}s pin mode message) correspond to the analog channels.
+
+Analog mapping query 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX              (0xF0)}
+\DoxyCodeLine{1  analog mapping query     (0x69)}
+\DoxyCodeLine{2  END\_SYSEX                (0xF7)}
+\end{DoxyCode}
+
+
+Analog mapping response 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX              (0xF0)}
+\DoxyCodeLine{1  analog mapping response  (0x6A)}
+\DoxyCodeLine{2  analog channel corresponding to pin 0, or 127 if pin 0 does not support analog}
+\DoxyCodeLine{3  analog channel corresponding to pin 1, or 127 if pin 1 does not support analog}
+\DoxyCodeLine{4  analog channel corresponding to pin 2, or 127 if pin 2 does not support analog}
+\DoxyCodeLine{... etc, one byte for each pin}
+\DoxyCodeLine{N  END\_SYSEX                (0xF7)}
+\end{DoxyCode}
+
+
+{\itshape The above 2 queries provide static data (should never change for a particular board). Because this information is fixed and should only need to be read once, these messages are designed for a simple implementation in Standard\+Firmata, rather that bandwidth savings (eg, using packed bit fields).}\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md105}{}\doxysubsection{Pin State Query}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md105}
+The pin {\bfseries{state}} is any data written to the pin ({\itshape it is important to note that pin state != pin value}). For output modes (digital output, P\+WM, and Servo), the state is any value that has been previously written to the pin. For input modes, typically the state is zero. However, for digital inputs, the state is the status of the pull-\/up resistor which is 1 if enabled, 0 if disabled.
+
+The pin state query can also be used as a verification after sending pin modes or data messages.
+
+Pin state query 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX              (0xF0)}
+\DoxyCodeLine{1  pin state query          (0x6D)}
+\DoxyCodeLine{2  pin                      (0-\/127)}
+\DoxyCodeLine{3  END\_SYSEX                (0xF7)}
+\end{DoxyCode}
+
+
+Pin state response 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX              (0xF0)}
+\DoxyCodeLine{1  pin state response       (0x6E)}
+\DoxyCodeLine{2  pin                      (0-\/127)}
+\DoxyCodeLine{3  pin mode (the currently configured mode)}
+\DoxyCodeLine{4  pin state, bits 0-\/6}
+\DoxyCodeLine{5  (optional) pin state, bits 7-\/13}
+\DoxyCodeLine{6  (optional) pin state, bits 14-\/20}
+\DoxyCodeLine{... additional optional bytes, as many as needed}
+\DoxyCodeLine{N  END\_SYSEX                (0xF7)}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md106}{}\doxysubsection{String}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md106}
+Send short string messages between the board and the client application. String length is limited to half the buffer size -\/ 3 (for Arduino this limits strings to 30 chars). Commonly used to report error messages to the client. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX        (0xF0)}
+\DoxyCodeLine{1  STRING\_DATA        (0x71)}
+\DoxyCodeLine{2  first char LSB}
+\DoxyCodeLine{3  first char MSB}
+\DoxyCodeLine{4  second char LSB}
+\DoxyCodeLine{5  second char MSB}
+\DoxyCodeLine{... additional bytes up to half the buffer size -\/ 3 (START\_SYSEX, STRING\_DATA, END\_SYSEX)}
+\DoxyCodeLine{N  END\_SYSEX          (0xF7)}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md107}{}\doxysubsection{Sampling Interval}\label{md__g_1__arduino-workspace__firmata_protocol_protocol_autotoc_md107}
+The sampling interval sets how often analog data and i2c data is reported to the client. The default for the arduino implementation is 19ms. This means that every 19ms analog data will be reported and any i2c devices with read continuous mode will be read. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX        (0xF0)}
+\DoxyCodeLine{1  SAMPLING\_INTERVAL  (0x7A)}
+\DoxyCodeLine{2  sampling interval on the millisecond time scale (LSB)}
+\DoxyCodeLine{3  sampling interval on the millisecond time scale (MSB)}
+\DoxyCodeLine{4  END\_SYSEX          (0xF7)}
+\end{DoxyCode}
+ 

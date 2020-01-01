@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md__g_1__arduino-workspace__firmata_protocol_proposals_pingroups-proposal" kind="page">
+    <compoundname>md_G:_Arduino-workspace_Firmata_protocol_proposals_pingroups-proposal</compoundname>
+    <title>Digital Pin Groups (Proposal)</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides support for the situation where you want to set or get the values of an arbitrary set of digital IO pins that may not necessarily align to a port and do all of this in one operation.</para>
+<para>Examples of this behaviour would include:</para>
+<para><itemizedlist>
+<listitem><para>Analog Multiplexer / Demultimplexer, where you need to set the bit value of three pins in order to determine which analog line is being used on the multiplexer.</para>
+</listitem><listitem><para>Keypads where the value of the key presses are expressed using a combination of states across a set of digital lines (eg: <ulink url="https://www.sparkfun.com/products/8653">https://www.sparkfun.com/products/8653</ulink> )</para>
+</listitem></itemizedlist>
+</para>
+<para>When you want to issue an equivalent of a digitalWrite to a group of pins, you&apos;ll then issue a sequence of 7-bit bytes that provides the states of the pins collectively. This will save several calls to digital write and allow them to be done in one group.</para>
+<para>Reads will work the same way but return a byte with the states of all of the pins. This is particularly important in a scenario like a keypad where independent async reads can make it extremely challenging to get the state of the keypress properly.</para>
+<sect1 id="md__g_1__arduino-workspace__firmata_protocol_proposals_pingroups-proposal_1autotoc_md37">
+<title>Requirements</title>
+<para><itemizedlist>
+<listitem><para>Currently unimplemented (PoC to come shortly)</para>
+</listitem><listitem><para>An array of pin groups (suggest 8 groups so it can be identifed with 3 bits each with up to 14 pins defined in the group)</para>
+</listitem><listitem><para>Modifications to firmata to accept the new protocol.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__g_1__arduino-workspace__firmata_protocol_proposals_pingroups-proposal_1autotoc_md38">
+<title>Protocol</title>
+<sect2 id="md__g_1__arduino-workspace__firmata_protocol_proposals_pingroups-proposal_1autotoc_md39">
+<title>Digital Pin Group commands</title>
+<para>In order to save space in the protocol, the Digital Pin Group command comprises both protocol commands as well as the id address space for the groups as below:</para>
+<para>LSB 0 - 2: 3 bits to determine which Pin Group command is being issued 3 : Reserved for future use / address space increases 4 - 6: 3 bits for Pin Group ID address space - providing up to 8 distinct digital pin groups</para>
+<para>Command values are provided below <programlisting><codeline><highlight class="normal">CONFIG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00)</highlight></codeline>
+<codeline><highlight class="normal">CLEAR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">PIN_STATE_SET<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="normal">PIN_STATE_REQUEST<sp/><sp/><sp/>(0x03)</highlight></codeline>
+<codeline><highlight class="normal">PIN_STATE_REPLY<sp/><sp/><sp/><sp/><sp/>(0x04)</highlight></codeline>
+<codeline><highlight class="normal">future<sp/>reserved<sp/><sp/><sp/><sp/><sp/>(0x05<sp/>-<sp/>0x07)</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__g_1__arduino-workspace__firmata_protocol_proposals_pingroups-proposal_1autotoc_md40">
+<title>Configuration</title>
+<para>Specifies which pins should be grouped together and in which order. A maximum of 14 pins can be grouped together in one pin group. When specified in the config message, the pins will be provided in little endian style so the first pin will then be configured to mapped to the Least Significant Bit in subsequent write and read messages.</para>
+<para><programlisting><codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>pin<sp/>group<sp/>command<sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>pin<sp/>group<sp/>id<sp/>(0<sp/>-<sp/>7)<sp/>&lt;&lt;<sp/>4<sp/>|<sp/>CONFIG</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>lowest<sp/>bit<sp/>set<sp/>for<sp/>pinMode<sp/>(0=READ,<sp/>1=WRITE)<sp/>top<sp/>6<sp/>bits<sp/>reserved</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>first<sp/>pin<sp/>in<sp/>pin<sp/>group<sp/>(0<sp/>-<sp/>127)</highlight></codeline>
+<codeline><highlight class="normal">5:<sp/><sp/>second<sp/>pin<sp/>in<sp/>pin<sp/>group<sp/>(0<sp/>-<sp/>127)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>up<sp/>to<sp/>maximum<sp/>of<sp/>14</highlight></codeline>
+<codeline><highlight class="normal">N:<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__g_1__arduino-workspace__firmata_protocol_proposals_pingroups-proposal_1autotoc_md41">
+<title>Clear</title>
+<para>Removes any pin entries associated to a pin group. This should free up any memory that has been allocted and remove any references to the pins that were configured. This is to ensure no side effects occur if a pin group is recycled.</para>
+<para><programlisting><codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>pin<sp/>group<sp/>command<sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>pin<sp/>group<sp/>id<sp/>(0<sp/>-7)<sp/>&lt;&lt;<sp/>4<sp/>|<sp/>CLEAR</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__g_1__arduino-workspace__firmata_protocol_proposals_pingroups-proposal_1autotoc_md42">
+<title>State set</title>
+<para>Sets the states of the pins in the group. As noted above, the first pin that is supplied in the config will be considered the least significant bit in this message. Any values provided that don&apos;t match the config definition should simply be ignored (ie a value comes through for the 5th pin in the group but none was defined so it should be ignored).</para>
+<para><programlisting><codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>pin<sp/>group<sp/>command<sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>pin<sp/>group<sp/>id<sp/>(0<sp/>-<sp/>7)<sp/>&lt;&lt;<sp/>4<sp/>|<sp/>PIN_STATE_SET</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>packed<sp/>7<sp/>bit<sp/>array<sp/>as<sp/>single<sp/>byte<sp/>providing<sp/>values<sp/>for<sp/>the<sp/>pin<sp/>group</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>optional<sp/>second<sp/>packed<sp/>7<sp/>bit<sp/>array<sp/>providing<sp/>values<sp/>for<sp/>the<sp/>pin<sp/>group</highlight></codeline>
+<codeline><highlight class="normal">N:<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__g_1__arduino-workspace__firmata_protocol_proposals_pingroups-proposal_1autotoc_md43">
+<title>State request and reply</title>
+<para>Getting the states of the group of pins (essentially a group digital read) comprises a request to the board and a reply back.</para>
+<para>Make a request for getting the states of the pin group.</para>
+<para><programlisting><codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>pin<sp/>group<sp/>command<sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>pin<sp/>group<sp/>id<sp/>(0<sp/>-<sp/>7)<sp/>&lt;&lt;<sp/>4<sp/>|<sp/>PIN_STATE_REQUEST</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>END_SYSEX</highlight></codeline>
+</programlisting></para>
+<para>Reply with the pin states.</para>
+<para><programlisting><codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>pin<sp/>group<sp/>command<sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>pin<sp/>group<sp/>id<sp/>(0<sp/>-<sp/>7)<sp/>&lt;&lt;<sp/>4<sp/>|<sp/>PIN_STATE_REPLY</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>packed<sp/>7<sp/>bit<sp/>array<sp/>representing<sp/>pin<sp/>states,<sp/>LSB<sp/>is<sp/>first<sp/>pin<sp/>defined<sp/>in<sp/>config</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>optional<sp/>second<sp/>7<sp/>bit<sp/>array<sp/>representing<sp/>pin<sp/>states<sp/>for<sp/>additional<sp/>pins<sp/>in<sp/>group</highlight></codeline>
+<codeline><highlight class="normal">N:<sp/><sp/>END_SYSEX</highlight></codeline>
+</programlisting> </para>
+</sect2>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

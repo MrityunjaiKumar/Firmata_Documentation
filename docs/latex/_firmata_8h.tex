@@ -1,0 +1,316 @@
+\hypertarget{_firmata_8h}{}\doxysection{Firmata.\+h File Reference}
+\label{_firmata_8h}\index{Firmata.h@{Firmata.h}}
+{\ttfamily \#include \char`\"{}Boards.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Firmata\+Defines.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Firmata\+Marshaller.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Firmata\+Parser.\+h\char`\"{}}\newline
+Include dependency graph for Firmata.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_firmata_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{_firmata_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classfirmata_1_1_firmata_class}{firmata\+::\+Firmata\+Class}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacefirmata}{firmata}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_aaf7fe5483ddb14af12856ba8c20fc961}{F\+I\+R\+M\+A\+T\+A\+\_\+\+M\+A\+J\+O\+R\+\_\+\+V\+E\+R\+S\+I\+ON}}~2
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_a4ccbfa7d5df56de079344468949bbe40}{F\+I\+R\+M\+A\+T\+A\+\_\+\+M\+I\+N\+O\+R\+\_\+\+V\+E\+R\+S\+I\+ON}}~5
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_a56dcb16cb883b31245ea601962d25e8e}{F\+I\+R\+M\+A\+T\+A\+\_\+\+B\+U\+G\+F\+I\+X\+\_\+\+V\+E\+R\+S\+I\+ON}}~1
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_ac3e6b2f09a110d8c771267a203bf5d35}{F\+I\+R\+M\+A\+T\+A\+\_\+\+S\+T\+R\+I\+NG}}~0x71
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_a7f738d147e4656076db07806682c35b4}{S\+Y\+S\+E\+X\+\_\+\+I2\+C\+\_\+\+R\+E\+Q\+U\+E\+ST}}~0x76
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_aba37be7c4f8686ba6b923a1205eaa791}{S\+Y\+S\+E\+X\+\_\+\+I2\+C\+\_\+\+R\+E\+P\+LY}}~0x77
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_a7a8b7eac6d6905920573eb7eb1f905f0}{S\+Y\+S\+E\+X\+\_\+\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+I\+N\+T\+E\+R\+V\+AL}}~0x7A
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_ad42aa2404559d4a465d5d45e857f2881}{A\+N\+A\+L\+OG}}~0x02
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_a538e3ec60828cfabae7e3011d73d2093}{P\+WM}}~0x03
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_a316d1bbf3dcf9c43e56fe4e25addf626}{S\+E\+R\+VO}}~0x04
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_ac179eef68bcc694aa0ef8dd1eb09950b}{S\+H\+I\+FT}}~0x05
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_a457a9aa93dbb216459873a30bdb4d84a}{I2C}}~0x06
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_a37c094d8e1be6ffd310eb63851b2f6b8}{O\+N\+E\+W\+I\+RE}}~0x07
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_aabf41ec36ff3dfa5e82c2328e88d8dcf}{S\+T\+E\+P\+P\+ER}}~0x08
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_a4d3ccf6f12fbff52bbb7e35b4d92584f}{E\+N\+C\+O\+D\+ER}}~0x09
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_aabed7f7d1400564ec843acd4dfb72e59}{I\+G\+N\+O\+RE}}~0x7F
+\item 
+\#define \mbox{\hyperlink{_firmata_8h_a56c7f5a2d04ee509fa88b772a2bca1fe}{set\+Firmware\+Version}}(x,  y)~set\+Firmware\+Name\+And\+Version(\+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, x, y)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef firmata\+::\+Firmata\+Class\+::callback\+Function \mbox{\hyperlink{_firmata_8h_ac1d919f56c49d2e9559967b3b950e504}{callback\+Function}}
+\item 
+typedef firmata\+::\+Firmata\+Class\+::system\+Callback\+Function \mbox{\hyperlink{_firmata_8h_a3edf3f3c181d5ec58c3deb3e5eb7a933}{system\+Callback\+Function}}
+\item 
+typedef firmata\+::\+Firmata\+Class\+::string\+Callback\+Function \mbox{\hyperlink{_firmata_8h_ae8cc4d167596bda9460991674389d15c}{string\+Callback\+Function}}
+\item 
+typedef firmata\+::\+Firmata\+Class\+::sysex\+Callback\+Function \mbox{\hyperlink{_firmata_8h_a21b9d98a7bff8ee5e96a9ee521618c8c}{sysex\+Callback\+Function}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfirmata_1_1_firmata_class}{firmata\+::\+Firmata\+Class}} \mbox{\hyperlink{_firmata_8h_a2beb89d5a96aa2faa00dad6768a881f4}{Firmata}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_firmata_8h_ad42aa2404559d4a465d5d45e857f2881}\label{_firmata_8h_ad42aa2404559d4a465d5d45e857f2881}} 
+\index{Firmata.h@{Firmata.h}!ANALOG@{ANALOG}}
+\index{ANALOG@{ANALOG}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{ANALOG}{ANALOG}}
+{\footnotesize\ttfamily \#define A\+N\+A\+L\+OG~0x02}
+
+
+
+Definition at line 41 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_a4d3ccf6f12fbff52bbb7e35b4d92584f}\label{_firmata_8h_a4d3ccf6f12fbff52bbb7e35b4d92584f}} 
+\index{Firmata.h@{Firmata.h}!ENCODER@{ENCODER}}
+\index{ENCODER@{ENCODER}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{ENCODER}{ENCODER}}
+{\footnotesize\ttfamily \#define E\+N\+C\+O\+D\+ER~0x09}
+
+
+
+Definition at line 48 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_a56dcb16cb883b31245ea601962d25e8e}\label{_firmata_8h_a56dcb16cb883b31245ea601962d25e8e}} 
+\index{Firmata.h@{Firmata.h}!FIRMATA\_BUGFIX\_VERSION@{FIRMATA\_BUGFIX\_VERSION}}
+\index{FIRMATA\_BUGFIX\_VERSION@{FIRMATA\_BUGFIX\_VERSION}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{FIRMATA\_BUGFIX\_VERSION}{FIRMATA\_BUGFIX\_VERSION}}
+{\footnotesize\ttfamily \#define F\+I\+R\+M\+A\+T\+A\+\_\+\+B\+U\+G\+F\+I\+X\+\_\+\+V\+E\+R\+S\+I\+ON~1}
+
+
+
+Definition at line 27 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_aaf7fe5483ddb14af12856ba8c20fc961}\label{_firmata_8h_aaf7fe5483ddb14af12856ba8c20fc961}} 
+\index{Firmata.h@{Firmata.h}!FIRMATA\_MAJOR\_VERSION@{FIRMATA\_MAJOR\_VERSION}}
+\index{FIRMATA\_MAJOR\_VERSION@{FIRMATA\_MAJOR\_VERSION}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{FIRMATA\_MAJOR\_VERSION}{FIRMATA\_MAJOR\_VERSION}}
+{\footnotesize\ttfamily \#define F\+I\+R\+M\+A\+T\+A\+\_\+\+M\+A\+J\+O\+R\+\_\+\+V\+E\+R\+S\+I\+ON~2}
+
+
+
+Definition at line 25 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_a4ccbfa7d5df56de079344468949bbe40}\label{_firmata_8h_a4ccbfa7d5df56de079344468949bbe40}} 
+\index{Firmata.h@{Firmata.h}!FIRMATA\_MINOR\_VERSION@{FIRMATA\_MINOR\_VERSION}}
+\index{FIRMATA\_MINOR\_VERSION@{FIRMATA\_MINOR\_VERSION}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{FIRMATA\_MINOR\_VERSION}{FIRMATA\_MINOR\_VERSION}}
+{\footnotesize\ttfamily \#define F\+I\+R\+M\+A\+T\+A\+\_\+\+M\+I\+N\+O\+R\+\_\+\+V\+E\+R\+S\+I\+ON~5}
+
+
+
+Definition at line 26 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_ac3e6b2f09a110d8c771267a203bf5d35}\label{_firmata_8h_ac3e6b2f09a110d8c771267a203bf5d35}} 
+\index{Firmata.h@{Firmata.h}!FIRMATA\_STRING@{FIRMATA\_STRING}}
+\index{FIRMATA\_STRING@{FIRMATA\_STRING}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{FIRMATA\_STRING}{FIRMATA\_STRING}}
+{\footnotesize\ttfamily \#define F\+I\+R\+M\+A\+T\+A\+\_\+\+S\+T\+R\+I\+NG~0x71}
+
+
+
+Definition at line 32 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_a457a9aa93dbb216459873a30bdb4d84a}\label{_firmata_8h_a457a9aa93dbb216459873a30bdb4d84a}} 
+\index{Firmata.h@{Firmata.h}!I2C@{I2C}}
+\index{I2C@{I2C}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{I2C}{I2C}}
+{\footnotesize\ttfamily \#define I2C~0x06}
+
+
+
+Definition at line 45 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_aabed7f7d1400564ec843acd4dfb72e59}\label{_firmata_8h_aabed7f7d1400564ec843acd4dfb72e59}} 
+\index{Firmata.h@{Firmata.h}!IGNORE@{IGNORE}}
+\index{IGNORE@{IGNORE}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{IGNORE}{IGNORE}}
+{\footnotesize\ttfamily \#define I\+G\+N\+O\+RE~0x7F}
+
+
+
+Definition at line 49 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_a37c094d8e1be6ffd310eb63851b2f6b8}\label{_firmata_8h_a37c094d8e1be6ffd310eb63851b2f6b8}} 
+\index{Firmata.h@{Firmata.h}!ONEWIRE@{ONEWIRE}}
+\index{ONEWIRE@{ONEWIRE}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{ONEWIRE}{ONEWIRE}}
+{\footnotesize\ttfamily \#define O\+N\+E\+W\+I\+RE~0x07}
+
+
+
+Definition at line 46 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_a538e3ec60828cfabae7e3011d73d2093}\label{_firmata_8h_a538e3ec60828cfabae7e3011d73d2093}} 
+\index{Firmata.h@{Firmata.h}!PWM@{PWM}}
+\index{PWM@{PWM}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{PWM}{PWM}}
+{\footnotesize\ttfamily \#define P\+WM~0x03}
+
+
+
+Definition at line 42 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_a316d1bbf3dcf9c43e56fe4e25addf626}\label{_firmata_8h_a316d1bbf3dcf9c43e56fe4e25addf626}} 
+\index{Firmata.h@{Firmata.h}!SERVO@{SERVO}}
+\index{SERVO@{SERVO}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{SERVO}{SERVO}}
+{\footnotesize\ttfamily \#define S\+E\+R\+VO~0x04}
+
+
+
+Definition at line 43 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_a56c7f5a2d04ee509fa88b772a2bca1fe}\label{_firmata_8h_a56c7f5a2d04ee509fa88b772a2bca1fe}} 
+\index{Firmata.h@{Firmata.h}!setFirmwareVersion@{setFirmwareVersion}}
+\index{setFirmwareVersion@{setFirmwareVersion}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{setFirmwareVersion}{setFirmwareVersion}}
+{\footnotesize\ttfamily \#define set\+Firmware\+Version(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})~set\+Firmware\+Name\+And\+Version(\+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, x, y)}
+
+
+
+Definition at line 178 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_ac179eef68bcc694aa0ef8dd1eb09950b}\label{_firmata_8h_ac179eef68bcc694aa0ef8dd1eb09950b}} 
+\index{Firmata.h@{Firmata.h}!SHIFT@{SHIFT}}
+\index{SHIFT@{SHIFT}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{SHIFT}{SHIFT}}
+{\footnotesize\ttfamily \#define S\+H\+I\+FT~0x05}
+
+
+
+Definition at line 44 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_aabf41ec36ff3dfa5e82c2328e88d8dcf}\label{_firmata_8h_aabf41ec36ff3dfa5e82c2328e88d8dcf}} 
+\index{Firmata.h@{Firmata.h}!STEPPER@{STEPPER}}
+\index{STEPPER@{STEPPER}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{STEPPER}{STEPPER}}
+{\footnotesize\ttfamily \#define S\+T\+E\+P\+P\+ER~0x08}
+
+
+
+Definition at line 47 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_aba37be7c4f8686ba6b923a1205eaa791}\label{_firmata_8h_aba37be7c4f8686ba6b923a1205eaa791}} 
+\index{Firmata.h@{Firmata.h}!SYSEX\_I2C\_REPLY@{SYSEX\_I2C\_REPLY}}
+\index{SYSEX\_I2C\_REPLY@{SYSEX\_I2C\_REPLY}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{SYSEX\_I2C\_REPLY}{SYSEX\_I2C\_REPLY}}
+{\footnotesize\ttfamily \#define S\+Y\+S\+E\+X\+\_\+\+I2\+C\+\_\+\+R\+E\+P\+LY~0x77}
+
+
+
+Definition at line 34 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_a7f738d147e4656076db07806682c35b4}\label{_firmata_8h_a7f738d147e4656076db07806682c35b4}} 
+\index{Firmata.h@{Firmata.h}!SYSEX\_I2C\_REQUEST@{SYSEX\_I2C\_REQUEST}}
+\index{SYSEX\_I2C\_REQUEST@{SYSEX\_I2C\_REQUEST}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{SYSEX\_I2C\_REQUEST}{SYSEX\_I2C\_REQUEST}}
+{\footnotesize\ttfamily \#define S\+Y\+S\+E\+X\+\_\+\+I2\+C\+\_\+\+R\+E\+Q\+U\+E\+ST~0x76}
+
+
+
+Definition at line 33 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_a7a8b7eac6d6905920573eb7eb1f905f0}\label{_firmata_8h_a7a8b7eac6d6905920573eb7eb1f905f0}} 
+\index{Firmata.h@{Firmata.h}!SYSEX\_SAMPLING\_INTERVAL@{SYSEX\_SAMPLING\_INTERVAL}}
+\index{SYSEX\_SAMPLING\_INTERVAL@{SYSEX\_SAMPLING\_INTERVAL}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{SYSEX\_SAMPLING\_INTERVAL}{SYSEX\_SAMPLING\_INTERVAL}}
+{\footnotesize\ttfamily \#define S\+Y\+S\+E\+X\+\_\+\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+I\+N\+T\+E\+R\+V\+AL~0x7A}
+
+
+
+Definition at line 35 of file Firmata.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_firmata_8h_ac1d919f56c49d2e9559967b3b950e504}\label{_firmata_8h_ac1d919f56c49d2e9559967b3b950e504}} 
+\index{Firmata.h@{Firmata.h}!callbackFunction@{callbackFunction}}
+\index{callbackFunction@{callbackFunction}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{callbackFunction}{callbackFunction}}
+{\footnotesize\ttfamily typedef firmata\+::\+Firmata\+Class\+::callback\+Function \mbox{\hyperlink{_firmata_8h_ac1d919f56c49d2e9559967b3b950e504}{callback\+Function}}}
+
+
+
+Definition at line 162 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_ae8cc4d167596bda9460991674389d15c}\label{_firmata_8h_ae8cc4d167596bda9460991674389d15c}} 
+\index{Firmata.h@{Firmata.h}!stringCallbackFunction@{stringCallbackFunction}}
+\index{stringCallbackFunction@{stringCallbackFunction}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{stringCallbackFunction}{stringCallbackFunction}}
+{\footnotesize\ttfamily typedef firmata\+::\+Firmata\+Class\+::string\+Callback\+Function \mbox{\hyperlink{_firmata_8h_ae8cc4d167596bda9460991674389d15c}{string\+Callback\+Function}}}
+
+
+
+Definition at line 164 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_a21b9d98a7bff8ee5e96a9ee521618c8c}\label{_firmata_8h_a21b9d98a7bff8ee5e96a9ee521618c8c}} 
+\index{Firmata.h@{Firmata.h}!sysexCallbackFunction@{sysexCallbackFunction}}
+\index{sysexCallbackFunction@{sysexCallbackFunction}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{sysexCallbackFunction}{sysexCallbackFunction}}
+{\footnotesize\ttfamily typedef firmata\+::\+Firmata\+Class\+::sysex\+Callback\+Function \mbox{\hyperlink{_firmata_8h_a21b9d98a7bff8ee5e96a9ee521618c8c}{sysex\+Callback\+Function}}}
+
+
+
+Definition at line 165 of file Firmata.\+h.
+
+\mbox{\Hypertarget{_firmata_8h_a3edf3f3c181d5ec58c3deb3e5eb7a933}\label{_firmata_8h_a3edf3f3c181d5ec58c3deb3e5eb7a933}} 
+\index{Firmata.h@{Firmata.h}!systemCallbackFunction@{systemCallbackFunction}}
+\index{systemCallbackFunction@{systemCallbackFunction}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{systemCallbackFunction}{systemCallbackFunction}}
+{\footnotesize\ttfamily typedef firmata\+::\+Firmata\+Class\+::system\+Callback\+Function \mbox{\hyperlink{_firmata_8h_a3edf3f3c181d5ec58c3deb3e5eb7a933}{system\+Callback\+Function}}}
+
+
+
+Definition at line 163 of file Firmata.\+h.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_firmata_8h_a2beb89d5a96aa2faa00dad6768a881f4}\label{_firmata_8h_a2beb89d5a96aa2faa00dad6768a881f4}} 
+\index{Firmata.h@{Firmata.h}!Firmata@{Firmata}}
+\index{Firmata@{Firmata}!Firmata.h@{Firmata.h}}
+\doxysubsubsection{\texorpdfstring{Firmata}{Firmata}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfirmata_1_1_firmata_class}{firmata\+::\+Firmata\+Class}} Firmata}
+
+
+
+Definition at line 30 of file Firmata.\+cpp.
+
+
+
+Referenced by Serial\+Firmata\+::check\+Serial(), Serial\+Firmata\+::handle\+Capability(), Serial\+Firmata\+::handle\+Pin\+Mode(), and Serial\+Firmata\+::handle\+Sysex().
+

@@ -1,0 +1,3283 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.12.6)  2 JAN 2020 03:34
+entering extended mode
+**./refman.tex
+(refman.tex
+LaTeX2e <2019-10-01> patch level 3
+("E:\Program Files\MiKTeX 2.9\tex/latex/base\book.cls"
+Document Class: book 2019/10/25 v1.4k Standard LaTeX document class
+("E:\Program Files\MiKTeX 2.9\tex/latex/base\bk10.clo"
+File: bk10.clo 2019/10/25 v1.4k Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("E:\Program Files\MiKTeX 2.9\tex/latex/base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("E:\Program Files\MiKTeX 2.9\tex/latex/tools\array.sty"
+Rollback for package 'array' requested -> date 2016-10-06.
+         Best approximation is the release introduced on 2016-10-06.
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/tools\array-2016-10-06.sty"
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+\col@sep=\dimen103
+\extrarowheight=\dimen104
+\NC@list=\toks14
+\extratabsurround=\skip43
+\backup@length=\skip44
+))
+("E:\Program Files\MiKTeX 2.9\tex/latex/base\fixltx2e.sty"
+Package: fixltx2e 2016/12/29 v2.1a fixes to LaTeX (obsolete)
+Applying: [2015/01/01] Old fixltx2e package on input line 46.
+
+
+Package fixltx2e Warning: fixltx2e is not required with releases after 2015
+(fixltx2e)                All fixes are now in the LaTeX kernel.
+(fixltx2e)                See the latexrelease package for details.
+
+Already applied: [0000/00/00] Old fixltx2e package on input line 53.
+) ("E:\Program Files\MiKTeX 2.9\tex/latex/tools\calc.sty"
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count89
+\calc@Bcount=\count90
+\calc@Adimen=\dimen105
+\calc@Bdimen=\dimen106
+\calc@Askip=\skip45
+\calc@Bskip=\skip46
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count91
+\calc@Cskip=\skip47
+) (doxygen.sty
+Package: doxygen 
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/base\alltt.sty"
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+)
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count92
+\float@exts=\toks15
+\float@box=\box27
+\@float@everytoks=\toks16
+\@floatcapt=\box28
+)
+("E:\Program Files\MiKTeX 2.9\tex/latex/tools\verbatim.sty"
+Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks17
+\verbatim@line=\toks18
+\verbatim@in@stream=\read1
+)
+("E:\Program Files\MiKTeX 2.9\tex/latex/xcolor\xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/graphics-def\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+)
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2018/12/12 v1.0d Color table columns (DPC)
+\everycr=\toks19
+\minrowclearance=\skip48
+)
+\rownum=\count93
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+) (longtable_doxygen.sty
+Package: longtable_doxygen 2014/10/28 v4.11 Multi-page Table package (DPC) - fr
+ozen version for doxygen
+\LTleft=\skip49
+\LTright=\skip50
+\LTpre=\skip51
+\LTpost=\skip52
+\LTchunksize=\count94
+\LTcapwidth=\dimen107
+\LT@head=\box29
+\LT@firsthead=\box30
+\LT@foot=\box31
+\LT@lastfoot=\box32
+\LT@cols=\count95
+\LT@rows=\count96
+\c@LT@tables=\count97
+\c@LT@chunks=\count98
+\LT@p@ftn=\toks20
+) (tabu_doxygen.sty
+Package: tabu_doxygen 2011/02/26 v2.8 - flexible LaTeX tabulars (FC), frozen ve
+rsion for doxygen
+
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/varwidth\varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box33
+\sift@deathcycles=\count99
+\@vwid@loff=\dimen108
+\@vwid@roff=\dimen109
+)
+\c@taburow=\count100
+\tabu@nbcols=\count101
+\tabu@cnt=\count102
+\tabu@Xcol=\count103
+\tabu@alloc=\count104
+\tabu@nested=\count105
+\tabu@target=\dimen110
+\tabu@spreadtarget=\dimen111
+\tabu@naturalX=\dimen112
+\tabucolX=\dimen113
+\tabu@Xsum=\dimen114
+\extrarowdepth=\dimen115
+\abovetabulinesep=\dimen116
+\belowtabulinesep=\dimen117
+\tabustrutrule=\dimen118
+\tabu@thebody=\toks21
+\tabu@footnotes=\toks22
+\tabu@box=\box34
+\tabu@arstrutbox=\box35
+\tabu@hleads=\box36
+\tabu@vleads=\box37
+\tabu@cellskip=\skip53
+) (C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/fancyvrb\fancyvrb.sty
+Package: fancyvrb 2019/11/09
+
+Style option: `fancyvrb' v3.4 <2019/11/09> (tvz)
+("E:\Program Files\MiKTeX 2.9\tex/latex/graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks23
+)
+\FV@CodeLineNo=\count106
+\FV@InFile=\read2
+\FV@TabBox=\box38
+\c@FancyVerbLine=\count107
+\FV@StepNumber=\count108
+\FV@OutFile=\write3
+)
+("E:\Program Files\MiKTeX 2.9\tex/latex/tools\tabularx.sty"
+Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
+\TX@col@width=\dimen119
+\TX@old@table=\dimen120
+\TX@old@col=\dimen121
+\TX@target=\dimen122
+\TX@delta=\dimen123
+\TX@cols=\count109
+\TX@ftn=\toks24
+)
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/multirow\multirow.sty
+Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
+\multirow@colwidth=\skip54
+\multirow@cntb=\count110
+\multirow@dima=\skip55
+\bigstrutjot=\dimen124
+)
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/hanging\hanging.sty
+Package: hanging 2009/09/02 v1.2b hanging paragraphs and punctuation
+\h@ngcommawd=\skip56
+\h@ngfstopwd=\skip57
+\h@ngquotewd=\skip58
+\h@ngdquotewd=\skip59
+\h@ngquerywd=\skip60
+\h@ngexclwd=\skip61
+\h@ngcolonwd=\skip62
+\h@ngscolonwd=\skip63
+)
+("E:\Program Files\MiKTeX 2.9\tex/generic/iftex\ifpdf.sty"
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+
+("E:\Program Files\MiKTeX 2.9\tex/generic/iftex\iftex.sty"
+Package: iftex 2019/11/07 v1.0c TeX engine tests
+))
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/adjustbox\adjustbox.sty
+Package: adjustbox 2019/01/04 v1.2 Adjusting TeX boxes (trim, clip, ...)
+("E:\Program Files\MiKTeX 2.9\tex/latex/xkeyval\xkeyval.sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("E:\Program Files\MiKTeX 2.9\tex/generic/xkeyval\xkeyval.tex"
+("E:\Program Files\MiKTeX 2.9\tex/generic/xkeyval\xkvutils.tex"
+\XKV@toks=\toks25
+\XKV@tempa@toks=\toks26
+)
+\XKV@depth=\count111
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/adjustbox\adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/adjustbox\trimclip.sty
+Package: trimclip 2018/04/08 v1.1 Trim and clip general TeX material
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphicx.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphics.sty"
+Package: graphics 2019/11/01 v1.3d Standard LaTeX Graphics (DPC,SPQR)
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("E:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+)
+\Gin@req@height=\dimen125
+\Gin@req@width=\dimen126
+)
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/collectbox\collectbox.s
+ty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box39
+)
+\tc@llx=\dimen127
+\tc@lly=\dimen128
+\tc@urx=\dimen129
+\tc@ury=\dimen130
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/adjustbox\tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen131
+\adjbox@Height=\dimen132
+\adjbox@Depth=\dimen133
+\adjbox@Totalheight=\dimen134
+\adjbox@pwidth=\dimen135
+\adjbox@pheight=\dimen136
+\adjbox@pdepth=\dimen137
+\adjbox@ptotalheight=\dimen138
+
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/ifoddpage\ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count112
+)) ("E:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks27
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/stackengine\stackengine
+.sty
+Package: stackengine 2017/02/13 v4.01\ Stacking text and objects in convenient 
+ways
+ ("E:\Program Files\MiKTeX 2.9\tex/latex/etoolbox\etoolbox.sty"
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count113
+)
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/listofitems\listofitems
+.sty
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/generic/listofitems\listofite
+ms.tex
+\loi_cnt_foreach_nest=\count114
+\loi_nestcnt=\count115
+)
+Package: listofitems 2019/08/21 v1.63 Grab items in lists using user-specified 
+sep char (CT)
+)
+\c@@stackindex=\count116
+\@boxshift=\skip64
+\stack@tmplength=\skip65
+\temp@stkl=\skip66
+\@stackedboxwidth=\skip67
+\@addedbox=\box40
+\@anchorbox=\box41
+\stackedbox=\box42
+\@centerbox=\box43
+\c@ROWcellindex@=\count117
+) (C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/ulem\ulem.sty
+\UL@box=\box44
+\UL@hyphenbox=\box45
+\UL@skip=\skip68
+\UL@hook=\toks28
+\UL@height=\dimen139
+\UL@pe=\count118
+\UL@pixel=\dimen140
+\ULC@box=\box46
+Package: ulem 2012/05/18
+\ULdepth=\dimen141
+)
+\xrefbox=\box47
+\xreflength=\skip69
+\CodeWidthChar=\skip70
+\CodeHeightChar=\skip71
+\DoxyCodeWidth=\skip72
+) ("E:\Program Files\MiKTeX 2.9\tex/latex/base\inputenc.sty"
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks29
+\inpenc@posthook=\toks30
+)
+("E:\Program Files\MiKTeX 2.9\tex/latex/base\makeidx.sty"
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
+)
+("E:\Program Files\MiKTeX 2.9\tex/latex/tools\multicol.sty"
+Package: multicol 2019/03/01 v1.8w multicolumn formatting (FMi)
+\c@tracingmulticols=\count119
+\mult@box=\box48
+\multicol@leftmargin=\dimen142
+\c@unbalance=\count120
+\c@collectmore=\count121
+\doublecol@number=\count122
+\multicoltolerance=\count123
+\multicolpretolerance=\count124
+\full@width=\dimen143
+\page@free=\dimen144
+\premulticols=\dimen145
+\postmulticols=\dimen146
+\multicolsep=\skip73
+\multicolbaselineskip=\skip74
+\partial@page=\box49
+\last@line=\box50
+\maxbalancingoverflow=\dimen147
+\mult@rightbox=\box51
+\mult@grightbox=\box52
+\mult@gfirstbox=\box53
+\mult@firstbox=\box54
+\@tempa=\box55
+\@tempa=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\c@minrows=\count125
+\c@columnbadness=\count126
+\c@finalcolumnbadness=\count127
+\last@try=\dimen148
+\multicolovershoot=\dimen149
+\multicolundershoot=\dimen150
+\mult@nat@firstbox=\box72
+\colbreak@box=\box73
+\mc@col@check@num=\count128
+)
+("E:\Program Files\MiKTeX 2.9\tex/latex/base\textcomp.sty"
+Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/base\ts1enc.def"
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+Now handling font encoding TS1 ...
+... processing UTF-8 mapping file for font encoding TS1
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/base\ts1enc.dfu"
+File: ts1enc.dfu 2019/07/11 v1.2j UTF-8 support for inputenc
+   defining Unicode char U+00A2 (decimal 162)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A5 (decimal 165)
+   defining Unicode char U+00A6 (decimal 166)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00A8 (decimal 168)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AC (decimal 172)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00AF (decimal 175)
+   defining Unicode char U+00B0 (decimal 176)
+   defining Unicode char U+00B1 (decimal 177)
+   defining Unicode char U+00B2 (decimal 178)
+   defining Unicode char U+00B3 (decimal 179)
+   defining Unicode char U+00B4 (decimal 180)
+   defining Unicode char U+00B5 (decimal 181)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00B9 (decimal 185)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+00BC (decimal 188)
+   defining Unicode char U+00BD (decimal 189)
+   defining Unicode char U+00BE (decimal 190)
+   defining Unicode char U+00D7 (decimal 215)
+   defining Unicode char U+00F7 (decimal 247)
+   defining Unicode char U+0192 (decimal 402)
+   defining Unicode char U+02C7 (decimal 711)
+   defining Unicode char U+02D8 (decimal 728)
+   defining Unicode char U+02DD (decimal 733)
+   defining Unicode char U+0E3F (decimal 3647)
+   defining Unicode char U+2016 (decimal 8214)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+203B (decimal 8251)
+   defining Unicode char U+203D (decimal 8253)
+   defining Unicode char U+2044 (decimal 8260)
+   defining Unicode char U+204E (decimal 8270)
+   defining Unicode char U+2052 (decimal 8274)
+   defining Unicode char U+20A1 (decimal 8353)
+   defining Unicode char U+20A4 (decimal 8356)
+   defining Unicode char U+20A6 (decimal 8358)
+   defining Unicode char U+20A9 (decimal 8361)
+   defining Unicode char U+20AB (decimal 8363)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+20B1 (decimal 8369)
+   defining Unicode char U+2103 (decimal 8451)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2117 (decimal 8471)
+   defining Unicode char U+211E (decimal 8478)
+   defining Unicode char U+2120 (decimal 8480)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2126 (decimal 8486)
+   defining Unicode char U+2127 (decimal 8487)
+   defining Unicode char U+212E (decimal 8494)
+   defining Unicode char U+2190 (decimal 8592)
+   defining Unicode char U+2191 (decimal 8593)
+   defining Unicode char U+2192 (decimal 8594)
+   defining Unicode char U+2193 (decimal 8595)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+2422 (decimal 9250)
+   defining Unicode char U+25E6 (decimal 9702)
+   defining Unicode char U+25EF (decimal 9711)
+   defining Unicode char U+266A (decimal 9834)
+   defining Unicode char U+27E8 (decimal 10216)
+   defining Unicode char U+27E9 (decimal 10217)
+   defining Unicode char U+FEFF (decimal 65279)
+))
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+)
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/wasysym\wasysym.sty
+Package: wasysym 2003/10/30 v2.0 Wasy-2 symbol support package
+\symwasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
+(Font)                  U/wasy/m/n --> U/wasy/b/n on input line 90.
+)
+("E:\Program Files\MiKTeX 2.9\tex/generic/iftex\ifxetex.sty"
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+)
+("E:\Program Files\MiKTeX 2.9\tex/latex/base\fontenc.sty"
+Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/base\t1enc.def"
+File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\helvet.sty
+Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\courier.sty
+Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/sectsty\sectsty.sty
+Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
+les
+
+
+LaTeX Warning: Command \underbar  has changed.
+               Check if current package is valid.
+
+
+LaTeX Warning: Command \underline  has changed.
+               Check if current package is valid.
+
+) (C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/geometry\geometry.sty
+Package: geometry 2018/04/16 v5.8 Page Geometry
+("E:\Program Files\MiKTeX 2.9\tex/generic/iftex\ifvtex.sty"
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count129
+\Gm@cntv=\count130
+\c@Gm@tempcnt=\count131
+\Gm@bindingoffset=\dimen151
+\Gm@wd@mp=\dimen152
+\Gm@odd@mp=\dimen153
+\Gm@even@mp=\dimen154
+\Gm@layoutwidth=\dimen155
+\Gm@layoutheight=\dimen156
+\Gm@layouthoffset=\dimen157
+\Gm@layoutvoffset=\dimen158
+\Gm@dimlist=\toks31
+
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/geometry\geometry.cfg))
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip75
+\f@nch@O@elh=\skip76
+\f@nch@O@erh=\skip77
+\f@nch@O@olh=\skip78
+\f@nch@O@orh=\skip79
+\f@nch@O@elf=\skip80
+\f@nch@O@erf=\skip81
+\f@nch@O@olf=\skip82
+\f@nch@O@orf=\skip83
+)
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/natbib\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip84
+\bibsep=\skip85
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count132
+)
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/tocloft\tocloft.sty
+Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
+Package tocloft Info: The document has chapter divisions on input line 51.
+\cftparskip=\skip86
+\cftbeforetoctitleskip=\skip87
+\cftaftertoctitleskip=\skip88
+\cftbeforepartskip=\skip89
+\cftpartnumwidth=\skip90
+\cftpartindent=\skip91
+\cftbeforechapskip=\skip92
+\cftchapindent=\skip93
+\cftchapnumwidth=\skip94
+\cftbeforesecskip=\skip95
+\cftsecindent=\skip96
+\cftsecnumwidth=\skip97
+\cftbeforesubsecskip=\skip98
+\cftsubsecindent=\skip99
+\cftsubsecnumwidth=\skip100
+\cftbeforesubsubsecskip=\skip101
+\cftsubsubsecindent=\skip102
+\cftsubsubsecnumwidth=\skip103
+\cftbeforeparaskip=\skip104
+\cftparaindent=\skip105
+\cftparanumwidth=\skip106
+\cftbeforesubparaskip=\skip107
+\cftsubparaindent=\skip108
+\cftsubparanumwidth=\skip109
+\cftbeforeloftitleskip=\skip110
+\cftafterloftitleskip=\skip111
+\cftbeforefigskip=\skip112
+\cftfigindent=\skip113
+\cftfignumwidth=\skip114
+\c@lofdepth=\count133
+\c@lotdepth=\count134
+\cftbeforelottitleskip=\skip115
+\cftafterlottitleskip=\skip116
+\cftbeforetabskip=\skip117
+\cfttabindent=\skip118
+\cfttabnumwidth=\skip119
+)
+\@indexfile=\write4
+\openout4 = `refman.idx'.
+
+
+Writing index file refman.idx
+
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/newunicodechar\newunico
+dechar.sty
+Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
+)
+
+Package newunicodechar Warning: Redefining Unicode character on input line 112.
+
+
+
+Package newunicodechar Warning: Redefining Unicode character on input line 113.
+
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hyperref.sty"
+Package: hyperref 2019/11/10 v7.00c Hypertext links for LaTeX
+
+("E:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+("E:\Program Files\MiKTeX 2.9\tex/latex/pdftexcmds\pdftexcmds.sty"
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("E:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+("E:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\kvsetkeys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("E:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\etexcmds.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+("E:\Program Files\MiKTeX 2.9\tex/generic/iftex\ifluatex.sty"
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)))
+("E:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\kvdefinekeys.sty"
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+)
+("E:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\pdfescape.sty"
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+)
+("E:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\hycolor.sty"
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\xcolor-patch.sty"
+Package: xcolor-patch 2016/05/16 xcolor patch
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\hopatch.sty"
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+)))
+("E:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\letltxmacro.sty"
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+)
+("E:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\auxhook.sty"
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+("E:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen159
+\Hy@linkcounter=\count135
+\Hy@pagecounter=\count136
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def"
+File: pd1enc.def 2019/11/10 v7.00c Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+("E:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\intcalc.sty"
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count137
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4535.
+Package hyperref Info: Link nesting OFF on input line 4540.
+Package hyperref Info: Hyper index ON on input line 4543.
+Package hyperref Info: Plain pages OFF on input line 4550.
+Package hyperref Info: Backreferencing ON on input line 4553.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4788.
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/hyperref\backref.sty"
+Package: backref 2016/05/21 v1.39 Bibliographical back referencing
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\atveryend.sty"
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+)
+("E:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\uniquecounter.sty"
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+
+("E:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\bigintcalc.sty"
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+))
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
+))
+\c@Hy@tempcnt=\count138
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5147.
+\XeTeXLinkMargin=\dimen160
+
+("E:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\bitset.sty"
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+)
+\Fld@menulength=\count139
+\Field@Width=\dimen161
+\Fld@charsize=\dimen162
+Package hyperref Info: Hyper figures OFF on input line 6418.
+Package hyperref Info: Link nesting OFF on input line 6423.
+Package hyperref Info: Hyper index ON on input line 6426.
+Package hyperref Info: backreferencing ON on input line 6431.
+Package hyperref Info: Link coloring OFF on input line 6438.
+Package hyperref Info: Link coloring with OCG OFF on input line 6443.
+Package hyperref Info: PDF/A mode OFF on input line 6448.
+LaTeX Info: Redefining \ref on input line 6488.
+LaTeX Info: Redefining \pageref on input line 6492.
+
+("E:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\atbegshi.sty"
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+)
+\Hy@abspage=\count140
+\c@Item=\count141
+\c@Hfootnote=\count142
+)
+Package hyperref Info: Driver: hpdftex.
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hpdftex.def"
+File: hpdftex.def 2019/11/10 v7.00c Hyperref driver for pdfTeX
+\Fld@listcount=\count143
+\c@bookmark@seq@number=\count144
+\Hy@SectionHShift=\skip120
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 131.
+Package hyperref Info: Option `unicode' set `true' on input line 131.
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/hyperref\puenc.def"
+File: puenc.def 2019/11/10 v7.00c Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/caption\caption.sty
+Package: caption 2019/10/18 v3.4a Customizing captions (AR)
+
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/caption\caption3.sty
+Package: caption3 2019/09/09 v1.8e caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen163
+\captionmargin@=\dimen164
+\captionwidth=\dimen165
+\caption@tempdima=\dimen166
+\caption@indent=\dimen167
+\caption@parindent=\dimen168
+\caption@hangindent=\dimen169
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count145
+\c@continuedfloat=\count146
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/caption\ltcaption.sty
+Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
+)) (C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/etoc\etoc.sty
+Package: etoc 2019/11/17 v1.09b Completely customisable TOCs (JFB)
+\Etoc@toctoks=\toks32
+\c@etoc@tocid=\count147
+\c@etoc@tocdepth=\count148
+\etoc@framed@titlebox=\box74
+\etoc@framed@contentsbox=\box75
+)
+(refman.aux)
+\openout1 = `refman.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 146.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
+46.
+ ("E:\Program Files\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 14
+6.
+
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\t1phv.fd
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 146.
+
+("E:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count149
+\scratchdimen=\dimen170
+\scratchbox=\box76
+\nofMPsegments=\count150
+\nofMParguments=\count151
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count152
+\MPscratchDim=\dimen171
+\MPnumerator=\count153
+\makeMPintoPDFobject=\count154
+\everyMPtoPDFconversion=\toks34
+) ("E:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
+Package: epstopdf-base 2019/11/24 v2.7 Base part for package epstopdf
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+42.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 460.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=702.78308pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-31.2056pt
+* \headheight=12.0pt
+* \headsep=18.06749pt
+* \topskip=10.0pt
+* \footskip=25.29494pt
+* \marginparwidth=125.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package backref Info: ** backref set up for natbib ** on input line 146.
+\AtBeginShipoutBox=\box77
+Package hyperref Info: Link coloring ON on input line 146.
+("E:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+
+("E:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\refcount.sty"
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+)
+("E:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\gettitlestring.sty"
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count155
+)
+LaTeX Info: Redefining \ref on input line 146.
+LaTeX Info: Redefining \pageref on input line 146.
+LaTeX Info: Redefining \nameref on input line 146.
+
+(refman.out) (refman.out)
+\@outlinefile=\write5
+\openout5 = `refman.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+\Etoc@tf=\read3
+Package hyperref Info: Option `pageanchor' set `false' on input line 152.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 152.
+
+Package hyperref Info: Option `unicode' set `true' on input line 152.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 12.9599pt on input line 157.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 10.79993pt on input line 159.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 8.09995pt on input line 161.
+ [1
+
+
+{C:/Users/sincgrid/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2
+
+]
+\tf@toc=\write6
+\openout6 = `refman.toc'.
+
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 167.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 8.99994pt on input line 167.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 167
+.
+ ("E:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 167
+.
+ ("E:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 16
+7.
+
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/wasysym\uwasy.fd
+File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
+)
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 6.29996pt on input line 167.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 167.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 6.29996pt on input line 167.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
+67.
+
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\ts1phv.fd
+File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
+)
+LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 167.
+
+[1] [2] [3] [4] [5] [6] [7]
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 7.19995pt on input line 167.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 16
+7.
+
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+[8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18
+
+]
+Package hyperref Info: Option `pageanchor' set `true' on input line 169.
+
+Chapter 1.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 18.66588pt on input line 172.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <20.74> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 172.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 18.66588pt on input line 172.
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 18.66588pt on input line 172.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 22.39185pt on input line 172.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 172.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 22.39185pt on input line 172.
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 22.39185pt on input line 172.
+(index.tex
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 3.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 12.9599pt on input line 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+[][][] \T1/pcr/m/n/10 Updating Firmata in the Arduino I[]DE - older versions ($
+\OML/cmm/m/it/10 <$\T1/pcr/m/n/10 = 1.[]6.[]3 or 1.[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+[][][] \T1/pcr/m/n/10 Using the Source code rather than release archive (only f
+or versions
+ []
+
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 18.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 18.
+[1
+
+] [2]
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 146.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 8.99994pt on input line 146.
+LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <10> not available
+(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 146.
+LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
+(Font)              scaled to size 8.99994pt on input line 146.
+ [3]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 146.
+
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 149.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 6.29996pt on input line 149.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 160.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 160.
+[4]) [5] [6
+
+]
+Chapter 2.
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 6.29996pt on input line 174.
+(md_protocol_accel_stepper_firmata.tex [7] [8] [9]
+LaTeX Font Info:    Font shape `TS1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `TS1/phv/b/n' tried instead on input line 322.
+LaTeX Font Info:    Font shape `TS1/phv/b/n' will be
+(Font)              scaled to size 12.9599pt on input line 322.
+ [10]
+Overfull \vbox (5.74864pt too high) has occurred while \output is active []
+
+LaTeX Font Info:    Font shape `TS1/phv/bx/n' in size <10> not available
+(Font)              Font shape `TS1/phv/b/n' tried instead on input line 421.
+LaTeX Font Info:    Font shape `TS1/phv/b/n' will be
+(Font)              scaled to size 8.99994pt on input line 421.
+
+[11]) [12
+
+]
+Chapter 3.
+(md_protocol_encoder.tex
+LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 5
+.
+
+(C:\Users\sincgrid\AppData\Roaming\MiKTeX\2.9\tex/latex/psnfss\ts1pcr.fd
+File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
+)
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 17.
+
+[13] [14]
+Underfull \hbox (badness 2478) in paragraph at lines 107--107
+[]\T1/phv/m/n/10 Note []: \T1/pcr/m/n/10 Report encoder\TS1/pcr/m/n/10 '\T1/pcr
+/m/n/10 s position \T1/phv/m/n/10 re-sponse is a spe-cial case of \T1/pcr/m/n/1
+0 Report all encoders
+ []
+
+) [15] [16
+
+]
+Chapter 4.
+(md_protocol_feature-registry.tex [17] [18]) [19] [20
+
+]
+Chapter 5.
+(md_protocol_i2c.tex
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 3.
+
+) [21] [22]
+Chapter 6.
+(md_protocol_onewire.tex
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 11.
+
+[23
+
+] [24]) [25] [26
+
+]
+Chapter 7.
+(md_protocol_proposals_pingroups-proposal.tex [27]) [28]
+Chapter 8.
+(md_protocol_proposals_rcswitch-proposal.tex [29
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 43.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 43.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 43.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 43.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 43.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 43.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 43.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 43.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 61.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 61.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 61.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 61.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 61.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 61.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 61.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 61.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 79.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 79.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 79.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 79.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 79.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 79.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 79.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 79.
+
+[30] [31]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 192.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 192.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 192.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 192.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 192.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 192.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 192.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 192.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 208.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 208.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 208.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 208.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 208.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 208.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 208.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 208.
+
+[32]) [33] [34
+
+]
+Chapter 9.
+(md_protocol_proposals_serial-2_80-proposal.tex
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 10.
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 11.
+
+[35] [36]) [37] [38
+
+]
+Chapter 10.
+(md_protocol_proposals_shift-proposal.tex [39]) [40]
+Chapter 11.
+(md_protocol_proposals_spi-proposal.tex
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 11.
+
+[41
+
+]
+Overfull \vbox (13.3064pt too high) has occurred while \output is active []
+
+
+[42] [43]) [44]
+Chapter 12.
+(md_protocol_proposals_tone-proposal.tex) [45
+
+] [46
+
+]
+Chapter 13.
+(md_protocol_protocol.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]
+[48] [49] [50] [51]) [52]
+Chapter 14.
+(md_protocol__r_e_a_d_m_e.tex [53
+
+] [54]) [55] [56
+
+]
+Chapter 15.
+(md_protocol_revisions.tex [57]) [58]
+Chapter 16.
+(md_protocol_scheduler.tex
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 3.
+
+[59
+
+] [60]) [61] [62
+
+]
+Chapter 17.
+(md_protocol_serial-1_80.tex
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 9.
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 10.
+
+[63] [64]) [65] [66
+
+]
+Chapter 18.
+(md_protocol_servos.tex) [67] [68
+
+]
+Chapter 19.
+(md_protocol_stepper-legacy.tex [69]) [70]
+Chapter 20.
+(md__r_e_a_d_m_e.tex) [71
+
+] [72
+
+]
+Chapter 21.
+(namespaces.tex) [73] [74
+
+]
+Chapter 22.
+(hierarchy.tex) [75] [76
+
+]
+Chapter 23.
+(annotated.tex) [77] [78
+
+]
+Chapter 24.
+(files.tex) [79] [80
+
+]
+Chapter 25.
+(namespacefirmata.tex [81] [82] [83] [84] [85] [86] [87]
+Underfull \hbox (badness 1314) in paragraph at lines 514--515
+[]\T1/phv/m/n/10 Referenced by firmata[]::[]Firmata[]Parser[]::attach(), firmat
+a[]::[]Firmata[]Class[]::[]Firmata[]Class(), and firmata[]::[]Firmata[]
+ []
+
+
+Underfull \hbox (badness 1314) in paragraph at lines 528--529
+[]\T1/phv/m/n/10 Referenced by firmata[]::[]Firmata[]Parser[]::attach(), firmat
+a[]::[]Firmata[]Class[]::[]Firmata[]Class(), and firmata[]::[]Firmata[]
+ []
+
+
+Underfull \hbox (badness 2903) in paragraph at lines 542--543
+\T1/phv/m/n/10 Class(), firmata[]::[]Firmata[]Marshaller[]::query[]Firmware[]Ve
+rsion(), and firmata[]::[]Firmata[]Marshaller[]::send[]Firmware[]
+ []
+
+[88]
+Underfull \hbox (badness 7291) in paragraph at lines 556--557
+\T1/phv/m/n/10 Class(), firmata[]::[]Firmata[]Parser[]::parse(), firmata[]::[]F
+irmata[]Marshaller[]::query[]Version(), and firmata[]::[]Firmata[]
+ []
+
+[89]
+Underfull \hbox (badness 10000) in paragraph at lines 652--653
+[]\T1/phv/m/n/10 Referenced by firmata[]::[]Firmata[]Parser[]::detach(), firmat
+a[]::[]Firmata[]Class[]::detach(), firmata[]::[]Firmata[]Class[]::[]
+ []
+
+
+Underfull \hbox (badness 1762) in paragraph at lines 652--653
+\T1/phv/m/n/10 Firmata[]Class(), firmata[]::[]Firmata[]Parser[]::parse(), firma
+ta[]::[]Firmata[]Marshaller[]::query[]Firmware[]Version(), firmata[]
+ []
+
+
+Underfull \hbox (badness 1383) in paragraph at lines 676--677
+\T1/phv/m/n/10 firmata[]::[]Firmata[]Class[]::detach(), firmata[]::[]Firmata[]C
+lass[]::[]Firmata[]Class(), firmata[]::[]Firmata[]Marshaller[]::send[]String(),
+
+ []
+
+[90]
+Underfull \hbox (badness 10000) in paragraph at lines 710--711
+\T1/phv/m/n/10 firmata[]::[]Firmata[]Class[]::detach(), firmata[]::[]Firmata[]C
+lass[]::[]Firmata[]Class(), firmata[]::[]Firmata[]Parser[]::parse(), and
+ []
+
+) [91] [92
+
+]
+Chapter 26.
+(class_b_l_e_stream.tex <./class_b_l_e_stream__inherit__graph.pdf
+
+pdfTeX warning: pdflatex (file ./class_b_l_e_stream__inherit__graph.pdf): PDF i
+nclusion: multiple pdfs with page group included in a single page
+>
+<class_b_l_e_stream__inherit__graph.pdf, id=4470, 226.8475pt x 343.2825pt>
+File: class_b_l_e_stream__inherit__graph.pdf Graphic file (type pdf)
+<use class_b_l_e_stream__inherit__graph.pdf>
+Package pdftex.def Info: class_b_l_e_stream__inherit__graph.pdf  used on input 
+line 13.
+(pdftex.def)             Requested size: 226.0pt x 342.00356pt.
+ <./class_b_l_e_stream__coll__graph.pdf
+
+pdfTeX warning: pdflatex (file ./class_b_l_e_stream__coll__graph.pdf): PDF incl
+usion: multiple pdfs with page group included in a single page
+>
+<class_b_l_e_stream__coll__graph.pdf, id=4479, 226.8475pt x 343.2825pt>
+File: class_b_l_e_stream__coll__graph.pdf Graphic file (type pdf)
+<use class_b_l_e_stream__coll__graph.pdf>
+Package pdftex.def Info: class_b_l_e_stream__coll__graph.pdf  used on input lin
+e 22.
+(pdftex.def)             Requested size: 226.0pt x 342.00356pt.
+ [93]
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 64.
+ [94] [95] <./class_b_l_e_stream_a2f571566304b41339d8a74cee6f98d2d_cgraph.pdf
+
+pdfTeX warning: pdflatex (file ./class_b_l_e_stream_a2f571566304b41339d8a74cee6
+f98d2d_cgraph.pdf): PDF inclusion: multiple pdfs with page group included in a 
+single page
+>
+<class_b_l_e_stream_a2f571566304b41339d8a74cee6f98d2d_cgraph.pdf, id=4531, 299.
+1175pt x 100.375pt>
+File: class_b_l_e_stream_a2f571566304b41339d8a74cee6f98d2d_cgraph.pdf Graphic f
+ile (type pdf)
+<use class_b_l_e_stream_a2f571566304b41339d8a74cee6f98d2d_cgraph.pdf>
+Package pdftex.def Info: class_b_l_e_stream_a2f571566304b41339d8a74cee6f98d2d_c
+graph.pdf  used on input line 181.
+(pdftex.def)             Requested size: 298.0pt x 100.00716pt.
+ <./class_b_l_e_stream_af22a00b80511025785543d107422874a_icgraph.pdf
+
+pdfTeX warning: pdflatex (file ./class_b_l_e_stream_af22a00b80511025785543d1074
+22874a_icgraph.pdf): PDF inclusion: multiple pdfs with page group included in a
+ single page
+>
+<class_b_l_e_stream_af22a00b80511025785543d107422874a_icgraph.pdf, id=4540, 303
+.1325pt x 176.66pt>
+File: class_b_l_e_stream_af22a00b80511025785543d107422874a_icgraph.pdf Graphic 
+file (type pdf)
+<use class_b_l_e_stream_af22a00b80511025785543d107422874a_icgraph.pdf>
+Package pdftex.def Info: class_b_l_e_stream_af22a00b80511025785543d107422874a_i
+cgraph.pdf  used on input line 221.
+(pdftex.def)             Requested size: 302.0pt x 176.00183pt.
+ [96] [97] <./class_b_l_e_stream_a58d4d0684a7c9f5434736af31ea2ab98_cgraph.pdf>
+<class_b_l_e_stream_a58d4d0684a7c9f5434736af31ea2ab98_cgraph.pdf, id=4562, 298.
+11375pt x 100.375pt>
+File: class_b_l_e_stream_a58d4d0684a7c9f5434736af31ea2ab98_cgraph.pdf Graphic f
+ile (type pdf)
+<use class_b_l_e_stream_a58d4d0684a7c9f5434736af31ea2ab98_cgraph.pdf>
+Package pdftex.def Info: class_b_l_e_stream_a58d4d0684a7c9f5434736af31ea2ab98_c
+graph.pdf  used on input line 302.
+(pdftex.def)             Requested size: 297.0pt x 100.00562pt.
+[98] <./class_b_l_e_stream_ad3e299ba3ad439d077f1b7bb74617698_cgraph.pdf>
+<class_b_l_e_stream_ad3e299ba3ad439d077f1b7bb74617698_cgraph.pdf, id=4580, 303.
+1325pt x 100.375pt>
+File: class_b_l_e_stream_ad3e299ba3ad439d077f1b7bb74617698_cgraph.pdf Graphic f
+ile (type pdf)
+<use class_b_l_e_stream_ad3e299ba3ad439d077f1b7bb74617698_cgraph.pdf>
+Package pdftex.def Info: class_b_l_e_stream_ad3e299ba3ad439d077f1b7bb74617698_c
+graph.pdf  used on input line 391.
+(pdftex.def)             Requested size: 302.0pt x 100.00102pt.
+)
+(class_bluefruit_l_e___s_p_i___stream.tex <./class_bluefruit_l_e___s_p_i___stre
+am__inherit__graph.pdf
+
+pdfTeX warning: pdflatex (file ./class_bluefruit_l_e___s_p_i___stream__inherit_
+_graph.pdf): PDF inclusion: multiple pdfs with page group included in a single 
+page
+>
+<class_bluefruit_l_e___s_p_i___stream__inherit__graph.pdf, id=4590, 217.81375pt
+ x 365.365pt>
+File: class_bluefruit_l_e___s_p_i___stream__inherit__graph.pdf Graphic file (ty
+pe pdf)
+<use class_bluefruit_l_e___s_p_i___stream__inherit__graph.pdf>
+Package pdftex.def Info: class_bluefruit_l_e___s_p_i___stream__inherit__graph.p
+df  used on input line 13.
+(pdftex.def)             Requested size: 217.0pt x 363.99821pt.
+
+Underfull \vbox (badness 1152) has occurred while \output is active []
+
+ [99] <./class_bluefruit_l_e___s_p_i___stream__coll__graph.pdf>
+<class_bluefruit_l_e___s_p_i___stream__coll__graph.pdf, id=4605, 217.81375pt x 
+365.365pt>
+File: class_bluefruit_l_e___s_p_i___stream__coll__graph.pdf Graphic file (type 
+pdf)
+<use class_bluefruit_l_e___s_p_i___stream__coll__graph.pdf>
+Package pdftex.def Info: class_bluefruit_l_e___s_p_i___stream__coll__graph.pdf 
+ used on input line 22.
+(pdftex.def)             Requested size: 217.0pt x 363.99821pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [100]
+[101] [102] <./class_bluefruit_l_e___s_p_i___stream_a2317ee4a4a96f91114fb1c202f
+8cfc95_cgraph.pdf
+
+pdfTeX warning: pdflatex (file ./class_bluefruit_l_e___s_p_i___stream_a2317ee4a
+4a96f91114fb1c202f8cfc95_cgraph.pdf): PDF inclusion: multiple pdfs with page gr
+oup included in a single page
+>
+<class_bluefruit_l_e___s_p_i___stream_a2317ee4a4a96f91114fb1c202f8cfc95_cgraph.
+pdf, id=4659, 382.42876pt x 111.41624pt>
+File: class_bluefruit_l_e___s_p_i___stream_a2317ee4a4a96f91114fb1c202f8cfc95_cg
+raph.pdf Graphic file (type pdf)
+<use class_bluefruit_l_e___s_p_i___stream_a2317ee4a4a96f91114fb1c202f8cfc95_cgr
+aph.pdf>
+Package pdftex.def Info: class_bluefruit_l_e___s_p_i___stream_a2317ee4a4a96f911
+14fb1c202f8cfc95_cgraph.pdf  used on input line 182.
+(pdftex.def)             Requested size: 350.0pt x 101.97375pt.
+ <./class_bluefruit_l_e___s_p_i___stream_aa2be3b49f65f896743b1d2bbf6c47f6c_icgr
+aph.pdf
+
+pdfTeX warning: pdflatex (file ./class_bluefruit_l_e___s_p_i___stream_aa2be3b49
+f65f896743b1d2bbf6c47f6c_icgraph.pdf): PDF inclusion: multiple pdfs with page g
+roup included in a single page
+>
+<class_bluefruit_l_e___s_p_i___stream_aa2be3b49f65f896743b1d2bbf6c47f6c_icgraph
+.pdf, id=4668, 382.42876pt x 199.74625pt>
+File: class_bluefruit_l_e___s_p_i___stream_aa2be3b49f65f896743b1d2bbf6c47f6c_ic
+graph.pdf Graphic file (type pdf)
+<use class_bluefruit_l_e___s_p_i___stream_aa2be3b49f65f896743b1d2bbf6c47f6c_icg
+raph.pdf>
+Package pdftex.def Info: class_bluefruit_l_e___s_p_i___stream_aa2be3b49f65f8967
+43b1d2bbf6c47f6c_icgraph.pdf  used on input line 211.
+(pdftex.def)             Requested size: 350.0pt x 182.81784pt.
+ [103] <./class_bluefruit_l_e___s_p_i___stream_aac853db41256e05fec5acd82f1c23b6
+3_cgraph.pdf>
+<class_bluefruit_l_e___s_p_i___stream_aac853db41256e05fec5acd82f1c23b63_cgraph.
+pdf, id=4684, 361.35pt x 111.41624pt>
+File: class_bluefruit_l_e___s_p_i___stream_aac853db41256e05fec5acd82f1c23b63_cg
+raph.pdf Graphic file (type pdf)
+<use class_bluefruit_l_e___s_p_i___stream_aac853db41256e05fec5acd82f1c23b63_cgr
+aph.pdf>
+Package pdftex.def Info: class_bluefruit_l_e___s_p_i___stream_aac853db41256e05f
+ec5acd82f1c23b63_cgraph.pdf  used on input line 264.
+(pdftex.def)             Requested size: 350.0pt x 107.9172pt.
+ [104] [105] <./class_bluefruit_l_e___s_p_i___stream_aaa7aedd59278e33d6777fdd37
+48f73e9_cgraph.pdf
+
+pdfTeX warning: pdflatex (file ./class_bluefruit_l_e___s_p_i___stream_aaa7aedd5
+9278e33d6777fdd3748f73e9_cgraph.pdf): PDF inclusion: multiple pdfs with page gr
+oup included in a single page
+>
+<class_bluefruit_l_e___s_p_i___stream_aaa7aedd59278e33d6777fdd3748f73e9_cgraph.
+pdf, id=4705, 361.35pt x 111.41624pt>
+File: class_bluefruit_l_e___s_p_i___stream_aaa7aedd59278e33d6777fdd3748f73e9_cg
+raph.pdf Graphic file (type pdf)
+<use class_bluefruit_l_e___s_p_i___stream_aaa7aedd59278e33d6777fdd3748f73e9_cgr
+aph.pdf>
+Package pdftex.def Info: class_bluefruit_l_e___s_p_i___stream_aaa7aedd59278e33d
+6777fdd3748f73e9_cgraph.pdf  used on input line 380.
+(pdftex.def)             Requested size: 350.0pt x 107.9172pt.
+) (class_ethernet_client_stream.tex <./class_ethernet_client_stream__inherit__g
+raph.pdf
+
+pdfTeX warning: pdflatex (file ./class_ethernet_client_stream__inherit__graph.p
+df): PDF inclusion: multiple pdfs with page group included in a single page
+>
+<class_ethernet_client_stream__inherit__graph.pdf, id=4715, 205.76875pt x 299.1
+175pt>
+File: class_ethernet_client_stream__inherit__graph.pdf Graphic file (type pdf)
+<use class_ethernet_client_stream__inherit__graph.pdf>
+Package pdftex.def Info: class_ethernet_client_stream__inherit__graph.pdf  used
+ on input line 13.
+(pdftex.def)             Requested size: 205.0pt x 298.0031pt.
+ [106] <./class_ethernet_client_stream__coll__graph.pdf>
+<class_ethernet_client_stream__coll__graph.pdf, id=4731, 205.76875pt x 299.1175
+pt>
+File: class_ethernet_client_stream__coll__graph.pdf Graphic file (type pdf)
+<use class_ethernet_client_stream__coll__graph.pdf>
+Package pdftex.def Info: class_ethernet_client_stream__coll__graph.pdf  used on
+ input line 22.
+(pdftex.def)             Requested size: 205.0pt x 298.0031pt.
+ [107] <./class_ethernet_client_stream_af791449a05185d079c66a3ce7ceb8867_cgraph
+.pdf>
+<class_ethernet_client_stream_af791449a05185d079c66a3ce7ceb8867_cgraph.pdf, id=
+4756, 337.26pt x 129.48375pt>
+File: class_ethernet_client_stream_af791449a05185d079c66a3ce7ceb8867_cgraph.pdf
+ Graphic file (type pdf)
+<use class_ethernet_client_stream_af791449a05185d079c66a3ce7ceb8867_cgraph.pdf>
+
+Package pdftex.def Info: class_ethernet_client_stream_af791449a05185d079c66a3ce
+7ceb8867_cgraph.pdf  used on input line 102.
+(pdftex.def)             Requested size: 336.0pt x 129.0033pt.
+ [108] <./class_ethernet_client_stream_a6bfd307971b4f6936cbb00eb04276e7f_cgraph
+.pdf
+
+pdfTeX warning: pdflatex (file ./class_ethernet_client_stream_a6bfd307971b4f693
+6cbb00eb04276e7f_cgraph.pdf): PDF inclusion: multiple pdfs with page group incl
+uded in a single page
+>
+<class_ethernet_client_stream_a6bfd307971b4f6936cbb00eb04276e7f_cgraph.pdf, id=
+4778, 337.26pt x 129.48375pt>
+File: class_ethernet_client_stream_a6bfd307971b4f6936cbb00eb04276e7f_cgraph.pdf
+ Graphic file (type pdf)
+<use class_ethernet_client_stream_a6bfd307971b4f6936cbb00eb04276e7f_cgraph.pdf>
+
+Package pdftex.def Info: class_ethernet_client_stream_a6bfd307971b4f6936cbb00eb
+04276e7f_cgraph.pdf  used on input line 131.
+(pdftex.def)             Requested size: 336.0pt x 129.0033pt.
+ [109] <./class_ethernet_client_stream_a2cb7fc9f588d352ad57527e7189196ea_cgraph
+.pdf>
+<class_ethernet_client_stream_a2cb7fc9f588d352ad57527e7189196ea_cgraph.pdf, id=
+4794, 190.7125pt x 129.48375pt>
+File: class_ethernet_client_stream_a2cb7fc9f588d352ad57527e7189196ea_cgraph.pdf
+ Graphic file (type pdf)
+<use class_ethernet_client_stream_a2cb7fc9f588d352ad57527e7189196ea_cgraph.pdf>
+
+Package pdftex.def Info: class_ethernet_client_stream_a2cb7fc9f588d352ad57527e7
+189196ea_cgraph.pdf  used on input line 168.
+(pdftex.def)             Requested size: 190.0pt x 129.00528pt.
+ <./class_ethernet_client_stream_a2cb7fc9f588d352ad57527e7189196ea_icgraph.pdf
+
+pdfTeX warning: pdflatex (file ./class_ethernet_client_stream_a2cb7fc9f588d352a
+d57527e7189196ea_icgraph.pdf): PDF inclusion: multiple pdfs with page group inc
+luded in a single page
+>
+<class_ethernet_client_stream_a2cb7fc9f588d352ad57527e7189196ea_icgraph.pdf, id
+=4803, 337.26pt x 308.15125pt>
+File: class_ethernet_client_stream_a2cb7fc9f588d352ad57527e7189196ea_icgraph.pd
+f Graphic file (type pdf)
+<use class_ethernet_client_stream_a2cb7fc9f588d352ad57527e7189196ea_icgraph.pdf
+>
+Package pdftex.def Info: class_ethernet_client_stream_a2cb7fc9f588d352ad57527e7
+189196ea_icgraph.pdf  used on input line 175.
+(pdftex.def)             Requested size: 336.0pt x 307.00789pt.
+ [110] <./class_ethernet_client_stream_ab48794c4ecdcf568ca915c54849e33d3_cgraph
+.pdf>
+<class_ethernet_client_stream_ab48794c4ecdcf568ca915c54849e33d3_cgraph.pdf, id=
+4820, 337.26pt x 129.48375pt>
+File: class_ethernet_client_stream_ab48794c4ecdcf568ca915c54849e33d3_cgraph.pdf
+ Graphic file (type pdf)
+<use class_ethernet_client_stream_ab48794c4ecdcf568ca915c54849e33d3_cgraph.pdf>
+
+Package pdftex.def Info: class_ethernet_client_stream_ab48794c4ecdcf568ca915c54
+849e33d3_cgraph.pdf  used on input line 203.
+(pdftex.def)             Requested size: 336.0pt x 129.0033pt.
+ <./class_ethernet_client_stream_ab09d7fee2e6e57a4ae63227226991673_cgraph.pdf
+
+pdfTeX warning: pdflatex (file ./class_ethernet_client_stream_ab09d7fee2e6e57a4
+ae63227226991673_cgraph.pdf): PDF inclusion: multiple pdfs with page group incl
+uded in a single page
+>
+<class_ethernet_client_stream_ab09d7fee2e6e57a4ae63227226991673_cgraph.pdf, id=
+4830, 337.26pt x 129.48375pt>
+File: class_ethernet_client_stream_ab09d7fee2e6e57a4ae63227226991673_cgraph.pdf
+ Graphic file (type pdf)
+<use class_ethernet_client_stream_ab09d7fee2e6e57a4ae63227226991673_cgraph.pdf>
+
+Package pdftex.def Info: class_ethernet_client_stream_ab09d7fee2e6e57a4ae632272
+26991673_cgraph.pdf  used on input line 231.
+(pdftex.def)             Requested size: 336.0pt x 129.0033pt.
+ [111] <./class_ethernet_client_stream_aca0236433d48beb3ada438dbdb425bbd_cgraph
+.pdf>
+<class_ethernet_client_stream_aca0236433d48beb3ada438dbdb425bbd_cgraph.pdf, id=
+4847, 337.26pt x 129.48375pt>
+File: class_ethernet_client_stream_aca0236433d48beb3ada438dbdb425bbd_cgraph.pdf
+ Graphic file (type pdf)
+<use class_ethernet_client_stream_aca0236433d48beb3ada438dbdb425bbd_cgraph.pdf>
+
+Package pdftex.def Info: class_ethernet_client_stream_aca0236433d48beb3ada438db
+db425bbd_cgraph.pdf  used on input line 259.
+(pdftex.def)             Requested size: 336.0pt x 129.0033pt.
+) (class_ethernet_server_stream.tex <./class_ethernet_server_stream__inherit__g
+raph.pdf
+
+pdfTeX warning: pdflatex (file ./class_ethernet_server_stream__inherit__graph.p
+df): PDF inclusion: multiple pdfs with page group included in a single page
+>
+<class_ethernet_server_stream__inherit__graph.pdf, id=4857, 207.77625pt x 321.2
+pt>
+File: class_ethernet_server_stream__inherit__graph.pdf Graphic file (type pdf)
+<use class_ethernet_server_stream__inherit__graph.pdf>
+Package pdftex.def Info: class_ethernet_server_stream__inherit__graph.pdf  used
+ on input line 13.
+(pdftex.def)             Requested size: 207.0pt x 320.01314pt.
+
+Underfull \vbox (badness 2653) has occurred while \output is active []
+
+ [112] <./class_ethernet_server_stream__coll__graph.pdf>
+<class_ethernet_server_stream__coll__graph.pdf, id=4872, 207.77625pt x 321.2pt>
+
+File: class_ethernet_server_stream__coll__graph.pdf Graphic file (type pdf)
+<use class_ethernet_server_stream__coll__graph.pdf>
+Package pdftex.def Info: class_ethernet_server_stream__coll__graph.pdf  used on
+ input line 22.
+(pdftex.def)             Requested size: 207.0pt x 320.01314pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [113]
+[114] <./class_ethernet_server_stream_afe44eb0907bf717d858eca853c36dc5e_cgraph.
+pdf>
+<class_ethernet_server_stream_afe44eb0907bf717d858eca853c36dc5e_cgraph.pdf, id=
+4918, 341.275pt x 129.48375pt>
+File: class_ethernet_server_stream_afe44eb0907bf717d858eca853c36dc5e_cgraph.pdf
+ Graphic file (type pdf)
+<use class_ethernet_server_stream_afe44eb0907bf717d858eca853c36dc5e_cgraph.pdf>
+
+Package pdftex.def Info: class_ethernet_server_stream_afe44eb0907bf717d858eca85
+3c36dc5e_cgraph.pdf  used on input line 111.
+(pdftex.def)             Requested size: 340.0pt x 129.00725pt.
+ [115] <./class_ethernet_server_stream_a4d389e604c362925a3353f8843b4d0e9_cgraph
+.pdf>
+<class_ethernet_server_stream_a4d389e604c362925a3353f8843b4d0e9_cgraph.pdf, id=
+4936, 341.275pt x 129.48375pt>
+File: class_ethernet_server_stream_a4d389e604c362925a3353f8843b4d0e9_cgraph.pdf
+ Graphic file (type pdf)
+<use class_ethernet_server_stream_a4d389e604c362925a3353f8843b4d0e9_cgraph.pdf>
+
+Package pdftex.def Info: class_ethernet_server_stream_a4d389e604c362925a3353f88
+43b4d0e9_cgraph.pdf  used on input line 172.
+(pdftex.def)             Requested size: 340.0pt x 129.00725pt.
+ <./class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5_cgraph.pdf
+
+pdfTeX warning: pdflatex (file ./class_ethernet_server_stream_aa4fcdc109faa3b53
+4e4b5c48accb68e5_cgraph.pdf): PDF inclusion: multiple pdfs with page group incl
+uded in a single page
+>
+<class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5_cgraph.pdf, id=
+4945, 192.72pt x 129.48375pt>
+File: class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5_cgraph.pdf
+ Graphic file (type pdf)
+<use class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5_cgraph.pdf>
+
+Package pdftex.def Info: class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48
+accb68e5_cgraph.pdf  used on input line 209.
+(pdftex.def)             Requested size: 192.0pt x 128.99934pt.
+ [116] <./class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5_icgrap
+h.pdf>
+<class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5_icgraph.pdf, id
+=4961, 341.275pt x 308.15125pt>
+File: class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5_icgraph.pd
+f Graphic file (type pdf)
+<use class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5_icgraph.pdf
+>
+Package pdftex.def Info: class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48
+accb68e5_icgraph.pdf  used on input line 216.
+(pdftex.def)             Requested size: 340.0pt x 307.01729pt.
+ [117] <./class_ethernet_server_stream_a7e27ed527c032670284ef6d14d5639a0_cgraph
+.pdf>
+<class_ethernet_server_stream_a7e27ed527c032670284ef6d14d5639a0_cgraph.pdf, id=
+4978, 341.275pt x 129.48375pt>
+File: class_ethernet_server_stream_a7e27ed527c032670284ef6d14d5639a0_cgraph.pdf
+ Graphic file (type pdf)
+<use class_ethernet_server_stream_a7e27ed527c032670284ef6d14d5639a0_cgraph.pdf>
+
+Package pdftex.def Info: class_ethernet_server_stream_a7e27ed527c032670284ef6d1
+4d5639a0_cgraph.pdf  used on input line 244.
+(pdftex.def)             Requested size: 340.0pt x 129.00725pt.
+ <./class_ethernet_server_stream_a27997fbe661a726ded1b11b07aa1882b_cgraph.pdf
+
+pdfTeX warning: pdflatex (file ./class_ethernet_server_stream_a27997fbe661a726d
+ed1b11b07aa1882b_cgraph.pdf): PDF inclusion: multiple pdfs with page group incl
+uded in a single page
+>
+<class_ethernet_server_stream_a27997fbe661a726ded1b11b07aa1882b_cgraph.pdf, id=
+4988, 341.275pt x 129.48375pt>
+File: class_ethernet_server_stream_a27997fbe661a726ded1b11b07aa1882b_cgraph.pdf
+ Graphic file (type pdf)
+<use class_ethernet_server_stream_a27997fbe661a726ded1b11b07aa1882b_cgraph.pdf>
+
+Package pdftex.def Info: class_ethernet_server_stream_a27997fbe661a726ded1b11b0
+7aa1882b_cgraph.pdf  used on input line 272.
+(pdftex.def)             Requested size: 340.0pt x 129.00725pt.
+ [118] <./class_ethernet_server_stream_ab6e444aefeca0541ca694df97ee429b4_cgraph
+.pdf>
+<class_ethernet_server_stream_ab6e444aefeca0541ca694df97ee429b4_cgraph.pdf, id=
+5005, 341.275pt x 129.48375pt>
+File: class_ethernet_server_stream_ab6e444aefeca0541ca694df97ee429b4_cgraph.pdf
+ Graphic file (type pdf)
+<use class_ethernet_server_stream_ab6e444aefeca0541ca694df97ee429b4_cgraph.pdf>
+
+Package pdftex.def Info: class_ethernet_server_stream_ab6e444aefeca0541ca694df9
+7ee429b4_cgraph.pdf  used on input line 300.
+(pdftex.def)             Requested size: 340.0pt x 129.00725pt.
+) (classfirmata_1_1_firmata_class.tex <./classfirmata_1_1_firmata_class__coll__
+graph.pdf
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_class__coll__graph.pd
+f): PDF inclusion: multiple pdfs with page group included in a single page
+>
+<classfirmata_1_1_firmata_class__coll__graph.pdf, id=5015, 241.90375pt x 248.93
+pt>
+File: classfirmata_1_1_firmata_class__coll__graph.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class__coll__graph.pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_class__coll__graph.pdf  used 
+on input line 13.
+(pdftex.def)             Requested size: 241.0pt x 248.01018pt.
+ [119] [120]
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
+\T1/pcr/m/n/8 typedef void($\OMS/cmsy/m/n/8 $ \T1/pcr/m/n/8 firmata[]::[]Firma
+ta[]Class[]::sysex[]Callback[]Function) (uint8[]_[]t command, uint8[]_[]t argc,
+
+ []
+
+[121]
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
+[]\T1/phv/m/n/10 References firmata[]::[]A[]N[]A[]L[]O[]G[]_[][]M[]E[]S[]S[]A[]
+GE, firmata[]::[]Firmata[]Parser[]::attach(), firmata[]::[]D[]I[]G[]I[]T[]A[]L[
+]_[][]M[]E[]S[]S[]A[]GE,
+ []
+
+
+Underfull \hbox (badness 2903) in paragraph at lines 188--189
+\T1/phv/m/n/10 firmata[]::[]R[]E[]P[]O[]R[]T[]_[][]A[]N[]A[]L[]OG, firmata[]::[
+]R[]E[]P[]O[]R[]T[]_[][]D[]I[]G[]I[]T[]AL, firmata[]::[]R[]E[]P[]O[]R[]T[]_[][]
+F[]I[]R[]M[]W[]A[]RE, firmata[]::[]R[]E[]P[]O[]R[]T[]
+ []
+
+ <./classfirmata_1_1_firmata_class_a75b035ab8d96d87d28deeb87badfe11a_cgraph.pdf
+
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_class_a75b035ab8d96d8
+7d28deeb87badfe11a_cgraph.pdf): PDF inclusion: multiple pdfs with page group in
+cluded in a single page
+>
+<classfirmata_1_1_firmata_class_a75b035ab8d96d87d28deeb87badfe11a_cgraph.pdf, i
+d=5161, 340.27126pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_a75b035ab8d96d87d28deeb87badfe11a_cgraph.p
+df Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_a75b035ab8d96d87d28deeb87badfe11a_cgraph.pd
+f>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_a75b035ab8d96d87d28deeb
+87badfe11a_cgraph.pdf  used on input line 194.
+(pdftex.def)             Requested size: 339.0pt x 111.00624pt.
+ [122]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <8> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 203.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 7.19995pt on input line 203.
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <8> not available
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 203.
+ <./classfirmata_1_1_firmata_class_a1ae572e88ec810dd49516e53c5f32d2d_icgraph.pd
+f>
+<classfirmata_1_1_firmata_class_a1ae572e88ec810dd49516e53c5f32d2d_icgraph.pdf, 
+id=5183, 337.26pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_a1ae572e88ec810dd49516e53c5f32d2d_icgraph.
+pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_a1ae572e88ec810dd49516e53c5f32d2d_icgraph.p
+df>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_a1ae572e88ec810dd49516e
+53c5f32d2d_icgraph.pdf  used on input line 214.
+(pdftex.def)             Requested size: 336.0pt x 111.00284pt.
+ [123]
+Underfull \hbox (badness 10000) detected at line 312
+[][][]
+ []
+
+[124] <./classfirmata_1_1_firmata_class_a2fddcc643892bec2f4aa7aef6dba70eb_icgra
+ph.pdf
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_class_a2fddcc643892be
+c2f4aa7aef6dba70eb_icgraph.pdf): PDF inclusion: multiple pdfs with page group i
+ncluded in a single page
+>
+<classfirmata_1_1_firmata_class_a2fddcc643892bec2f4aa7aef6dba70eb_icgraph.pdf, 
+id=5212, 337.26pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_a2fddcc643892bec2f4aa7aef6dba70eb_icgraph.
+pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_a2fddcc643892bec2f4aa7aef6dba70eb_icgraph.p
+df>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_a2fddcc643892bec2f4aa7a
+ef6dba70eb_icgraph.pdf  used on input line 351.
+(pdftex.def)             Requested size: 336.0pt x 111.00284pt.
+ [125] <./classfirmata_1_1_firmata_class_ab0b7b837d2c32b4ce79e62895ced2731_cgra
+ph.pdf>
+<classfirmata_1_1_firmata_class_ab0b7b837d2c32b4ce79e62895ced2731_cgraph.pdf, i
+d=5231, 337.26pt x 160.6pt>
+File: classfirmata_1_1_firmata_class_ab0b7b837d2c32b4ce79e62895ced2731_cgraph.p
+df Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_ab0b7b837d2c32b4ce79e62895ced2731_cgraph.pd
+f>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_ab0b7b837d2c32b4ce79e62
+895ced2731_cgraph.pdf  used on input line 386.
+(pdftex.def)             Requested size: 336.0pt x 160.0041pt.
+ <./classfirmata_1_1_firmata_class_a0c7b0e10168e3c5dc6442d77c65a156e_cgraph.pdf
+
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_class_a0c7b0e10168e3c
+5dc6442d77c65a156e_cgraph.pdf): PDF inclusion: multiple pdfs with page group in
+cluded in a single page
+>
+<classfirmata_1_1_firmata_class_a0c7b0e10168e3c5dc6442d77c65a156e_cgraph.pdf, i
+d=5243, 523.9575pt x 209.78375pt>
+File: classfirmata_1_1_firmata_class_a0c7b0e10168e3c5dc6442d77c65a156e_cgraph.p
+df Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_a0c7b0e10168e3c5dc6442d77c65a156e_cgraph.pd
+f>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_a0c7b0e10168e3c5dc6442d
+77c65a156e_cgraph.pdf  used on input line 424.
+(pdftex.def)             Requested size: 350.0pt x 140.13823pt.
+
+Underfull \vbox (badness 7504) has occurred while \output is active []
+
+ [126] <./classfirmata_1_1_firmata_class_a9421550f2501fc1df60fd174b154e606_icgr
+aph.pdf>
+<classfirmata_1_1_firmata_class_a9421550f2501fc1df60fd174b154e606_icgraph.pdf, 
+id=5263, 337.26pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_a9421550f2501fc1df60fd174b154e606_icgraph.
+pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_a9421550f2501fc1df60fd174b154e606_icgraph.p
+df>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_a9421550f2501fc1df60fd1
+74b154e606_icgraph.pdf  used on input line 464.
+(pdftex.def)             Requested size: 336.0pt x 111.00284pt.
+
+[127] <./classfirmata_1_1_firmata_class_a5db0faee74b9291d1b783d2dde0929d1_cgrap
+h.pdf>
+<classfirmata_1_1_firmata_class_a5db0faee74b9291d1b783d2dde0929d1_cgraph.pdf, i
+d=5292, 337.26pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_a5db0faee74b9291d1b783d2dde0929d1_cgraph.p
+df Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_a5db0faee74b9291d1b783d2dde0929d1_cgraph.pd
+f>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_a5db0faee74b9291d1b783d
+2dde0929d1_cgraph.pdf  used on input line 510.
+(pdftex.def)             Requested size: 336.0pt x 111.00284pt.
+ [128]
+Underfull \hbox (badness 10000) detected at line 562
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 587
+[][][]
+ []
+
+[129]
+Underfull \hbox (badness 10000) detected at line 607
+[][][]
+ []
+
+ <./classfirmata_1_1_firmata_class_a58e9d787957c3085f22d33b59b1f6ea6_cgraph.pdf
+
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_class_a58e9d787957c30
+85f22d33b59b1f6ea6_cgraph.pdf): PDF inclusion: multiple pdfs with page group in
+cluded in a single page
+>
+<classfirmata_1_1_firmata_class_a58e9d787957c3085f22d33b59b1f6ea6_cgraph.pdf, i
+d=5316, 340.27126pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_a58e9d787957c3085f22d33b59b1f6ea6_cgraph.p
+df Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_a58e9d787957c3085f22d33b59b1f6ea6_cgraph.pd
+f>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_a58e9d787957c3085f22d33
+b59b1f6ea6_cgraph.pdf  used on input line 629.
+(pdftex.def)             Requested size: 339.0pt x 111.00624pt.
+ <./classfirmata_1_1_firmata_class_aaeaac8b1f8facf070615b0035120c432_cgraph.pdf
+
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_class_aaeaac8b1f8facf
+070615b0035120c432_cgraph.pdf): PDF inclusion: multiple pdfs with page group in
+cluded in a single page
+>
+<classfirmata_1_1_firmata_class_aaeaac8b1f8facf070615b0035120c432_cgraph.pdf, i
+d=5326, 340.27126pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_aaeaac8b1f8facf070615b0035120c432_cgraph.p
+df Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_aaeaac8b1f8facf070615b0035120c432_cgraph.pd
+f>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_aaeaac8b1f8facf070615b0
+035120c432_cgraph.pdf  used on input line 662.
+(pdftex.def)             Requested size: 339.0pt x 111.00624pt.
+
+Underfull \vbox (badness 3679) has occurred while \output is active []
+
+ [130] <./classfirmata_1_1_firmata_class_abe49261eab0bd4892a09fa8b8980b11a_cgra
+ph.pdf>
+<classfirmata_1_1_firmata_class_abe49261eab0bd4892a09fa8b8980b11a_cgraph.pdf, i
+d=5345, 361.35pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_abe49261eab0bd4892a09fa8b8980b11a_cgraph.p
+df Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_abe49261eab0bd4892a09fa8b8980b11a_cgraph.pd
+f>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_abe49261eab0bd4892a09fa
+8b8980b11a_cgraph.pdf  used on input line 696.
+(pdftex.def)             Requested size: 350.0pt x 107.9172pt.
+ <./classfirmata_1_1_firmata_class_abe49261eab0bd4892a09fa8b8980b11a_icgraph.pd
+f
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_class_abe49261eab0bd4
+892a09fa8b8980b11a_icgraph.pdf): PDF inclusion: multiple pdfs with page group i
+ncluded in a single page
+>
+<classfirmata_1_1_firmata_class_abe49261eab0bd4892a09fa8b8980b11a_icgraph.pdf, 
+id=5354, 341.275pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_abe49261eab0bd4892a09fa8b8980b11a_icgraph.
+pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_abe49261eab0bd4892a09fa8b8980b11a_icgraph.p
+df>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_abe49261eab0bd4892a09fa
+8b8980b11a_icgraph.pdf  used on input line 703.
+(pdftex.def)             Requested size: 340.0pt x 111.00624pt.
+ [131]
+Underfull \hbox (badness 10000) in paragraph at lines 725--726
+[]\T1/phv/m/n/10 References F[]I[]R[]M[]A[]T[]A[]_[][]P[]R[]O[]T[]O[]C[]O[]L[]_
+[][]M[]A[]J[]O[]R[]_[][]V[]E[]R[]S[]I[]ON, F[]I[]R[]M[]A[]T[]A[]_[][]P[]R[]O[]T
+[]O[]C[]O[]L[]_[][]M[]I[]N[]O[]R[]_[][]V[]E[]R[]S[]I[]ON, and
+ []
+
+ <./classfirmata_1_1_firmata_class_abd8a0370db6d9e923e7e3d5836e78d7a_cgraph.pdf
+>
+<classfirmata_1_1_firmata_class_abd8a0370db6d9e923e7e3d5836e78d7a_cgraph.pdf, i
+d=5376, 357.335pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_abd8a0370db6d9e923e7e3d5836e78d7a_cgraph.p
+df Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_abd8a0370db6d9e923e7e3d5836e78d7a_cgraph.pd
+f>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_abd8a0370db6d9e923e7e3d
+5836e78d7a_cgraph.pdf  used on input line 735.
+(pdftex.def)             Requested size: 350.0pt x 109.13446pt.
+ <./classfirmata_1_1_firmata_class_abd8a0370db6d9e923e7e3d5836e78d7a_icgraph.pd
+f
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_class_abd8a0370db6d9e
+923e7e3d5836e78d7a_icgraph.pdf): PDF inclusion: multiple pdfs with page group i
+ncluded in a single page
+>
+<classfirmata_1_1_firmata_class_abd8a0370db6d9e923e7e3d5836e78d7a_icgraph.pdf, 
+id=5385, 337.26pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_abd8a0370db6d9e923e7e3d5836e78d7a_icgraph.
+pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_abd8a0370db6d9e923e7e3d5836e78d7a_icgraph.p
+df>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_abd8a0370db6d9e923e7e3d
+5836e78d7a_icgraph.pdf  used on input line 742.
+(pdftex.def)             Requested size: 336.0pt x 111.00284pt.
+ <./classfirmata_1_1_firmata_class_aa698f5f5a234173d5eebb54831350676_cgraph.pdf
+
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_class_aa698f5f5a23417
+3d5eebb54831350676_cgraph.pdf): PDF inclusion: multiple pdfs with page group in
+cluded in a single page
+>
+<classfirmata_1_1_firmata_class_aa698f5f5a234173d5eebb54831350676_cgraph.pdf, i
+d=5395, 340.27126pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_aa698f5f5a234173d5eebb54831350676_cgraph.p
+df Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_aa698f5f5a234173d5eebb54831350676_cgraph.pd
+f>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_aa698f5f5a234173d5eebb5
+4831350676_cgraph.pdf  used on input line 773.
+(pdftex.def)             Requested size: 339.0pt x 111.00624pt.
+ [132] <./classfirmata_1_1_firmata_class_ae14e1d8d9bd72068f6e8ca07721e8dda_cgra
+ph.pdf>
+<classfirmata_1_1_firmata_class_ae14e1d8d9bd72068f6e8ca07721e8dda_cgraph.pdf, i
+d=5415, 357.335pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_ae14e1d8d9bd72068f6e8ca07721e8dda_cgraph.p
+df Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_ae14e1d8d9bd72068f6e8ca07721e8dda_cgraph.pd
+f>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_ae14e1d8d9bd72068f6e8ca
+07721e8dda_cgraph.pdf  used on input line 808.
+(pdftex.def)             Requested size: 350.0pt x 109.13446pt.
+ [133]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [134] <./classfirmata_1_1_firmata_class_a799b91e5a888dd21b066a2020d8e2b68_cgra
+ph.pdf>
+<classfirmata_1_1_firmata_class_a799b91e5a888dd21b066a2020d8e2b68_cgraph.pdf, i
+d=5440, 357.335pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_a799b91e5a888dd21b066a2020d8e2b68_cgraph.p
+df Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_a799b91e5a888dd21b066a2020d8e2b68_cgraph.pd
+f>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_a799b91e5a888dd21b066a2
+020d8e2b68_cgraph.pdf  used on input line 876.
+(pdftex.def)             Requested size: 350.0pt x 109.13446pt.
+ <./classfirmata_1_1_firmata_class_ab139c0d784e69003c88eb5be8807dcdf_cgraph.pdf
+
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_class_ab139c0d784e690
+03c88eb5be8807dcdf_cgraph.pdf): PDF inclusion: multiple pdfs with page group in
+cluded in a single page
+>
+<classfirmata_1_1_firmata_class_ab139c0d784e69003c88eb5be8807dcdf_cgraph.pdf, i
+d=5451, 523.9575pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_ab139c0d784e69003c88eb5be8807dcdf_cgraph.p
+df Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_ab139c0d784e69003c88eb5be8807dcdf_cgraph.pd
+f>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_ab139c0d784e69003c88eb5
+be8807dcdf_cgraph.pdf  used on input line 913.
+(pdftex.def)             Requested size: 350.0pt x 74.42747pt.
+ [135] <./classfirmata_1_1_firmata_class_abe11f621154afd308926129de349fc6e_cgra
+ph.pdf>
+<classfirmata_1_1_firmata_class_abe11f621154afd308926129de349fc6e_cgraph.pdf, i
+d=5471, 523.9575pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_abe11f621154afd308926129de349fc6e_cgraph.p
+df Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_abe11f621154afd308926129de349fc6e_cgraph.pd
+f>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_abe11f621154afd30892612
+9de349fc6e_cgraph.pdf  used on input line 946.
+(pdftex.def)             Requested size: 350.0pt x 74.42747pt.
+ <./classfirmata_1_1_firmata_class_a81e2de5b37eb2372c8a3d9a43d5eb0cc_cgraph.pdf
+
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_class_a81e2de5b37eb23
+72c8a3d9a43d5eb0cc_cgraph.pdf): PDF inclusion: multiple pdfs with page group in
+cluded in a single page
+>
+<classfirmata_1_1_firmata_class_a81e2de5b37eb2372c8a3d9a43d5eb0cc_cgraph.pdf, i
+d=5481, 357.335pt x 111.41624pt>
+File: classfirmata_1_1_firmata_class_a81e2de5b37eb2372c8a3d9a43d5eb0cc_cgraph.p
+df Graphic file (type pdf)
+<use classfirmata_1_1_firmata_class_a81e2de5b37eb2372c8a3d9a43d5eb0cc_cgraph.pd
+f>
+Package pdftex.def Info: classfirmata_1_1_firmata_class_a81e2de5b37eb2372c8a3d9
+a43d5eb0cc_cgraph.pdf  used on input line 983.
+(pdftex.def)             Requested size: 350.0pt x 109.13446pt.
+ [136] [137] [138] [139] [140]) (class_firmata_feature.tex <./class_firmata_fea
+ture__inherit__graph.pdf
+
+pdfTeX warning: pdflatex (file ./class_firmata_feature__inherit__graph.pdf): PD
+F inclusion: multiple pdfs with page group included in a single page
+>
+<class_firmata_feature__inherit__graph.pdf, id=5527, 183.68625pt x 332.24126pt>
+
+File: class_firmata_feature__inherit__graph.pdf Graphic file (type pdf)
+<use class_firmata_feature__inherit__graph.pdf>
+Package pdftex.def Info: class_firmata_feature__inherit__graph.pdf  used on inp
+ut line 13.
+(pdftex.def)             Requested size: 183.0pt x 331.02373pt.
+ <./class_firmata_feature__coll__graph.pdf
+
+pdfTeX warning: pdflatex (file ./class_firmata_feature__coll__graph.pdf): PDF i
+nclusion: multiple pdfs with page group included in a single page
+>
+<class_firmata_feature__coll__graph.pdf, id=5536, 183.68625pt x 171.64125pt>
+File: class_firmata_feature__coll__graph.pdf Graphic file (type pdf)
+<use class_firmata_feature__coll__graph.pdf>
+Package pdftex.def Info: class_firmata_feature__coll__graph.pdf  used on input 
+line 22.
+(pdftex.def)             Requested size: 183.0pt x 171.01224pt.
+
+Underfull \vbox (badness 1895) has occurred while \output is active []
+
+ [141]
+[142]) (classfirmata_1_1_firmata_marshaller.tex <./classfirmata_1_1_firmata_mar
+shaller__coll__graph.pdf>
+<classfirmata_1_1_firmata_marshaller__coll__graph.pdf, id=5573, 214.8025pt x 24
+8.93pt>
+File: classfirmata_1_1_firmata_marshaller__coll__graph.pdf Graphic file (type p
+df)
+<use classfirmata_1_1_firmata_marshaller__coll__graph.pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_marshaller__coll__graph.pdf  
+used on input line 13.
+(pdftex.def)             Requested size: 214.0pt x 248.00258pt.
+ [143] [144] [145] <./classfirmata_1_1_firmata_marshaller_a5be18ca3658875dbe558
+0c2254071c76_icgraph.pdf
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_marshaller_a5be18ca36
+58875dbe5580c2254071c76_icgraph.pdf): PDF inclusion: multiple pdfs with page gr
+oup included in a single page
+>
+<classfirmata_1_1_firmata_marshaller_a5be18ca3658875dbe5580c2254071c76_icgraph.
+pdf, id=5641, 357.335pt x 111.41624pt>
+File: classfirmata_1_1_firmata_marshaller_a5be18ca3658875dbe5580c2254071c76_icg
+raph.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_marshaller_a5be18ca3658875dbe5580c2254071c76_icgr
+aph.pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_marshaller_a5be18ca3658875dbe
+5580c2254071c76_icgraph.pdf  used on input line 129.
+(pdftex.def)             Requested size: 350.0pt x 109.13446pt.
+ [146] [147] [148]
+Underfull \hbox (badness 10000) detected at line 296
+[][][]
+ []
+
+ <./classfirmata_1_1_firmata_marshaller_a4d9f2d3bb058237404dfe433cfe7571a_icgra
+ph.pdf
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_marshaller_a4d9f2d3bb
+058237404dfe433cfe7571a_icgraph.pdf): PDF inclusion: multiple pdfs with page gr
+oup included in a single page
+>
+<classfirmata_1_1_firmata_marshaller_a4d9f2d3bb058237404dfe433cfe7571a_icgraph.
+pdf, id=5675, 357.335pt x 111.41624pt>
+File: classfirmata_1_1_firmata_marshaller_a4d9f2d3bb058237404dfe433cfe7571a_icg
+raph.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_marshaller_a4d9f2d3bb058237404dfe433cfe7571a_icgr
+aph.pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_marshaller_a4d9f2d3bb05823740
+4dfe433cfe7571a_icgraph.pdf  used on input line 328.
+(pdftex.def)             Requested size: 350.0pt x 109.13446pt.
+ <./classfirmata_1_1_firmata_marshaller_a1c987a534cc8dd197eb2f2a728bdacb3_cgrap
+h.pdf
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_marshaller_a1c987a534
+cc8dd197eb2f2a728bdacb3_cgraph.pdf): PDF inclusion: multiple pdfs with page gro
+up included in a single page
+>
+<classfirmata_1_1_firmata_marshaller_a1c987a534cc8dd197eb2f2a728bdacb3_cgraph.p
+df, id=5686, 384.43625pt x 111.41624pt>
+File: classfirmata_1_1_firmata_marshaller_a1c987a534cc8dd197eb2f2a728bdacb3_cgr
+aph.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_marshaller_a1c987a534cc8dd197eb2f2a728bdacb3_cgra
+ph.pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_marshaller_a1c987a534cc8dd197
+eb2f2a728bdacb3_cgraph.pdf  used on input line 356.
+(pdftex.def)             Requested size: 350.0pt x 101.44333pt.
+ [149] <./classfirmata_1_1_firmata_marshaller_a1f1c5ce29ba4488306c9a1e3f158b781
+_cgraph.pdf>
+<classfirmata_1_1_firmata_marshaller_a1f1c5ce29ba4488306c9a1e3f158b781_cgraph.p
+df, id=5705, 377.41pt x 111.41624pt>
+File: classfirmata_1_1_firmata_marshaller_a1f1c5ce29ba4488306c9a1e3f158b781_cgr
+aph.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_marshaller_a1f1c5ce29ba4488306c9a1e3f158b781_cgra
+ph.pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_marshaller_a1f1c5ce29ba448830
+6c9a1e3f158b781_cgraph.pdf  used on input line 384.
+(pdftex.def)             Requested size: 350.0pt x 103.32361pt.
+ [150] <./classfirmata_1_1_firmata_marshaller_a346dcb4487a51efaa95de42d292ad951
+_icgraph.pdf>
+<classfirmata_1_1_firmata_marshaller_a346dcb4487a51efaa95de42d292ad951_icgraph.
+pdf, id=5723, 357.335pt x 111.41624pt>
+File: classfirmata_1_1_firmata_marshaller_a346dcb4487a51efaa95de42d292ad951_icg
+raph.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_marshaller_a346dcb4487a51efaa95de42d292ad951_icgr
+aph.pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_marshaller_a346dcb4487a51efaa
+95de42d292ad951_icgraph.pdf  used on input line 458.
+(pdftex.def)             Requested size: 350.0pt x 109.13446pt.
+ [151] <./classfirmata_1_1_firmata_marshaller_aed71d62cc41f2e0bf3f161894b91be7c
+_icgraph.pdf>
+<classfirmata_1_1_firmata_marshaller_aed71d62cc41f2e0bf3f161894b91be7c_icgraph.
+pdf, id=5743, 507.8975pt x 111.41624pt>
+File: classfirmata_1_1_firmata_marshaller_aed71d62cc41f2e0bf3f161894b91be7c_icg
+raph.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_marshaller_aed71d62cc41f2e0bf3f161894b91be7c_icgr
+aph.pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_marshaller_aed71d62cc41f2e0bf
+3f161894b91be7c_icgraph.pdf  used on input line 510.
+(pdftex.def)             Requested size: 350.0pt x 76.78038pt.
+ [152]
+Underfull \hbox (badness 10000) detected at line 555
+[][][]
+ []
+
+[153] <./classfirmata_1_1_firmata_marshaller_a483ac2dea885ab3472dc38b99bfdec2f_
+cgraph.pdf
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_marshaller_a483ac2dea
+885ab3472dc38b99bfdec2f_cgraph.pdf): PDF inclusion: multiple pdfs with page gro
+up included in a single page
+>
+<classfirmata_1_1_firmata_marshaller_a483ac2dea885ab3472dc38b99bfdec2f_cgraph.p
+df, id=5771, 377.41pt x 111.41624pt>
+File: classfirmata_1_1_firmata_marshaller_a483ac2dea885ab3472dc38b99bfdec2f_cgr
+aph.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_marshaller_a483ac2dea885ab3472dc38b99bfdec2f_cgra
+ph.pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_marshaller_a483ac2dea885ab347
+2dc38b99bfdec2f_cgraph.pdf  used on input line 611.
+(pdftex.def)             Requested size: 350.0pt x 103.32361pt.
+ <./classfirmata_1_1_firmata_marshaller_a483ac2dea885ab3472dc38b99bfdec2f_icgra
+ph.pdf
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_marshaller_a483ac2dea
+885ab3472dc38b99bfdec2f_icgraph.pdf): PDF inclusion: multiple pdfs with page gr
+oup included in a single page
+>
+<classfirmata_1_1_firmata_marshaller_a483ac2dea885ab3472dc38b99bfdec2f_icgraph.
+pdf, id=5780, 357.335pt x 111.41624pt>
+File: classfirmata_1_1_firmata_marshaller_a483ac2dea885ab3472dc38b99bfdec2f_icg
+raph.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_marshaller_a483ac2dea885ab3472dc38b99bfdec2f_icgr
+aph.pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_marshaller_a483ac2dea885ab347
+2dc38b99bfdec2f_icgraph.pdf  used on input line 618.
+(pdftex.def)             Requested size: 350.0pt x 109.13446pt.
+
+Overfull \vbox (28.4377pt too high) has occurred while \output is active []
+
+
+[154] <./classfirmata_1_1_firmata_marshaller_ade4f4592877ec0b9f8d6c74e909bad8e_
+icgraph.pdf>
+<classfirmata_1_1_firmata_marshaller_ade4f4592877ec0b9f8d6c74e909bad8e_icgraph.
+pdf, id=5800, 530.98375pt x 308.15125pt>
+File: classfirmata_1_1_firmata_marshaller_ade4f4592877ec0b9f8d6c74e909bad8e_icg
+raph.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_marshaller_ade4f4592877ec0b9f8d6c74e909bad8e_icgr
+aph.pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_marshaller_ade4f4592877ec0b9f
+8d6c74e909bad8e_icgraph.pdf  used on input line 666.
+(pdftex.def)             Requested size: 350.0pt x 203.12183pt.
+ [155] <./classfirmata_1_1_firmata_marshaller_a95d58949e32ad285088705dbe5680b29
+_icgraph.pdf>
+<classfirmata_1_1_firmata_marshaller_a95d58949e32ad285088705dbe5680b29_icgraph.
+pdf, id=5818, 503.8825pt x 111.41624pt>
+File: classfirmata_1_1_firmata_marshaller_a95d58949e32ad285088705dbe5680b29_icg
+raph.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_marshaller_a95d58949e32ad285088705dbe5680b29_icgr
+aph.pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_marshaller_a95d58949e32ad2850
+88705dbe5680b29_icgraph.pdf  used on input line 708.
+(pdftex.def)             Requested size: 350.0pt x 77.3907pt.
+
+Underfull \hbox (badness 10000) detected at line 722
+[][][]
+ []
+
+ <./classfirmata_1_1_firmata_marshaller_abb8f4c79dd8a0dbee3f5e04c587ae20c_cgrap
+h.pdf
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_marshaller_abb8f4c79d
+d8a0dbee3f5e04c587ae20c_cgraph.pdf): PDF inclusion: multiple pdfs with page gro
+up included in a single page
+>
+<classfirmata_1_1_firmata_marshaller_abb8f4c79dd8a0dbee3f5e04c587ae20c_cgraph.p
+df, id=5829, 377.41pt x 111.41624pt>
+File: classfirmata_1_1_firmata_marshaller_abb8f4c79dd8a0dbee3f5e04c587ae20c_cgr
+aph.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_marshaller_abb8f4c79dd8a0dbee3f5e04c587ae20c_cgra
+ph.pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_marshaller_abb8f4c79dd8a0dbee
+3f5e04c587ae20c_cgraph.pdf  used on input line 744.
+(pdftex.def)             Requested size: 350.0pt x 103.32361pt.
+ [156]) (classfirmata_1_1_firmata_parser.tex <./classfirmata_1_1_firmata_parser
+__coll__graph.pdf>
+<classfirmata_1_1_firmata_parser__coll__graph.pdf, id=5850, 199.74625pt x 259.9
+7125pt>
+File: classfirmata_1_1_firmata_parser__coll__graph.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_parser__coll__graph.pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_parser__coll__graph.pdf  used
+ on input line 13.
+(pdftex.def)             Requested size: 199.0pt x 259.0146pt.
+ [157]
+Underfull \hbox (badness 820) in paragraph at lines 29--30
+[]\T1/phv/m/n/10 typedef void($\OMS/cmsy/m/n/10 $ []\T1/phv/m/n/10 ) (void $\O
+MS/cmsy/m/n/10 $\T1/phv/m/n/10 context, size[]_[]t sv[]_[]major, size[]_[]t sv
+[]_[]minor, const char
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
+\T1/pcr/m/n/8 typedef void($\OMS/cmsy/m/n/8 $ \T1/pcr/m/n/8 firmata[]::[]Firma
+ta[]Parser[]::callback[]Function) (void $\OMS/cmsy/m/n/8 $\T1/pcr/m/n/8 contex
+t, uint8[]_[]t command,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+\T1/pcr/m/n/8 typedef void($\OMS/cmsy/m/n/8 $ \T1/pcr/m/n/8 firmata[]::[]Firma
+ta[]Parser[]::string[]Callback[]Function) (void $\OMS/cmsy/m/n/8 $\T1/pcr/m/n/
+8 context, const char $\OMS/cmsy/m/n/8 $\T1/pcr/m/n/8 c[]_[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+\T1/pcr/m/n/8 typedef void($\OMS/cmsy/m/n/8 $ \T1/pcr/m/n/8 firmata[]::[]Firma
+ta[]Parser[]::sysex[]Callback[]Function) (void $\OMS/cmsy/m/n/8 $\T1/pcr/m/n/8
+ context, uint8[]_[]t command,
+ []
+
+[158]
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+\T1/pcr/m/n/8 typedef void($\OMS/cmsy/m/n/8 $ \T1/pcr/m/n/8 firmata[]::[]Firma
+ta[]Parser[]::version[]Callback[]Function) (void $\OMS/cmsy/m/n/8 $\T1/pcr/m/n
+/8 context, size[]_[]t sv[]_[]
+ []
+
+
+Overfull \vbox (19.5205pt too high) has occurred while \output is active []
+
+
+[159]
+Underfull \hbox (badness 10000) detected at line 203
+[][][]
+ []
+
+[160]
+Underfull \hbox (badness 10000) detected at line 233
+[][][]
+ []
+
+ <./classfirmata_1_1_firmata_parser_a2a472a925ed7e626ed36dee94ceae45e_icgraph.p
+df
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_parser_a2a472a925ed7e
+626ed36dee94ceae45e_icgraph.pdf): PDF inclusion: multiple pdfs with page group 
+included in a single page
+>
+<classfirmata_1_1_firmata_parser_a2a472a925ed7e626ed36dee94ceae45e_icgraph.pdf,
+ id=5937, 343.2825pt x 160.6pt>
+File: classfirmata_1_1_firmata_parser_a2a472a925ed7e626ed36dee94ceae45e_icgraph
+.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_parser_a2a472a925ed7e626ed36dee94ceae45e_icgraph.
+pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_parser_a2a472a925ed7e626ed36d
+ee94ceae45e_icgraph.pdf  used on input line 284.
+(pdftex.def)             Requested size: 342.0pt x 159.9992pt.
+
+Underfull \vbox (badness 2351) has occurred while \output is active []
+
+ [161]
+Underfull \hbox (badness 10000) detected at line 302
+[][][]
+ []
+
+[162]
+Underfull \hbox (badness 10000) detected at line 340
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 371
+[][][]
+ []
+
+[163]
+Underfull \hbox (badness 10000) detected at line 413
+[][][]
+ []
+
+[164]
+Underfull \hbox (badness 4001) in paragraph at lines 500--501
+[]\T1/phv/m/n/10 References at-tach(), firmata[]::[]R[]E[]P[]O[]R[]T[]_[][]F[]I
+[]R[]M[]W[]A[]RE, firmata[]::[]R[]E[]P[]O[]R[]T[]_[][]V[]E[]R[]S[]I[]ON, firmat
+a[]::[]S[]T[]A[]R[]T[]_[][]S[]Y[]S[]EX,
+ []
+
+ <./classfirmata_1_1_firmata_parser_a7cd707386c0807bee733a3e27d161c7d_cgraph.pd
+f
+
+pdfTeX warning: pdflatex (file ./classfirmata_1_1_firmata_parser_a7cd707386c080
+7bee733a3e27d161c7d_cgraph.pdf): PDF inclusion: multiple pdfs with page group i
+ncluded in a single page
+>
+<classfirmata_1_1_firmata_parser_a7cd707386c0807bee733a3e27d161c7d_cgraph.pdf, 
+id=5996, 343.2825pt x 111.41624pt>
+File: classfirmata_1_1_firmata_parser_a7cd707386c0807bee733a3e27d161c7d_cgraph.
+pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_parser_a7cd707386c0807bee733a3e27d161c7d_cgraph.p
+df>
+Package pdftex.def Info: classfirmata_1_1_firmata_parser_a7cd707386c0807bee733a
+3e27d161c7d_cgraph.pdf  used on input line 506.
+(pdftex.def)             Requested size: 342.0pt x 110.99945pt.
+ [165]
+Underfull \hbox (badness 10000) detected at line 515
+[][][]
+ []
+
+ <./classfirmata_1_1_firmata_parser_a67902b70695eaf0cf8f7b06175ca3902_icgraph.p
+df>
+<classfirmata_1_1_firmata_parser_a67902b70695eaf0cf8f7b06175ca3902_icgraph.pdf,
+ id=6012, 340.27126pt x 111.41624pt>
+File: classfirmata_1_1_firmata_parser_a67902b70695eaf0cf8f7b06175ca3902_icgraph
+.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_parser_a67902b70695eaf0cf8f7b06175ca3902_icgraph.
+pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_parser_a67902b70695eaf0cf8f7b
+06175ca3902_icgraph.pdf  used on input line 537.
+(pdftex.def)             Requested size: 339.0pt x 111.00624pt.
+ [166] <./classfirmata_1_1_firmata_parser_a754c97b890b7fd66c8d953a3e615acbf_icg
+raph.pdf>
+<classfirmata_1_1_firmata_parser_a754c97b890b7fd66c8d953a3e615acbf_icgraph.pdf,
+ id=6044, 340.27126pt x 160.6pt>
+File: classfirmata_1_1_firmata_parser_a754c97b890b7fd66c8d953a3e615acbf_icgraph
+.pdf Graphic file (type pdf)
+<use classfirmata_1_1_firmata_parser_a754c97b890b7fd66c8d953a3e615acbf_icgraph.
+pdf>
+Package pdftex.def Info: classfirmata_1_1_firmata_parser_a754c97b890b7fd66c8d95
+3a3e615acbf_icgraph.pdf  used on input line 661.
+(pdftex.def)             Requested size: 339.0pt x 160.009pt.
+ [167]) (class_serial_firmata.tex <./class_serial_firmata__inherit__graph.pdf
+
+pdfTeX warning: pdflatex (file ./class_serial_firmata__inherit__graph.pdf): PDF
+ inclusion: multiple pdfs with page group included in a single page
+>
+<class_serial_firmata__inherit__graph.pdf, id=6060, 183.68625pt x 332.24126pt>
+File: class_serial_firmata__inherit__graph.pdf Graphic file (type pdf)
+<use class_serial_firmata__inherit__graph.pdf>
+Package pdftex.def Info: class_serial_firmata__inherit__graph.pdf  used on inpu
+t line 13.
+(pdftex.def)             Requested size: 183.0pt x 331.02373pt.
+ [168] <./class_serial_firmata__coll__graph.pdf>
+<class_serial_firmata__coll__graph.pdf, id=6076, 183.68625pt x 332.24126pt>
+File: class_serial_firmata__coll__graph.pdf Graphic file (type pdf)
+<use class_serial_firmata__coll__graph.pdf>
+Package pdftex.def Info: class_serial_firmata__coll__graph.pdf  used on input l
+ine 22.
+(pdftex.def)             Requested size: 183.0pt x 331.02373pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [169]
+[170] <./class_serial_firmata_ab31a76a596ce2430ee3feac525da59f2_icgraph.pdf>
+<class_serial_firmata_ab31a76a596ce2430ee3feac525da59f2_icgraph.pdf, id=6118, 3
+58.33875pt x 100.375pt>
+File: class_serial_firmata_ab31a76a596ce2430ee3feac525da59f2_icgraph.pdf Graphi
+c file (type pdf)
+<use class_serial_firmata_ab31a76a596ce2430ee3feac525da59f2_icgraph.pdf>
+Package pdftex.def Info: class_serial_firmata_ab31a76a596ce2430ee3feac525da59f2
+_icgraph.pdf  used on input line 151.
+(pdftex.def)             Requested size: 350.0pt x 98.04518pt.
+
+[171] [172] [173] [174] <./class_serial_firmata_a1095729d80e0b18340d6d6d5baca10
+fc_cgraph.pdf
+
+pdfTeX warning: pdflatex (file ./class_serial_firmata_a1095729d80e0b18340d6d6d5
+baca10fc_cgraph.pdf): PDF inclusion: multiple pdfs with page group included in 
+a single page
+>
+<class_serial_firmata_a1095729d80e0b18340d6d6d5baca10fc_cgraph.pdf, id=6209, 35
+8.33875pt x 100.375pt>
+File: class_serial_firmata_a1095729d80e0b18340d6d6d5baca10fc_cgraph.pdf Graphic
+ file (type pdf)
+<use class_serial_firmata_a1095729d80e0b18340d6d6d5baca10fc_cgraph.pdf>
+Package pdftex.def Info: class_serial_firmata_a1095729d80e0b18340d6d6d5baca10fc
+_cgraph.pdf  used on input line 455.
+(pdftex.def)             Requested size: 350.0pt x 98.04518pt.
+) (class_wi_fi_client_stream.tex <./class_wi_fi_client_stream__inherit__graph.p
+df
+
+pdfTeX warning: pdflatex (file ./class_wi_fi_client_stream__inherit__graph.pdf)
+: PDF inclusion: multiple pdfs with page group included in a single page
+>
+<class_wi_fi_client_stream__inherit__graph.pdf, id=6220, 247.92625pt x 603.2537
+5pt>
+File: class_wi_fi_client_stream__inherit__graph.pdf Graphic file (type pdf)
+<use class_wi_fi_client_stream__inherit__graph.pdf>
+Package pdftex.def Info: class_wi_fi_client_stream__inherit__graph.pdf  used on
+ input line 13.
+(pdftex.def)             Requested size: 226.04073pt x 550.0pt.
+ [175] <./class_wi_fi_client_stream__coll__graph.pdf>
+<class_wi_fi_client_stream__coll__graph.pdf, id=6236, 247.92625pt x 603.25375pt
+>
+File: class_wi_fi_client_stream__coll__graph.pdf Graphic file (type pdf)
+<use class_wi_fi_client_stream__coll__graph.pdf>
+Package pdftex.def Info: class_wi_fi_client_stream__coll__graph.pdf  used on in
+put line 22.
+(pdftex.def)             Requested size: 226.04073pt x 550.0pt.
+
+Underfull \vbox (badness 2269) has occurred while \output is active []
+
+ [176]
+[177]
+Underfull \hbox (badness 10000) detected at line 78
+[][][]
+ []
+
+[178] <./class_wi_fi_client_stream_afb68ea613d492a7b3aebca60ed5a0da6_cgraph.pdf
+
+
+pdfTeX warning: pdflatex (file ./class_wi_fi_client_stream_afb68ea613d492a7b3ae
+bca60ed5a0da6_cgraph.pdf): PDF inclusion: multiple pdfs with page group include
+d in a single page
+>
+<class_wi_fi_client_stream_afb68ea613d492a7b3aebca60ed5a0da6_cgraph.pdf, id=629
+2, 369.38pt x 111.41624pt>
+File: class_wi_fi_client_stream_afb68ea613d492a7b3aebca60ed5a0da6_cgraph.pdf Gr
+aphic file (type pdf)
+<use class_wi_fi_client_stream_afb68ea613d492a7b3aebca60ed5a0da6_cgraph.pdf>
+Package pdftex.def Info: class_wi_fi_client_stream_afb68ea613d492a7b3aebca60ed5
+a0da6_cgraph.pdf  used on input line 132.
+(pdftex.def)             Requested size: 350.0pt x 105.5711pt.
+ <./class_wi_fi_client_stream_afb68ea613d492a7b3aebca60ed5a0da6_icgraph.pdf
+
+pdfTeX warning: pdflatex (file ./class_wi_fi_client_stream_afb68ea613d492a7b3ae
+bca60ed5a0da6_icgraph.pdf): PDF inclusion: multiple pdfs with page group includ
+ed in a single page
+>
+<class_wi_fi_client_stream_afb68ea613d492a7b3aebca60ed5a0da6_icgraph.pdf, id=63
+01, 387.4475pt x 111.41624pt>
+File: class_wi_fi_client_stream_afb68ea613d492a7b3aebca60ed5a0da6_icgraph.pdf G
+raphic file (type pdf)
+<use class_wi_fi_client_stream_afb68ea613d492a7b3aebca60ed5a0da6_icgraph.pdf>
+Package pdftex.def Info: class_wi_fi_client_stream_afb68ea613d492a7b3aebca60ed5
+a0da6_icgraph.pdf  used on input line 139.
+(pdftex.def)             Requested size: 350.0pt x 100.6494pt.
+ [179]
+Underfull \hbox (badness 10000) detected at line 148
+[][][]
+ []
+
+ <./class_wi_fi_client_stream_a7fd2465acdbb07285fdac25c490c04d6_cgraph.pdf>
+<class_wi_fi_client_stream_a7fd2465acdbb07285fdac25c490c04d6_cgraph.pdf, id=632
+8, 542.025pt x 111.41624pt>
+File: class_wi_fi_client_stream_a7fd2465acdbb07285fdac25c490c04d6_cgraph.pdf Gr
+aphic file (type pdf)
+<use class_wi_fi_client_stream_a7fd2465acdbb07285fdac25c490c04d6_cgraph.pdf>
+Package pdftex.def Info: class_wi_fi_client_stream_a7fd2465acdbb07285fdac25c490
+c04d6_cgraph.pdf  used on input line 174.
+(pdftex.def)             Requested size: 350.0pt x 71.94707pt.
+ <./class_wi_fi_client_stream_ac81b72c8c61f10a5f950d9deabc7ffeb_icgraph.pdf
+
+pdfTeX warning: pdflatex (file ./class_wi_fi_client_stream_ac81b72c8c61f10a5f95
+0d9deabc7ffeb_icgraph.pdf): PDF inclusion: multiple pdfs with page group includ
+ed in a single page
+>
+<class_wi_fi_client_stream_ac81b72c8c61f10a5f950d9deabc7ffeb_icgraph.pdf, id=63
+44, 542.025pt x 111.41624pt>
+File: class_wi_fi_client_stream_ac81b72c8c61f10a5f950d9deabc7ffeb_icgraph.pdf G
+raphic file (type pdf)
+<use class_wi_fi_client_stream_ac81b72c8c61f10a5f950d9deabc7ffeb_icgraph.pdf>
+Package pdftex.def Info: class_wi_fi_client_stream_ac81b72c8c61f10a5f950d9deabc
+7ffeb_icgraph.pdf  used on input line 219.
+(pdftex.def)             Requested size: 350.0pt x 71.94707pt.
+ [180]) (class_wi_fi_server_stream.tex <./class_wi_fi_server_stream__inherit__g
+raph.pdf>
+<class_wi_fi_server_stream__inherit__graph.pdf, id=6364, 247.92625pt x 614.295p
+t>
+File: class_wi_fi_server_stream__inherit__graph.pdf Graphic file (type pdf)
+<use class_wi_fi_server_stream__inherit__graph.pdf>
+Package pdftex.def Info: class_wi_fi_server_stream__inherit__graph.pdf  used on
+ input line 13.
+(pdftex.def)             Requested size: 221.98907pt x 550.0pt.
+
+Underfull \vbox (badness 8151) has occurred while \output is active []
+
+ [181] <./class_wi_fi_server_stream__coll__graph.pdf
+
+pdfTeX warning: pdflatex (file ./class_wi_fi_server_stream__coll__graph.pdf): P
+DF inclusion: multiple pdfs with page group included in a single page
+>
+<class_wi_fi_server_stream__coll__graph.pdf, id=6377, 247.92625pt x 614.295pt>
+File: class_wi_fi_server_stream__coll__graph.pdf Graphic file (type pdf)
+<use class_wi_fi_server_stream__coll__graph.pdf>
+Package pdftex.def Info: class_wi_fi_server_stream__coll__graph.pdf  used on in
+put line 22.
+(pdftex.def)             Requested size: 221.98907pt x 550.0pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [182]
+[183]
+Underfull \hbox (badness 10000) detected at line 80
+[][][]
+ []
+
+ <./class_wi_fi_server_stream_a664a448394b896b93ff631e488840e81_cgraph.pdf>
+<class_wi_fi_server_stream_a664a448394b896b93ff631e488840e81_cgraph.pdf, id=641
+9, 373.395pt x 111.41624pt>
+File: class_wi_fi_server_stream_a664a448394b896b93ff631e488840e81_cgraph.pdf Gr
+aphic file (type pdf)
+<use class_wi_fi_server_stream_a664a448394b896b93ff631e488840e81_cgraph.pdf>
+Package pdftex.def Info: class_wi_fi_server_stream_a664a448394b896b93ff631e4888
+40e81_cgraph.pdf  used on input line 126.
+(pdftex.def)             Requested size: 350.0pt x 104.44057pt.
+
+[184] <./class_wi_fi_server_stream_a664a448394b896b93ff631e488840e81_icgraph.pd
+f
+
+pdfTeX warning: pdflatex (file ./class_wi_fi_server_stream_a664a448394b896b93ff
+631e488840e81_icgraph.pdf): PDF inclusion: multiple pdfs with page group includ
+ed in a single page
+>
+<class_wi_fi_server_stream_a664a448394b896b93ff631e488840e81_icgraph.pdf, id=64
+37, 391.4625pt x 111.41624pt>
+File: class_wi_fi_server_stream_a664a448394b896b93ff631e488840e81_icgraph.pdf G
+raphic file (type pdf)
+<use class_wi_fi_server_stream_a664a448394b896b93ff631e488840e81_icgraph.pdf>
+Package pdftex.def Info: class_wi_fi_server_stream_a664a448394b896b93ff631e4888
+40e81_icgraph.pdf  used on input line 133.
+(pdftex.def)             Requested size: 350.0pt x 99.62086pt.
+
+Underfull \hbox (badness 10000) detected at line 142
+[][][]
+ []
+
+[185] <./class_wi_fi_server_stream_ad6a4282ab87a5a5b15a5cd1ae2fb2a94_cgraph.pdf
+>
+<class_wi_fi_server_stream_ad6a4282ab87a5a5b15a5cd1ae2fb2a94_cgraph.pdf, id=646
+2, 548.0475pt x 128.48pt>
+File: class_wi_fi_server_stream_ad6a4282ab87a5a5b15a5cd1ae2fb2a94_cgraph.pdf Gr
+aphic file (type pdf)
+<use class_wi_fi_server_stream_ad6a4282ab87a5a5b15a5cd1ae2fb2a94_cgraph.pdf>
+Package pdftex.def Info: class_wi_fi_server_stream_ad6a4282ab87a5a5b15a5cd1ae2f
+b2a94_cgraph.pdf  used on input line 180.
+(pdftex.def)             Requested size: 350.0pt x 82.05243pt.
+ <./class_wi_fi_server_stream_a5c70b0545e4150f64ddfe26aeb48a436_icgraph.pdf
+
+pdfTeX warning: pdflatex (file ./class_wi_fi_server_stream_a5c70b0545e4150f64dd
+fe26aeb48a436_icgraph.pdf): PDF inclusion: multiple pdfs with page group includ
+ed in a single page
+>
+<class_wi_fi_server_stream_a5c70b0545e4150f64ddfe26aeb48a436_icgraph.pdf, id=64
+77, 548.0475pt x 128.48pt>
+File: class_wi_fi_server_stream_a5c70b0545e4150f64ddfe26aeb48a436_icgraph.pdf G
+raphic file (type pdf)
+<use class_wi_fi_server_stream_a5c70b0545e4150f64ddfe26aeb48a436_icgraph.pdf>
+Package pdftex.def Info: class_wi_fi_server_stream_a5c70b0545e4150f64ddfe26aeb4
+8a436_icgraph.pdf  used on input line 224.
+(pdftex.def)             Requested size: 350.0pt x 82.05243pt.
+ [186]) (class_wi_fi_stream.tex <./class_wi_fi_stream__inherit__graph.pdf>
+<class_wi_fi_stream__inherit__graph.pdf, id=6493, 317.185pt x 614.295pt>
+File: class_wi_fi_stream__inherit__graph.pdf Graphic file (type pdf)
+<use class_wi_fi_stream__inherit__graph.pdf>
+Package pdftex.def Info: class_wi_fi_stream__inherit__graph.pdf  used on input 
+line 13.
+(pdftex.def)             Requested size: 284.00221pt x 550.0pt.
+
+[187] <./class_wi_fi_stream__coll__graph.pdf>
+<class_wi_fi_stream__coll__graph.pdf, id=6508, 247.92625pt x 475.7775pt>
+File: class_wi_fi_stream__coll__graph.pdf Graphic file (type pdf)
+<use class_wi_fi_stream__coll__graph.pdf>
+Package pdftex.def Info: class_wi_fi_stream__coll__graph.pdf  used on input lin
+e 22.
+(pdftex.def)             Requested size: 247.0pt x 474.00493pt.
+
+Underfull \vbox (badness 2269) has occurred while \output is active []
+
+ [188]
+[189] [190]
+Underfull \hbox (badness 10000) detected at line 175
+[][][]
+ []
+
+[191]
+Underfull \hbox (badness 10000) detected at line 196
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 217
+[][][]
+ []
+
+[192]
+Underfull \hbox (badness 10000) detected at line 279
+[][][]
+ []
+
+ <./class_wi_fi_stream_a2e530346a7edea0326ad2025be42aff1_icgraph.pdf
+
+pdfTeX warning: pdflatex (file ./class_wi_fi_stream_a2e530346a7edea0326ad2025be
+42aff1_icgraph.pdf): PDF inclusion: multiple pdfs with page group included in a
+ single page
+>
+<class_wi_fi_stream_a2e530346a7edea0326ad2025be42aff1_icgraph.pdf, id=6630, 321
+.2pt x 176.66pt>
+File: class_wi_fi_stream_a2e530346a7edea0326ad2025be42aff1_icgraph.pdf Graphic 
+file (type pdf)
+<use class_wi_fi_stream_a2e530346a7edea0326ad2025be42aff1_icgraph.pdf>
+Package pdftex.def Info: class_wi_fi_stream_a2e530346a7edea0326ad2025be42aff1_i
+cgraph.pdf  used on input line 294.
+(pdftex.def)             Requested size: 320.0pt x 176.00452pt.
+ [193] <./class_wi_fi_stream_ad5a60c69e5aca993e90e8d02c0e9672c_cgraph.pdf>
+<class_wi_fi_stream_ad5a60c69e5aca993e90e8d02c0e9672c_cgraph.pdf, id=6647, 321.
+2pt x 111.41624pt>
+File: class_wi_fi_stream_ad5a60c69e5aca993e90e8d02c0e9672c_cgraph.pdf Graphic f
+ile (type pdf)
+<use class_wi_fi_stream_ad5a60c69e5aca993e90e8d02c0e9672c_cgraph.pdf>
+Package pdftex.def Info: class_wi_fi_stream_ad5a60c69e5aca993e90e8d02c0e9672c_c
+graph.pdf  used on input line 323.
+(pdftex.def)             Requested size: 320.0pt x 111.00284pt.
+
+Underfull \hbox (badness 10000) detected at line 332
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 351
+[][][]
+ []
+
+[194] <./class_wi_fi_stream_a238960bf0f7a3e3a7c60014a187fe577_cgraph.pdf>
+<class_wi_fi_stream_a238960bf0f7a3e3a7c60014a187fe577_cgraph.pdf, id=6668, 319.
+1925pt x 111.41624pt>
+File: class_wi_fi_stream_a238960bf0f7a3e3a7c60014a187fe577_cgraph.pdf Graphic f
+ile (type pdf)
+<use class_wi_fi_stream_a238960bf0f7a3e3a7c60014a187fe577_cgraph.pdf>
+Package pdftex.def Info: class_wi_fi_stream_a238960bf0f7a3e3a7c60014a187fe577_c
+graph.pdf  used on input line 406.
+(pdftex.def)             Requested size: 318.0pt x 111.00114pt.
+ <./class_wi_fi_stream_a0a4dba3370af02570ef0d3429f1a6df2_cgraph.pdf
+
+pdfTeX warning: pdflatex (file ./class_wi_fi_stream_a0a4dba3370af02570ef0d3429f
+1a6df2_cgraph.pdf): PDF inclusion: multiple pdfs with page group included in a 
+single page
+>
+<class_wi_fi_stream_a0a4dba3370af02570ef0d3429f1a6df2_cgraph.pdf, id=6681, 321.
+2pt x 111.41624pt>
+File: class_wi_fi_stream_a0a4dba3370af02570ef0d3429f1a6df2_cgraph.pdf Graphic f
+ile (type pdf)
+<use class_wi_fi_stream_a0a4dba3370af02570ef0d3429f1a6df2_cgraph.pdf>
+Package pdftex.def Info: class_wi_fi_stream_a0a4dba3370af02570ef0d3429f1a6df2_c
+graph.pdf  used on input line 445.
+(pdftex.def)             Requested size: 320.0pt x 111.00284pt.
+ [195]
+Underfull \hbox (badness 1009) in paragraph at lines 491--492
+[]\T1/phv/m/n/10 Referenced by at-tach(), Wi[]Fi[]Server[]Stream[]::connect[]_[
+]client(), Wi[]Fi[]Client[]Stream[]::connect[]_[]client(), Wi[]Fi[]Client[]
+ []
+
+[196] [197]) [198]
+Chapter 27.
+(accel_stepper_firmata_8md.tex) (ble_config_8h.tex) (_b_l_e_stream_8cpp.tex
+[199
+
+]) (_b_l_e_stream_8h.tex <./_b_l_e_stream_8h__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_b_l_e_stream_8h__incl.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>
+<_b_l_e_stream_8h__incl.pdf, id=6727, 244.915pt x 156.585pt>
+File: _b_l_e_stream_8h__incl.pdf Graphic file (type pdf)
+<use _b_l_e_stream_8h__incl.pdf>
+Package pdftex.def Info: _b_l_e_stream_8h__incl.pdf  used on input line 9.
+(pdftex.def)             Requested size: 244.0pt x 156.004pt.
+ [200]) (_bluefruit_l_e___s_p_i___stream_8cpp.tex)
+(_bluefruit_l_e___s_p_i___stream_8h.tex <./_bluefruit_l_e___s_p_i___stream_8h__
+incl.pdf>
+<_bluefruit_l_e___s_p_i___stream_8h__incl.pdf, id=6749, 210.7875pt x 167.62625p
+t>
+File: _bluefruit_l_e___s_p_i___stream_8h__incl.pdf Graphic file (type pdf)
+<use _bluefruit_l_e___s_p_i___stream_8h__incl.pdf>
+Package pdftex.def Info: _bluefruit_l_e___s_p_i___stream_8h__incl.pdf  used on 
+input line 8.
+(pdftex.def)             Requested size: 210.0pt x 167.00427pt.
+) (_boards_8h.tex <./_boards_8h__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_boards_8h__incl.pdf): PDF inclusion: multiple
+ pdfs with page group included in a single page
+>
+<_boards_8h__incl.pdf, id=6759, 228.855pt x 156.585pt>
+File: _boards_8h__incl.pdf Graphic file (type pdf)
+<use _boards_8h__incl.pdf>
+Package pdftex.def Info: _boards_8h__incl.pdf  used on input line 9.
+(pdftex.def)             Requested size: 228.0pt x 156.0064pt.
+ [201] <./_boards_8h__dep__incl.pdf>
+<_boards_8h__dep__incl.pdf, id=6774, 297.11pt x 325.215pt>
+File: _boards_8h__dep__incl.pdf Graphic file (type pdf)
+<use _boards_8h__dep__incl.pdf>
+Package pdftex.def Info: _boards_8h__dep__incl.pdf  used on input line 16.
+(pdftex.def)             Requested size: 296.0pt x 324.0133pt.
+ [202] [203] [204]) (encoder_8md.tex)
+(_ethernet_client_stream_8cpp.tex) (_ethernet_client_stream_8h.tex <./_ethernet
+_client_stream_8h__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_ethernet_client_stream_8h__incl.pdf): PDF inc
+lusion: multiple pdfs with page group included in a single page
+>
+<_ethernet_client_stream_8h__incl.pdf, id=6820, 315.1775pt x 156.585pt>
+File: _ethernet_client_stream_8h__incl.pdf Graphic file (type pdf)
+<use _ethernet_client_stream_8h__incl.pdf>
+Package pdftex.def Info: _ethernet_client_stream_8h__incl.pdf  used on input li
+ne 10.
+(pdftex.def)             Requested size: 314.0pt x 156.00879pt.
+ [205]) (ethernet_config_8h.tex <./ethernet_config_8h__incl.pdf
+
+pdfTeX warning: pdflatex (file ./ethernet_config_8h__incl.pdf): PDF inclusion: 
+multiple pdfs with page group included in a single page
+>
+<ethernet_config_8h__incl.pdf, id=6835, 202.7575pt x 156.585pt>
+File: ethernet_config_8h__incl.pdf Graphic file (type pdf)
+<use ethernet_config_8h__incl.pdf>
+Package pdftex.def Info: ethernet_config_8h__incl.pdf  used on input line 9.
+(pdftex.def)             Requested size: 202.0pt x 156.004pt.
+ [206] [207]) (_ethernet_server_stream_8cpp.tex)
+(_ethernet_server_stream_8h.tex <./_ethernet_server_stream_8h__incl.pdf>
+<_ethernet_server_stream_8h__incl.pdf, id=6876, 395.4775pt x 156.585pt>
+File: _ethernet_server_stream_8h__incl.pdf Graphic file (type pdf)
+<use _ethernet_server_stream_8h__incl.pdf>
+Package pdftex.def Info: _ethernet_server_stream_8h__incl.pdf  used on input li
+ne 11.
+(pdftex.def)             Requested size: 350.0pt x 138.58128pt.
+
+[208]) (feature-registry_8md.tex) (_firmata_8cpp.tex <./_firmata_8cpp__incl.pdf
+
+
+pdfTeX warning: pdflatex (file ./_firmata_8cpp__incl.pdf): PDF inclusion: multi
+ple pdfs with page group included in a single page
+>
+<_firmata_8cpp__incl.pdf, id=6890, 618.31pt x 269.005pt>
+File: _firmata_8cpp__incl.pdf Graphic file (type pdf)
+<use _firmata_8cpp__incl.pdf>
+Package pdftex.def Info: _firmata_8cpp__incl.pdf  used on input line 11.
+(pdftex.def)             Requested size: 350.0pt x 152.27542pt.
+ [209]) (_firmata_8h.tex <./_firmata_8h__incl.pdf>
+<_firmata_8h__incl.pdf, id=6912, 567.11874pt x 212.795pt>
+File: _firmata_8h__incl.pdf Graphic file (type pdf)
+<use _firmata_8h__incl.pdf>
+Package pdftex.def Info: _firmata_8h__incl.pdf  used on input line 11.
+(pdftex.def)             Requested size: 350.0pt x 131.33083pt.
+ <./_firmata_8h__dep__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_firmata_8h__dep__incl.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>
+<_firmata_8h__dep__incl.pdf, id=6921, 297.11pt x 269.005pt>
+File: _firmata_8h__dep__incl.pdf Graphic file (type pdf)
+<use _firmata_8h__dep__incl.pdf>
+Package pdftex.def Info: _firmata_8h__dep__incl.pdf  used on input line 18.
+(pdftex.def)             Requested size: 296.0pt x 268.01099pt.
+ [210] [211] [212] [213] [214]) (_firmata_constants_8h.tex <./_firmata_constant
+s_8h__dep__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_firmata_constants_8h__dep__incl.pdf): PDF inc
+lusion: multiple pdfs with page group included in a single page
+>
+<_firmata_constants_8h__dep__incl.pdf, id=7008, 505.89pt x 381.425pt>
+File: _firmata_constants_8h__dep__incl.pdf Graphic file (type pdf)
+<use _firmata_constants_8h__dep__incl.pdf>
+Package pdftex.def Info: _firmata_constants_8h__dep__incl.pdf  used on input li
+ne 7.
+(pdftex.def)             Requested size: 350.0pt x 263.89357pt.
+ [215] [216]) (firmata_debug_8h.tex <./firmata_debug_8h__dep__incl.pdf>
+<firmata_debug_8h__dep__incl.pdf, id=7084, 337.26pt x 156.585pt>
+File: firmata_debug_8h__dep__incl.pdf Graphic file (type pdf)
+<use firmata_debug_8h__dep__incl.pdf>
+Package pdftex.def Info: firmata_debug_8h__dep__incl.pdf  used on input line 7.
+
+(pdftex.def)             Requested size: 336.0pt x 156.004pt.
+
+[217]) (_firmata_defines_8h.tex <./_firmata_defines_8h__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_firmata_defines_8h__incl.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
+>
+<_firmata_defines_8h__incl.pdf, id=7100, 182.6825pt x 156.585pt>
+File: _firmata_defines_8h__incl.pdf Graphic file (type pdf)
+<use _firmata_defines_8h__incl.pdf>
+Package pdftex.def Info: _firmata_defines_8h__incl.pdf  used on input line 8.
+(pdftex.def)             Requested size: 182.0pt x 156.0064pt.
+ [218] <./_firmata_defines_8h__dep__incl.pdf>
+<_firmata_defines_8h__dep__incl.pdf, id=7118, 297.11pt x 325.215pt>
+File: _firmata_defines_8h__dep__incl.pdf Graphic file (type pdf)
+<use _firmata_defines_8h__dep__incl.pdf>
+Package pdftex.def Info: _firmata_defines_8h__dep__incl.pdf  used on input line
+ 15.
+(pdftex.def)             Requested size: 296.0pt x 324.0133pt.
+ [219] [220] [221] [222] [223]
+[224] [225] [226] [227] [228]) (_firmata_feature_8h.tex <./_firmata_feature_8h_
+_incl.pdf
+
+pdfTeX warning: pdflatex (file ./_firmata_feature_8h__incl.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
+>
+<_firmata_feature_8h__incl.pdf, id=7285, 567.11874pt x 269.005pt>
+File: _firmata_feature_8h__incl.pdf Graphic file (type pdf)
+<use _firmata_feature_8h__incl.pdf>
+Package pdftex.def Info: _firmata_feature_8h__incl.pdf  used on input line 8.
+(pdftex.def)             Requested size: 350.0pt x 166.022pt.
+ [229] <./_firmata_feature_8h__dep__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_firmata_feature_8h__dep__incl.pdf): PDF inclu
+sion: multiple pdfs with page group included in a single page
+>
+<_firmata_feature_8h__dep__incl.pdf, id=7298, 173.64874pt x 212.795pt>
+File: _firmata_feature_8h__dep__incl.pdf Graphic file (type pdf)
+<use _firmata_feature_8h__dep__incl.pdf>
+Package pdftex.def Info: _firmata_feature_8h__dep__incl.pdf  used on input line
+ 15.
+(pdftex.def)             Requested size: 173.0pt x 212.00868pt.
+) (_firmata_marshaller_8cpp.tex <./_firmata_marshaller_8cpp__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_firmata_marshaller_8cpp__incl.pdf): PDF inclu
+sion: multiple pdfs with page group included in a single page
+>
+<_firmata_marshaller_8cpp__incl.pdf, id=7308, 414.54875pt x 212.795pt>
+File: _firmata_marshaller_8cpp__incl.pdf Graphic file (type pdf)
+<use _firmata_marshaller_8cpp__incl.pdf>
+Package pdftex.def Info: _firmata_marshaller_8cpp__incl.pdf  used on input line
+ 10.
+(pdftex.def)             Requested size: 350.0pt x 179.66547pt.
+) (_firmata_marshaller_8h.tex [230] <./_firmata_marshaller_8h__incl.pdf>
+<_firmata_marshaller_8h__incl.pdf, id=7325, 274.02374pt x 156.585pt>
+File: _firmata_marshaller_8h__incl.pdf Graphic file (type pdf)
+<use _firmata_marshaller_8h__incl.pdf>
+Package pdftex.def Info: _firmata_marshaller_8h__incl.pdf  used on input line 1
+0.
+(pdftex.def)             Requested size: 273.0pt x 156.01117pt.
+ <./_firmata_marshaller_8h__dep__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_firmata_marshaller_8h__dep__incl.pdf): PDF in
+clusion: multiple pdfs with page group included in a single page
+>
+<_firmata_marshaller_8h__dep__incl.pdf, id=7334, 374.39874pt x 325.215pt>
+File: _firmata_marshaller_8h__dep__incl.pdf Graphic file (type pdf)
+<use _firmata_marshaller_8h__dep__incl.pdf>
+Package pdftex.def Info: _firmata_marshaller_8h__dep__incl.pdf  used on input l
+ine 17.
+(pdftex.def)             Requested size: 350.0pt x 304.03973pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [231])
+(_firmata_parser_8cpp.tex <./_firmata_parser_8cpp__incl.pdf>
+<_firmata_parser_8cpp__incl.pdf, id=7352, 304.13625pt x 212.795pt>
+File: _firmata_parser_8cpp__incl.pdf Graphic file (type pdf)
+<use _firmata_parser_8cpp__incl.pdf>
+Package pdftex.def Info: _firmata_parser_8cpp__incl.pdf  used on input line 9.
+(pdftex.def)             Requested size: 303.0pt x 212.00543pt.
+)
+(_firmata_parser_8h.tex [232] <./_firmata_parser_8h__incl.pdf>
+<_firmata_parser_8h__incl.pdf, id=7369, 198.7425pt x 156.585pt>
+File: _firmata_parser_8h__incl.pdf Graphic file (type pdf)
+<use _firmata_parser_8h__incl.pdf>
+Package pdftex.def Info: _firmata_parser_8h__incl.pdf  used on input line 9.
+(pdftex.def)             Requested size: 198.0pt x 156.004pt.
+ <./_firmata_parser_8h__dep__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_firmata_parser_8h__dep__incl.pdf): PDF inclus
+ion: multiple pdfs with page group included in a single page
+>
+<_firmata_parser_8h__dep__incl.pdf, id=7378, 358.33875pt x 325.215pt>
+File: _firmata_parser_8h__dep__incl.pdf Graphic file (type pdf)
+<use _firmata_parser_8h__dep__incl.pdf>
+Package pdftex.def Info: _firmata_parser_8h__dep__incl.pdf  used on input line 
+16.
+(pdftex.def)             Requested size: 350.0pt x 317.66643pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [233])
+(i2c_8md.tex) (onewire_8md.tex) (pingroups-proposal_8md.tex) (protocol_8md.tex)
+(rcswitch-proposal_8md.tex) (arduino_2readme_8md.tex)
+(arduino_2test_2readme_8md.tex) (protocol_2readme_8md.tex) (readme_8md.tex)
+(revisions_8md.tex) (scheduler_8md.tex) (serial-1_80_8md.tex)
+(serial-2_80-proposal_8md.tex) (_serial_firmata_8cpp.tex <./_serial_firmata_8cp
+p__incl.pdf>
+<_serial_firmata_8cpp__incl.pdf, id=7397, 567.11874pt x 381.425pt>
+File: _serial_firmata_8cpp__incl.pdf Graphic file (type pdf)
+<use _serial_firmata_8cpp__incl.pdf>
+Package pdftex.def Info: _serial_firmata_8cpp__incl.pdf  used on input line 8.
+(pdftex.def)             Requested size: 350.0pt x 235.40433pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [234])
+(_serial_firmata_8h.tex [235] <./_serial_firmata_8h__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_serial_firmata_8h__incl.pdf): PDF inclusion: 
+multiple pdfs with page group included in a single page
+>
+<_serial_firmata_8h__incl.pdf, id=7429, 567.11874pt x 325.215pt>
+File: _serial_firmata_8h__incl.pdf Graphic file (type pdf)
+<use _serial_firmata_8h__incl.pdf>
+Package pdftex.def Info: _serial_firmata_8h__incl.pdf  used on input line 9.
+(pdftex.def)             Requested size: 350.0pt x 200.71317pt.
+ <./_serial_firmata_8h__dep__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_serial_firmata_8h__dep__incl.pdf): PDF inclus
+ion: multiple pdfs with page group included in a single page
+>
+<_serial_firmata_8h__dep__incl.pdf, id=7438, 173.64874pt x 156.585pt>
+File: _serial_firmata_8h__dep__incl.pdf Graphic file (type pdf)
+<use _serial_firmata_8h__dep__incl.pdf>
+Package pdftex.def Info: _serial_firmata_8h__dep__incl.pdf  used on input line 
+16.
+(pdftex.def)             Requested size: 173.0pt x 156.0064pt.
+
+Underfull \vbox (badness 5077) has occurred while \output is active []
+
+ [236]
+[237] [238] [239] [240] [241] [242] [243]) (servos_8md.tex)
+(shift-proposal_8md.tex) (spi-proposal_8md.tex) (stepper-legacy_8md.tex)
+(tone-proposal_8md.tex) (_wi_fi_client_stream_8h.tex <./_wi_fi_client_stream_8h
+__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_wi_fi_client_stream_8h__incl.pdf): PDF inclus
+ion: multiple pdfs with page group included in a single page
+>
+<_wi_fi_client_stream_8h__incl.pdf, id=7545, 214.8025pt x 212.795pt>
+File: _wi_fi_client_stream_8h__incl.pdf Graphic file (type pdf)
+<use _wi_fi_client_stream_8h__incl.pdf>
+Package pdftex.def Info: _wi_fi_client_stream_8h__incl.pdf  used on input line 
+8.
+(pdftex.def)             Requested size: 214.0pt x 212.0022pt.
+ [244]) (wifi_config_8h.tex [245]) (_wi_fi_server_stream_8h.tex <./_wi_fi_serve
+r_stream_8h__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_wi_fi_server_stream_8h__incl.pdf): PDF inclus
+ion: multiple pdfs with page group included in a single page
+>
+<_wi_fi_server_stream_8h__incl.pdf, id=7589, 214.8025pt x 212.795pt>
+File: _wi_fi_server_stream_8h__incl.pdf Graphic file (type pdf)
+<use _wi_fi_server_stream_8h__incl.pdf>
+Package pdftex.def Info: _wi_fi_server_stream_8h__incl.pdf  used on input line 
+8.
+(pdftex.def)             Requested size: 214.0pt x 212.0022pt.
+ [246]) (_wi_fi_stream_8cpp.tex) (_wi_fi_stream_8h.tex <./_wi_fi_stream_8h__inc
+l.pdf>
+<_wi_fi_stream_8h__incl.pdf, id=7605, 214.8025pt x 156.585pt>
+File: _wi_fi_stream_8h__incl.pdf Graphic file (type pdf)
+<use _wi_fi_stream_8h__incl.pdf>
+Package pdftex.def Info: _wi_fi_stream_8h__incl.pdf  used on input line 9.
+(pdftex.def)             Requested size: 214.0pt x 156.00162pt.
+ <./_wi_fi_stream_8h__dep__incl.pdf
+
+pdfTeX warning: pdflatex (file ./_wi_fi_stream_8h__dep__incl.pdf): PDF inclusio
+n: multiple pdfs with page group included in a single page
+>
+<_wi_fi_stream_8h__dep__incl.pdf, id=7614, 305.14pt x 156.585pt>
+File: _wi_fi_stream_8h__dep__incl.pdf Graphic file (type pdf)
+<use _wi_fi_stream_8h__dep__incl.pdf>
+Package pdftex.def Info: _wi_fi_stream_8h__dep__incl.pdf  used on input line 16
+.
+(pdftex.def)             Requested size: 304.0pt x 156.0064pt.
+ [247]) [248] (refman.ind
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+[]| \T1/phv/m/n/10 FIR-MATA_BLE_TXBUFFER_FLUSH_INTERVAL,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+[]| \T1/phv/m/n/10 BLESTREAM_TXBUFFER_FLUSH_INTERVAL,
+ []
+
+[249
+
+
+
+] [250] [251] [252] [253] [254] [255] [256] [257])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 333.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 333.
+ (refman.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 333.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 333.
+Package rerunfilecheck Info: File `refman.out' has not changed.
+(rerunfilecheck)             Checksum: AE7C3A08206118750C856A59629FA894;139218.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 20962 strings out of 492484
+ 390330 string characters out of 3130389
+ 598563 words of memory out of 3000000
+ 23028 multiletter control sequences out of 15000+200000
+ 67014 words of font info for 99 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 55i,16n,96p,1206b,702s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{optional-feature-set} has been referenced but doe
+s not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{core-feature-set} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{using-the-source-code-rather-than-release-archive-o
+nly-for-versions-older-than-arduino-163} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{linux} has been referenced but does not exist, repl
+aced by a fixed one
+
+pdfTeX warning (dest): name{windows} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{mac-osx} has been referenced but does not exist, re
+placed by a fixed one
+
+pdfTeX warning (dest): name{updating-firmata-in-the-arduino-ide---older-version
+s--163-or-10x} has been referenced but does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{cloning-firmata} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{updating-firmata-in-the-arduino-ide---arduino-164-a
+nd-higher} has been referenced but does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{firmata-client-libraries} has been referenced but d
+oes not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{usage} has been referenced but does not exist, repl
+aced by a fixed one
+
+pdfTeX warning (dest): name{contributing} has been referenced but does not exis
+t, replaced by a fixed one
+
+{E:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<E:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><E:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmmi12.pfb><E:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi7.pfb><E:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb><E:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmsy7.pfb><E:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
+8.pfb><E:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrb8a.pfb><E:/Progr
+am Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><E:/Program Files/MiKTeX
+ 2.9/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/sincgrid/AppData/Roaming/MiK
+TeX/2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/sincgrid/AppData/Roaming/
+MiKTeX/2.9/fonts/type1/urw/helvetic/uhvb8ac.pfb><C:/Users/sincgrid/AppData/Roam
+ing/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/sincgrid/AppData/R
+oaming/MiKTeX/2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (277 pages, 3475483 bytes).
+PDF statistics:
+ 8868 PDF objects out of 8907 (max. 8388607)
+ 1776 named destinations out of 2073 (max. 500000)
+ 5865 words of extra memory for PDF output out of 10000 (max. 10000000)
+

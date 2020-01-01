@@ -1,0 +1,398 @@
+\hypertarget{class_b_l_e_stream}{}\doxysection{B\+L\+E\+Stream Class Reference}
+\label{class_b_l_e_stream}\index{BLEStream@{BLEStream}}
+
+
+{\ttfamily \#include $<$B\+L\+E\+Stream.\+h$>$}
+
+
+
+Inheritance diagram for B\+L\+E\+Stream\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{class_b_l_e_stream__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for B\+L\+E\+Stream\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{class_b_l_e_stream__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_b_l_e_stream_aa12f9098b653a30c2a152f647ab8bdfa}{B\+L\+E\+Stream}} (unsigned char req=0, unsigned char rdy=0, unsigned char rst=0)
+\item 
+void \mbox{\hyperlink{class_b_l_e_stream_a7cef0d2f7dc431608483c3911e68bb56}{begin}} (...)
+\item 
+bool \mbox{\hyperlink{class_b_l_e_stream_a58d4d0684a7c9f5434736af31ea2ab98}{poll}} ()
+\item 
+void \mbox{\hyperlink{class_b_l_e_stream_a2f571566304b41339d8a74cee6f98d2d}{end}} ()
+\item 
+void \mbox{\hyperlink{class_b_l_e_stream_ab05a77032b59c6d3525390e7e6a768ab}{set\+Flush\+Interval}} (int)
+\item 
+virtual int \mbox{\hyperlink{class_b_l_e_stream_a9b8dd79faf553535df6b68a8d572c8e2}{available}} (void)
+\item 
+virtual int \mbox{\hyperlink{class_b_l_e_stream_a932edda09fadf9530e2b87bed4d88bed}{peek}} (void)
+\item 
+virtual int \mbox{\hyperlink{class_b_l_e_stream_a607238a23059d0dbe133c3358e7c42ca}{read}} (void)
+\item 
+virtual void \mbox{\hyperlink{class_b_l_e_stream_af22a00b80511025785543d107422874a}{flush}} (void)
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_b_l_e_stream_ad3e299ba3ad439d077f1b7bb74617698}{write}} (uint8\+\_\+t byte)
+\item 
+virtual \mbox{\hyperlink{class_b_l_e_stream_aded76dc2283104566c13fed9755e21f5}{operator bool}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 27 of file B\+L\+E\+Stream.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_b_l_e_stream_aa12f9098b653a30c2a152f647ab8bdfa}\label{class_b_l_e_stream_aa12f9098b653a30c2a152f647ab8bdfa}} 
+\index{BLEStream@{BLEStream}!BLEStream@{BLEStream}}
+\index{BLEStream@{BLEStream}!BLEStream@{BLEStream}}
+\doxysubsubsection{\texorpdfstring{BLEStream()}{BLEStream()}}
+{\footnotesize\ttfamily B\+L\+E\+Stream\+::\+B\+L\+E\+Stream (\begin{DoxyParamCaption}\item[{unsigned char}]{req = {\ttfamily 0},  }\item[{unsigned char}]{rdy = {\ttfamily 0},  }\item[{unsigned char}]{rst = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 78 of file B\+L\+E\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78                                                                             :}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#if defined(\_VARIANT\_ARDUINO\_101\_X\_)}}
+\DoxyCodeLine{80   BLEPeripheral()}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{82   BLEPeripheral(req, rdy, rst)}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{84 \{}
+\DoxyCodeLine{85   this-\/>\_txCount = 0;}
+\DoxyCodeLine{86   this-\/>\_rxHead = this-\/>\_rxTail = 0;}
+\DoxyCodeLine{87   this-\/>\_flushed = 0;}
+\DoxyCodeLine{88   this-\/>\_flushInterval = \mbox{\hyperlink{_b_l_e_stream_8h_a4a57a8ae20f942b0efd99e670d66dad0}{BLESTREAM\_TXBUFFER\_FLUSH\_INTERVAL}};}
+\DoxyCodeLine{89   BLEStream::\_instance = \textcolor{keyword}{this};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91   addAttribute(this-\/>\_uartService);}
+\DoxyCodeLine{92   addAttribute(this-\/>\_uartNameDescriptor);}
+\DoxyCodeLine{93   setAdvertisedServiceUuid(this-\/>\_uartService.uuid());}
+\DoxyCodeLine{94   addAttribute(this-\/>\_rxCharacteristic);}
+\DoxyCodeLine{95   addAttribute(this-\/>\_rxNameDescriptor);}
+\DoxyCodeLine{96   this-\/>\_rxCharacteristic.setEventHandler(BLEWritten, BLEStream::\_received);}
+\DoxyCodeLine{97   addAttribute(this-\/>\_txCharacteristic);}
+\DoxyCodeLine{98   addAttribute(this-\/>\_txNameDescriptor);}
+\DoxyCodeLine{99 \}}
+
+\end{DoxyCode}
+
+
+References B\+L\+E\+S\+T\+R\+E\+A\+M\+\_\+\+T\+X\+B\+U\+F\+F\+E\+R\+\_\+\+F\+L\+U\+S\+H\+\_\+\+I\+N\+T\+E\+R\+V\+AL.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_b_l_e_stream_a9b8dd79faf553535df6b68a8d572c8e2}\label{class_b_l_e_stream_a9b8dd79faf553535df6b68a8d572c8e2}} 
+\index{BLEStream@{BLEStream}!available@{available}}
+\index{available@{available}!BLEStream@{BLEStream}}
+\doxysubsubsection{\texorpdfstring{available()}{available()}}
+{\footnotesize\ttfamily int B\+L\+E\+Stream\+::available (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 127 of file B\+L\+E\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{128 \{}
+\DoxyCodeLine{129 \textcolor{comment}{// BLEPeripheral::poll only calls delay(1) in CurieBLE so skipping it here to avoid the delay}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#ifndef \_VARIANT\_ARDUINO\_101\_X\_}}
+\DoxyCodeLine{131   \textcolor{comment}{// TODO Need to do more testing to determine if all of these calls to BLEPeripheral::poll are}}
+\DoxyCodeLine{132   \textcolor{comment}{// actually necessary. Seems to run fine without them, but only minimal testing so far.}}
+\DoxyCodeLine{133   BLEPeripheral::poll();}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{135   \textcolor{keywordtype}{int} retval = (this-\/>\_rxHead -\/ this-\/>\_rxTail + \textcolor{keyword}{sizeof}(this-\/>\_rxBuffer)) \% \textcolor{keyword}{sizeof}(this-\/>\_rxBuffer);}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#ifdef BLE\_SERIAL\_DEBUG}}
+\DoxyCodeLine{137   \textcolor{keywordflow}{if} (retval > 0) \{}
+\DoxyCodeLine{138     Serial.print(F(\textcolor{stringliteral}{"BLEStream::available() = "}));}
+\DoxyCodeLine{139     Serial.println(retval);}
+\DoxyCodeLine{140   \}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{142   \textcolor{keywordflow}{return} retval;}
+\DoxyCodeLine{143 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_b_l_e_stream_a7cef0d2f7dc431608483c3911e68bb56}\label{class_b_l_e_stream_a7cef0d2f7dc431608483c3911e68bb56}} 
+\index{BLEStream@{BLEStream}!begin@{begin}}
+\index{begin@{begin}!BLEStream@{BLEStream}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void B\+L\+E\+Stream\+::begin (\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line 101 of file B\+L\+E\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{102 \{}
+\DoxyCodeLine{103   BLEPeripheral::begin();}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#ifdef BLE\_SERIAL\_DEBUG}}
+\DoxyCodeLine{105   Serial.println(F(\textcolor{stringliteral}{"BLEStream::begin()"}));}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{107 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_b_l_e_stream_a2f571566304b41339d8a74cee6f98d2d}\label{class_b_l_e_stream_a2f571566304b41339d8a74cee6f98d2d}} 
+\index{BLEStream@{BLEStream}!end@{end}}
+\index{end@{end}!BLEStream@{BLEStream}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void B\+L\+E\+Stream\+::end (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 119 of file B\+L\+E\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{120 \{}
+\DoxyCodeLine{121   this-\/>\_rxCharacteristic.setEventHandler(BLEWritten, (\textcolor{keywordtype}{void}(*)(BLECentral\&, BLECharacteristic\&))NULL);}
+\DoxyCodeLine{122   this-\/>\_rxHead = this-\/>\_rxTail = 0;}
+\DoxyCodeLine{123   \mbox{\hyperlink{class_b_l_e_stream_af22a00b80511025785543d107422874a}{flush}}();}
+\DoxyCodeLine{124   BLEPeripheral::disconnect();}
+\DoxyCodeLine{125 \}}
+
+\end{DoxyCode}
+
+
+References flush().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{class_b_l_e_stream_a2f571566304b41339d8a74cee6f98d2d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_b_l_e_stream_af22a00b80511025785543d107422874a}\label{class_b_l_e_stream_af22a00b80511025785543d107422874a}} 
+\index{BLEStream@{BLEStream}!flush@{flush}}
+\index{flush@{flush}!BLEStream@{BLEStream}}
+\doxysubsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily void B\+L\+E\+Stream\+::flush (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 174 of file B\+L\+E\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{175 \{}
+\DoxyCodeLine{176   \textcolor{keywordflow}{if} (this-\/>\_txCount == 0) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#ifndef \_VARIANT\_ARDUINO\_101\_X\_}}
+\DoxyCodeLine{178   \textcolor{comment}{// ensure there are available packets before sending}}
+\DoxyCodeLine{179   \textcolor{keywordflow}{while}(!this-\/>\_txCharacteristic.canNotify()) \{}
+\DoxyCodeLine{180     BLEPeripheral::poll();}
+\DoxyCodeLine{181   \}}
+\DoxyCodeLine{182 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{183   this-\/>\_txCharacteristic.setValue(this-\/>\_txBuffer, this-\/>\_txCount);}
+\DoxyCodeLine{184   this-\/>\_flushed = millis();}
+\DoxyCodeLine{185   this-\/>\_txCount = 0;}
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#ifdef BLE\_SERIAL\_DEBUG}}
+\DoxyCodeLine{187   Serial.println(F(\textcolor{stringliteral}{"BLEStream::flush()"}));}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{189 \}}
+
+\end{DoxyCode}
+
+
+Referenced by end(), poll(), and write().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{class_b_l_e_stream_af22a00b80511025785543d107422874a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_b_l_e_stream_aded76dc2283104566c13fed9755e21f5}\label{class_b_l_e_stream_aded76dc2283104566c13fed9755e21f5}} 
+\index{BLEStream@{BLEStream}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!BLEStream@{BLEStream}}
+\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily B\+L\+E\+Stream\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 207 of file B\+L\+E\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{208 \{}
+\DoxyCodeLine{209   \textcolor{keywordtype}{bool} retval = this-\/>\_connected = BLEPeripheral::connected();}
+\DoxyCodeLine{210 \textcolor{preprocessor}{\#ifdef BLE\_SERIAL\_DEBUG}}
+\DoxyCodeLine{211   Serial.print(F(\textcolor{stringliteral}{"BLEStream::operator bool() = "}));}
+\DoxyCodeLine{212   Serial.println(retval);}
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{214   \textcolor{keywordflow}{return} retval;}
+\DoxyCodeLine{215 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_b_l_e_stream_a932edda09fadf9530e2b87bed4d88bed}\label{class_b_l_e_stream_a932edda09fadf9530e2b87bed4d88bed}} 
+\index{BLEStream@{BLEStream}!peek@{peek}}
+\index{peek@{peek}!BLEStream@{BLEStream}}
+\doxysubsubsection{\texorpdfstring{peek()}{peek()}}
+{\footnotesize\ttfamily int B\+L\+E\+Stream\+::peek (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 145 of file B\+L\+E\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{146 \{}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#ifndef \_VARIANT\_ARDUINO\_101\_X\_}}
+\DoxyCodeLine{148   BLEPeripheral::poll();}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{150   \textcolor{keywordflow}{if} (this-\/>\_rxTail == this-\/>\_rxHead) \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{151   uint8\_t \textcolor{keywordtype}{byte} = this-\/>\_rxBuffer[this-\/>\_rxTail];}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#ifdef BLE\_SERIAL\_DEBUG}}
+\DoxyCodeLine{153   Serial.print(F(\textcolor{stringliteral}{"BLEStream::peek() = 0x"}));}
+\DoxyCodeLine{154   Serial.println(\textcolor{keywordtype}{byte}, HEX);}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{156   \textcolor{keywordflow}{return} byte;}
+\DoxyCodeLine{157 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_b_l_e_stream_a58d4d0684a7c9f5434736af31ea2ab98}\label{class_b_l_e_stream_a58d4d0684a7c9f5434736af31ea2ab98}} 
+\index{BLEStream@{BLEStream}!poll@{poll}}
+\index{poll@{poll}!BLEStream@{BLEStream}}
+\doxysubsubsection{\texorpdfstring{poll()}{poll()}}
+{\footnotesize\ttfamily bool B\+L\+E\+Stream\+::poll (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 109 of file B\+L\+E\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110 \{}
+\DoxyCodeLine{111   \textcolor{comment}{// BLEPeripheral::poll is called each time connected() is called}}
+\DoxyCodeLine{112   this-\/>\_connected = BLEPeripheral::connected();}
+\DoxyCodeLine{113   \textcolor{keywordflow}{if} (millis() > this-\/>\_flushed + this-\/>\_flushInterval) \{}
+\DoxyCodeLine{114     \mbox{\hyperlink{class_b_l_e_stream_af22a00b80511025785543d107422874a}{flush}}();}
+\DoxyCodeLine{115   \}}
+\DoxyCodeLine{116   \textcolor{keywordflow}{return} this-\/>\_connected;}
+\DoxyCodeLine{117 \}}
+
+\end{DoxyCode}
+
+
+References flush().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{class_b_l_e_stream_a58d4d0684a7c9f5434736af31ea2ab98_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_b_l_e_stream_a607238a23059d0dbe133c3358e7c42ca}\label{class_b_l_e_stream_a607238a23059d0dbe133c3358e7c42ca}} 
+\index{BLEStream@{BLEStream}!read@{read}}
+\index{read@{read}!BLEStream@{BLEStream}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily int B\+L\+E\+Stream\+::read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 159 of file B\+L\+E\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{160 \{}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#ifndef \_VARIANT\_ARDUINO\_101\_X\_}}
+\DoxyCodeLine{162   BLEPeripheral::poll();}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{164   \textcolor{keywordflow}{if} (this-\/>\_rxTail == this-\/>\_rxHead) \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{165   this-\/>\_rxTail = (this-\/>\_rxTail + 1) \% \textcolor{keyword}{sizeof}(this-\/>\_rxBuffer);}
+\DoxyCodeLine{166   uint8\_t \textcolor{keywordtype}{byte} = this-\/>\_rxBuffer[this-\/>\_rxTail];}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#ifdef BLE\_SERIAL\_DEBUG}}
+\DoxyCodeLine{168   Serial.print(F(\textcolor{stringliteral}{"BLEStream::read() = 0x"}));}
+\DoxyCodeLine{169   Serial.println(\textcolor{keywordtype}{byte}, HEX);}
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{171   \textcolor{keywordflow}{return} byte;}
+\DoxyCodeLine{172 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_b_l_e_stream_ab05a77032b59c6d3525390e7e6a768ab}\label{class_b_l_e_stream_ab05a77032b59c6d3525390e7e6a768ab}} 
+\index{BLEStream@{BLEStream}!setFlushInterval@{setFlushInterval}}
+\index{setFlushInterval@{setFlushInterval}!BLEStream@{BLEStream}}
+\doxysubsubsection{\texorpdfstring{setFlushInterval()}{setFlushInterval()}}
+{\footnotesize\ttfamily void B\+L\+E\+Stream\+::set\+Flush\+Interval (\begin{DoxyParamCaption}\item[{int}]{interval }\end{DoxyParamCaption})}
+
+
+
+Definition at line 217 of file B\+L\+E\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{218 \{}
+\DoxyCodeLine{219   \textcolor{keywordflow}{if} (interval > \mbox{\hyperlink{_b_l_e_stream_8h_a2b68e96a5633949348a489d1ac2ef025}{BLESTREAM\_MIN\_FLUSH\_INTERVAL}}) \{}
+\DoxyCodeLine{220     this-\/>\_flushInterval = interval;}
+\DoxyCodeLine{221   \}}
+\DoxyCodeLine{222 \}}
+
+\end{DoxyCode}
+
+
+References B\+L\+E\+S\+T\+R\+E\+A\+M\+\_\+\+M\+I\+N\+\_\+\+F\+L\+U\+S\+H\+\_\+\+I\+N\+T\+E\+R\+V\+AL.
+
+\mbox{\Hypertarget{class_b_l_e_stream_ad3e299ba3ad439d077f1b7bb74617698}\label{class_b_l_e_stream_ad3e299ba3ad439d077f1b7bb74617698}} 
+\index{BLEStream@{BLEStream}!write@{write}}
+\index{write@{write}!BLEStream@{BLEStream}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily size\+\_\+t B\+L\+E\+Stream\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{byte }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 191 of file B\+L\+E\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{192 \{}
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#ifndef \_VARIANT\_ARDUINO\_101\_X\_}}
+\DoxyCodeLine{194   BLEPeripheral::poll();}
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{196   \textcolor{keywordflow}{if} (this-\/>\_txCharacteristic.subscribed() == \textcolor{keyword}{false}) \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{197   this-\/>\_txBuffer[this-\/>\_txCount++] = byte;}
+\DoxyCodeLine{198   \textcolor{keywordflow}{if} (this-\/>\_txCount == \textcolor{keyword}{sizeof}(this-\/>\_txBuffer)) \mbox{\hyperlink{class_b_l_e_stream_af22a00b80511025785543d107422874a}{flush}}();}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#ifdef BLE\_SERIAL\_DEBUG}}
+\DoxyCodeLine{200   Serial.print(F(\textcolor{stringliteral}{"BLEStream::write( 0x"}));}
+\DoxyCodeLine{201   Serial.print(\textcolor{keywordtype}{byte}, HEX);}
+\DoxyCodeLine{202   Serial.println(F(\textcolor{stringliteral}{") = 1"}));}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{204   \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{205 \}}
+
+\end{DoxyCode}
+
+
+References flush().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{class_b_l_e_stream_ad3e299ba3ad439d077f1b7bb74617698_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_b_l_e_stream_8h}{B\+L\+E\+Stream.\+h}}\end{DoxyCompactItemize}

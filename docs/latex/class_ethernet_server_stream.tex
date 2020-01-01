@@ -1,0 +1,334 @@
+\hypertarget{class_ethernet_server_stream}{}\doxysection{Ethernet\+Server\+Stream Class Reference}
+\label{class_ethernet_server_stream}\index{EthernetServerStream@{EthernetServerStream}}
+
+
+{\ttfamily \#include $<$Ethernet\+Server\+Stream.\+h$>$}
+
+
+
+Inheritance diagram for Ethernet\+Server\+Stream\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{class_ethernet_server_stream__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ethernet\+Server\+Stream\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{class_ethernet_server_stream__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ethernet_server_stream_a371b10bc8ab4e1d3b472a4c99947fca7}{Ethernet\+Server\+Stream}} (I\+P\+Address localip, uint16\+\_\+t port)
+\item 
+int \mbox{\hyperlink{class_ethernet_server_stream_afe44eb0907bf717d858eca853c36dc5e}{available}} ()
+\item 
+int \mbox{\hyperlink{class_ethernet_server_stream_a27997fbe661a726ded1b11b07aa1882b}{read}} ()
+\item 
+int \mbox{\hyperlink{class_ethernet_server_stream_a7e27ed527c032670284ef6d14d5639a0}{peek}} ()
+\item 
+void \mbox{\hyperlink{class_ethernet_server_stream_a4d389e604c362925a3353f8843b4d0e9}{flush}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{class_ethernet_server_stream_ab6e444aefeca0541ca694df97ee429b4}{write}} (uint8\+\_\+t)
+\item 
+void \mbox{\hyperlink{class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5}{maintain}} (I\+P\+Address localip)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_ethernet_server_stream_a28136e328f1448498359a2044df69da1}{connect\+\_\+client}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ethernet\+Server \mbox{\hyperlink{class_ethernet_server_stream_ac5542cabc7a211435b4e40927ca24e4d}{server}} = Ethernet\+Server(3030)
+\item 
+bool \mbox{\hyperlink{class_ethernet_server_stream_ae3576b85aef595a24428501ead070303}{listening}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 26 of file Ethernet\+Server\+Stream.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ethernet_server_stream_a371b10bc8ab4e1d3b472a4c99947fca7}\label{class_ethernet_server_stream_a371b10bc8ab4e1d3b472a4c99947fca7}} 
+\index{EthernetServerStream@{EthernetServerStream}!EthernetServerStream@{EthernetServerStream}}
+\index{EthernetServerStream@{EthernetServerStream}!EthernetServerStream@{EthernetServerStream}}
+\doxysubsubsection{\texorpdfstring{EthernetServerStream()}{EthernetServerStream()}}
+{\footnotesize\ttfamily Ethernet\+Server\+Stream\+::\+Ethernet\+Server\+Stream (\begin{DoxyParamCaption}\item[{I\+P\+Address}]{localip,  }\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
+
+
+
+Definition at line 57 of file Ethernet\+Server\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58   : localip(localip),}
+\DoxyCodeLine{59     port(port),}
+\DoxyCodeLine{60     connected(\textcolor{keyword}{false})}
+\DoxyCodeLine{61 \{}
+\DoxyCodeLine{62 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ethernet_server_stream_afe44eb0907bf717d858eca853c36dc5e}\label{class_ethernet_server_stream_afe44eb0907bf717d858eca853c36dc5e}} 
+\index{EthernetServerStream@{EthernetServerStream}!available@{available}}
+\index{available@{available}!EthernetServerStream@{EthernetServerStream}}
+\doxysubsubsection{\texorpdfstring{available()}{available()}}
+{\footnotesize\ttfamily int Ethernet\+Server\+Stream\+::available (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 81 of file Ethernet\+Server\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{82 \{}
+\DoxyCodeLine{83   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5}{maintain}}() ? client.available() : 0;}
+\DoxyCodeLine{84 \}}
+
+\end{DoxyCode}
+
+
+References maintain().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_ethernet_server_stream_afe44eb0907bf717d858eca853c36dc5e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_ethernet_server_stream_a28136e328f1448498359a2044df69da1}\label{class_ethernet_server_stream_a28136e328f1448498359a2044df69da1}} 
+\index{EthernetServerStream@{EthernetServerStream}!connect\_client@{connect\_client}}
+\index{connect\_client@{connect\_client}!EthernetServerStream@{EthernetServerStream}}
+\doxysubsubsection{\texorpdfstring{connect\_client()}{connect\_client()}}
+{\footnotesize\ttfamily bool Ethernet\+Server\+Stream\+::connect\+\_\+client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 64 of file Ethernet\+Server\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65   \{}
+\DoxyCodeLine{66     \textcolor{keywordflow}{if} ( connected )}
+\DoxyCodeLine{67     \{}
+\DoxyCodeLine{68       \textcolor{keywordflow}{if} ( client \&\& client.connected() ) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{69       stop();}
+\DoxyCodeLine{70     \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     EthernetClient newClient = \mbox{\hyperlink{class_ethernet_server_stream_ac5542cabc7a211435b4e40927ca24e4d}{server}}.available();}
+\DoxyCodeLine{73     \textcolor{keywordflow}{if} ( !newClient ) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{74     client = newClient;}
+\DoxyCodeLine{75     connected = \textcolor{keyword}{true};}
+\DoxyCodeLine{76     \mbox{\hyperlink{firmata_debug_8h_a8e30ff0704664fcb13dabf0c4dc5c8f5}{DEBUG\_PRINTLN}}(\textcolor{stringliteral}{"Connected"});}
+\DoxyCodeLine{77     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{78   \}}
+
+\end{DoxyCode}
+
+
+References D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T\+LN, and server.
+
+\mbox{\Hypertarget{class_ethernet_server_stream_a4d389e604c362925a3353f8843b4d0e9}\label{class_ethernet_server_stream_a4d389e604c362925a3353f8843b4d0e9}} 
+\index{EthernetServerStream@{EthernetServerStream}!flush@{flush}}
+\index{flush@{flush}!EthernetServerStream@{EthernetServerStream}}
+\doxysubsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily void Ethernet\+Server\+Stream\+::flush (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 98 of file Ethernet\+Server\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{99 \{}
+\DoxyCodeLine{100   \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5}{maintain}}())}
+\DoxyCodeLine{101     client.flush();}
+\DoxyCodeLine{102 \}}
+
+\end{DoxyCode}
+
+
+References maintain().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_ethernet_server_stream_a4d389e604c362925a3353f8843b4d0e9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5}\label{class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5}} 
+\index{EthernetServerStream@{EthernetServerStream}!maintain@{maintain}}
+\index{maintain@{maintain}!EthernetServerStream@{EthernetServerStream}}
+\doxysubsubsection{\texorpdfstring{maintain()}{maintain()}}
+{\footnotesize\ttfamily void Ethernet\+Server\+Stream\+::maintain (\begin{DoxyParamCaption}\item[{I\+P\+Address}]{localip }\end{DoxyParamCaption})}
+
+
+
+Definition at line 111 of file Ethernet\+Server\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112 \{}
+\DoxyCodeLine{113   \textcolor{comment}{// ensure the local IP is updated in the case that it is changed by the DHCP server}}
+\DoxyCodeLine{114   \textcolor{keywordflow}{if} (this-\/>localip != localip) \{}
+\DoxyCodeLine{115     this-\/>localip = localip;}
+\DoxyCodeLine{116     \textcolor{keywordflow}{if} (connected)}
+\DoxyCodeLine{117       stop();}
+\DoxyCodeLine{118   \}}
+\DoxyCodeLine{119 \}}
+
+\end{DoxyCode}
+
+
+References maintain().
+
+
+
+Referenced by available(), flush(), maintain(), peek(), read(), and write().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_ethernet_server_stream_a7e27ed527c032670284ef6d14d5639a0}\label{class_ethernet_server_stream_a7e27ed527c032670284ef6d14d5639a0}} 
+\index{EthernetServerStream@{EthernetServerStream}!peek@{peek}}
+\index{peek@{peek}!EthernetServerStream@{EthernetServerStream}}
+\doxysubsubsection{\texorpdfstring{peek()}{peek()}}
+{\footnotesize\ttfamily int Ethernet\+Server\+Stream\+::peek (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 93 of file Ethernet\+Server\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{94 \{}
+\DoxyCodeLine{95   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5}{maintain}}() ? client.peek() : -\/1;}
+\DoxyCodeLine{96 \}}
+
+\end{DoxyCode}
+
+
+References maintain().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_ethernet_server_stream_a7e27ed527c032670284ef6d14d5639a0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_ethernet_server_stream_a27997fbe661a726ded1b11b07aa1882b}\label{class_ethernet_server_stream_a27997fbe661a726ded1b11b07aa1882b}} 
+\index{EthernetServerStream@{EthernetServerStream}!read@{read}}
+\index{read@{read}!EthernetServerStream@{EthernetServerStream}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily int Ethernet\+Server\+Stream\+::read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 87 of file Ethernet\+Server\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{88 \{}
+\DoxyCodeLine{89   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5}{maintain}}() ? client.read() : -\/1;}
+\DoxyCodeLine{90 \}}
+
+\end{DoxyCode}
+
+
+References maintain().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_ethernet_server_stream_a27997fbe661a726ded1b11b07aa1882b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_ethernet_server_stream_ab6e444aefeca0541ca694df97ee429b4}\label{class_ethernet_server_stream_ab6e444aefeca0541ca694df97ee429b4}} 
+\index{EthernetServerStream@{EthernetServerStream}!write@{write}}
+\index{write@{write}!EthernetServerStream@{EthernetServerStream}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily size\+\_\+t Ethernet\+Server\+Stream\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line 105 of file Ethernet\+Server\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{106 \{}
+\DoxyCodeLine{107   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_ethernet_server_stream_aa4fcdc109faa3b534e4b5c48accb68e5}{maintain}}() ? client.write(c) : 0;}
+\DoxyCodeLine{108 \}}
+
+\end{DoxyCode}
+
+
+References maintain().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_ethernet_server_stream_ab6e444aefeca0541ca694df97ee429b4_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_ethernet_server_stream_ae3576b85aef595a24428501ead070303}\label{class_ethernet_server_stream_ae3576b85aef595a24428501ead070303}} 
+\index{EthernetServerStream@{EthernetServerStream}!listening@{listening}}
+\index{listening@{listening}!EthernetServerStream@{EthernetServerStream}}
+\doxysubsubsection{\texorpdfstring{listening}{listening}}
+{\footnotesize\ttfamily bool Ethernet\+Server\+Stream\+::listening = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 47 of file Ethernet\+Server\+Stream.\+h.
+
+\mbox{\Hypertarget{class_ethernet_server_stream_ac5542cabc7a211435b4e40927ca24e4d}\label{class_ethernet_server_stream_ac5542cabc7a211435b4e40927ca24e4d}} 
+\index{EthernetServerStream@{EthernetServerStream}!server@{server}}
+\index{server@{server}!EthernetServerStream@{EthernetServerStream}}
+\doxysubsubsection{\texorpdfstring{server}{server}}
+{\footnotesize\ttfamily Ethernet\+Server Ethernet\+Server\+Stream\+::server = Ethernet\+Server(3030)\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 46 of file Ethernet\+Server\+Stream.\+h.
+
+
+
+Referenced by connect\+\_\+client().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_ethernet_server_stream_8h}{Ethernet\+Server\+Stream.\+h}}\end{DoxyCompactItemize}

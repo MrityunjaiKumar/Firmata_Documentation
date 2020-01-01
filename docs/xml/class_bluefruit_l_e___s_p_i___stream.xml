@@ -1,0 +1,363 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="class_bluefruit_l_e___s_p_i___stream" kind="class" language="C++" prot="public">
+    <compoundname>BluefruitLE_SPI_Stream</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Stream</basecompoundref>
+    <includes refid="_bluefruit_l_e___s_p_i___stream_8h" local="no">BluefruitLE_SPI_Stream.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_bluefruit_l_e___s_p_i___stream_1a8d67e1cea8ef3de5edcd737d31846b66" prot="private" static="no" mutable="no">
+        <type>Adafruit_BluefruitLE_SPI</type>
+        <definition>Adafruit_BluefruitLE_SPI BluefruitLE_SPI_Stream::ble</definition>
+        <argsstring></argsstring>
+        <name>ble</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="39" column="30" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bluefruit_l_e___s_p_i___stream_1a355cb8fd1ddb35798a43b49cffb86a16" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String BluefruitLE_SPI_Stream::localName</definition>
+        <argsstring></argsstring>
+        <name>localName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="41" column="12" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bluefruit_l_e___s_p_i___stream_1a750a9ddd9b22fe2ba607658f5920c6f6" prot="private" static="no" mutable="no">
+        <type>unsigned short</type>
+        <definition>unsigned short BluefruitLE_SPI_Stream::advertisingInterval</definition>
+        <argsstring></argsstring>
+        <name>advertisingInterval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="42" column="20" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bluefruit_l_e___s_p_i___stream_1a81236d8427e256981aa4592c5a581250" prot="private" static="no" mutable="no">
+        <type>unsigned short</type>
+        <definition>unsigned short BluefruitLE_SPI_Stream::minConnInterval</definition>
+        <argsstring></argsstring>
+        <name>minConnInterval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="43" column="20" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bluefruit_l_e___s_p_i___stream_1a579412177570c1fb6b2cd17d3e2a0213" prot="private" static="no" mutable="no">
+        <type>unsigned short</type>
+        <definition>unsigned short BluefruitLE_SPI_Stream::maxConnInterval</definition>
+        <argsstring></argsstring>
+        <name>maxConnInterval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="44" column="20" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bluefruit_l_e___s_p_i___stream_1a0e15e93931b9d115adec2d941dfbc25f" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t BluefruitLE_SPI_Stream::txBuffer[SDEP_MAX_PACKETSIZE]</definition>
+        <argsstring>[SDEP_MAX_PACKETSIZE]</argsstring>
+        <name>txBuffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="46" column="13" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bluefruit_l_e___s_p_i___stream_1ad1d7c7b5c60d8f9de81fa623d39d9bbe" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t BluefruitLE_SPI_Stream::txCount</definition>
+        <argsstring></argsstring>
+        <name>txCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="47" column="12" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_bluefruit_l_e___s_p_i___stream_1ac19a14eae594461685c7789744536630" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BluefruitLE_SPI_Stream::BluefruitLE_SPI_Stream</definition>
+        <argsstring>(int8_t csPin, int8_t irqPin, int8_t rstPin)</argsstring>
+        <name>BluefruitLE_SPI_Stream</name>
+        <param>
+          <type>int8_t</type>
+          <declname>csPin</declname>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>irqPin</declname>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>rstPin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="17" column="5" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="51" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bluefruit_l_e___s_p_i___stream_1a1153c170fe43096e881da36384a09a81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluefruitLE_SPI_Stream::setLocalName</definition>
+        <argsstring>(const char *localName)</argsstring>
+        <name>setLocalName</name>
+        <param>
+          <type>const char *</type>
+          <declname>localName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="19" column="10" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bluefruit_l_e___s_p_i___stream_1afa82fbf3469f5bebdc4fd38a4026ebac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluefruitLE_SPI_Stream::setAdvertisingInterval</definition>
+        <argsstring>(unsigned short advertisingInterval)</argsstring>
+        <name>setAdvertisingInterval</name>
+        <param>
+          <type>unsigned short</type>
+          <declname>advertisingInterval</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="20" column="10" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="64" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bluefruit_l_e___s_p_i___stream_1a78d07c321348b200ea7abee1f1875c52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluefruitLE_SPI_Stream::setConnectionInterval</definition>
+        <argsstring>(unsigned short minConnInterval, unsigned short maxConnInterval)</argsstring>
+        <name>setConnectionInterval</name>
+        <param>
+          <type>unsigned short</type>
+          <declname>minConnInterval</declname>
+        </param>
+        <param>
+          <type>unsigned short</type>
+          <declname>maxConnInterval</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="21" column="10" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="69" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bluefruit_l_e___s_p_i___stream_1ad8d6ba754217d03bd70f7e0b0b6886e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluefruitLE_SPI_Stream::setFlushInterval</definition>
+        <argsstring>(int flushInterval)</argsstring>
+        <name>setFlushInterval</name>
+        <param>
+          <type>int</type>
+          <declname>flushInterval</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="22" column="10" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bluefruit_l_e___s_p_i___stream_1a42256ec5b06c7bea51d0861ee5271e5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluefruitLE_SPI_Stream::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="24" column="10" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="80" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bluefruit_l_e___s_p_i___stream_1aac853db41256e05fec5acd82f1c23b63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BluefruitLE_SPI_Stream::poll</definition>
+        <argsstring>()</argsstring>
+        <name>poll</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="25" column="10" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="119" bodyend="130"/>
+        <references refid="class_bluefruit_l_e___s_p_i___stream_1aa2be3b49f65f896743b1d2bbf6c47f6c" compoundref="_bluefruit_l_e___s_p_i___stream_8h" startline="160" endline="164">flush</references>
+      </memberdef>
+      <memberdef kind="function" id="class_bluefruit_l_e___s_p_i___stream_1a2317ee4a4a96f91114fb1c202f8cfc95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluefruitLE_SPI_Stream::end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="26" column="10" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="132" bodyend="136"/>
+        <references refid="class_bluefruit_l_e___s_p_i___stream_1aa2be3b49f65f896743b1d2bbf6c47f6c" compoundref="_bluefruit_l_e___s_p_i___stream_8h" startline="160" endline="164">flush</references>
+      </memberdef>
+      <memberdef kind="function" id="class_bluefruit_l_e___s_p_i___stream_1aaa7aedd59278e33d6777fdd3748f73e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t BluefruitLE_SPI_Stream::write</definition>
+        <argsstring>(uint8_t byte)</argsstring>
+        <name>write</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>byte</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="29" column="12" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="138" bodyend="143"/>
+        <references refid="class_bluefruit_l_e___s_p_i___stream_1aa2be3b49f65f896743b1d2bbf6c47f6c" compoundref="_bluefruit_l_e___s_p_i___stream_8h" startline="160" endline="164">flush</references>
+      </memberdef>
+      <memberdef kind="function" id="class_bluefruit_l_e___s_p_i___stream_1abc3db6c602232f00c3ff48bf6d4f326c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BluefruitLE_SPI_Stream::available</definition>
+        <argsstring>()</argsstring>
+        <name>available</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="33" column="9" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="145" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bluefruit_l_e___s_p_i___stream_1a2ee93c296d49d07f76d93bcdaff1ac9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BluefruitLE_SPI_Stream::read</definition>
+        <argsstring>()</argsstring>
+        <name>read</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="34" column="9" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="150" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bluefruit_l_e___s_p_i___stream_1ab866490cfe5ba0e16c1ab4b6dbaebf9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BluefruitLE_SPI_Stream::peek</definition>
+        <argsstring>()</argsstring>
+        <name>peek</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="35" column="9" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="155" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bluefruit_l_e___s_p_i___stream_1aa2be3b49f65f896743b1d2bbf6c47f6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BluefruitLE_SPI_Stream::flush</definition>
+        <argsstring>()</argsstring>
+        <name>flush</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="36" column="10" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="160" bodyend="164"/>
+        <referencedby refid="class_bluefruit_l_e___s_p_i___stream_1a2317ee4a4a96f91114fb1c202f8cfc95" compoundref="_bluefruit_l_e___s_p_i___stream_8h" startline="132" endline="136">end</referencedby>
+        <referencedby refid="class_bluefruit_l_e___s_p_i___stream_1aac853db41256e05fec5acd82f1c23b63" compoundref="_bluefruit_l_e___s_p_i___stream_8h" startline="119" endline="130">poll</referencedby>
+        <referencedby refid="class_bluefruit_l_e___s_p_i___stream_1aaa7aedd59278e33d6777fdd3748f73e9" compoundref="_bluefruit_l_e___s_p_i___stream_8h" startline="138" endline="143">write</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BluefruitLE_SPI_Stream</label>
+        <link refid="class_bluefruit_l_e___s_p_i___stream"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Stream</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BluefruitLE_SPI_Stream</label>
+        <link refid="class_bluefruit_l_e___s_p_i___stream"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Stream</label>
+      </node>
+    </collaborationgraph>
+    <location file="arduino/utility/BluefruitLE_SPI_Stream.h" line="15" column="1" bodyfile="arduino/utility/BluefruitLE_SPI_Stream.h" bodystart="14" bodyend="48"/>
+    <listofallmembers>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1a750a9ddd9b22fe2ba607658f5920c6f6" prot="private" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>advertisingInterval</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1abc3db6c602232f00c3ff48bf6d4f326c" prot="public" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>available</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1a42256ec5b06c7bea51d0861ee5271e5e" prot="public" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>begin</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1a8d67e1cea8ef3de5edcd737d31846b66" prot="private" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>ble</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1ac19a14eae594461685c7789744536630" prot="public" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>BluefruitLE_SPI_Stream</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1a2317ee4a4a96f91114fb1c202f8cfc95" prot="public" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>end</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1aa2be3b49f65f896743b1d2bbf6c47f6c" prot="public" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>flush</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1a355cb8fd1ddb35798a43b49cffb86a16" prot="private" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>localName</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1a579412177570c1fb6b2cd17d3e2a0213" prot="private" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>maxConnInterval</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1a81236d8427e256981aa4592c5a581250" prot="private" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>minConnInterval</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1ab866490cfe5ba0e16c1ab4b6dbaebf9f" prot="public" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>peek</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1aac853db41256e05fec5acd82f1c23b63" prot="public" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>poll</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1a2ee93c296d49d07f76d93bcdaff1ac9e" prot="public" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>read</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1afa82fbf3469f5bebdc4fd38a4026ebac" prot="public" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>setAdvertisingInterval</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1a78d07c321348b200ea7abee1f1875c52" prot="public" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>setConnectionInterval</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1ad8d6ba754217d03bd70f7e0b0b6886e2" prot="public" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>setFlushInterval</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1a1153c170fe43096e881da36384a09a81" prot="public" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>setLocalName</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1a0e15e93931b9d115adec2d941dfbc25f" prot="private" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>txBuffer</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1ad1d7c7b5c60d8f9de81fa623d39d9bbe" prot="private" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>txCount</name></member>
+      <member refid="class_bluefruit_l_e___s_p_i___stream_1aaa7aedd59278e33d6777fdd3748f73e9" prot="public" virt="non-virtual"><scope>BluefruitLE_SPI_Stream</scope><name>write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

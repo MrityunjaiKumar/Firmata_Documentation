@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md__g_1__arduino-workspace__firmata_protocol__r_e_a_d_m_e" kind="page">
+    <compoundname>md_G:_Arduino-workspace_Firmata_protocol_README</compoundname>
+    <title>Firmata Protocol Documentation</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ulink url="https://gitter.im/firmata/protocol?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><image type="html" name="protocol.svg" inline="yes"></image>
+</ulink></para>
+<para>Firmata is a protocol for communicating with microcontrollers from software on a computer (or smartphone/tablet, etc). The protocol can be implemented in firmware on any microcontroller architecture as well as software on any computer software package (see list of client libraries below).</para>
+<para>Firmata is based on the <ulink url="http://www.midi.org/techspecs/midimessages.php">midi message format</ulink> in that commands bytes are 8 bits and data bytes are 7 bits. For example the midi Channel Pressure (Command: 0xD0) message is 2 bytes long, in Firmata the Command 0xD0 is used to enable reporting for a digital port (collection of 8 pins). Both the midi and Firmata versions are 2 bytes long, but the meaning is obviously different. In Firmata, the number of bytes in a message must conform with the corresponding midi message. Midi <ulink url="http://www.2writers.com/eddie/tutsysex.htm">System Exclusive</ulink> (Sysex) messages however, can be any length and are therefore used most prominently throughout the Firmata protocol.</para>
+<para>This repository contains documentation of the Firmata protocol. The core of the protocol is described in the <ref refid="protocol_8md" kindref="compound">protocol.md file</ref> file. Feature-specific documentation is described in individual markdown files (<ref refid="i2c_8md" kindref="compound">i2c.md</ref>, <ulink url="https://github.com/firmata/protocol/blob/master/accelStepperFirmata.md">accelStepperFirmata.md</ulink>, <ref refid="servos_8md" kindref="compound">servos.md</ref>, etc). Files added to the proposals directory are proposals for new features that have not yet been finalized. See <ulink url="https://github.com/firmata/protocol/blob/master/feature-registry.md">firmata-registry.md</ulink> for the full list of documented firmata features.</para>
+<para>The Firmata protocol could theoretically be implemented for any microcontroller platform. Currently however, the most complete implementation is for <ulink url="http://arduino.cc">Arduino</ulink> (including Arduino-compatible microcontrollers). Here are the known Firmata microcontroller platform implementations:</para>
+<para><itemizedlist>
+<listitem><para><ulink url="https://github.com/firmata/arduino">Firmata for Arduino</ulink></para>
+</listitem><listitem><para><ulink url="https://github.com/firmata/spark">Firmata for Spark.io</ulink></para>
+</listitem></itemizedlist>
+</para>
+<para><emphasis>Please note: I&apos;m sure there are other implementations. If you know of others, please submit a pull request to update this readme file, or open an issue providing the link to be added to this document.</emphasis></para>
+<sect1 id="md__g_1__arduino-workspace__firmata_protocol__r_e_a_d_m_e_1autotoc_md109">
+<title>Firmata client libraries</title>
+<para>There are several client libraries. These are libraries that implement the Firmata protocol in order to communicate (from a computer, smartphone or tablet for example) with Firmata firmware running on a microcontroller platform. The following is a list of Firmata client library implementations:</para>
+<para><itemizedlist>
+<listitem><para>processing<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/firmata/processing">https://github.com/firmata/processing</ulink>]</para>
+</listitem><listitem><para>[<ulink url="http://funnel.cc">http://funnel.cc</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>python<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/firmata/pyduino">https://github.com/firmata/pyduino</ulink>]</para>
+</listitem><listitem><para>[<ulink url="https://github.com/lupeke/python-firmata">https://github.com/lupeke/python-firmata</ulink>]</para>
+</listitem><listitem><para>[<ulink url="https://github.com/tino/pyFirmata">https://github.com/tino/pyFirmata</ulink>]</para>
+</listitem><listitem><para>[<ulink url="https://github.com/MrYsLab/PyMata">https://github.com/MrYsLab/PyMata</ulink>]</para>
+</listitem><listitem><para>[<ulink url="https://github.com/MrYsLab/pymata-aio">https://github.com/MrYsLab/pymata-aio</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>perl<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/ntruchsess/perl-firmata">https://github.com/ntruchsess/perl-firmata</ulink>]</para>
+</listitem><listitem><para>[<ulink url="https://github.com/rcaputo/rx-firmata">https://github.com/rcaputo/rx-firmata</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>ruby<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/hardbap/firmata">https://github.com/hardbap/firmata</ulink>]</para>
+</listitem><listitem><para>[<ulink url="https://github.com/PlasticLizard/rufinol">https://github.com/PlasticLizard/rufinol</ulink>]</para>
+</listitem><listitem><para>[<ulink url="http://funnel.cc">http://funnel.cc</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>clojure<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/nakkaya/clodiuno">https://github.com/nakkaya/clodiuno</ulink>]</para>
+</listitem><listitem><para>[<ulink url="https://github.com/peterschwarz/clj-firmata">https://github.com/peterschwarz/clj-firmata</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>javascript<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/jgautier/firmata">https://github.com/jgautier/firmata</ulink>]</para>
+</listitem><listitem><para>[<ulink url="http://breakoutjs.com">http://breakoutjs.com</ulink>]</para>
+</listitem><listitem><para>[<ulink url="https://github.com/rwldrn/johnny-five">https://github.com/rwldrn/johnny-five</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>java<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/4ntoine/Firmata">https://github.com/4ntoine/Firmata</ulink>]</para>
+</listitem><listitem><para>[<ulink url="https://github.com/kurbatov/firmata4j">https://github.com/kurbatov/firmata4j</ulink>]</para>
+</listitem><listitem><para>[<ulink url="https://github.com/reapzor/FiloFirmata">https://github.com/reapzor/FiloFirmata</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>.NET<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/SolidSoils/Arduino">https://github.com/SolidSoils/Arduino</ulink>]</para>
+</listitem><listitem><para>[<ulink url="http://www.imagitronics.org/projects/firmatanet/">http://www.imagitronics.org/projects/firmatanet/</ulink>]</para>
+</listitem><listitem><para>[<ulink url="https://github.com/wbadry/FirmataCSharpClientClass">https://github.com/wbadry/FirmataCSharpClientClass</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Flash/AS3<itemizedlist>
+<listitem><para>[<ulink url="http://funnel.cc">http://funnel.cc</ulink>]</para>
+</listitem><listitem><para>[<ulink url="http://code.google.com/p/as3glue/">http://code.google.com/p/as3glue/</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>PHP<itemizedlist>
+<listitem><para>[<ulink url="https://bitbucket.org/ThomasWeinert/carica-firmata">https://bitbucket.org/ThomasWeinert/carica-firmata</ulink>]</para>
+</listitem><listitem><para>[<ulink url="https://github.com/oasynnoum/phpmake_firmata">https://github.com/oasynnoum/phpmake_firmata</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Haskell<itemizedlist>
+<listitem><para>[<ulink url="http://hackage.haskell.org/package/hArduino">http://hackage.haskell.org/package/hArduino</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>iOS<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/jacobrosenthal/iosfirmata">https://github.com/jacobrosenthal/iosfirmata</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Dart<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/nfrancois/firmata">https://github.com/nfrancois/firmata</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Max/MSP<itemizedlist>
+<listitem><para>[<ulink url="http://www.maxuino.org/">http://www.maxuino.org/</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Elixir<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/kfatehi/firmata">https://github.com/kfatehi/firmata</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Modelica<itemizedlist>
+<listitem><para>[<ulink url="https://www.wolfram.com/system-modeler/libraries/model-plug/">https://www.wolfram.com/system-modeler/libraries/model-plug/</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>golang<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/kraman/go-firmata">https://github.com/kraman/go-firmata</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Qt/QML<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/callaa/qfirmata">https://github.com/callaa/qfirmata</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Android/Kotlin<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/xujiaao/android-firmata">https://github.com/xujiaao/android-firmata</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Smalltalk<itemizedlist>
+<listitem><para>[<ulink url="https://github.com/pharo-iot/Firmata">https://github.com/pharo-iot/Firmata</ulink>]</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+<para><emphasis>Each client library may not support the most recent version of the Firmata protocol and all features described in this reposity.</emphasis></para>
+</sect1>
+<sect1 id="md__g_1__arduino-workspace__firmata_protocol__r_e_a_d_m_e_1autotoc_md110">
+<title>Contributing</title>
+<para>To submit a proposal for a new feature, create a <ulink url="https://help.github.com/articles/github-flavored-markdown/">markdown</ulink> file for your proposal and append &quot;-proposal&quot; to the filename. Submit a pull request to add the proposal.</para>
+<para>To make a change to an existing protocol, submit a pull request with your proposed changes. Be sure to provide any rationale in the pull request description.</para>
+<para>Some hints for drafting a new proposal:</para>
+<para><itemizedlist>
+<listitem><para>See <ulink url="https://github.com/firmata/protocol/blob/master/feature-registry.md">feature-registry.md</ulink> for information on proposing a new feature and requesting a feature ID.</para>
+</listitem><listitem><para>Use sub-commands (3rd byte) as necessary if you have more than one message. See the <ulink url="https://github.com/firmata/protocol/blob/master/accelStepperFirmata.md">accelStepperFirmata.md</ulink> file for an example. Note the use of <computeroutput>0x62</computeroutput> for the feature ID and how each section has an enumerated set of subcommands (0x00 = config, 0x01 = zero, 02 = step, etc).</para>
+</listitem><listitem><para>It&apos;s okay to have optional values in a sysex message as long as those values are all at the end of the message. See the bytes 6 &amp; 7 of the <computeroutput>SERIAL_CONFIG</computeroutput> message in <ulink url="https://github.com/firmata/protocol/blob/master/serial-1.0.md">serial-1.0.md</ulink></para>
+</listitem><listitem><para>Try to keep your sysex messages as short as possible.</para>
+</listitem><listitem><para>Pack bits if necessary. See the Response message for <bold>Report encoder&apos;s position</bold> in <ref refid="encoder_8md" kindref="compound">encoder.md</ref> for an example (also note how this was documented following the response message... please include similar documentation if you use bit packing in your proposal).</para>
+</listitem><listitem><para>If your proposal uses any of the available non-sysex midi messages, the number of bytes in the message must correspond to the number of bytes in the midi message. The meaning however does not need to be the same. However if the midi message uses channels (such as Note Off (0x80)) then the Firmata message must also use channels since a midi parser may expect this. </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

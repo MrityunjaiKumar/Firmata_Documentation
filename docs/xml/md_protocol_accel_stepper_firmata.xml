@@ -1,0 +1,365 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md_protocol_accel_stepper_firmata" kind="page">
+    <compoundname>md_protocol_accelStepperFirmata</compoundname>
+    <title>AccelStepperFirmata (Stepper 2.0)</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides support for full 2 wire, full 3 wire, full 4 wire, half 3 wire, and half 4 wire stepper motor drivers (H-bridge, darlington array, etc) as well as step + direction drivers such as the <ulink url="http://www.schmalzhaus.com/EasyDriver/">EasyDriver</ulink>. Current implementation supports 10 stepper motors at the same time (#[0-9]).</para>
+<para>Includes optional support for acceleration and deceleration of the motor.</para>
+<para>Also includes multiStepper support which allows groups of steppers to be simultaneously controlled. Up to five multiStepper groups can be created. The total number of steppers is still limited to 10.</para>
+<para>AccelStepperFirmata sends and receives floats in a custom format described at the end of this document.</para>
+<para>Example files:<itemizedlist>
+<listitem><para>ConfigurableFirmata <ulink url="https://github.com/firmata/ConfigurableFirmata/blob/master/src/AccelStepperFirmata.cpp">AccelStepperFirmata.cpp</ulink>.</para>
+</listitem></itemizedlist>
+</para>
+<para>Added in Firmata protocol version 2.6.0.</para>
+<sect1 id="md_protocol_accel_stepper_firmata_1autotoc_md13">
+<title>Protocol</title>
+<para><bold>Stepper configuration</bold></para>
+<para>This message is required and must be sent prior to any other message. The device number is arbitrary, but must be unique.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>config<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00<sp/>=<sp/>config)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)<sp/>(Supports<sp/>up<sp/>to<sp/>10<sp/>motors)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>interface<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(upper<sp/>3<sp/>bits<sp/>=<sp/>wire<sp/>count:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>001XXXX<sp/>=<sp/>driver</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>010XXXX<sp/>=<sp/>two<sp/>wire</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>011XXXX<sp/>=<sp/>three<sp/>wire</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>100XXXX<sp/>=<sp/>four<sp/>wire)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(4th<sp/>-<sp/>6th<sp/>bits<sp/>=<sp/>step<sp/>type</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>step<sp/>size<sp/>=<sp/>1/2^0bXXX<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Examples:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXX000X<sp/>=<sp/>whole<sp/>step</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXX001X<sp/>=<sp/>half<sp/>step</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXX010X<sp/>=<sp/>quarter<sp/>step<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>etc...)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(lower<sp/>1<sp/>bit<sp/>=<sp/>has<sp/>enable<sp/>pin:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXXXXX0<sp/>=<sp/>no<sp/>enable<sp/>pin</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXXXXX1<sp/>=<sp/>has<sp/>enable<sp/>pin)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>motorPin1<sp/>or<sp/>stepPin<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>motorPin2<sp/>or<sp/>directionPin<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>[when<sp/>interface<sp/>&gt;=<sp/>0x011]<sp/>motorPin3<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>[when<sp/>interface<sp/>&gt;=<sp/>0x100]<sp/>motorPin4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>[when<sp/>interface<sp/>&amp;&amp;<sp/>0x0000001]<sp/>enablePin<sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">10<sp/>[optional]<sp/>pins<sp/>to<sp/>invert<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(lower<sp/>5<sp/>bits<sp/>=<sp/>pins:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXXXXX1<sp/>=<sp/>invert<sp/>motorPin1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXXXX1X<sp/>=<sp/>invert<sp/>motorPin2</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXXX1XX<sp/>=<sp/>invert<sp/>motorPin3</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXX1XXX<sp/>=<sp/>invert<sp/>motorPin4</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XX1XXXX<sp/>=<sp/>invert<sp/>enablePin)</highlight></codeline>
+<codeline><highlight class="normal">11<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>Stepper zero</bold></para>
+<para>accelStepper will store the current absolute position of the stepper motor (in steps). Sending the zero command will reset the position value to zero without moving the stepper.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>zero<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>Stepper step (relative move)</bold></para>
+<para>Steps to move is specified as a 32-bit signed long.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>step<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>num<sp/>steps,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>num<sp/>steps,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>num<sp/>steps,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>num<sp/>steps,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>num<sp/>steps,<sp/>bits<sp/>28-32</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>Stepper to (absolute move)</bold></para>
+<para>Moves a stepper to a desired position based on the number of steps from the zero position. Position is specified as a 32-bit signed long.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>to<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x03)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>position,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>position,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>position,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>position,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>position,<sp/>bits<sp/>28-32</highlight></codeline>
+<codeline><highlight class="normal">9<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>Stepper enable</bold></para>
+<para>For stepper motor controllers that are configured with an enable pin, the enable command manages whether the controller passes voltage through to the motor. When a stepper motor is idle, voltage is still being consumed so if the stepper motor does not need to hold its position use enable to save power.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>enable<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x04)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>device<sp/>state<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HIGH<sp/>:<sp/>enabled<sp/>|<sp/>LOW<sp/>:<sp/>disabled)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>Stepper stop</bold></para>
+<para>Stops a stepper motor. Results in <computeroutput>STEPPER_MOVE_COMPLETE</computeroutput> being sent to the client with the position of the motor when stop is completed note: If an acceleration is set, stop will not be immediate.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>stop<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x05)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>Stepper report position (request)</bold></para>
+<para>Request a position report.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>report<sp/>position<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x06)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>Stepper report position (reply)</bold></para>
+<para>Sent when a report position is requested. Position is reported as a 32-bit signed long.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>report<sp/>position<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x06)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>position,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>position,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>position,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>position,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>position,<sp/>bits<sp/>28-31</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>Stepper move complete</bold></para>
+<para>Sent when a move completes. Position is reported as a 32-bit signed long.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>move<sp/>complete<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x0A)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>position,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>position,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>position,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>position,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>position,<sp/>bits<sp/>28-31</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>Stepper limit</bold></para>
+<para><emphasis>Not yet implemented</emphasis></para>
+<para>When a limit pin (digital) is set to its limit state, movement in that direction is disabled.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>stop<sp/>limit<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x07)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>lower<sp/>limit<sp/>pin<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>lower<sp/>limit<sp/>state<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00<sp/>|<sp/>0x01)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>upper<sp/>limit<sp/>pin<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>upper<sp/>limit<sp/>state<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00<sp/>|<sp/>0x01)</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>Stepper set acceleration</bold></para>
+<para>Sets the acceleration/deceleration in steps/sec^2. The accel value is passed using accelStepperFirmata&apos;s custom float format described below.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>set<sp/>acceleration<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x08)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)<sp/>(Supports<sp/>up<sp/>to<sp/>10<sp/>motors)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>accel,<sp/>bits<sp/>0-6<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(acceleration<sp/>in<sp/>steps/sec^2)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>accel,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>accel,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>accel,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>Stepper set speed</bold></para>
+<para>If acceleration is off (equal to zero) sets the speed in steps per second. If acceleration is on (non-zero) sets the maximum speed in steps per second. The speed value is passed using accelStepperFirmata&apos;s custom float format described below.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>set<sp/>speed<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x09)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)<sp/>(Supports<sp/>up<sp/>to<sp/>10<sp/>motors)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>maxSpeed,<sp/>bits<sp/>0-6<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(maxSpeed<sp/>in<sp/>steps<sp/>per<sp/>sec)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>maxSpeed,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>maxSpeed,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>maxSpeed,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>MultiStepper configuration</bold></para>
+<para>Stepper instances that have been created with the stepper configuration command above can be added to a multiStepper group. Groups can be sent a list of devices/positions in a single command and their movements will be coordinated to begin and end simultaneously. Note that multiStepper does not support acceleration or deceleration.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>multiConfig<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x20)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>group<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-4)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>member<sp/>0x00<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>member<sp/>0x01<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>[optional]<sp/>member<sp/>0x02<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>[optional]<sp/>member<sp/>0x03<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>[optional]<sp/>member<sp/>0x04<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>[optional]<sp/>member<sp/>0x05<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">10<sp/>[optional]<sp/>member<sp/>0x06<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">11<sp/>[optional]<sp/>member<sp/>0x07<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">12<sp/>[optional]<sp/>member<sp/>0x08<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">13<sp/>[optional]<sp/>member<sp/>0x09<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">14<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>MultiStepper to</bold></para>
+<para>Sets each stepper in a group to a desired position based on the number of steps from its zero position. Positions are specified as a 32-bit signed long.</para>
+<para>Stepper movements will be coordinated so that all arrive at their desired position simultaneously. The duration of this move is based on which stepper will take the longest given the change in position and the stepper&apos;s max speed.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>multi<sp/>to<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x21)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>group<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-4)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>position,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>position,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>position,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>position,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>position,<sp/>bits<sp/>28-31</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*Repeat<sp/>4<sp/>through<sp/>8<sp/>for<sp/>each<sp/>device<sp/>in<sp/>group*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">53<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>MultiStepper stop</bold></para>
+<para>Immediately stops all steppers in the group.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>multi<sp/>stop<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x23)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>group<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-4)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><bold>MultiStepper move compelte</bold></para>
+<para>Sent when a multiStepper move completes.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>multi<sp/>stepper<sp/>move<sp/>complete<sp/>command<sp/><sp/><sp/><sp/><sp/>(0x24)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>group<sp/><sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-4)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="md_protocol_accel_stepper_firmata_1autotoc_md14">
+<title>AccelStepperFirmata&apos;s Custom Float Format</title>
+<para>Floats sent and received by accelStepperFirmata are composed of a 23-bit significand (mantissa) and a 4-bit, base 10 exponent (biased -11 with an explicit 1&apos;s bit) and a sign bit.</para>
+<para><table rows="3" cols="4"><row>
+<entry thead="yes"><para>0-20  </para>
+</entry><entry thead="yes"><para>21  </para>
+</entry><entry thead="yes"><para>22-25  </para>
+</entry><entry thead="yes"><para>26-27   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>least significant bits  </para>
+</entry><entry thead="no"><para>sign  </para>
+</entry><entry thead="no"><para>exponent  </para>
+</entry><entry thead="no"><para>most significant bits   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>21 bits  </para>
+</entry><entry thead="no"><para>1 bit  </para>
+</entry><entry thead="no"><para>4 bits  </para>
+</entry><entry thead="no"><para>2 bits   </para>
+</entry></row>
+</table>
+</para>
+<para>These values allow a range from 8.388608*10^-11 to 83886.08. Small enough to represent one step per year and large enough to exceed our max achievable stepper speed.</para>
+<para><bold>Example 1: 1 step per hour</bold></para>
+<para>1 step per hour = 1 step / 60 minutes / 60 seconds = 0.000277... steps per second</para>
+<para>The largest integer that can be represented in 23 bits is 8388608 so the significand will be limited to 6 or 7 digits. In this case 2777777 (note the value truncates).</para>
+<para>The exponent is 4 bits which limits the range to 0-15, but we subtract 11 from that value on the receiving end to give us a range from -11 to 4. In this example we are passing 1 to give us a -10 value in the exponent.</para>
+<para><table rows="4" cols="3"><row>
+<entry thead="yes"><para></para>
+</entry><entry thead="yes"><para>Decimal  </para>
+</entry><entry thead="yes"><para>Binary   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Significand  </para>
+</entry><entry thead="no"><para>2777777  </para>
+</entry><entry thead="no"><para>01010100110001010110001   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Exponent  </para>
+</entry><entry thead="no"><para>1  </para>
+</entry><entry thead="no"><para>0001   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Sign  </para>
+</entry><entry thead="no"><para>0  </para>
+</entry><entry thead="no"><para>0   </para>
+</entry></row>
+</table>
+</para>
+<para>Values in firmata are passed in the 7 least significant bits of each message byte so we will be passing in 4 bytes in this order:</para>
+<para><table rows="5" cols="3"><row>
+<entry thead="yes"><para></para>
+</entry><entry thead="yes"><para>Binary  </para>
+</entry><entry thead="yes"><para>Hex   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Least most significant bits  </para>
+</entry><entry thead="no"><para>0110001  </para>
+</entry><entry thead="no"><para>0x31   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Next most significant bits  </para>
+</entry><entry thead="no"><para>1000101  </para>
+</entry><entry thead="no"><para>0x45   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Next most significant bits  </para>
+</entry><entry thead="no"><para>0101001  </para>
+</entry><entry thead="no"><para>0x29   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Sign, Exponent and 2 most significant bits  </para>
+</entry><entry thead="no"><para>0000101  </para>
+</entry><entry thead="no"><para>0x05   </para>
+</entry></row>
+</table>
+</para>
+<para><bold>Example 2: 100 steps per second</bold></para>
+<para>We have to pad our significand on the right with four zeros to get our full precision. That makes the significand 100000000 and our exponent value will be 2. Since the value we send will be biased -11 on the receiving end, we send 13 in the exponent.</para>
+<para><table rows="4" cols="3"><row>
+<entry thead="yes"><para></para>
+</entry><entry thead="yes"><para>Decimal  </para>
+</entry><entry thead="yes"><para>Binary   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Significand  </para>
+</entry><entry thead="no"><para>1  </para>
+</entry><entry thead="no"><para>00000000000000000000001   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Exponent  </para>
+</entry><entry thead="no"><para>13  </para>
+</entry><entry thead="no"><para>1101   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Sign  </para>
+</entry><entry thead="no"><para>0  </para>
+</entry><entry thead="no"><para>0   </para>
+</entry></row>
+</table>
+</para>
+<para>Values in firmata are passed in the 7 least significant bits of each message byte so we would be passing in 4 bytes in this order:</para>
+<para><table rows="5" cols="3"><row>
+<entry thead="yes"><para></para>
+</entry><entry thead="yes"><para>Binary  </para>
+</entry><entry thead="yes"><para>Hex   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Least most significant bits  </para>
+</entry><entry thead="no"><para>0000001  </para>
+</entry><entry thead="no"><para>0x01   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Next most significant bits  </para>
+</entry><entry thead="no"><para>0000000  </para>
+</entry><entry thead="no"><para>0x00   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Next most significant bits  </para>
+</entry><entry thead="no"><para>0000000  </para>
+</entry><entry thead="no"><para>0x00   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Sign, Exponent and 2 most significant bits  </para>
+</entry><entry thead="no"><para>0110100  </para>
+</entry><entry thead="no"><para>0x34   </para>
+</entry></row>
+</table>
+</para>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

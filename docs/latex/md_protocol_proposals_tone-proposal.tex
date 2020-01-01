@@ -1,0 +1,31 @@
+Add ability to call Arduino {\ttfamily tone} and {\ttfamily no\+Tone} functions. For non-\/\+Arduino architectures, similar functions to {\ttfamily tone} and {\ttfamily no\+Tone} would need to be implemented.
+
+The duration could be extended if necessary. Duration could also be optional. If left out, the user would need to send the N\+O\+\_\+\+T\+O\+NE command to stop the tone.
+
+An implementation of this proposal is currently available \href{https://github.com/firmata/arduino/compare/configurable...tone}{\texttt{ here}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{// wrapper for tone function}
+\DoxyCodeLine{0  START\_SYSEX        (0xF0)}
+\DoxyCodeLine{1  TONE\_DATA          (0x5F)}
+\DoxyCodeLine{2  TONE               (0x00)}
+\DoxyCodeLine{3  pinNumber}
+\DoxyCodeLine{4  frequency LSB      (in HZ)}
+\DoxyCodeLine{5  frequency MSB      (in HZ) (audible range is 20 HZ to 15,000 HZ so 14 bits is sufficient)}
+\DoxyCodeLine{6  duration bits 0-\/6  (in ms)}
+\DoxyCodeLine{7  duration bits 7-\/14 (in ms) (max duration is 16,383 milliseconds)}
+\DoxyCodeLine{11  END\_SYSEX (0xF7)}
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{// wrapper for noTone function}
+\DoxyCodeLine{0  START\_SYSEX        (0xF0)}
+\DoxyCodeLine{1  TONE\_DATA          (0x5F)}
+\DoxyCodeLine{2  NO\_TONE            (0x01)}
+\DoxyCodeLine{3  pinNumber}
+\DoxyCodeLine{n  END\_SYSEX          (0xF7)}
+\end{DoxyCode}
+ 

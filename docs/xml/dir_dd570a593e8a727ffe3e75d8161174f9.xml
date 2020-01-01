@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="dir_dd570a593e8a727ffe3e75d8161174f9" kind="dir">
+    <compoundname>examples</compoundname>
+    <innerdir refid="dir_65f43435d088dc1025f90afafa150427">StandardFirmataBLE</innerdir>
+    <innerdir refid="dir_e91a0fab1962c944fc999122e7c8a260">StandardFirmataEthernet</innerdir>
+    <innerdir refid="dir_0150c6ab7b3212b95b6a5ef0efffec5a">StandardFirmataWiFi</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="arduino/examples/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,674 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.16">
+  <compound refid="class_b_l_e_stream" kind="class"><name>BLEStream</name>
+    <member refid="class_b_l_e_stream_1a7365ba1340e1a3bdf3bd66c7dd0ce6d5" kind="variable"><name>_connected</name></member>
+    <member refid="class_b_l_e_stream_1ae341bd92f0c33bb32650963035c5abe0" kind="variable"><name>_flushed</name></member>
+    <member refid="class_b_l_e_stream_1a3f969db2c883fd9d0599b213850ae6dc" kind="variable"><name>_flushInterval</name></member>
+    <member refid="class_b_l_e_stream_1aad28ce1d3125e9a703a7c09959d054c8" kind="variable"><name>_rxHead</name></member>
+    <member refid="class_b_l_e_stream_1afb25e48774eaff760c13d09207f91b69" kind="variable"><name>_rxTail</name></member>
+    <member refid="class_b_l_e_stream_1a6cb76992b5e98efa7220932877ace514" kind="variable"><name>_rxBuffer</name></member>
+    <member refid="class_b_l_e_stream_1a37182f0ec95c165d21639f80c70b1a5d" kind="variable"><name>_txCount</name></member>
+    <member refid="class_b_l_e_stream_1a038e09b717baf31e977bc043458d9329" kind="variable"><name>_txBuffer</name></member>
+    <member refid="class_b_l_e_stream_1a03d929d3626a03afd9bbe31174383e9f" kind="variable"><name>_uartService</name></member>
+    <member refid="class_b_l_e_stream_1aafdc35216c065012ea5b8a8fc8842cba" kind="variable"><name>_uartNameDescriptor</name></member>
+    <member refid="class_b_l_e_stream_1a24bc040493525b3619fb4e6652c7a966" kind="variable"><name>_rxCharacteristic</name></member>
+    <member refid="class_b_l_e_stream_1aa327ad41b6262adade951fb46035c221" kind="variable"><name>_rxNameDescriptor</name></member>
+    <member refid="class_b_l_e_stream_1ab862b1ee3db1d1dd1a9f52c47e415cd9" kind="variable"><name>_txCharacteristic</name></member>
+    <member refid="class_b_l_e_stream_1ad3ee5845b93333ba443c6445e562fcb6" kind="variable"><name>_txNameDescriptor</name></member>
+    <member refid="class_b_l_e_stream_1ac9385ffbf630cb539cb095ebe35f7764" kind="variable"><name>_instance</name></member>
+    <member refid="class_b_l_e_stream_1aa12f9098b653a30c2a152f647ab8bdfa" kind="function"><name>BLEStream</name></member>
+    <member refid="class_b_l_e_stream_1a7cef0d2f7dc431608483c3911e68bb56" kind="function"><name>begin</name></member>
+    <member refid="class_b_l_e_stream_1a58d4d0684a7c9f5434736af31ea2ab98" kind="function"><name>poll</name></member>
+    <member refid="class_b_l_e_stream_1a2f571566304b41339d8a74cee6f98d2d" kind="function"><name>end</name></member>
+    <member refid="class_b_l_e_stream_1ab05a77032b59c6d3525390e7e6a768ab" kind="function"><name>setFlushInterval</name></member>
+    <member refid="class_b_l_e_stream_1a9b8dd79faf553535df6b68a8d572c8e2" kind="function"><name>available</name></member>
+    <member refid="class_b_l_e_stream_1a932edda09fadf9530e2b87bed4d88bed" kind="function"><name>peek</name></member>
+    <member refid="class_b_l_e_stream_1a607238a23059d0dbe133c3358e7c42ca" kind="function"><name>read</name></member>
+    <member refid="class_b_l_e_stream_1af22a00b80511025785543d107422874a" kind="function"><name>flush</name></member>
+    <member refid="class_b_l_e_stream_1ad3e299ba3ad439d077f1b7bb74617698" kind="function"><name>write</name></member>
+    <member refid="class_b_l_e_stream_1aded76dc2283104566c13fed9755e21f5" kind="function"><name>operator bool</name></member>
+    <member refid="class_b_l_e_stream_1a1ee48d6b9ef2a5068a195a12bcd55834" kind="function"><name>_rxCount</name></member>
+    <member refid="class_b_l_e_stream_1a1bd78f155ab1811484d5a941f66586b8" kind="function"><name>_received</name></member>
+    <member refid="class_b_l_e_stream_1a25d63490f5d860437b9cabf5bee8b288" kind="function"><name>_received</name></member>
+  </compound>
+  <compound refid="class_bluefruit_l_e___s_p_i___stream" kind="class"><name>BluefruitLE_SPI_Stream</name>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1a8d67e1cea8ef3de5edcd737d31846b66" kind="variable"><name>ble</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1a355cb8fd1ddb35798a43b49cffb86a16" kind="variable"><name>localName</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1a750a9ddd9b22fe2ba607658f5920c6f6" kind="variable"><name>advertisingInterval</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1a81236d8427e256981aa4592c5a581250" kind="variable"><name>minConnInterval</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1a579412177570c1fb6b2cd17d3e2a0213" kind="variable"><name>maxConnInterval</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1a0e15e93931b9d115adec2d941dfbc25f" kind="variable"><name>txBuffer</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1ad1d7c7b5c60d8f9de81fa623d39d9bbe" kind="variable"><name>txCount</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1ac19a14eae594461685c7789744536630" kind="function"><name>BluefruitLE_SPI_Stream</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1a1153c170fe43096e881da36384a09a81" kind="function"><name>setLocalName</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1afa82fbf3469f5bebdc4fd38a4026ebac" kind="function"><name>setAdvertisingInterval</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1a78d07c321348b200ea7abee1f1875c52" kind="function"><name>setConnectionInterval</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1ad8d6ba754217d03bd70f7e0b0b6886e2" kind="function"><name>setFlushInterval</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1a42256ec5b06c7bea51d0861ee5271e5e" kind="function"><name>begin</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1aac853db41256e05fec5acd82f1c23b63" kind="function"><name>poll</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1a2317ee4a4a96f91114fb1c202f8cfc95" kind="function"><name>end</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1aaa7aedd59278e33d6777fdd3748f73e9" kind="function"><name>write</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1abc3db6c602232f00c3ff48bf6d4f326c" kind="function"><name>available</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1a2ee93c296d49d07f76d93bcdaff1ac9e" kind="function"><name>read</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1ab866490cfe5ba0e16c1ab4b6dbaebf9f" kind="function"><name>peek</name></member>
+    <member refid="class_bluefruit_l_e___s_p_i___stream_1aa2be3b49f65f896743b1d2bbf6c47f6c" kind="function"><name>flush</name></member>
+  </compound>
+  <compound refid="class_ethernet_client_stream" kind="class"><name>EthernetClientStream</name>
+    <member refid="class_ethernet_client_stream_1a934314825985504fa108de929ae3be04" kind="variable"><name>client</name></member>
+    <member refid="class_ethernet_client_stream_1a91e702b686e7c7ba8bacf738d2f51cf5" kind="variable"><name>localip</name></member>
+    <member refid="class_ethernet_client_stream_1ae0e47e6076ec3d84af1ab8d958b07e89" kind="variable"><name>ip</name></member>
+    <member refid="class_ethernet_client_stream_1a7b5f0df12d00e855fa6b1f9cc5da11bc" kind="variable"><name>host</name></member>
+    <member refid="class_ethernet_client_stream_1a35ef5992cc866fe929dfbd7a6347c958" kind="variable"><name>port</name></member>
+    <member refid="class_ethernet_client_stream_1a726e807b47bf716504ee242396986a51" kind="variable"><name>connected</name></member>
+    <member refid="class_ethernet_client_stream_1ac37d82f978e21dac2f2c805879f12871" kind="variable"><name>time_connect</name></member>
+    <member refid="class_ethernet_client_stream_1ad0fc03caf9c77123d2557404b4e13904" kind="function"><name>EthernetClientStream</name></member>
+    <member refid="class_ethernet_client_stream_1af791449a05185d079c66a3ce7ceb8867" kind="function"><name>available</name></member>
+    <member refid="class_ethernet_client_stream_1ab09d7fee2e6e57a4ae63227226991673" kind="function"><name>read</name></member>
+    <member refid="class_ethernet_client_stream_1ab48794c4ecdcf568ca915c54849e33d3" kind="function"><name>peek</name></member>
+    <member refid="class_ethernet_client_stream_1a6bfd307971b4f6936cbb00eb04276e7f" kind="function"><name>flush</name></member>
+    <member refid="class_ethernet_client_stream_1aca0236433d48beb3ada438dbdb425bbd" kind="function"><name>write</name></member>
+    <member refid="class_ethernet_client_stream_1a2cb7fc9f588d352ad57527e7189196ea" kind="function"><name>maintain</name></member>
+    <member refid="class_ethernet_client_stream_1a7ee440a2cba43285aa61422a214f61b8" kind="function"><name>maintain</name></member>
+    <member refid="class_ethernet_client_stream_1a5ff9c38c8f49cdd86911bf291c65fd0e" kind="function"><name>stop</name></member>
+  </compound>
+  <compound refid="class_ethernet_server_stream" kind="class"><name>EthernetServerStream</name>
+    <member refid="class_ethernet_server_stream_1ad676d3235531abda45c99dbf71447112" kind="variable"><name>client</name></member>
+    <member refid="class_ethernet_server_stream_1ac2e389d631086fd325be0ad929811340" kind="variable"><name>localip</name></member>
+    <member refid="class_ethernet_server_stream_1af9eb73a5e15a2bb7fb3b1a5a62bf00ef" kind="variable"><name>port</name></member>
+    <member refid="class_ethernet_server_stream_1a0fb1499d259f54aea3382ee33154a184" kind="variable"><name>connected</name></member>
+    <member refid="class_ethernet_server_stream_1ac5542cabc7a211435b4e40927ca24e4d" kind="variable"><name>server</name></member>
+    <member refid="class_ethernet_server_stream_1ae3576b85aef595a24428501ead070303" kind="variable"><name>listening</name></member>
+    <member refid="class_ethernet_server_stream_1a371b10bc8ab4e1d3b472a4c99947fca7" kind="function"><name>EthernetServerStream</name></member>
+    <member refid="class_ethernet_server_stream_1afe44eb0907bf717d858eca853c36dc5e" kind="function"><name>available</name></member>
+    <member refid="class_ethernet_server_stream_1a27997fbe661a726ded1b11b07aa1882b" kind="function"><name>read</name></member>
+    <member refid="class_ethernet_server_stream_1a7e27ed527c032670284ef6d14d5639a0" kind="function"><name>peek</name></member>
+    <member refid="class_ethernet_server_stream_1a4d389e604c362925a3353f8843b4d0e9" kind="function"><name>flush</name></member>
+    <member refid="class_ethernet_server_stream_1ab6e444aefeca0541ca694df97ee429b4" kind="function"><name>write</name></member>
+    <member refid="class_ethernet_server_stream_1aa4fcdc109faa3b534e4b5c48accb68e5" kind="function"><name>maintain</name></member>
+    <member refid="class_ethernet_server_stream_1a5d9b05a9a489e8bf6013b0641600af11" kind="function"><name>maintain</name></member>
+    <member refid="class_ethernet_server_stream_1a9fd5954bd9df79ff151c24679beb2dac" kind="function"><name>stop</name></member>
+    <member refid="class_ethernet_server_stream_1a28136e328f1448498359a2044df69da1" kind="function"><name>connect_client</name></member>
+  </compound>
+  <compound refid="classfirmata_1_1_firmata_class" kind="class"><name>firmata::FirmataClass</name>
+    <member refid="classfirmata_1_1_firmata_class_1a3e5ee128a6c5054863dc7718d7a1f285" kind="typedef"><name>callbackFunction</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1af0a7eb3dbe1432de1727d9f14b5b1dab" kind="typedef"><name>systemCallbackFunction</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1afb5aa833e160037296f447ac208c95c1" kind="typedef"><name>stringCallbackFunction</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1ab7c5e806cee9fd7dfe3600525f86c595" kind="typedef"><name>sysexCallbackFunction</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a899199d98221fec5186fc1183b587900" kind="variable"><name>parserBuffer</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a4fa9cece5cc0dc197ef6e35422e83176" kind="variable"><name>marshaller</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a163d801e0f6656b27b7f414ea73a1d71" kind="variable"><name>parser</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a711225c6928462533c94b253b1f16ac1" kind="variable"><name>FirmataStream</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a60490115146edb986cb0d84f6e4d9597" kind="variable"><name>firmwareVersionCount</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1aa4e2003faa990457cc520db034b48808" kind="variable"><name>firmwareVersionVector</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1ada752ae1a08a58eb4a15a2561c5f9382" kind="variable"><name>pinConfig</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a629addd97d2850fee60dcc2bbb414df6" kind="variable"><name>pinState</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1ab30bbfe2981cfbae2249dc0443521646" kind="variable"><name>blinkVersionDisabled</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1aa43a6bab813f495b4f6e74b8258b9458" kind="variable"><name>currentAnalogCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1aa15a8c9ab2b97f167ea438159bf90851" kind="variable"><name>currentDigitalCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1ac18c917533c09ebf162a61eae719f960" kind="variable"><name>currentPinModeCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a2f5030633b92a8ca5f1c148629391d48" kind="variable"><name>currentPinValueCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a940366a7f67f3cc32bb4906a89e93c5a" kind="variable"><name>currentReportAnalogCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1af93379692618e082abf82df67fac215d" kind="variable"><name>currentReportDigitalCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1ad56e72ab5683486ece2b64e933dc9520" kind="variable"><name>currentStringCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a854f0987eb3573bc2c9d4457787b2877" kind="variable"><name>currentSysexCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a7d78d7d7f5389bd3df319cb5528c3e4e" kind="variable"><name>currentSystemResetCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" kind="function"><name>FirmataClass</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a2fddcc643892bec2f4aa7aef6dba70eb" kind="function"><name>begin</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1ab0b7b837d2c32b4ce79e62895ced2731" kind="function"><name>begin</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a0c7b0e10168e3c5dc6442d77c65a156e" kind="function"><name>begin</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1abd8a0370db6d9e923e7e3d5836e78d7a" kind="function"><name>printVersion</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a9421550f2501fc1df60fd174b154e606" kind="function"><name>blinkVersion</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1abe49261eab0bd4892a09fa8b8980b11a" kind="function"><name>printFirmwareVersion</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1ab7aa66b528027566c15b7d64c8cd0f89" kind="function"><name>setFirmwareNameAndVersion</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a5ddba465c3772f841828ef82c79d4307" kind="function"><name>disableBlinkVersion</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a119734b867186567c1cd011e52e59d2d" kind="function"><name>available</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1aa698f5f5a234173d5eebb54831350676" kind="function"><name>processInput</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1aaeaac8b1f8facf070615b0035120c432" kind="function"><name>parse</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a58e9d787957c3085f22d33b59b1f6ea6" kind="function"><name>isParsingMessage</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1ae14e1d8d9bd72068f6e8ca07721e8dda" kind="function"><name>sendAnalog</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a50a87e8339cf46fb787759603603e225" kind="function"><name>sendDigital</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a799b91e5a888dd21b066a2020d8e2b68" kind="function"><name>sendDigitalPort</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1abe11f621154afd308926129de349fc6e" kind="function"><name>sendString</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1ab139c0d784e69003c88eb5be8807dcdf" kind="function"><name>sendString</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a81e2de5b37eb2372c8a3d9a43d5eb0cc" kind="function"><name>sendSysex</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1ae8f29a829e17379602fcb9fd6a497807" kind="function"><name>write</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a1ae572e88ec810dd49516e53c5f32d2d" kind="function"><name>attach</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1adc3db897058f33e902097ce89bb01bb3" kind="function"><name>attach</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a074887a70f9aca0c0aae7e9bdc103f77" kind="function"><name>attach</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a78e360c0c8d70cffeb9c935fdec23f77" kind="function"><name>attach</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a5db0faee74b9291d1b783d2dde0929d1" kind="function"><name>detach</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a0c434227456ce2ba97b3b1142c329f96" kind="function"><name>getPinMode</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a32c41dd94c1d23aa0e6d3d1dbe5c0c04" kind="function"><name>setPinMode</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1acf5d4f460b9a2298653d4a71de918dfe" kind="function"><name>getPinState</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1aa9f98ba5069823b4c1d08db9f8999ba8" kind="function"><name>setPinState</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a770e43f26f18204e43acebf9202a6d39" kind="function"><name>sendValueAsTwo7bitBytes</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a3cc7ea1af348bca3ea0bd570314cada3" kind="function"><name>startSysex</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a9bb68afbb1d37a7990f59a1d419e64c9" kind="function"><name>endSysex</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a4893ccec400cdb2ab5c073ff9f22e65e" kind="function"><name>strobeBlinkPin</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a1d0b7f94cabd839426f49b7ade73ef9f" kind="friend"><name>FirmataMarshaller::encodeByteStream</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1aca6c3d8c62c07a057cc53124d3404717" kind="function"><name>staticAnalogCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a14645ffc27cbac8a68cbe5bef45c1513" kind="function"><name>staticDigitalCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1ad7ff31c183e27de409becad6a4561fb4" kind="function"><name>staticPinModeCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a35ef49d535c2f67afd5631c51a11a278" kind="function"><name>staticPinValueCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a450f9157490047e3c0a1919924ad1596" kind="function"><name>staticReportAnalogCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a36413ef2155f9b6b0798a6f03ab470e7" kind="function"><name>staticReportDigitalCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a3d739b3fba1cc53b58cae7eaa5562974" kind="function"><name>staticStringCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1ac63fe85213dff99228d90bb98aed9754" kind="function"><name>staticSysexCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1ab6db1052fbc65b33909a47305c9b6185" kind="function"><name>staticReportFirmwareCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a89c544bd5e086d663de5dde6a82441a3" kind="function"><name>staticReportVersionCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_class_1a8df96cd066d3c4eff65c0bf5ec914371" kind="function"><name>staticSystemResetCallback</name></member>
+  </compound>
+  <compound refid="class_firmata_feature" kind="class"><name>FirmataFeature</name>
+    <member refid="class_firmata_feature_1aa865c5a740a429805855ca1a4576a6f4" kind="function"><name>handleCapability</name></member>
+    <member refid="class_firmata_feature_1a6ef5569de60bb31c9eb55f5ebd16d88f" kind="function"><name>handlePinMode</name></member>
+    <member refid="class_firmata_feature_1a0ce860a9345c81cbe959733e88b188be" kind="function"><name>handleSysex</name></member>
+    <member refid="class_firmata_feature_1a511a8cc9f0e33b392ca729cab0f6e899" kind="function"><name>reset</name></member>
+  </compound>
+  <compound refid="classfirmata_1_1_firmata_marshaller" kind="class"><name>firmata::FirmataMarshaller</name>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a5c93a0c3b726fc5e47058f5ec4853aaa" kind="friend"><name>FirmataClass</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1ab2c74445647dfb2ce368bacc646106ce" kind="variable"><name>FirmataStream</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1ad1a42532bdf77088c47c1a62f5a03829" kind="function"><name>FirmataMarshaller</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a5be18ca3658875dbe5580c2254071c76" kind="function"><name>begin</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1ab856434fc577b1e069cba51c39daf1de" kind="function"><name>end</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1af954bcf09b77458b3c4f032897d14697" kind="function"><name>queryFirmwareVersion</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a488fbbd372c894ec78ebb99e0faf5167" kind="function"><name>queryVersion</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a2668d1332704bbf9938f386e247a8f30" kind="function"><name>reportAnalogDisable</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a67b3db7232143acf63bd48b765fcc4db" kind="function"><name>reportAnalogEnable</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1aa00582e6e014605a65a8953f8275a5ad" kind="function"><name>reportDigitalPortDisable</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a608c28cdc966c33d0cc2239d9465ef7c" kind="function"><name>reportDigitalPortEnable</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a4d9f2d3bb058237404dfe433cfe7571a" kind="function"><name>sendAnalog</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a1c987a534cc8dd197eb2f2a728bdacb3" kind="function"><name>sendAnalogMappingQuery</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a1f1c5ce29ba4488306c9a1e3f158b781" kind="function"><name>sendCapabilityQuery</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a2d90627f0543b6298be71f7d903399b3" kind="function"><name>sendDigital</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a346dcb4487a51efaa95de42d292ad951" kind="function"><name>sendDigitalPort</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1aed71d62cc41f2e0bf3f161894b91be7c" kind="function"><name>sendFirmwareVersion</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a95d58949e32ad285088705dbe5680b29" kind="function"><name>sendVersion</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a36b6cc103609d900cce36149a239f221" kind="function"><name>sendPinMode</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1afc378ab4a39c843d4419acdee944972b" kind="function"><name>sendPinStateQuery</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a483ac2dea885ab3472dc38b99bfdec2f" kind="function"><name>sendString</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1ade4f4592877ec0b9f8d6c74e909bad8e" kind="function"><name>sendSysex</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1abb8f4c79dd8a0dbee3f5e04c587ae20c" kind="function"><name>setSamplingInterval</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1a3a585937f94b1f9e51797e5950a33206" kind="function"><name>systemReset</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1abb84d92edd91979dd0dc681aeecd1760" kind="function"><name>reportAnalog</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1abff3e115d3e2572d5337f265963f6e64" kind="function"><name>reportDigitalPort</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1adc93bde9c679cab6f21d607b611f759c" kind="function"><name>sendExtendedAnalog</name></member>
+    <member refid="classfirmata_1_1_firmata_marshaller_1ae91aabec1648491013457772e95b71af" kind="function"><name>encodeByteStream</name></member>
+  </compound>
+  <compound refid="classfirmata_1_1_firmata_parser" kind="class"><name>firmata::FirmataParser</name>
+    <member refid="classfirmata_1_1_firmata_parser_1a40cc69b4997fad3335a34cc083894ea1" kind="typedef"><name>callbackFunction</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a7ba04f2773f1052fc014c93d309fe069" kind="typedef"><name>dataBufferOverflowCallbackFunction</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a6cee4285d9cd5cdba702b720ae10a9b8" kind="typedef"><name>stringCallbackFunction</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a9f1b158e9366cdca7f9f743011359b13" kind="typedef"><name>sysexCallbackFunction</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1ad0655dab3f791c7c46c8412ae13f0d3a" kind="typedef"><name>systemCallbackFunction</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a6be4a3c92941c1de63b44918bbbda545" kind="typedef"><name>versionCallbackFunction</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1ac24adec2fc8a814614834d35bdc118a7" kind="variable"><name>allowBufferUpdate</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a2a982e7a552e5f43fc37d7332f40da3e" kind="variable"><name>dataBuffer</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a3bc7f7977dddc020fbcae49ff9ae4c7a" kind="variable"><name>dataBufferSize</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a5f6a6991db22ad9c7672b621ed931e55" kind="variable"><name>executeMultiByteCommand</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a41168966f79b0536d00bb126789bb914" kind="variable"><name>multiByteChannel</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a7d0d8b3f80f6a971a7806512349e8502" kind="variable"><name>waitForData</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1af5acafd415b4bac6b5b527c78c3461d5" kind="variable"><name>parsingSysex</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a05cc4bedbf2fff41eb5c2e7ee61a0522" kind="variable"><name>sysexBytesRead</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1aa99e5deed342904c2fb8d640d0df9bc9" kind="variable"><name>currentAnalogCallbackContext</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a583fa5f0d47c9a78bf1742731f8f5a75" kind="variable"><name>currentDigitalCallbackContext</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1af48b08cbe21d18c1e6846eab68ca8723" kind="variable"><name>currentReportAnalogCallbackContext</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1ad8e76850d9e85b21679242e93167583d" kind="variable"><name>currentReportDigitalCallbackContext</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a40f7c3fa755c9de0cd10bfdbac3b89a2" kind="variable"><name>currentPinModeCallbackContext</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1afff5cbd94cd1f3f4113f5a9c6f1c7649" kind="variable"><name>currentPinValueCallbackContext</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a2df89be5ceee5dcc90ac7010453ccda0" kind="variable"><name>currentReportFirmwareCallbackContext</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a405d95ff057e78b104dcf0a245971a8d" kind="variable"><name>currentReportVersionCallbackContext</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a22f943ba1ad6d208dd54afa55383f0ad" kind="variable"><name>currentDataBufferOverflowCallbackContext</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1af6eb394d8caa0953634d5df5aeeaf1a8" kind="variable"><name>currentStringCallbackContext</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1ac406b4ed18e1cd8e960ecbf9e598ed7e" kind="variable"><name>currentSysexCallbackContext</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1af89b68d6e73369d407c1e742b645e81d" kind="variable"><name>currentSystemResetCallbackContext</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a8214a9ed9469750cb11abdb31ef83955" kind="variable"><name>currentAnalogCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a6b76a897e0da926a83a34c38e0b6ac26" kind="variable"><name>currentDigitalCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a3f25514febedad5d2e0be97c99872727" kind="variable"><name>currentReportAnalogCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1aa4c875ab8f6ccf2238f604fc177f8ec1" kind="variable"><name>currentReportDigitalCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a176f8cb93b98942359e4ae5fb29b2ffd" kind="variable"><name>currentPinModeCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1acc7f385ab20a5a97b5f88f5522bf9aae" kind="variable"><name>currentPinValueCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1aa7f6b550544d0f8598e6407fd120e0a6" kind="variable"><name>currentDataBufferOverflowCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a557cea537c746c54bc9ce3917ec1acd7" kind="variable"><name>currentStringCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a29396fbea686bd63185da28b5eb6a9ac" kind="variable"><name>currentSysexCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a34fa85eda249aa672f7e68b1b61f6801" kind="variable"><name>currentReportFirmwareCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1afc2a6e9839e08c4d59350784f8413546" kind="variable"><name>currentReportVersionCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a34d0c46a419037ad763c87205860a185" kind="variable"><name>currentSystemResetCallback</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1ac8c388b593a00e88856646712beae68b" kind="function"><name>FirmataParser</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" kind="function"><name>parse</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a67902b70695eaf0cf8f7b06175ca3902" kind="function"><name>isParsingMessage</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a8fbe143ddb428a97c00a15993c31a516" kind="function"><name>setDataBufferOfSize</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kind="function"><name>attach</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1ae176414892a2d240b921c2b8037a8ade" kind="function"><name>attach</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a239b37e09dea042d229fc2171d3a1979" kind="function"><name>attach</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1aaa1d755b20b21e528bfa62d6a7c2dc0f" kind="function"><name>attach</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1affc821e7742d889965e61b248c204842" kind="function"><name>attach</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a876105f2203f5e8f1fb06c8236a96933" kind="function"><name>attach</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a7cd707386c0807bee733a3e27d161c7d" kind="function"><name>detach</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a280ac17e428f8374afd30bce75e9a861" kind="function"><name>detach</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1ac5421453ed0d7c8f7b3753d81280d97e" kind="function"><name>bufferDataAtPosition</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a8803a3e0252cee0cb9d036abfc475c76" kind="function"><name>decodeByteStream</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1a2ea49ebf4506a09c353cd81f55f36f44" kind="function"><name>processSysexMessage</name></member>
+    <member refid="classfirmata_1_1_firmata_parser_1abfe293459591eabd66ca673ea93c2e39" kind="function"><name>systemReset</name></member>
+  </compound>
+  <compound refid="class_serial_firmata" kind="class"><name>SerialFirmata</name>
+    <member refid="class_serial_firmata_1a4b4334f9bc5aa528d087b2fd7b5ffcda" kind="variable"><name>reportSerial</name></member>
+    <member refid="class_serial_firmata_1a1f8192952cfc25b525dfee3d7dc45f54" kind="variable"><name>serialBytesToRead</name></member>
+    <member refid="class_serial_firmata_1a0805d6a2cd389e150a23d921025489d5" kind="variable"><name>serialIndex</name></member>
+    <member refid="class_serial_firmata_1a9d8947b656970f9dc87c9aa34aeec6a0" kind="function"><name>SerialFirmata</name></member>
+    <member refid="class_serial_firmata_1ace960dd7d082caf65f1f3488a7486ef5" kind="function"><name>handlePinMode</name></member>
+    <member refid="class_serial_firmata_1af383474fc3a6d1d372489046bbcabc3b" kind="function"><name>handleCapability</name></member>
+    <member refid="class_serial_firmata_1a0e13bbb12bd52762cfe2f949bda161ee" kind="function"><name>handleSysex</name></member>
+    <member refid="class_serial_firmata_1a1095729d80e0b18340d6d6d5baca10fc" kind="function"><name>update</name></member>
+    <member refid="class_serial_firmata_1a71cefdb678d792338c2fbc0ba46cfb3d" kind="function"><name>reset</name></member>
+    <member refid="class_serial_firmata_1ab31a76a596ce2430ee3feac525da59f2" kind="function"><name>checkSerial</name></member>
+    <member refid="class_serial_firmata_1a60bcfa35fab3601a86e465ed8d8acbce" kind="function"><name>getPortFromId</name></member>
+  </compound>
+  <compound refid="class_wi_fi_client_stream" kind="class"><name>WiFiClientStream</name>
+    <member refid="class_wi_fi_client_stream_1a9d0a90467736b552cd89b5eec494ef50" kind="variable"><name>_time_connect</name></member>
+    <member refid="class_wi_fi_client_stream_1afb68ea613d492a7b3aebca60ed5a0da6" kind="function"><name>connect_client</name></member>
+    <member refid="class_wi_fi_client_stream_1a73570f630cb7f9fe40466f24266c5828" kind="function"><name>WiFiClientStream</name></member>
+    <member refid="class_wi_fi_client_stream_1a7fd2465acdbb07285fdac25c490c04d6" kind="function"><name>maintain</name></member>
+    <member refid="class_wi_fi_client_stream_1ac81b72c8c61f10a5f950d9deabc7ffeb" kind="function"><name>stop</name></member>
+  </compound>
+  <compound refid="class_wi_fi_server_stream" kind="class"><name>WiFiServerStream</name>
+    <member refid="class_wi_fi_server_stream_1a8071c6080d96ff5237bfd82ea4b7527b" kind="variable"><name>_server</name></member>
+    <member refid="class_wi_fi_server_stream_1a932e0b7ba6cf5dbb293abe159a0e5637" kind="variable"><name>_listening</name></member>
+    <member refid="class_wi_fi_server_stream_1a664a448394b896b93ff631e488840e81" kind="function"><name>connect_client</name></member>
+    <member refid="class_wi_fi_server_stream_1a6fd1524853b4688fe4110651198ce58d" kind="function"><name>WiFiServerStream</name></member>
+    <member refid="class_wi_fi_server_stream_1ad6a4282ab87a5a5b15a5cd1ae2fb2a94" kind="function"><name>maintain</name></member>
+    <member refid="class_wi_fi_server_stream_1a5c70b0545e4150f64ddfe26aeb48a436" kind="function"><name>stop</name></member>
+  </compound>
+  <compound refid="class_wi_fi_stream" kind="class"><name>WiFiStream</name>
+    <member refid="class_wi_fi_stream_1a260e92c25849c88a0d370672eaf390e7" kind="variable"><name>_client</name></member>
+    <member refid="class_wi_fi_stream_1abe0341617945c15f2a37d34d7be7e72c" kind="variable"><name>_connected</name></member>
+    <member refid="class_wi_fi_stream_1aa5e5f3cc7bf2e91bf5ee9793fe6a1335" kind="variable"><name>_currentHostConnectionCallback</name></member>
+    <member refid="class_wi_fi_stream_1a9e5cfe85f7ff186e597e2eb09a75e742" kind="variable"><name>_local_ip</name></member>
+    <member refid="class_wi_fi_stream_1aa37dbf267daa7afa939183cd77bb5ee7" kind="variable"><name>_subnet</name></member>
+    <member refid="class_wi_fi_stream_1aee2b9bf291669692faf0c9d52c8dca1d" kind="variable"><name>_gateway</name></member>
+    <member refid="class_wi_fi_stream_1af81541aec7d6be3be1466caf8bc68820" kind="variable"><name>_remote_ip</name></member>
+    <member refid="class_wi_fi_stream_1aa1137c9058f501876b0967db2baf898a" kind="variable"><name>_port</name></member>
+    <member refid="class_wi_fi_stream_1a78fb4d153bfabad324535db5e495d71b" kind="variable"><name>_key_idx</name></member>
+    <member refid="class_wi_fi_stream_1ad8d316924c56442f88a85f714a2a6e95" kind="variable"><name>_key</name></member>
+    <member refid="class_wi_fi_stream_1a56fb4c68bcf7312361a8fad4328826de" kind="variable"><name>_passphrase</name></member>
+    <member refid="class_wi_fi_stream_1a428e3d50bc45a3f2de02d7edc7d9509d" kind="variable"><name>_ssid</name></member>
+    <member refid="class_wi_fi_stream_1a2e530346a7edea0326ad2025be42aff1" kind="function"><name>connect_client</name></member>
+    <member refid="class_wi_fi_stream_1af287098c8a30dbdb4cdd39c39367339b" kind="function"><name>WiFiStream</name></member>
+    <member refid="class_wi_fi_stream_1ac3eaf3da6000ade24eac3c029cad1062" kind="function"><name>WiFiStream</name></member>
+    <member refid="class_wi_fi_stream_1a4f279f8f5001c615002bf9043a0bc824" kind="function"><name>attach</name></member>
+    <member refid="class_wi_fi_stream_1a7ec6bca5a87c462e2402d12529e13207" kind="function"><name>config</name></member>
+    <member refid="class_wi_fi_stream_1a45e8232e467d643738e6a20b5bff909a" kind="function"><name>config</name></member>
+    <member refid="class_wi_fi_stream_1a8134646bad1d06f4ce61813cafb652ed" kind="function"><name>getLocalIP</name></member>
+    <member refid="class_wi_fi_stream_1ac7c0c7f36c7cf6b46bebafcbf6b1253b" kind="function"><name>maintain</name></member>
+    <member refid="class_wi_fi_stream_1a9438b7e07eae9f8a42af9060e7b330c7" kind="function"><name>stop</name></member>
+    <member refid="class_wi_fi_stream_1a3aee2b1e2f93e2c6488051b249467254" kind="function"><name>begin</name></member>
+    <member refid="class_wi_fi_stream_1ad6ac263500c511fad28e4fe8e286e65b" kind="function"><name>begin</name></member>
+    <member refid="class_wi_fi_stream_1a9a37df8979690859e6c4c47752ecc785" kind="function"><name>begin</name></member>
+    <member refid="class_wi_fi_stream_1a238fc0fc25c4a9bda83e24257587dd64" kind="function"><name>available</name></member>
+    <member refid="class_wi_fi_stream_1ad5a60c69e5aca993e90e8d02c0e9672c" kind="function"><name>flush</name></member>
+    <member refid="class_wi_fi_stream_1a84ea0f80377001e0acf1385645ecaf1a" kind="function"><name>peek</name></member>
+    <member refid="class_wi_fi_stream_1a238960bf0f7a3e3a7c60014a187fe577" kind="function"><name>read</name></member>
+    <member refid="class_wi_fi_stream_1a0a4dba3370af02570ef0d3429f1a6df2" kind="function"><name>write</name></member>
+  </compound>
+  <compound refid="namespace_0d23" kind="namespace"><name>@23</name>
+  </compound>
+  <compound refid="namespacefirmata" kind="namespace"><name>firmata</name>
+    <member refid="namespacefirmata_1a907b23d622ab39dca9100d7561799cf4" kind="variable"><name>FIRMWARE_MAJOR_VERSION</name></member>
+    <member refid="namespacefirmata_1a9ea3a70946c3a81038b8b76794baf8c5" kind="variable"><name>FIRMWARE_MINOR_VERSION</name></member>
+    <member refid="namespacefirmata_1a046a3736802341efb94c4ad58b1db402" kind="variable"><name>FIRMWARE_BUGFIX_VERSION</name></member>
+    <member refid="namespacefirmata_1a53075f2525bc88855c69b9c488c2d999" kind="variable"><name>PROTOCOL_MAJOR_VERSION</name></member>
+    <member refid="namespacefirmata_1afd8cbb884ac87d8b228011942a4263aa" kind="variable"><name>PROTOCOL_MINOR_VERSION</name></member>
+    <member refid="namespacefirmata_1a8797b4b9df3f5a3d854f063d7bf6d4b7" kind="variable"><name>PROTOCOL_BUGFIX_VERSION</name></member>
+    <member refid="namespacefirmata_1ad8f1fd3a3919e434ea4d86ce1a39a77e" kind="variable"><name>MAX_DATA_BYTES</name></member>
+    <member refid="namespacefirmata_1a49bf6564630519f4293bd39a71a95b00" kind="variable"><name>DIGITAL_MESSAGE</name></member>
+    <member refid="namespacefirmata_1aea14613546a585cfec72d5b0f79365ef" kind="variable"><name>ANALOG_MESSAGE</name></member>
+    <member refid="namespacefirmata_1aea1b306b1e7d3751bba41f311b755a99" kind="variable"><name>REPORT_ANALOG</name></member>
+    <member refid="namespacefirmata_1a00a56f93ad64fa08998b7db2054180a6" kind="variable"><name>REPORT_DIGITAL</name></member>
+    <member refid="namespacefirmata_1a5ecb59a9641299fcaf2e4ce96587c1f8" kind="variable"><name>SET_PIN_MODE</name></member>
+    <member refid="namespacefirmata_1a0a75e8e1855e7dedbbbfd17711f152af" kind="variable"><name>SET_DIGITAL_PIN_VALUE</name></member>
+    <member refid="namespacefirmata_1a7aa955ae4335c171096a0224bf279f5b" kind="variable"><name>REPORT_VERSION</name></member>
+    <member refid="namespacefirmata_1abba911f61c8df9fc6f6ea7bf041a22b5" kind="variable"><name>SYSTEM_RESET</name></member>
+    <member refid="namespacefirmata_1a8210ab38d9279ef1ea406ff7e1db0893" kind="variable"><name>START_SYSEX</name></member>
+    <member refid="namespacefirmata_1aa4c7b2c2365334150eff56b64c87e6e0" kind="variable"><name>END_SYSEX</name></member>
+    <member refid="namespacefirmata_1aff1edac3f296b33699e56c901453aaee" kind="variable"><name>SERIAL_DATA</name></member>
+    <member refid="namespacefirmata_1a91befd7ce756ed98c5c12a5db6de8e87" kind="variable"><name>ENCODER_DATA</name></member>
+    <member refid="namespacefirmata_1a279c8797403c34fdd23641b256dd4ce8" kind="variable"><name>SERVO_CONFIG</name></member>
+    <member refid="namespacefirmata_1ada4a2133aced1b1051f4663a8365bbc6" kind="variable"><name>STRING_DATA</name></member>
+    <member refid="namespacefirmata_1ad4499419fd18eab3ca0bad7948cb537b" kind="variable"><name>STEPPER_DATA</name></member>
+    <member refid="namespacefirmata_1a4b2f055735709d33578080e32d4017e4" kind="variable"><name>ONEWIRE_DATA</name></member>
+    <member refid="namespacefirmata_1a124878990c7a28410e182929f1a1f41d" kind="variable"><name>SHIFT_DATA</name></member>
+    <member refid="namespacefirmata_1abf19783b34390b352e0604cd3dad612e" kind="variable"><name>I2C_REQUEST</name></member>
+    <member refid="namespacefirmata_1ad7edf4e8855f4d63bdb15217315315f9" kind="variable"><name>I2C_REPLY</name></member>
+    <member refid="namespacefirmata_1aa5505f86d327e487e3fe0838bff6287e" kind="variable"><name>I2C_CONFIG</name></member>
+    <member refid="namespacefirmata_1a27aae72a38fab1b0b039d7687e294398" kind="variable"><name>REPORT_FIRMWARE</name></member>
+    <member refid="namespacefirmata_1af63c2236acda8928ec0f40b5455012f7" kind="variable"><name>EXTENDED_ANALOG</name></member>
+    <member refid="namespacefirmata_1a6a99bd6639cb0c31e495a06299235400" kind="variable"><name>PIN_STATE_QUERY</name></member>
+    <member refid="namespacefirmata_1af68a2192b3313782e859066eaea00eaa" kind="variable"><name>PIN_STATE_RESPONSE</name></member>
+    <member refid="namespacefirmata_1a5e9aa179fe2a6f6fc8cf1111dfb10fcc" kind="variable"><name>CAPABILITY_QUERY</name></member>
+    <member refid="namespacefirmata_1a2d55580a4960b036ec4a82d3d3183ca0" kind="variable"><name>CAPABILITY_RESPONSE</name></member>
+    <member refid="namespacefirmata_1a2dafec1845e07af47dca44cfb7c2a845" kind="variable"><name>ANALOG_MAPPING_QUERY</name></member>
+    <member refid="namespacefirmata_1a1812af7d171ffa0ec2fa767ac2ee640c" kind="variable"><name>ANALOG_MAPPING_RESPONSE</name></member>
+    <member refid="namespacefirmata_1a10cd53a86cb2598fdd5d451e4262365c" kind="variable"><name>SAMPLING_INTERVAL</name></member>
+    <member refid="namespacefirmata_1a81438cb25eabc504edf9ce3f89af715d" kind="variable"><name>SCHEDULER_DATA</name></member>
+    <member refid="namespacefirmata_1af8c2c1cb74851d367ace1c8fbee13ed4" kind="variable"><name>SYSEX_NON_REALTIME</name></member>
+    <member refid="namespacefirmata_1a69f9c9aaae87d16f8e49eac52f8ba763" kind="variable"><name>SYSEX_REALTIME</name></member>
+    <member refid="namespacefirmata_1a31958a7d613c3be66f64914179eea023" kind="variable"><name>PIN_MODE_INPUT</name></member>
+    <member refid="namespacefirmata_1ad7065dc798a0be02ba59314678cb54df" kind="variable"><name>PIN_MODE_OUTPUT</name></member>
+    <member refid="namespacefirmata_1a4277f9143d618a708ab570e939605d8b" kind="variable"><name>PIN_MODE_ANALOG</name></member>
+    <member refid="namespacefirmata_1a88cb1b4ea3d32539e8f4f849cc434069" kind="variable"><name>PIN_MODE_PWM</name></member>
+    <member refid="namespacefirmata_1a217981318c36c51aa93506ebcc7cdf1e" kind="variable"><name>PIN_MODE_SERVO</name></member>
+    <member refid="namespacefirmata_1a7c98683168966b850a80d8f9a3ad6093" kind="variable"><name>PIN_MODE_SHIFT</name></member>
+    <member refid="namespacefirmata_1a81399476761b40d54282f591a5b2599d" kind="variable"><name>PIN_MODE_I2C</name></member>
+    <member refid="namespacefirmata_1a7ca99c1ad705a43355d38e617d97a35f" kind="variable"><name>PIN_MODE_ONEWIRE</name></member>
+    <member refid="namespacefirmata_1a3365d8e49a6f8ddc705ed0453731ae07" kind="variable"><name>PIN_MODE_STEPPER</name></member>
+    <member refid="namespacefirmata_1aa099c6fdc37560f4681de95c55d2b271" kind="variable"><name>PIN_MODE_ENCODER</name></member>
+    <member refid="namespacefirmata_1a1707b5256ac545f5d07f19a646a6d842" kind="variable"><name>PIN_MODE_SERIAL</name></member>
+    <member refid="namespacefirmata_1a9bedf1d06787c7168dfbfc2937484631" kind="variable"><name>PIN_MODE_PULLUP</name></member>
+    <member refid="namespacefirmata_1ac10cf5b5b05ab1b1277d98c82c1fb8d1" kind="variable"><name>PIN_MODE_IGNORE</name></member>
+    <member refid="namespacefirmata_1a82f29141a1ea4d51be325f6224deee24" kind="variable"><name>TOTAL_PIN_MODES</name></member>
+  </compound>
+  <compound refid="accel_stepper_firmata_8md" kind="file"><name>accelStepperFirmata.md</name>
+  </compound>
+  <compound refid="ble_config_8h" kind="file"><name>bleConfig.h</name>
+    <member refid="ble_config_8h_1a332d00444b78547464ea3e09d1a3dfb5" kind="define"><name>FIRMATA_BLE_LOCAL_NAME</name></member>
+    <member refid="ble_config_8h_1afd18e7d91d82f67afd1174142c2abf17" kind="define"><name>FIRMATA_BLE_MIN_INTERVAL</name></member>
+    <member refid="ble_config_8h_1a027a3d230427b32c588e6e196c5e0d3c" kind="define"><name>FIRMATA_BLE_MAX_INTERVAL</name></member>
+    <member refid="ble_config_8h_1a1d6d5b7ce1eb7404b531fc2e9e1b397c" kind="define"><name>FIRMATA_BLE_TXBUFFER_FLUSH_INTERVAL</name></member>
+  </compound>
+  <compound refid="_b_l_e_stream_8cpp" kind="file"><name>BLEStream.cpp</name>
+  </compound>
+  <compound refid="_b_l_e_stream_8h" kind="file"><name>BLEStream.h</name>
+    <member refid="_b_l_e_stream_8h_1ad3db4206b1c246fdf1f42e7aa4dccdf8" kind="define"><name>_MAX_ATTR_DATA_LEN_</name></member>
+    <member refid="_b_l_e_stream_8h_1a4a57a8ae20f942b0efd99e670d66dad0" kind="define"><name>BLESTREAM_TXBUFFER_FLUSH_INTERVAL</name></member>
+    <member refid="_b_l_e_stream_8h_1a2b68e96a5633949348a489d1ac2ef025" kind="define"><name>BLESTREAM_MIN_FLUSH_INTERVAL</name></member>
+  </compound>
+  <compound refid="_bluefruit_l_e___s_p_i___stream_8cpp" kind="file"><name>BluefruitLE_SPI_Stream.cpp</name>
+  </compound>
+  <compound refid="_bluefruit_l_e___s_p_i___stream_8h" kind="file"><name>BluefruitLE_SPI_Stream.h</name>
+  </compound>
+  <compound refid="_boards_8h" kind="file"><name>Boards.h</name>
+    <member refid="_boards_8h_1a4259c40a55e489ed25c9f3cbb3be05ab" kind="define"><name>MAX_SERVOS</name></member>
+    <member refid="_boards_8h_1afaede01afebc78aa04e0c28dc85bcbd5" kind="define"><name>digitalPinHasPWM</name></member>
+    <member refid="_boards_8h_1a10c780ba47d61f0be8d59cf1c79dfff8" kind="define"><name>IS_PIN_SPI</name></member>
+    <member refid="_boards_8h_1ab2657321c413fc4a1cf71524ed393cfe" kind="define"><name>IS_PIN_SERIAL</name></member>
+    <member refid="_boards_8h_1a8a23467a2dc1293fa6f5d2c636504567" kind="define"><name>DEFAULT_PWM_RESOLUTION</name></member>
+    <member refid="_boards_8h_1ac09e90aa2c3b346c4b2be2346c4550db" kind="define"><name>TOTAL_PORTS</name></member>
+    <member refid="_boards_8h_1a753371ccf3e1bf98d7fdba9bffc5bf46" kind="variable"><name>unused</name></member>
+    <member refid="_boards_8h_1ac95f08e7e967b198a0b67ab1926fd884" kind="function"><name>readPort</name></member>
+    <member refid="_boards_8h_1a6aa7f860c21192d4f30fbee577db003f" kind="function"><name>writePort</name></member>
+  </compound>
+  <compound refid="encoder_8md" kind="file"><name>encoder.md</name>
+  </compound>
+  <compound refid="_ethernet_client_stream_8cpp" kind="file"><name>EthernetClientStream.cpp</name>
+  </compound>
+  <compound refid="_ethernet_client_stream_8h" kind="file"><name>EthernetClientStream.h</name>
+    <member refid="_ethernet_client_stream_8h_1a78cc2de9e5e51df6bd9f014636a97fea" kind="define"><name>MILLIS_RECONNECT</name></member>
+  </compound>
+  <compound refid="ethernet_config_8h" kind="file"><name>ethernetConfig.h</name>
+    <member refid="ethernet_config_8h_1a04edf8e622c7ef8aa46a70ae5ecd0dd6" kind="define"><name>WIZ5100_ETHERNET</name></member>
+    <member refid="ethernet_config_8h_1a1773420c3b93bb8386484fb91849835a" kind="define"><name>remote_ip</name></member>
+    <member refid="ethernet_config_8h_1aa34d8e4c1b72f7cb87c80ff9fa2e6dda" kind="define"><name>network_port</name></member>
+    <member refid="ethernet_config_8h_1a2b4b74058584a3b553398a5e5e2f21c8" kind="define"><name>local_ip</name></member>
+    <member refid="ethernet_config_8h_1ad5ca2bf3cb6dc465bb1fba6bd8b86a65" kind="define"><name>IS_IGNORE_PIN</name></member>
+    <member refid="ethernet_config_8h_1a058da3453d064890d1eb0a5e2f730807" kind="variable"><name>client</name></member>
+    <member refid="ethernet_config_8h_1ac678069a2c8ce2ddc5026707bebe34b4" kind="variable"><name>mac</name></member>
+  </compound>
+  <compound refid="_ethernet_server_stream_8cpp" kind="file"><name>EthernetServerStream.cpp</name>
+  </compound>
+  <compound refid="_ethernet_server_stream_8h" kind="file"><name>EthernetServerStream.h</name>
+  </compound>
+  <compound refid="feature-registry_8md" kind="file"><name>feature-registry.md</name>
+  </compound>
+  <compound refid="_firmata_8cpp" kind="file"><name>Firmata.cpp</name>
+    <member refid="_firmata_8cpp_1a986c68fac4f21302213e609c277710d7" kind="variable"><name>Firmata</name></member>
+  </compound>
+  <compound refid="_firmata_8h" kind="file"><name>Firmata.h</name>
+    <member refid="_firmata_8h_1aaf7fe5483ddb14af12856ba8c20fc961" kind="define"><name>FIRMATA_MAJOR_VERSION</name></member>
+    <member refid="_firmata_8h_1a4ccbfa7d5df56de079344468949bbe40" kind="define"><name>FIRMATA_MINOR_VERSION</name></member>
+    <member refid="_firmata_8h_1a56dcb16cb883b31245ea601962d25e8e" kind="define"><name>FIRMATA_BUGFIX_VERSION</name></member>
+    <member refid="_firmata_8h_1ac3e6b2f09a110d8c771267a203bf5d35" kind="define"><name>FIRMATA_STRING</name></member>
+    <member refid="_firmata_8h_1a7f738d147e4656076db07806682c35b4" kind="define"><name>SYSEX_I2C_REQUEST</name></member>
+    <member refid="_firmata_8h_1aba37be7c4f8686ba6b923a1205eaa791" kind="define"><name>SYSEX_I2C_REPLY</name></member>
+    <member refid="_firmata_8h_1a7a8b7eac6d6905920573eb7eb1f905f0" kind="define"><name>SYSEX_SAMPLING_INTERVAL</name></member>
+    <member refid="_firmata_8h_1ad42aa2404559d4a465d5d45e857f2881" kind="define"><name>ANALOG</name></member>
+    <member refid="_firmata_8h_1a538e3ec60828cfabae7e3011d73d2093" kind="define"><name>PWM</name></member>
+    <member refid="_firmata_8h_1a316d1bbf3dcf9c43e56fe4e25addf626" kind="define"><name>SERVO</name></member>
+    <member refid="_firmata_8h_1ac179eef68bcc694aa0ef8dd1eb09950b" kind="define"><name>SHIFT</name></member>
+    <member refid="_firmata_8h_1a457a9aa93dbb216459873a30bdb4d84a" kind="define"><name>I2C</name></member>
+    <member refid="_firmata_8h_1a37c094d8e1be6ffd310eb63851b2f6b8" kind="define"><name>ONEWIRE</name></member>
+    <member refid="_firmata_8h_1aabf41ec36ff3dfa5e82c2328e88d8dcf" kind="define"><name>STEPPER</name></member>
+    <member refid="_firmata_8h_1a4d3ccf6f12fbff52bbb7e35b4d92584f" kind="define"><name>ENCODER</name></member>
+    <member refid="_firmata_8h_1aabed7f7d1400564ec843acd4dfb72e59" kind="define"><name>IGNORE</name></member>
+    <member refid="_firmata_8h_1a56c7f5a2d04ee509fa88b772a2bca1fe" kind="define"><name>setFirmwareVersion</name></member>
+    <member refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kind="typedef"><name>callbackFunction</name></member>
+    <member refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kind="typedef"><name>systemCallbackFunction</name></member>
+    <member refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kind="typedef"><name>stringCallbackFunction</name></member>
+    <member refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kind="typedef"><name>sysexCallbackFunction</name></member>
+    <member refid="_firmata_8h_1a2beb89d5a96aa2faa00dad6768a881f4" kind="variable"><name>Firmata</name></member>
+  </compound>
+  <compound refid="_firmata_constants_8h" kind="file"><name>FirmataConstants.h</name>
+  </compound>
+  <compound refid="firmata_debug_8h" kind="file"><name>firmataDebug.h</name>
+    <member refid="firmata_debug_8h_1aa13ce4e79fa7e62c8716cc31e158e5a6" kind="define"><name>DEBUG_BEGIN</name></member>
+    <member refid="firmata_debug_8h_1a8e30ff0704664fcb13dabf0c4dc5c8f5" kind="define"><name>DEBUG_PRINTLN</name></member>
+    <member refid="firmata_debug_8h_1af6551f0b4c3964c3128f808e7bf987c7" kind="define"><name>DEBUG_PRINT</name></member>
+  </compound>
+  <compound refid="_firmata_defines_8h" kind="file"><name>FirmataDefines.h</name>
+    <member refid="_firmata_defines_8h_1aeab219e509c31f82bf63d465571d06c2" kind="define"><name>FIRMATA_FIRMWARE_MAJOR_VERSION</name></member>
+    <member refid="_firmata_defines_8h_1a131668cd19362aee81144d79e0f46451" kind="define"><name>FIRMATA_FIRMWARE_MINOR_VERSION</name></member>
+    <member refid="_firmata_defines_8h_1a541d4e88401a21f2e573a26b7111b09c" kind="define"><name>FIRMATA_FIRMWARE_BUGFIX_VERSION</name></member>
+    <member refid="_firmata_defines_8h_1afa9a1d1c37c3f731317e30fb878cdd85" kind="define"><name>FIRMATA_PROTOCOL_MAJOR_VERSION</name></member>
+    <member refid="_firmata_defines_8h_1a8a9497c6c1f6dfe9a3b829134bae23ac" kind="define"><name>FIRMATA_PROTOCOL_MINOR_VERSION</name></member>
+    <member refid="_firmata_defines_8h_1a25cea0770006c202cbbaae04a249555f" kind="define"><name>FIRMATA_PROTOCOL_BUGFIX_VERSION</name></member>
+    <member refid="_firmata_defines_8h_1ae57c9e215ed764e1cd1f5fe392472c39" kind="define"><name>MAX_DATA_BYTES</name></member>
+    <member refid="_firmata_defines_8h_1a5d13e7a0887f0341ff75e75a3b21b252" kind="define"><name>DIGITAL_MESSAGE</name></member>
+    <member refid="_firmata_defines_8h_1ac6c2d8bf5c6fe108ad48388cd0968ae3" kind="define"><name>ANALOG_MESSAGE</name></member>
+    <member refid="_firmata_defines_8h_1af4baffb940dcf4c23ca5b4885d2cb08c" kind="define"><name>REPORT_ANALOG</name></member>
+    <member refid="_firmata_defines_8h_1a5ed985b07a03217fc9b28f5c4c5bad50" kind="define"><name>REPORT_DIGITAL</name></member>
+    <member refid="_firmata_defines_8h_1a2aa56be69d612b274deae2bde636b054" kind="define"><name>SET_PIN_MODE</name></member>
+    <member refid="_firmata_defines_8h_1ae92fc2bad46d86be11130689f9491155" kind="define"><name>SET_DIGITAL_PIN_VALUE</name></member>
+    <member refid="_firmata_defines_8h_1a1e535c7bc7a99574600e94972f748cd9" kind="define"><name>REPORT_VERSION</name></member>
+    <member refid="_firmata_defines_8h_1a9605413125c76e4fa6ab70fd508e61d6" kind="define"><name>SYSTEM_RESET</name></member>
+    <member refid="_firmata_defines_8h_1a59347abb8dbf9faf06194cce640f59b6" kind="define"><name>START_SYSEX</name></member>
+    <member refid="_firmata_defines_8h_1a59b17efb4e682f59d0f8179aea08474f" kind="define"><name>END_SYSEX</name></member>
+    <member refid="_firmata_defines_8h_1ab36390a5dc093b72f4923bc0417fef24" kind="define"><name>SERIAL_MESSAGE</name></member>
+    <member refid="_firmata_defines_8h_1a22c350ed1fd8ae78386073b4c9fde7cd" kind="define"><name>ENCODER_DATA</name></member>
+    <member refid="_firmata_defines_8h_1a04a021e63e3a6048b23e3c91e8424079" kind="define"><name>SERVO_CONFIG</name></member>
+    <member refid="_firmata_defines_8h_1adfeb1346f4b239a5dcab64b53b52c63d" kind="define"><name>STRING_DATA</name></member>
+    <member refid="_firmata_defines_8h_1adab08254a5a1978581da65378bfbd2ae" kind="define"><name>STEPPER_DATA</name></member>
+    <member refid="_firmata_defines_8h_1ac0dcb696cb4229d6ed1bffa190b55fbe" kind="define"><name>ONEWIRE_DATA</name></member>
+    <member refid="_firmata_defines_8h_1a616db7a36b772511eca293613d15c36b" kind="define"><name>SHIFT_DATA</name></member>
+    <member refid="_firmata_defines_8h_1a20b05d8f183170e02df5fc4e6ec0116f" kind="define"><name>I2C_REQUEST</name></member>
+    <member refid="_firmata_defines_8h_1a46aaa2293185dfc3cd655f65bea7f614" kind="define"><name>I2C_REPLY</name></member>
+    <member refid="_firmata_defines_8h_1a94122c44db7a01c6f6035bdcc5f40905" kind="define"><name>I2C_CONFIG</name></member>
+    <member refid="_firmata_defines_8h_1aed4357ba338c3ed1447886262397da57" kind="define"><name>REPORT_FIRMWARE</name></member>
+    <member refid="_firmata_defines_8h_1a6b1a9cda8c6ee228df3ed787d1278a15" kind="define"><name>EXTENDED_ANALOG</name></member>
+    <member refid="_firmata_defines_8h_1a67f7b22e5ccc4e60bbb29da457396f65" kind="define"><name>PIN_STATE_QUERY</name></member>
+    <member refid="_firmata_defines_8h_1a9f8f0145aba7e3c3875d437dfd297efa" kind="define"><name>PIN_STATE_RESPONSE</name></member>
+    <member refid="_firmata_defines_8h_1ae9f1ac062b9f73c9814219ec6a0131b2" kind="define"><name>CAPABILITY_QUERY</name></member>
+    <member refid="_firmata_defines_8h_1a18014587c29c9ed92c025e38827bd30a" kind="define"><name>CAPABILITY_RESPONSE</name></member>
+    <member refid="_firmata_defines_8h_1a4c572bc2c43ff5952378fdd91eae9b88" kind="define"><name>ANALOG_MAPPING_QUERY</name></member>
+    <member refid="_firmata_defines_8h_1ac97ec6eb3e72f83450a66bd8a08911f4" kind="define"><name>ANALOG_MAPPING_RESPONSE</name></member>
+    <member refid="_firmata_defines_8h_1a06387eb92a3708a2c132287d100d44d7" kind="define"><name>SAMPLING_INTERVAL</name></member>
+    <member refid="_firmata_defines_8h_1ab3a363a2f3a787039e8ad0661f513b1d" kind="define"><name>SCHEDULER_DATA</name></member>
+    <member refid="_firmata_defines_8h_1a4e5359fd6e88add21751b8cec23f1d8a" kind="define"><name>SYSEX_NON_REALTIME</name></member>
+    <member refid="_firmata_defines_8h_1ad6ea7e4de462dd736e48602c39387596" kind="define"><name>SYSEX_REALTIME</name></member>
+    <member refid="_firmata_defines_8h_1a9b96fab07f827dcc04beaae6bd09400f" kind="define"><name>PIN_MODE_INPUT</name></member>
+    <member refid="_firmata_defines_8h_1ac25f0f159ffa1179651fbde4ac338c5d" kind="define"><name>PIN_MODE_OUTPUT</name></member>
+    <member refid="_firmata_defines_8h_1aa32c6369cfcb72a926ad3a3ce8a97e93" kind="define"><name>PIN_MODE_ANALOG</name></member>
+    <member refid="_firmata_defines_8h_1a4b882da38492b2fbd2f84d8d0470c193" kind="define"><name>PIN_MODE_PWM</name></member>
+    <member refid="_firmata_defines_8h_1af21baff9e3f72275b76b05ab17cbcf55" kind="define"><name>PIN_MODE_SERVO</name></member>
+    <member refid="_firmata_defines_8h_1abee34f13d529bf9fd8b86f085100f012" kind="define"><name>PIN_MODE_SHIFT</name></member>
+    <member refid="_firmata_defines_8h_1ae874208ec2383667289373163b39d45c" kind="define"><name>PIN_MODE_I2C</name></member>
+    <member refid="_firmata_defines_8h_1a2a650dd9a8f769264ec16214b6248337" kind="define"><name>PIN_MODE_ONEWIRE</name></member>
+    <member refid="_firmata_defines_8h_1a3d1aa0fa65f0eabdeb7a660af8356195" kind="define"><name>PIN_MODE_STEPPER</name></member>
+    <member refid="_firmata_defines_8h_1af99f6059a313516ab9f22fe11f8530f2" kind="define"><name>PIN_MODE_ENCODER</name></member>
+    <member refid="_firmata_defines_8h_1aa3f71832c389f7ed6c263af7e097b4ef" kind="define"><name>PIN_MODE_SERIAL</name></member>
+    <member refid="_firmata_defines_8h_1a5934000fe326afd3f6a9e5cd772d6e27" kind="define"><name>PIN_MODE_PULLUP</name></member>
+    <member refid="_firmata_defines_8h_1a6b76273f884decca728afea748713e04" kind="define"><name>PIN_MODE_IGNORE</name></member>
+    <member refid="_firmata_defines_8h_1a71fb14b7d1dfa89eda085b52b9f5c754" kind="define"><name>TOTAL_PIN_MODES</name></member>
+  </compound>
+  <compound refid="_firmata_feature_8h" kind="file"><name>FirmataFeature.h</name>
+  </compound>
+  <compound refid="_firmata_marshaller_8cpp" kind="file"><name>FirmataMarshaller.cpp</name>
+  </compound>
+  <compound refid="_firmata_marshaller_8h" kind="file"><name>FirmataMarshaller.h</name>
+  </compound>
+  <compound refid="_firmata_parser_8cpp" kind="file"><name>FirmataParser.cpp</name>
+  </compound>
+  <compound refid="_firmata_parser_8h" kind="file"><name>FirmataParser.h</name>
+  </compound>
+  <compound refid="i2c_8md" kind="file"><name>i2c.md</name>
+  </compound>
+  <compound refid="onewire_8md" kind="file"><name>onewire.md</name>
+  </compound>
+  <compound refid="pingroups-proposal_8md" kind="file"><name>pingroups-proposal.md</name>
+  </compound>
+  <compound refid="protocol_8md" kind="file"><name>protocol.md</name>
+  </compound>
+  <compound refid="rcswitch-proposal_8md" kind="file"><name>rcswitch-proposal.md</name>
+  </compound>
+  <compound refid="arduino_2readme_8md" kind="file"><name>arduino/readme.md</name>
+  </compound>
+  <compound refid="arduino_2test_2readme_8md" kind="file"><name>arduino/test/readme.md</name>
+  </compound>
+  <compound refid="protocol_2readme_8md" kind="file"><name>protocol/readme.md</name>
+  </compound>
+  <compound refid="readme_8md" kind="file"><name>readme.md</name>
+  </compound>
+  <compound refid="revisions_8md" kind="file"><name>revisions.md</name>
+  </compound>
+  <compound refid="scheduler_8md" kind="file"><name>scheduler.md</name>
+  </compound>
+  <compound refid="serial-1_80_8md" kind="file"><name>serial-1.0.md</name>
+  </compound>
+  <compound refid="serial-2_80-proposal_8md" kind="file"><name>serial-2.0-proposal.md</name>
+  </compound>
+  <compound refid="_serial_firmata_8cpp" kind="file"><name>SerialFirmata.cpp</name>
+  </compound>
+  <compound refid="_serial_firmata_8h" kind="file"><name>SerialFirmata.h</name>
+    <member refid="_serial_firmata_8h_1ad8d1e37f7555a2974d8681c14b16cd69" kind="define"><name>FIRMATA_SERIAL_FEATURE</name></member>
+    <member refid="_serial_firmata_8h_1af3b91eec9b8ba6ba183cae8b87715e87" kind="define"><name>HW_SERIAL0</name></member>
+    <member refid="_serial_firmata_8h_1aeb9a79ef851ece005de2b3018169d056" kind="define"><name>HW_SERIAL1</name></member>
+    <member refid="_serial_firmata_8h_1adc7fabce0c0b1228ab25c9937a3015cf" kind="define"><name>HW_SERIAL2</name></member>
+    <member refid="_serial_firmata_8h_1a6849362229e853b1d89ef1095efbbefd" kind="define"><name>HW_SERIAL3</name></member>
+    <member refid="_serial_firmata_8h_1a08ea8300e5314be85001cc7b76be20ef" kind="define"><name>HW_SERIAL4</name></member>
+    <member refid="_serial_firmata_8h_1a74e783152bbe2b3c956ad9646eeb7eca" kind="define"><name>HW_SERIAL5</name></member>
+    <member refid="_serial_firmata_8h_1a4249ba898a3e7715e167f974e9124c58" kind="define"><name>HW_SERIAL6</name></member>
+    <member refid="_serial_firmata_8h_1a669dd72611e460ea21388f62bb7ea713" kind="define"><name>SW_SERIAL0</name></member>
+    <member refid="_serial_firmata_8h_1ae85c489fafeab0f8d4cf63866876eeca" kind="define"><name>SW_SERIAL1</name></member>
+    <member refid="_serial_firmata_8h_1ac11cf9c5a36937c5357b112ec776d4cb" kind="define"><name>SW_SERIAL2</name></member>
+    <member refid="_serial_firmata_8h_1aa8d8df1e8ad118cc64bbe18e8e8a3628" kind="define"><name>SW_SERIAL3</name></member>
+    <member refid="_serial_firmata_8h_1a6c61795269e38acfe6638b96ee14d605" kind="define"><name>SERIAL_PORT_ID_MASK</name></member>
+    <member refid="_serial_firmata_8h_1a5111e506db798f016bf509d7909a5c65" kind="define"><name>MAX_SERIAL_PORTS</name></member>
+    <member refid="_serial_firmata_8h_1a446255494bac53f4def0f97794935102" kind="define"><name>SERIAL_READ_ARR_LEN</name></member>
+    <member refid="_serial_firmata_8h_1af4936c482934bd14b97613430a7de10d" kind="define"><name>RES_RX1</name></member>
+    <member refid="_serial_firmata_8h_1adf7b46fae7f0282eb656c8f8bf4a4ac8" kind="define"><name>RES_TX1</name></member>
+    <member refid="_serial_firmata_8h_1a6ddfeee4537783a52a5b0b782bee3668" kind="define"><name>RES_RX2</name></member>
+    <member refid="_serial_firmata_8h_1aba419e5fb30572cb52cf3820aa3a8ee9" kind="define"><name>RES_TX2</name></member>
+    <member refid="_serial_firmata_8h_1ac5c25ee1fb40513d8089d8592bbf04bd" kind="define"><name>RES_RX3</name></member>
+    <member refid="_serial_firmata_8h_1a8f2b2c4d034adfe64ce4a3a476ae2b12" kind="define"><name>RES_TX3</name></member>
+    <member refid="_serial_firmata_8h_1adcdabffb5c27605871a2ac7a4ae290c9" kind="define"><name>RES_RX4</name></member>
+    <member refid="_serial_firmata_8h_1a6097a310280d3846a1712eaf3c715fdb" kind="define"><name>RES_TX4</name></member>
+    <member refid="_serial_firmata_8h_1a3f03b5d81a22551b2b13d224ba0892e3" kind="define"><name>RES_RX5</name></member>
+    <member refid="_serial_firmata_8h_1aaf3dcf6b8ea2969aa176dabf3d4cd918" kind="define"><name>RES_TX5</name></member>
+    <member refid="_serial_firmata_8h_1a4482c7b6194cd2177f2ca92ae0dbd806" kind="define"><name>RES_RX6</name></member>
+    <member refid="_serial_firmata_8h_1aa2a57b639a677caefee4a5157258cb22" kind="define"><name>RES_TX6</name></member>
+    <member refid="_serial_firmata_8h_1a76e6fb108715443df6d7a5f85975731a" kind="define"><name>SERIAL_CONFIG</name></member>
+    <member refid="_serial_firmata_8h_1afb8ec1cba0a522c04f925bad0b2f3d9b" kind="define"><name>SERIAL_WRITE</name></member>
+    <member refid="_serial_firmata_8h_1ad8fc4f648b97f1a183f242b6c63daab1" kind="define"><name>SERIAL_READ</name></member>
+    <member refid="_serial_firmata_8h_1a21271d6f9809fc3b6cc2599e53a545b1" kind="define"><name>SERIAL_REPLY</name></member>
+    <member refid="_serial_firmata_8h_1ad304b125713f3450cafd0de4da26f006" kind="define"><name>SERIAL_CLOSE</name></member>
+    <member refid="_serial_firmata_8h_1a6789a06a5b32fae47375237d2353d1ca" kind="define"><name>SERIAL_FLUSH</name></member>
+    <member refid="_serial_firmata_8h_1aded602187eefbcd6c33fdde9c5ed80e5" kind="define"><name>SERIAL_LISTEN</name></member>
+    <member refid="_serial_firmata_8h_1aae7d93ba6f6cf4b484f1ca7e49a69b01" kind="define"><name>SERIAL_READ_CONTINUOUSLY</name></member>
+    <member refid="_serial_firmata_8h_1a2a5c705ec3a399c9930260003f008af7" kind="define"><name>SERIAL_STOP_READING</name></member>
+    <member refid="_serial_firmata_8h_1afa10f200a03d8c4555555c63d8eb1ea6" kind="define"><name>SERIAL_MODE_MASK</name></member>
+  </compound>
+  <compound refid="servos_8md" kind="file"><name>servos.md</name>
+  </compound>
+  <compound refid="shift-proposal_8md" kind="file"><name>shift-proposal.md</name>
+  </compound>
+  <compound refid="spi-proposal_8md" kind="file"><name>spi-proposal.md</name>
+  </compound>
+  <compound refid="stepper-legacy_8md" kind="file"><name>stepper-legacy.md</name>
+  </compound>
+  <compound refid="tone-proposal_8md" kind="file"><name>tone-proposal.md</name>
+  </compound>
+  <compound refid="_wi_fi_client_stream_8h" kind="file"><name>WiFiClientStream.h</name>
+    <member refid="_wi_fi_client_stream_8h_1a78cc2de9e5e51df6bd9f014636a97fea" kind="define"><name>MILLIS_RECONNECT</name></member>
+  </compound>
+  <compound refid="wifi_config_8h" kind="file"><name>wifiConfig.h</name>
+    <member refid="wifi_config_8h_1ac42367fe5c999ec6650de83e9d72fe8c" kind="define"><name>SERVER_PORT</name></member>
+    <member refid="wifi_config_8h_1a4b5942a797892f1fed6ef1b5d6f2f81d" kind="define"><name>WIFI_WPA_SECURITY</name></member>
+    <member refid="wifi_config_8h_1a375b545f86fd7e1d5d44926f28b75800" kind="variable"><name>ssid</name></member>
+    <member refid="wifi_config_8h_1af835aa6ca63e9a101de93aac1f859878" kind="variable"><name>wpa_passphrase</name></member>
+    <member refid="wifi_config_8h_1a77a9d2319914e80a4858a3c76ec39113" kind="function"><name>stream</name></member>
+  </compound>
+  <compound refid="_wi_fi_server_stream_8h" kind="file"><name>WiFiServerStream.h</name>
+  </compound>
+  <compound refid="_wi_fi_stream_8cpp" kind="file"><name>WiFiStream.cpp</name>
+  </compound>
+  <compound refid="_wi_fi_stream_8h" kind="file"><name>WiFiStream.h</name>
+    <member refid="_wi_fi_stream_8h_1a03dd368c8684838c57562f7bf55d783f" kind="define"><name>HOST_CONNECTION_DISCONNECTED</name></member>
+    <member refid="_wi_fi_stream_8h_1a47bf7834b3fbc853b600fcc85a13e5a6" kind="define"><name>HOST_CONNECTION_CONNECTED</name></member>
+    <member refid="_wi_fi_stream_8h_1ac590658d84d43947d605be50ab5fbc85" kind="typedef"><name>hostConnectionCallbackFunction</name></member>
+  </compound>
+  <compound refid="md_protocol_accel_stepper_firmata" kind="page"><name>md_protocol_accelStepperFirmata</name>
+  </compound>
+  <compound refid="md_protocol_encoder" kind="page"><name>md_protocol_encoder</name>
+  </compound>
+  <compound refid="md_protocol_feature-registry" kind="page"><name>md_protocol_feature-registry</name>
+  </compound>
+  <compound refid="md_protocol_i2c" kind="page"><name>md_protocol_i2c</name>
+  </compound>
+  <compound refid="md_protocol_onewire" kind="page"><name>md_protocol_onewire</name>
+  </compound>
+  <compound refid="md_protocol_proposals_pingroups-proposal" kind="page"><name>md_protocol_proposals_pingroups-proposal</name>
+  </compound>
+  <compound refid="md_protocol_proposals_rcswitch-proposal" kind="page"><name>md_protocol_proposals_rcswitch-proposal</name>
+  </compound>
+  <compound refid="md_protocol_proposals_serial-2_80-proposal" kind="page"><name>md_protocol_proposals_serial-2.0-proposal</name>
+  </compound>
+  <compound refid="md_protocol_proposals_shift-proposal" kind="page"><name>md_protocol_proposals_shift-proposal</name>
+  </compound>
+  <compound refid="md_protocol_proposals_spi-proposal" kind="page"><name>md_protocol_proposals_spi-proposal</name>
+  </compound>
+  <compound refid="md_protocol_proposals_tone-proposal" kind="page"><name>md_protocol_proposals_tone-proposal</name>
+  </compound>
+  <compound refid="md_protocol_protocol" kind="page"><name>md_protocol_protocol</name>
+  </compound>
+  <compound refid="md_protocol__r_e_a_d_m_e" kind="page"><name>md_protocol_README</name>
+  </compound>
+  <compound refid="md_protocol_revisions" kind="page"><name>md_protocol_revisions</name>
+  </compound>
+  <compound refid="md_protocol_scheduler" kind="page"><name>md_protocol_scheduler</name>
+  </compound>
+  <compound refid="md_protocol_serial-1_80" kind="page"><name>md_protocol_serial-1.0</name>
+  </compound>
+  <compound refid="md_protocol_servos" kind="page"><name>md_protocol_servos</name>
+  </compound>
+  <compound refid="md_protocol_stepper-legacy" kind="page"><name>md_protocol_stepper-legacy</name>
+  </compound>
+  <compound refid="md__r_e_a_d_m_e" kind="page"><name>md_README</name>
+  </compound>
+  <compound refid="dir_7957e4d193d4a425fd39fd4994c5caf1" kind="dir"><name>arduino</name>
+  </compound>
+  <compound refid="dir_dd570a593e8a727ffe3e75d8161174f9" kind="dir"><name>examples</name>
+  </compound>
+  <compound refid="dir_478b6fb5ff3423a7cc55eb6cf3d60964" kind="dir"><name>proposals</name>
+  </compound>
+  <compound refid="dir_bfdb423cc3a608048b1264d49bcca462" kind="dir"><name>protocol</name>
+  </compound>
+  <compound refid="dir_65f43435d088dc1025f90afafa150427" kind="dir"><name>StandardFirmataBLE</name>
+  </compound>
+  <compound refid="dir_e91a0fab1962c944fc999122e7c8a260" kind="dir"><name>StandardFirmataEthernet</name>
+  </compound>
+  <compound refid="dir_0150c6ab7b3212b95b6a5ef0efffec5a" kind="dir"><name>StandardFirmataWiFi</name>
+  </compound>
+  <compound refid="dir_8c2cb78da3834f978b1440172b3f0e44" kind="dir"><name>test</name>
+  </compound>
+  <compound refid="dir_0cbc892fb4b1097edf0e0bd3cfc87486" kind="dir"><name>utility</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

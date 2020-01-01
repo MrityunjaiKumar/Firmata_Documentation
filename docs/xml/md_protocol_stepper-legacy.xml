@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md_protocol_stepper-legacy" kind="page">
+    <compoundname>md_protocol_stepper-legacy</compoundname>
+    <title>Stepper Motor</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><emphasis>Note: This legacy version is deprecated as of Firmata protocol v2.6.0 and therefore is not recommended for new implementations. Please use the new, more full-featured <ulink url="https://github.com/firmata/protocol/blob/master/accelStepperFirmata.md">AccelStepper version</ulink> instead.</emphasis></para>
+<para>Provides support for 4 wire and 2 wire stepper motor drivers (H-bridge, darlington array, etc) as well as step + direction drivers such as the <ulink url="http://www.schmalzhaus.com/EasyDriver/">EasyDriver</ulink>. Current implementation supports 6 stepper motors at the same time (#[0-5]).</para>
+<para>Also includes optional support for acceleration and deceleration of the motor.</para>
+<para>Added in Firmata protocol version 2.4.0. Deprecated in Firmata protocol version 2.6.0.</para>
+<para>Example files:<itemizedlist>
+<listitem><para>The Stepper feature is include by default in <ulink url="https://github.com/firmata/ConfigurableFirmata/blob/master/examples/ConfigurableFirmata/ConfigurableFirmata.ino">ConfigurableFirmata.ino</ulink>.</para>
+</listitem><listitem><para><ulink url="https://github.com/firmata/ConfigurableFirmata/blob/master/src/StepperFirmata.cpp">Example implementation</ulink> as a configurable Firmata feature class.</para>
+</listitem><listitem><para><ulink url="https://github.com/soundanalogous/AdvancedFirmata">Example of Stepper implementation in StandardFirmata</ulink>. <emphasis>Note the dependency on the FirmataStepper class.</emphasis></para>
+</listitem></itemizedlist>
+</para>
+<sect1 id="md_protocol_stepper-legacy_1autotoc_md136">
+<title>Protocol</title>
+<para>Stepper configuration</para>
+<para><emphasis>Note: <computeroutput>stepDelay</computeroutput> is the the number of microseconds between steps. The default value is 1us. You can change the delay to 2us (useful for high current stepper motor drivers). Additional delay values can be added in the future.</emphasis> <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>Stepper<sp/>Command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x72)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>config<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00<sp/>=<sp/>config,<sp/>0x01<sp/>=<sp/>step)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-5)<sp/>(supports<sp/>up<sp/>to<sp/>6<sp/>motors)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>stepDelay<sp/>|<sp/>interface<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(upper<sp/>4<sp/>bits<sp/>=<sp/>step<sp/>delay:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0000XXX<sp/>=<sp/>default<sp/>1us<sp/>delay<sp/>[default]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0001XXX<sp/>=<sp/>2us<sp/>delay</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>additional<sp/>bits<sp/>not<sp/>yet<sp/>used)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(lower<sp/>3<sp/>bits<sp/>=<sp/>interface:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXXX001<sp/>=<sp/>step<sp/>+<sp/>direction<sp/>driver</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXXX010<sp/>=<sp/>two<sp/>wire</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXXX100<sp/>=<sp/>four<sp/>wire)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>steps-per-revolution<sp/>LSB</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>steps-per-revolution<sp/>MSB</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>motorPin1<sp/>or<sp/>directionPin<sp/>number<sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>motorPin2<sp/>or<sp/>stepPin<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>[only<sp/>when<sp/>interface<sp/>=<sp/>0x04]<sp/>motorPin3<sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">10<sp/>[only<sp/>when<sp/>interface<sp/>=<sp/>0x04]<sp/>motorPin4<sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">11<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>Stepper step <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>Stepper<sp/>Command<sp/><sp/><sp/><sp/><sp/><sp/>(0x72)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>config<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-5)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>direction<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-1)<sp/>(0x00<sp/>=<sp/>CW,<sp/>0x01<sp/>=<sp/>CCW)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>num<sp/>steps<sp/>byte1<sp/>LSB</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>num<sp/>steps<sp/>byte2</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>num<sp/>steps<sp/>byte3<sp/>MSB<sp/><sp/>(21<sp/>bits<sp/>(2,097,151<sp/>steps<sp/>max))</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>speed<sp/>LSB<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(steps<sp/>in<sp/>0.01*rad/sec<sp/><sp/>(2050<sp/>=<sp/>20.50<sp/>rad/sec))</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>speed<sp/>MSB</highlight></codeline>
+<codeline><highlight class="normal">10<sp/>[optional]<sp/>accel<sp/>LSB<sp/>(acceleration<sp/>in<sp/>0.01*rad/sec^2<sp/>(1000<sp/>=<sp/>10.0<sp/>rad/sec^2))</highlight></codeline>
+<codeline><highlight class="normal">11<sp/>[optional]<sp/>accel<sp/>MSB</highlight></codeline>
+<codeline><highlight class="normal">12<sp/>[optional]<sp/>decel<sp/>LSB<sp/>(deceleration<sp/>in<sp/>0.01*rad/sec^2)</highlight></codeline>
+<codeline><highlight class="normal">13<sp/>[optional]<sp/>decel<sp/>MSB</highlight></codeline>
+<codeline><highlight class="normal">14<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting> </para>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md_protocol_scheduler" kind="page">
+    <compoundname>md_protocol_scheduler</compoundname>
+    <title>Scheduler</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The idea is to store a stream of messages on a microcontroller which is replayed later (either once or repeated). A task is created by sending a create_task message. The time-to-run is initialized with 0 (which means the task is not yet ready to run). After filling up the taskdata with messages (using add_to_task command messages) a final schedule_task request is sent, that sets the time-to-run (in milliseconds after &apos;now&apos;). If a task itself contains delay_task or schedule_task-messages these cause the execution of the task to pause and resume after the amount of time given in such message has elapsed. If the last message in a task is a delay_task message the task is scheduled for reexecution after the amount of time specified. If there&apos;s no delay_task message at the end of the task (so the time-to-run is not updated during the run) the task gets deleted after execution.</para>
+<para>Added in Firmata protocol version 2.4.0.</para>
+<sect2 id="md_protocol_scheduler_1autotoc_md120">
+<title>Example files:</title>
+<para><itemizedlist>
+<listitem><para>OneWire is include by default in <ulink url="https://github.com/firmata/ConfigurableFirmata/blob/master/examples/ConfigurableFirmata/ConfigurableFirmata.ino">ConfigurableFirmata.ino</ulink>.</para>
+</listitem><listitem><para><ulink url="https://github.com/firmata/ConfigurableFirmata/blob/master/src/FirmataScheduler.cpp">Example implementation</ulink> as a configurable Firmata feature class.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_protocol_scheduler_1autotoc_md121">
+<title>Compatible host implementations</title>
+<para><itemizedlist>
+<listitem><para><ulink url="https://github.com/firmata/ConfigurableFirmata">ConfigurableFirmata</ulink></para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_protocol_scheduler_1autotoc_md122">
+<title>Compatible client librairies</title>
+<para><itemizedlist>
+<listitem><para><ulink url="https://github.com/ntruchsess/perl-firmata">perl-firmata</ulink></para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_protocol_scheduler_1autotoc_md123">
+<title>Protocol details</title>
+<para>Scheduler CREATE_TASK request <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>Scheduler<sp/>Command<sp/><sp/><sp/><sp/>(0x7B)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>create_task<sp/>command<sp/><sp/>(0x00)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>task<sp/>id<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>length<sp/>LSB<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bit<sp/>0-6)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>length<sp/>MSB<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bit<sp/>7-13)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>Scheduler DELETE_TASK request <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>Scheduler<sp/>Command<sp/><sp/><sp/><sp/>(0x7B)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>delete_task<sp/>command<sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>task<sp/>id<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>Scheduler ADD_TO_TASK request <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>Scheduler<sp/>Command<sp/><sp/><sp/><sp/>(0x7B)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>add_to_task<sp/>command<sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>task<sp/>id<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>taskdata<sp/>bit<sp/>0-6<sp/><sp/><sp/><sp/><sp/>[optional]<sp/>task<sp/>bytes<sp/>encoded<sp/>using<sp/>8<sp/>times<sp/>7<sp/>bit</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>7<sp/>bytes<sp/>of<sp/>8<sp/>bit</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>taskdata<sp/>bit<sp/>7-13<sp/><sp/><sp/><sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>taskdata<sp/>bit<sp/>14-20<sp/><sp/><sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>...<sp/>as<sp/>many<sp/>bytes<sp/>as<sp/>needed<sp/>(don&apos;t<sp/>exceed<sp/>MAX_DATA_BYTES<sp/>though)</highlight></codeline>
+<codeline><highlight class="normal">n+1<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>Scheduler DELAY_TASK request <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>Scheduler<sp/>Command<sp/><sp/><sp/><sp/>(0x7B)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>delay_task<sp/>command<sp/><sp/><sp/>(0x03)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>time_ms<sp/>bit<sp/>0-6<sp/><sp/><sp/><sp/><sp/><sp/>time_ms<sp/>is<sp/>of<sp/>type<sp/>long,<sp/>requires<sp/>32<sp/>bit.</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>time_ms<sp/>bit<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>time_ms<sp/>bit<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>time_ms<sp/>bit<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>time_ms<sp/>bit<sp/>28-31</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>Scheduler SCHEDULE_TASK request <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>Scheduler<sp/>Command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x7B)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>schedule_task<sp/>command<sp/><sp/><sp/><sp/>(0x04)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>task<sp/>id<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>time_ms<sp/>bit<sp/>0-6<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>time_ms<sp/>is<sp/>of<sp/>type<sp/>long,<sp/>requires<sp/>32<sp/>bit.</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>time_ms<sp/>bit<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>time_ms<sp/>bit<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>time_ms<sp/>bit<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>time_ms<sp/>bit<sp/>28-31</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>Scheduler QUERY_ALL_TASKS request <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>Scheduler<sp/>Command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x7B)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>query_all_tasks<sp/>command<sp/><sp/>(0x05)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>Scheduler QUERY_ALL_TASKS reply <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>Scheduler<sp/>Command<sp/><sp/><sp/><sp/>(0x7B)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>query_all_tasks<sp/>Reply<sp/>Command<sp/>(0x09)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>taskid_1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>taskid_2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>...<sp/>as<sp/>many<sp/>bytes<sp/>as<sp/>needed<sp/>(don&apos;t<sp/>exceed<sp/>MAX_DATA_BYTES<sp/>though)</highlight></codeline>
+<codeline><highlight class="normal">n+1<sp/><sp/>END_SYSEX<sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>Scheduler QUERY_TASK request <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>Scheduler<sp/>Command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x7B)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>query_task<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x06)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>task<sp/>id<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>Scheduler QUERY_TASK reply <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>Scheduler<sp/>Command<sp/><sp/><sp/><sp/>(0x7B)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>query_task<sp/>Reply<sp/>Commandc<sp/>(0x0A)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>task<sp/>id<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>time_ms<sp/>bit<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>time_ms<sp/>bit<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>time_ms<sp/>bit<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>time_ms<sp/>bit<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>time_ms<sp/>bit<sp/>28-31<sp/>|<sp/>(length<sp/>bit<sp/>0-2)<sp/>&lt;&lt;<sp/>4</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>length<sp/>bit<sp/>3-9</highlight></codeline>
+<codeline><highlight class="normal">10<sp/>length<sp/>bit<sp/>10-15<sp/>|<sp/>(position<sp/>bit<sp/>0)<sp/>&lt;&lt;<sp/>7</highlight></codeline>
+<codeline><highlight class="normal">11<sp/>position<sp/>bit<sp/>1-7</highlight></codeline>
+<codeline><highlight class="normal">12<sp/>position<sp/>bit<sp/>8-14</highlight></codeline>
+<codeline><highlight class="normal">13<sp/>position<sp/>bit<sp/>15<sp/>|<sp/>taskdata<sp/>bit<sp/>0-5<sp/>&lt;&lt;<sp/>1<sp/>[taskdata<sp/>is<sp/>optional]</highlight></codeline>
+<codeline><highlight class="normal">14<sp/>taskdata<sp/>bit<sp/>6-12<sp/><sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">15<sp/>taskdata<sp/>bit<sp/>13-19<sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>...<sp/>as<sp/>many<sp/>bytes<sp/>as<sp/>needed<sp/>(don&apos;t<sp/>exceed<sp/>MAX_DATA_BYTES<sp/>though)</highlight></codeline>
+<codeline><highlight class="normal">n+1<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>Scheduler RESET request <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>Scheduler<sp/>Command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x7B)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>scheduler<sp/>reset<sp/>command<sp/><sp/>(0x07)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>Scheduler ERROR_FIRMATA_TASK reply <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>Scheduler<sp/>Command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x7B)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>error_task<sp/>Reply<sp/>Command<sp/>(0x08)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>task<sp/>id<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>time_ms<sp/>bit<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>time_ms<sp/>bit<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>time_ms<sp/>bit<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>time_ms<sp/>bit<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>time_ms<sp/>bit<sp/>28-31<sp/>|<sp/>(length<sp/>bit<sp/>0-2)<sp/>&lt;&lt;<sp/>4</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>length<sp/>bit<sp/>3-9</highlight></codeline>
+<codeline><highlight class="normal">10<sp/>length<sp/>bit<sp/>10-15<sp/>|<sp/>(position<sp/>bit<sp/>0)<sp/>&lt;&lt;<sp/>7</highlight></codeline>
+<codeline><highlight class="normal">11<sp/>position<sp/>bit<sp/>1-7</highlight></codeline>
+<codeline><highlight class="normal">12<sp/>position<sp/>bit<sp/>8-14</highlight></codeline>
+<codeline><highlight class="normal">13<sp/>position<sp/>bit<sp/>15<sp/>|<sp/>taskdata<sp/>bit<sp/>0-5<sp/>&lt;&lt;<sp/>1<sp/>[taskdata<sp/>is<sp/>optional]</highlight></codeline>
+<codeline><highlight class="normal">14<sp/>taskdata<sp/>bit<sp/>6-12<sp/><sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">15<sp/>taskdata<sp/>bit<sp/>13-19<sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>...<sp/>as<sp/>many<sp/>bytes<sp/>as<sp/>needed<sp/>(don&apos;t<sp/>exceed<sp/>MAX_DATA_BYTES<sp/>though)</highlight></codeline>
+<codeline><highlight class="normal">n+1<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting> </para>
+</sect2>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

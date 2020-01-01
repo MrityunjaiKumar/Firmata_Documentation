@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="serial-1_80_8md" kind="file" language="C++">
+    <compoundname>serial-1.0.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#Serial<sp/>1.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Enables<sp/>control<sp/>of<sp/>up<sp/>to<sp/>4<sp/>software<sp/>and<sp/>4<sp/>hardware<sp/>(UART)<sp/>serial<sp/>ports.<sp/>Multiple<sp/>ports<sp/>can<sp/>be</highlight></codeline>
+<codeline><highlight class="normal">used<sp/>simultaneously<sp/>(depending<sp/>on<sp/>restrictions<sp/>of<sp/>a<sp/>given<sp/>microcontroller<sp/>board&apos;s<sp/>capabilities).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sample<sp/>implementation<sp/>code<sp/>for<sp/>Arduino<sp/>is<sp/>available<sp/>[here](https://github.com/firmata/arduino/blob/master/examples/StandardFirmataPlus/StandardFirmataPlus.ino).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>client<sp/>implementation<sp/>can<sp/>be<sp/>found<sp/>[here](https://github.com/jgautier/firmata/blob/master/lib/firmata.js).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Added<sp/>in<sp/>Firmata<sp/>protocol<sp/>version<sp/>2.5.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Constants</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Port<sp/>IDs</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>these<sp/>constants<sp/>to<sp/>identify<sp/>the<sp/>hardware<sp/>or<sp/>software<sp/>serial<sp/>port<sp/>to<sp/>address<sp/>for<sp/>each<sp/>command.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">HW_SERIAL0<sp/>=<sp/>0x00<sp/>(for<sp/>using<sp/>Serial<sp/>when<sp/>another<sp/>transport<sp/>is<sp/>used<sp/>for<sp/>the<sp/>Firmata<sp/>Stream)</highlight></codeline>
+<codeline><highlight class="normal">HW_SERIAL1<sp/>=<sp/>0x01</highlight></codeline>
+<codeline><highlight class="normal">HW_SERIAL2<sp/>=<sp/>0x02</highlight></codeline>
+<codeline><highlight class="normal">HW_SERIAL3<sp/>=<sp/>0x03</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>extensible<sp/>up<sp/>to<sp/>8<sp/>HW<sp/>serial<sp/>ports</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">SW_SERIAL0<sp/>=<sp/>0x08</highlight></codeline>
+<codeline><highlight class="normal">SW_SERIAL1<sp/>=<sp/>0x09</highlight></codeline>
+<codeline><highlight class="normal">SW_SERIAL2<sp/>=<sp/>0x0A</highlight></codeline>
+<codeline><highlight class="normal">SW_SERIAL3<sp/>=<sp/>0x0B</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>extensible<sp/>up<sp/>to<sp/>8<sp/>SW<sp/>serial<sp/>ports</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Serial<sp/>pin<sp/>capability<sp/>response</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>these<sp/>constants<sp/>to<sp/>identify<sp/>the<sp/>pin<sp/>type<sp/>in<sp/>a<sp/>[capability<sp/>query<sp/>response](https://github.com/firmata/protocol/blob/master/protocol.md#capability-query).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Where<sp/>the<sp/>pin<sp/>mode<sp/>=<sp/>&quot;Serial&quot;<sp/>and<sp/>the<sp/>pin<sp/>resolution<sp/>=<sp/>one<sp/>of<sp/>the<sp/>following:</highlight></codeline>
+<codeline><highlight class="normal">RES_RX0<sp/>=<sp/>0x00</highlight></codeline>
+<codeline><highlight class="normal">RES_TX0<sp/>=<sp/>0x01</highlight></codeline>
+<codeline><highlight class="normal">RES_RX1<sp/>=<sp/>0x02</highlight></codeline>
+<codeline><highlight class="normal">RES_TX1<sp/>=<sp/>0x03</highlight></codeline>
+<codeline><highlight class="normal">RES_RX2<sp/>=<sp/>0x04</highlight></codeline>
+<codeline><highlight class="normal">RES_TX2<sp/>=<sp/>0x05</highlight></codeline>
+<codeline><highlight class="normal">RES_RX3<sp/>=<sp/>0x06</highlight></codeline>
+<codeline><highlight class="normal">RES_TX3<sp/>=<sp/>0x07</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>extensible<sp/>up<sp/>to<sp/>8<sp/>HW<sp/>ports</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Serial<sp/>pin<sp/>mode</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">PIN_MODE_SERIAL<sp/>=<sp/>0x0A</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Commands</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Serial<sp/>Config</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Configures<sp/>the<sp/>specified<sp/>hardware<sp/>or<sp/>software<sp/>serial<sp/>port.<sp/>RX<sp/>and<sp/>TX<sp/>pins<sp/>are<sp/>optional<sp/>and<sp/>should</highlight></codeline>
+<codeline><highlight class="normal">only<sp/>be<sp/>specified<sp/>if<sp/>the<sp/>platform<sp/>requires<sp/>them<sp/>to<sp/>be<sp/>set.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/>(0x60)<sp/><sp/>//<sp/>command<sp/>byte</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_CONFIG<sp/><sp/><sp/><sp/>(0x10)<sp/><sp/>//<sp/>OR<sp/>with<sp/>port<sp/>(0x11<sp/>=<sp/>SERIAL_CONFIG<sp/>|<sp/>HW_SERIAL1)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>baud<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>0<sp/>-<sp/>6)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>baud<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>7<sp/>-<sp/>13)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>baud<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>14<sp/>-<sp/>20)<sp/>//<sp/>need<sp/>to<sp/>send<sp/>3<sp/>bytes<sp/>for<sp/>baud<sp/>even<sp/>if<sp/>value<sp/>is<sp/>&lt;<sp/>14<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>rxPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/>[optional]<sp/>//<sp/>only<sp/>set<sp/>if<sp/>platform<sp/>requires<sp/>RX<sp/>pin<sp/>number</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>txPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/>[optional]<sp/>//<sp/>only<sp/>set<sp/>if<sp/>platform<sp/>requires<sp/>TX<sp/>pin<sp/>number</highlight></codeline>
+<codeline><highlight class="normal">6|8<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Serial<sp/>Write</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Firmata<sp/>client<sp/>-&gt;<sp/>Board</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Receive<sp/>serial<sp/>data<sp/>from<sp/>Firmata<sp/>client,<sp/>reassemble<sp/>and<sp/>write<sp/>for<sp/>each<sp/>byte<sp/>received.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_WRITE<sp/><sp/><sp/><sp/><sp/>(0x20)<sp/>//<sp/>OR<sp/>with<sp/>port<sp/>(0x21<sp/>=<sp/>SERIAL_WRITE<sp/>|<sp/>HW_SERIAL1)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>data<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>data<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>up<sp/>to<sp/>max<sp/>buffer<sp/>-<sp/>5</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Serial<sp/>Read</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Board<sp/>-&gt;<sp/>Firmata<sp/>client</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Read<sp/>contents<sp/>of<sp/>serial<sp/>buffer<sp/>and<sp/>send<sp/>to<sp/>Firmata<sp/>client<sp/>(send<sp/>with<sp/>`SERIAL_REPLY`).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`maxBytesToRead`<sp/>optionally<sp/>specifies<sp/>how<sp/>many<sp/>bytes<sp/>to<sp/>read<sp/>for<sp/>each<sp/>iteration.<sp/>Set<sp/>to<sp/>0<sp/>(or<sp/>do<sp/>not</highlight></codeline>
+<codeline><highlight class="normal">define)<sp/>to<sp/>read<sp/>all<sp/>available<sp/>bytes.<sp/>If<sp/>there<sp/>are<sp/>less<sp/>bytes<sp/>in<sp/>the<sp/>buffer<sp/>than<sp/>the<sp/>number<sp/>of<sp/>bytes</highlight></codeline>
+<codeline><highlight class="normal">specified<sp/>by<sp/>`maxBytesToRead`<sp/>then<sp/>the<sp/>lesser<sp/>number<sp/>of<sp/>bytes<sp/>will<sp/>be<sp/>returned.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_READ<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x30)<sp/>//<sp/>OR<sp/>with<sp/>port<sp/>(0x31<sp/>=<sp/>SERIAL_READ<sp/>|<sp/>HW_SERIAL1)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>SERIAL_READ_MODE<sp/><sp/><sp/>(0x00)<sp/>//<sp/>0x00<sp/>=&gt;<sp/>read<sp/>continuously,<sp/>0x01<sp/>=&gt;<sp/>stop<sp/>reading</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>maxBytesToRead<sp/><sp/><sp/><sp/><sp/>(lsb)<sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>maxBytesToRead<sp/><sp/><sp/><sp/><sp/>(msb)<sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">4|6<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Serial<sp/>Reply</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Board<sp/>-&gt;<sp/>Firmata<sp/>client</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sent<sp/>in<sp/>response<sp/>to<sp/>a<sp/>SERIAL_READ<sp/>event<sp/>or<sp/>on<sp/>each<sp/>iteration<sp/>of<sp/>the<sp/>reporting<sp/>loop<sp/>if<sp/>`SERIAL_READ_CONTINUOUSLY`<sp/>is<sp/>set.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_REPLY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x40)<sp/>//<sp/>OR<sp/>with<sp/>port<sp/>(0x41<sp/>=<sp/>SERIAL_REPLY<sp/>|<sp/>HW_SERIAL1)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>data<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>data<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>up<sp/>to<sp/>max<sp/>buffer<sp/>-<sp/>5</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Serial<sp/>Close</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Close<sp/>the<sp/>serial<sp/>port.<sp/>If<sp/>you<sp/>close<sp/>a<sp/>port,<sp/>you<sp/>will<sp/>need<sp/>to<sp/>send<sp/>a<sp/>`SERIAL_CONFIG`<sp/>message<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">reopen<sp/>it.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_CLOSE<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x50)<sp/>//<sp/>OR<sp/>with<sp/>port<sp/>(0x51<sp/>=<sp/>SERIAL_CLOSE<sp/>|<sp/>HW_SERIAL1)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Serial<sp/>Flush</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Flush<sp/>the<sp/>serial<sp/>port.<sp/>The<sp/>exact<sp/>behavior<sp/>of<sp/>flush<sp/>depends<sp/>on<sp/>the<sp/>underlying<sp/>platform.<sp/>For<sp/>example,</highlight></codeline>
+<codeline><highlight class="normal">with<sp/>Arduino,<sp/>calling<sp/>`flush`<sp/>on<sp/>a<sp/>HW<sp/>serial<sp/>port<sp/>will<sp/>drain<sp/>the<sp/>TX<sp/>output<sp/>buffer,<sp/>calling<sp/>`flush`</highlight></codeline>
+<codeline><highlight class="normal">on<sp/>a<sp/>SW<sp/>serial<sp/>port<sp/>will<sp/>reset<sp/>the<sp/>RX<sp/>buffer<sp/>to<sp/>the<sp/>beginning,<sp/>abandoning<sp/>any<sp/>data<sp/>in<sp/>the<sp/>buffer.</highlight></codeline>
+<codeline><highlight class="normal">Other<sp/>platforms<sp/>may<sp/>define<sp/>`flush`<sp/>differently<sp/>as<sp/>well<sp/>so<sp/>see<sp/>the<sp/>documentation<sp/>of<sp/>flush<sp/>for<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">platform<sp/>you<sp/>are<sp/>working<sp/>with<sp/>to<sp/>understand<sp/>exactly<sp/>how<sp/>it<sp/>functions.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Generally<sp/>`flush`<sp/>is<sp/>rarely<sp/>needed<sp/>so<sp/>this<sp/>functionality<sp/>is<sp/>primarily<sp/>provided<sp/>for<sp/>advanced<sp/>use</highlight></codeline>
+<codeline><highlight class="normal">cases.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_FLUSH<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x60)<sp/>//<sp/>OR<sp/>with<sp/>port<sp/>(0x61<sp/>=<sp/>SERIAL_FLUSH<sp/>|<sp/>HW_SERIAL1)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Serial<sp/>Listen</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Enable<sp/>switching<sp/>serial<sp/>ports.<sp/>Necessary<sp/>for<sp/>Arduino<sp/>SoftwareSerial<sp/>but<sp/>may<sp/>not<sp/>be<sp/>applicable<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">other<sp/>platforms.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_LISTEN<sp/><sp/><sp/><sp/><sp/><sp/>(0x70)<sp/>//<sp/>OR<sp/>with<sp/>port<sp/>to<sp/>switch<sp/>to<sp/>(0x79<sp/>=<sp/>switch<sp/>to<sp/>SW_SERIAL1)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+    </programlisting>
+    <location file="protocol/serial-1.0.md"/>
+  </compounddef>
+</doxygen>

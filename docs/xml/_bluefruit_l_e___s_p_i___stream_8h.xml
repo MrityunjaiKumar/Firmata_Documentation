@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="_bluefruit_l_e___s_p_i___stream_8h" kind="file" language="C++">
+    <compoundname>BluefruitLE_SPI_Stream.h</compoundname>
+    <includes local="no">Adafruit_BluefruitLE_SPI.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>BluefruitLE_SPI_Stream.h</label>
+        <link refid="_bluefruit_l_e___s_p_i___stream_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Adafruit_BluefruitLE_SPI.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_bluefruit_l_e___s_p_i___stream" prot="public">BluefruitLE_SPI_Stream</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>BluefruitLE_SPI_Stream.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>Documentation<sp/>for<sp/>the<sp/>various<sp/>AT<sp/>commands<sp/>used<sp/>below<sp/>is<sp/>available<sp/>at</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/>https://learn.adafruit.com/adafruit-feather-m0-bluefruit-le/at-commands</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_BLUEFRUIT_LE_SPI_STREAM_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_BLUEFRUIT_LE_SPI_STREAM_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Adafruit_BluefruitLE_SPI.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="class_bluefruit_l_e___s_p_i___stream" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_bluefruit_l_e___s_p_i___stream" kindref="compound">BluefruitLE_SPI_Stream</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Stream</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1ac19a14eae594461685c7789744536630" kindref="member">BluefruitLE_SPI_Stream</ref>(int8_t<sp/>csPin,<sp/>int8_t<sp/>irqPin,<sp/>int8_t<sp/>rstPin);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1a1153c170fe43096e881da36384a09a81" kindref="member">setLocalName</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*localName);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1afa82fbf3469f5bebdc4fd38a4026ebac" kindref="member">setAdvertisingInterval</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>advertisingInterval);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1a78d07c321348b200ea7abee1f1875c52" kindref="member">setConnectionInterval</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>minConnInterval,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>maxConnInterval);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1ad8d6ba754217d03bd70f7e0b0b6886e2" kindref="member">setFlushInterval</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flushInterval);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1a42256ec5b06c7bea51d0861ee5271e5e" kindref="member">begin</ref>();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1aac853db41256e05fec5acd82f1c23b63" kindref="member">poll</ref>();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1a2317ee4a4a96f91114fb1c202f8cfc95" kindref="member">end</ref>();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>overrides</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1aaa7aedd59278e33d6777fdd3748f73e9" kindref="member">write</ref>(uint8_t<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>Print::write;<sp/><sp/></highlight><highlight class="comment">//<sp/>Expose<sp/>other<sp/>write<sp/>variants</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Stream<sp/>overrides</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1abc3db6c602232f00c3ff48bf6d4f326c" kindref="member">available</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1a2ee93c296d49d07f76d93bcdaff1ac9e" kindref="member">read</ref>();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1ab866490cfe5ba0e16c1ab4b6dbaebf9f" kindref="member">peek</ref>();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1aa2be3b49f65f896743b1d2bbf6c47f6c" kindref="member">flush</ref>();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>Adafruit_BluefruitLE_SPI<sp/>ble;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>String<sp/>localName;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>advertisingInterval;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>minConnInterval;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>maxConnInterval;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>txBuffer[SDEP_MAX_PACKETSIZE];</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>txCount;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="class_bluefruit_l_e___s_p_i___stream_1ac19a14eae594461685c7789744536630" refkind="member"><highlight class="normal"><ref refid="class_bluefruit_l_e___s_p_i___stream_1ac19a14eae594461685c7789744536630" kindref="member">BluefruitLE_SPI_Stream::BluefruitLE_SPI_Stream</ref>(int8_t<sp/>csPin,<sp/>int8_t<sp/>irqPin,<sp/>int8_t<sp/>rstPin)<sp/>:</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>ble(csPin,<sp/>irqPin,<sp/>rstPin),</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>advertisingInterval(0),</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>minConnInterval(0),</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>maxConnInterval(0),</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>txCount(0)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">{<sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="class_bluefruit_l_e___s_p_i___stream_1a1153c170fe43096e881da36384a09a81" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1a1153c170fe43096e881da36384a09a81" kindref="member">BluefruitLE_SPI_Stream::setLocalName</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*localName)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>this-&gt;localName<sp/>=<sp/>localName;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="class_bluefruit_l_e___s_p_i___stream_1afa82fbf3469f5bebdc4fd38a4026ebac" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1afa82fbf3469f5bebdc4fd38a4026ebac" kindref="member">BluefruitLE_SPI_Stream::setAdvertisingInterval</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>advertisingInterval)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>this-&gt;advertisingInterval<sp/>=<sp/>advertisingInterval;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="class_bluefruit_l_e___s_p_i___stream_1a78d07c321348b200ea7abee1f1875c52" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1a78d07c321348b200ea7abee1f1875c52" kindref="member">BluefruitLE_SPI_Stream::setConnectionInterval</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>minConnInterval,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>maxConnInterval)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>this-&gt;minConnInterval<sp/>=<sp/>minConnInterval;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>this-&gt;maxConnInterval<sp/>=<sp/>maxConnInterval;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="class_bluefruit_l_e___s_p_i___stream_1ad8d6ba754217d03bd70f7e0b0b6886e2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1ad8d6ba754217d03bd70f7e0b0b6886e2" kindref="member">BluefruitLE_SPI_Stream::setFlushInterval</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flushInterval)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Not<sp/>used</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="class_bluefruit_l_e___s_p_i___stream_1a42256ec5b06c7bea51d0861ee5271e5e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1a42256ec5b06c7bea51d0861ee5271e5e" kindref="member">BluefruitLE_SPI_Stream::begin</ref>()</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initialize<sp/>the<sp/>SPI<sp/>interface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>ble.begin();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Perform<sp/>a<sp/>factory<sp/>reset<sp/>to<sp/>make<sp/>sure<sp/>everything<sp/>is<sp/>in<sp/>a<sp/>known<sp/>state</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>ble.factoryReset();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Disable<sp/>command<sp/>echo<sp/>from<sp/>Bluefruit</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>ble.echo(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Change<sp/>the<sp/>MODE<sp/>LED<sp/>to<sp/>indicate<sp/>BLE<sp/>UART<sp/>activity</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>ble.println(</highlight><highlight class="stringliteral">&quot;AT+HWMODELED=BLEUART&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>local<sp/>name</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(localName.length()<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>ble.print(</highlight><highlight class="stringliteral">&quot;AT+GAPDEVNAME=&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>ble.println(localName);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>connection<sp/>and<sp/>advertising<sp/>intervals</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>ble.print(</highlight><highlight class="stringliteral">&quot;AT+GAPINTERVALS=&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(minConnInterval<sp/>&gt;<sp/>0)<sp/>ble.print(minConnInterval);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>ble.print(</highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(maxConnInterval<sp/>&gt;<sp/>0)<sp/>ble.print(maxConnInterval);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>ble.print(</highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(advertisingInterval<sp/>&gt;<sp/>0)<sp/>ble.print(advertisingInterval);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>ble.print(</highlight><highlight class="stringliteral">&quot;,,&quot;</highlight><highlight class="normal">);<sp/><sp/></highlight><highlight class="comment">//<sp/>Always<sp/>omit<sp/>fast<sp/>advertising<sp/>timeout,<sp/>hence<sp/>two<sp/>commas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(advertisingInterval<sp/>&gt;<sp/>0)<sp/>ble.print(advertisingInterval);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>ble.println();</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Disable<sp/>real<sp/>and<sp/>simulated<sp/>mode<sp/>switch<sp/>(i.e.<sp/>&quot;+++&quot;)<sp/>command</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>ble.println(</highlight><highlight class="stringliteral">&quot;AT+MODESWITCHEN=local,0&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>ble.enableModeSwitchCommand(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Switch<sp/>to<sp/>data<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>ble.setMode(BLUEFRUIT_MODE_DATA);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="class_bluefruit_l_e___s_p_i___stream_1aac853db41256e05fec5acd82f1c23b63" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1aac853db41256e05fec5acd82f1c23b63" kindref="member">BluefruitLE_SPI_Stream::poll</ref>()</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>there&apos;s<sp/>outgoing<sp/>data<sp/>in<sp/>the<sp/>buffer,<sp/>just<sp/>send<sp/>it.<sp/><sp/>The<sp/>firmware<sp/>on</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>nRF51822<sp/>will<sp/>decide<sp/>when<sp/>to<sp/>transmit<sp/>the<sp/>data<sp/>in<sp/>its<sp/>TX<sp/>FIFO.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(txCount)<sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1aa2be3b49f65f896743b1d2bbf6c47f6c" kindref="member">flush</ref>();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>In<sp/>order<sp/>to<sp/>check<sp/>for<sp/>a<sp/>connection,<sp/>we<sp/>would<sp/>need<sp/>to<sp/>switch<sp/>from<sp/>data<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>command<sp/>mode<sp/>and<sp/>back<sp/>again.<sp/><sp/>However,<sp/>due<sp/>to<sp/>the<sp/>internal<sp/>workings<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Adafruit_BluefruitLE_SPI,<sp/>this<sp/>can<sp/>lead<sp/>to<sp/>unread<sp/>incoming<sp/>data<sp/>being</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>lost.<sp/><sp/>Therefore,<sp/>we<sp/>always<sp/>return<sp/>true.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132" refid="class_bluefruit_l_e___s_p_i___stream_1a2317ee4a4a96f91114fb1c202f8cfc95" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1a2317ee4a4a96f91114fb1c202f8cfc95" kindref="member">BluefruitLE_SPI_Stream::end</ref>()</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1aa2be3b49f65f896743b1d2bbf6c47f6c" kindref="member">flush</ref>();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>ble.end();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="class_bluefruit_l_e___s_p_i___stream_1aaa7aedd59278e33d6777fdd3748f73e9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1aaa7aedd59278e33d6777fdd3748f73e9" kindref="member">BluefruitLE_SPI_Stream::write</ref>(uint8_t<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="139"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>txBuffer[txCount++]<sp/>=<sp/>byte;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(txCount<sp/>==<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(txBuffer))<sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1aa2be3b49f65f896743b1d2bbf6c47f6c" kindref="member">flush</ref>();</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="class_bluefruit_l_e___s_p_i___stream_1abc3db6c602232f00c3ff48bf6d4f326c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1abc3db6c602232f00c3ff48bf6d4f326c" kindref="member">BluefruitLE_SPI_Stream::available</ref>()</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ble.available();</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="class_bluefruit_l_e___s_p_i___stream_1a2ee93c296d49d07f76d93bcdaff1ac9e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1a2ee93c296d49d07f76d93bcdaff1ac9e" kindref="member">BluefruitLE_SPI_Stream::read</ref>()</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ble.read();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="class_bluefruit_l_e___s_p_i___stream_1ab866490cfe5ba0e16c1ab4b6dbaebf9f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1ab866490cfe5ba0e16c1ab4b6dbaebf9f" kindref="member">BluefruitLE_SPI_Stream::peek</ref>()</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ble.peek();</highlight></codeline>
+<codeline lineno="158"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="class_bluefruit_l_e___s_p_i___stream_1aa2be3b49f65f896743b1d2bbf6c47f6c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bluefruit_l_e___s_p_i___stream_1aa2be3b49f65f896743b1d2bbf6c47f6c" kindref="member">BluefruitLE_SPI_Stream::flush</ref>()</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>ble.write(txBuffer,<sp/>txCount);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>txCount<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>_BLUEFRUIT_LE_SPI_STREAM_H_</highlight></codeline>
+    </programlisting>
+    <location file="arduino/utility/BluefruitLE_SPI_Stream.h"/>
+  </compounddef>
+</doxygen>

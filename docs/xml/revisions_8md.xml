@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="revisions_8md" kind="file" language="Markdown">
+    <compoundname>revisions.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">##<sp/>Version<sp/>2.6.0<sp/>-<sp/>September<sp/>16th,<sp/>2017</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>AccelStepperFirmata<sp/>(Stepper<sp/>2.0)<sp/>for<sp/>improved<sp/>and<sp/>more<sp/>scalable<sp/>stepper<sp/>motor<sp/>support.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Deprecated<sp/>the<sp/>old<sp/>Stepper<sp/>protocol,<sp/>now<sp/>renamed<sp/>to<sp/>&quot;stepper-legacy.md&quot;.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Version<sp/>2.5.1<sp/>-<sp/>December<sp/>21st,<sp/>2015</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Enable<sp/>I2C<sp/>auto-restart<sp/>by<sp/>setting<sp/>[bit<sp/>6<sp/>of<sp/>byte<sp/>3](https://github.com/firmata/protocol/commit/22cc239b5a527556d82707fe0c540b16ed42f0bc#diff-ab7ff1e563b418ee1e557d6ece901dc7R17)<sp/>of<sp/>the<sp/>`I2C_REQUEST`<sp/>message.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Version<sp/>2.5.0<sp/>-<sp/>November<sp/>7th,<sp/>2015</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>[Serial<sp/>feature](https://github.com/firmata/protocol/blob/master/serial.md)<sp/>for<sp/>interfacing<sp/>with<sp/>serial<sp/>devices<sp/>via<sp/>hardware<sp/>or<sp/>software<sp/>serial.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>ability<sp/>to<sp/>set<sp/>the<sp/>value<sp/>of<sp/>a<sp/>pin<sp/>by<sp/>sending<sp/>a<sp/>single<sp/>pin<sp/>value<sp/>instead<sp/>of<sp/>a<sp/>port<sp/>value.<sp/>See<sp/>&apos;set<sp/>digital<sp/>pin<sp/>value&apos;<sp/>in<sp/>[protocol.md](https://github.com/firmata/protocol/blob/master/protocol.md#message-types)<sp/>for<sp/>details.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Version<sp/>2.4.0<sp/>-<sp/>December<sp/>2014</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Changed<sp/>`report<sp/>digital<sp/>port`<sp/>and<sp/>`report<sp/>analog<sp/>pin`<sp/>definition<sp/>to<sp/>return<sp/>the<sp/>port<sp/>(digital)<sp/>or<sp/>pin<sp/>(analog)<sp/>value<sp/>upon<sp/>toggling<sp/>to<sp/>`enable`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>[OneWire<sp/>feature](https://github.com/firmata/protocol/blob/master/onewire.md)<sp/>to<sp/>interface<sp/>with<sp/>1-Wire<sp/>devices.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>[Encoder<sp/>feature](https://github.com/firmata/protocol/blob/master/encoder.md)<sp/>to<sp/>interface<sp/>with<sp/>linear<sp/>and<sp/>rotary<sp/>encoders.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>[Scheduler<sp/>feature](https://github.com/firmata/protocol/blob/master/scheduler.md)<sp/>to<sp/>enable<sp/>scheduling<sp/>Firmata<sp/>tasks.<sp/>Useful<sp/>when<sp/>you<sp/>need<sp/>to<sp/>send<sp/>more<sp/>data<sp/>than<sp/>the<sp/>64<sp/>byte<sp/>serial<sp/>buffer<sp/>can<sp/>handle.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>[Stepper<sp/>feature](https://github.com/firmata/protocol/blob/master/stepper.md)<sp/>to<sp/>enable<sp/>interfacing<sp/>with<sp/>2<sp/>wire<sp/>and<sp/>4<sp/>wire<sp/>stepper<sp/>motor<sp/>drivers<sp/>and<sp/>step<sp/>+<sp/>direction<sp/>drivers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*Note:<sp/>The<sp/>above<sp/>4<sp/>features<sp/>were<sp/>initially<sp/>added<sp/>for<sp/>`ConfigurableFirmata`<sp/>which<sp/>had<sp/>a<sp/>different<sp/>version<sp/>number.<sp/>They<sp/>have<sp/>been<sp/>moved<sp/>under<sp/>the<sp/>`v2.4.0`<sp/>release<sp/>here<sp/>to<sp/>get<sp/>things<sp/>back<sp/>on<sp/>track<sp/>for<sp/>the<sp/>protocol<sp/>version.*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Version<sp/>2.3.0<sp/>-<sp/>February<sp/>2013</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Angle<sp/>was<sp/>removed<sp/>from<sp/>the<sp/>`SERVO_CONFIG`<sp/>message.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Version<sp/>2.2.0<sp/>-<sp/>January<sp/>2011</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>[Extended<sp/>Analog](https://github.com/firmata/protocol/blob/master/protocol.md#extended-analog)<sp/>to<sp/>allow<sp/>addressing<sp/>beyond<sp/>pin<sp/>15<sp/>and<sp/>support<sp/>analog<sp/>values<sp/>with<sp/>any<sp/>number<sp/>of<sp/>bits.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>[Capability<sp/>Query](https://github.com/firmata/protocol/blob/master/protocol.md#capability-query)<sp/>to<sp/>query<sp/>the<sp/>capabilities<sp/>supported<sp/>by<sp/>each<sp/>pin.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>[Analog<sp/>Mapping<sp/>Query](https://github.com/firmata/protocol/blob/master/protocol.md#analog-mapping-query)<sp/>to<sp/>map<sp/>analog<sp/>pin<sp/>numbers<sp/>to<sp/>their<sp/>digital<sp/>pin<sp/>number<sp/>equivalent.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>[Pin<sp/>State<sp/>Query](https://github.com/firmata/protocol/blob/master/protocol.md#pin-state-query)<sp/>to<sp/>query<sp/>the<sp/>state<sp/>of<sp/>pin<sp/>(output<sp/>value<sp/>or<sp/>if<sp/>input<sp/>pullup<sp/>enabled).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Version<sp/>2.1.0<sp/>-<sp/>March<sp/>2010</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>[I2C<sp/>feature](https://github.com/firmata/protocol/blob/master/i2c.md)<sp/>to<sp/>interface<sp/>with<sp/>I2C<sp/>devices.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>[Servo<sp/>feature](https://github.com/firmata/protocol/blob/master/servos.md)<sp/>to<sp/>interface<sp/>with<sp/>servo<sp/>motors.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>ability<sp/>to<sp/>change<sp/>the<sp/>[sampling<sp/>interval](https://github.com/firmata/protocol/blob/master/protocol.md#sampling-interval).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Version<sp/>2.0.0<sp/>-<sp/>September<sp/>2008</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Changed<sp/>to<sp/>8-bit<sp/>port-based<sp/>digital<sp/>messages<sp/>(a<sp/>collection<sp/>of<sp/>8<sp/>pins)<sp/>to<sp/>mirror<sp/>ports<sp/>from<sp/>previous<sp/>14-bit<sp/>ports<sp/>(a<sp/>collection<sp/>of<sp/>14<sp/>pins)<sp/>modeled<sp/>after<sp/>the<sp/>standard<sp/>(ATmega8/168/328)<sp/>Arduino<sp/>boards.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>ability<sp/>to<sp/>[query<sp/>firmware<sp/>name<sp/>and<sp/>version](https://github.com/firmata/protocol/blob/master/protocol.md#query-firmware-name-and-version).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Version<sp/>1.0.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Switched<sp/>to<sp/>MIDI-compatible<sp/>packet<sp/>format<sp/>(though<sp/>the<sp/>message<sp/>interpretation<sp/>differs).</highlight></codeline>
+    </programlisting>
+    <location file="protocol/revisions.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="_bluefruit_l_e___s_p_i___stream_8cpp" kind="file" language="C++">
+    <compoundname>BluefruitLE_SPI_Stream.cpp</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Implementation<sp/>is<sp/>in<sp/>BluefruitLE_SPI_Stream.h<sp/>to<sp/>avoid<sp/>linker<sp/>issues.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="arduino/utility/BluefruitLE_SPI_Stream.cpp"/>
+  </compounddef>
+</doxygen>

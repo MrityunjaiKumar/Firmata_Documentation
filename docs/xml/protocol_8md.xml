@@ -1,0 +1,363 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="protocol_8md" kind="file" language="Markdown">
+    <compoundname>protocol.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">protocol</highlight></codeline>
+<codeline><highlight class="normal">========</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Current<sp/>version:<sp/>2.6.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>intention<sp/>of<sp/>this<sp/>protocol<sp/>is<sp/>to<sp/>allow<sp/>as<sp/>much<sp/>of<sp/>the<sp/>microcontroller<sp/>to<sp/>be<sp/>controlled<sp/>as<sp/>possible<sp/>from<sp/>the<sp/>host<sp/>computer.<sp/>This<sp/>protocol<sp/>was<sp/>designed<sp/>for<sp/>the<sp/>direct<sp/>communication<sp/>between<sp/>a<sp/>microcontroller<sp/>and<sp/>a<sp/>software<sp/>object<sp/>on<sp/>a<sp/>host<sp/>computer.<sp/>The<sp/>host<sp/>software<sp/>object<sp/>should<sp/>then<sp/>provide<sp/>an<sp/>interface<sp/>that<sp/>makes<sp/>sense<sp/>in<sp/>that<sp/>environment.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>data<sp/>communication<sp/>format<sp/>uses<sp/>MIDI<sp/>messages.<sp/>It<sp/>is<sp/>not<sp/>necessarily<sp/>a<sp/>MIDI<sp/>device,<sp/>first<sp/>it<sp/>uses<sp/>a<sp/>faster<sp/>serial<sp/>speed,<sp/>and<sp/>second,<sp/>the<sp/>messages<sp/>don&apos;t<sp/>always<sp/>map<sp/>the<sp/>same.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Message<sp/>Types</highlight></codeline>
+<codeline><highlight class="normal">===</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>protocol<sp/>uses<sp/>the<sp/>[MIDI<sp/>message<sp/>format](http://www.midi.org/techspecs/midimessages.php),<sp/>but<sp/>does<sp/>not<sp/>use<sp/>the<sp/>whole<sp/>protocol.</highlight></codeline>
+<codeline><highlight class="normal">Most<sp/>of<sp/>the<sp/>command<sp/>mappings<sp/>here<sp/>will<sp/>not<sp/>be<sp/>directly<sp/>usable<sp/>in<sp/>terms<sp/>of<sp/>MIDI<sp/>controllers<sp/>and<sp/>synths.<sp/>It<sp/>should<sp/>co-exist<sp/>with<sp/>MIDI<sp/>without<sp/>trouble<sp/>and<sp/>can<sp/>be<sp/>parsed<sp/>by<sp/>standard<sp/>MIDI<sp/>interpreters.<sp/>Just<sp/>some<sp/>of<sp/>the<sp/>message<sp/>data<sp/>is<sp/>used</highlight></codeline>
+<codeline><highlight class="normal">differently.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>type<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>command<sp/>|<sp/>MIDI<sp/>channel<sp/>|<sp/>first<sp/>byte<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>second<sp/>byte<sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>---------------------<sp/>|<sp/>-------<sp/>|<sp/>------------<sp/>|<sp/>-------------------<sp/>|<sp/>---------------<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>analog<sp/>I/O<sp/>message<sp/><sp/><sp/><sp/>|<sp/>0xE0<sp/><sp/><sp/><sp/>|<sp/>pin<sp/>#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>LSB(bits<sp/>0-6)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>MSB(bits<sp/>7-13)<sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>digital<sp/>I/O<sp/>message<sp/><sp/><sp/>|<sp/>0x90<sp/><sp/><sp/><sp/>|<sp/>port<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>LSB(bits<sp/>0-6)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>MSB(bits<sp/>7-13)<sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>report<sp/>analog<sp/>pin<sp/><sp/><sp/><sp/><sp/>|<sp/>0xC0<sp/><sp/><sp/><sp/>|<sp/>pin<sp/>#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>disable/enable(0/1)<sp/>|<sp/>-<sp/>n/a<sp/>-<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>report<sp/>digital<sp/>port<sp/><sp/><sp/>|<sp/>0xD0<sp/><sp/><sp/><sp/>|<sp/>port<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>disable/enable(0/1)<sp/>|<sp/>-<sp/>n/a<sp/>-<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>start<sp/>sysex<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0xF0<sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>set<sp/>pin<sp/>mode(I/O)<sp/><sp/><sp/><sp/><sp/>|<sp/>0xF4<sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>pin<sp/>#<sp/>(0-127)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>pin<sp/>mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>set<sp/>digital<sp/>pin<sp/>value<sp/>|<sp/>0xF5<sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>pin<sp/>#<sp/>(0-127)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>pin<sp/>value(0/1)<sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>sysex<sp/>end<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0xF7<sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>protocol<sp/>version<sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0xF9<sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>major<sp/>version<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>minor<sp/>version<sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>system<sp/>reset<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0xFF<sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sysex-based<sp/>sub-commands<sp/>(0x00<sp/>-<sp/>0x7F)<sp/>are<sp/>used<sp/>for<sp/>an<sp/>extended<sp/>command<sp/>set.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>type<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>sub-command<sp/>|<sp/>first<sp/>byte<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>second<sp/>byte<sp/><sp/><sp/>|<sp/>...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>---------------------<sp/>|<sp/>-------<sp/><sp/><sp/><sp/><sp/>|<sp/>---------------<sp/><sp/>|<sp/>-------------<sp/>|<sp/>--------------<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>string<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0x71<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>char<sp/>*string<sp/>...<sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>firmware<sp/>name/version<sp/>|<sp/>0x79<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>major<sp/>version<sp/><sp/><sp/><sp/>|<sp/>minor<sp/>version<sp/>|<sp/>char<sp/>*name<sp/>...<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Data<sp/>Message<sp/>Expansion</highlight></codeline>
+<codeline><highlight class="normal">===</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Two<sp/>byte<sp/>digital<sp/>data<sp/>format,<sp/>second<sp/>nibble<sp/>of<sp/>byte<sp/>0<sp/>gives<sp/>the<sp/>port<sp/>number<sp/>(eg<sp/>0x92<sp/>is<sp/>the<sp/>third<sp/>port,<sp/>port<sp/>2)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>digital<sp/>data,<sp/>0x90-0x9F,<sp/>(MIDI<sp/>NoteOn,<sp/>bud<sp/>different<sp/>data<sp/>format)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>digital<sp/>pins<sp/>0-6<sp/>bitmask</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>digital<sp/>pin<sp/>7<sp/>bitmask</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Analog<sp/>14-bit<sp/>data<sp/>format</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>analog<sp/>pin,<sp/>0xE0-0xEF,<sp/>(MIDI<sp/>Pitch<sp/>Wheel)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>analog<sp/>least<sp/>significant<sp/>7<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>analog<sp/>most<sp/>significant<sp/>7<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Version<sp/>report<sp/>format</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>version<sp/>report<sp/>header<sp/>(0xF9)<sp/>(MIDI<sp/>Undefined)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>major<sp/>version<sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>minor<sp/>version<sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Control<sp/>Messages<sp/>Expansion</highlight></codeline>
+<codeline><highlight class="normal">===</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Set<sp/>pin<sp/>mode</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>set<sp/>digital<sp/>pin<sp/>mode<sp/>(0xF4)<sp/>(MIDI<sp/>Undefined)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>set<sp/>pin<sp/>number<sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>mode<sp/>(INPUT/OUTPUT/ANALOG/PWM/SERVO/I2C/ONEWIRE/STEPPER/ENCODER/SERIAL/PULLUP,<sp/>0/1/2/3/4/6/7/8/9/10/11)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Set<sp/>digital<sp/>pin<sp/>value<sp/>(added<sp/>in<sp/>v2.5)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>set<sp/>digital<sp/>pin<sp/>value<sp/>(0xF5)<sp/>(MIDI<sp/>Undefined)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>set<sp/>pin<sp/>number<sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>value<sp/>(LOW/HIGH,<sp/>0/1)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Toggle<sp/>analogIn<sp/>reporting<sp/>by<sp/>pin</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>toggle<sp/>analogIn<sp/>reporting<sp/>(0xC0-0xCF)<sp/>(MIDI<sp/>Program<sp/>Change)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>disable(0)<sp/>/<sp/>enable(non-zero)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">*As<sp/>of<sp/>Firmata<sp/>2.4.0,<sp/>upon<sp/>enabling<sp/>an<sp/>analog<sp/>pin,<sp/>the<sp/>pin<sp/>value<sp/>should<sp/>be<sp/>reported<sp/>to<sp/>the<sp/>client</highlight></codeline>
+<codeline><highlight class="normal">application.*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Toggle<sp/>digital<sp/>port<sp/>reporting<sp/>by<sp/>port<sp/>(second<sp/>nibble<sp/>of<sp/>byte<sp/>0),<sp/>eg<sp/>0xD1<sp/>is<sp/>port<sp/>1<sp/>is<sp/>pins<sp/>8<sp/>to<sp/>15</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>toggle<sp/>digital<sp/>port<sp/>reporting<sp/>(0xD0-0xDF)<sp/>(MIDI<sp/>Aftertouch)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>disable(0)<sp/>/<sp/>enable(non-zero)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">*As<sp/>of<sp/>Firmata<sp/>2.4.0,<sp/>upon<sp/>enabling<sp/>a<sp/>digital<sp/>port,<sp/>the<sp/>port<sp/>value<sp/>should<sp/>be<sp/>reported<sp/>to<sp/>the<sp/>client</highlight></codeline>
+<codeline><highlight class="normal">application.*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Request<sp/>version<sp/>report</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>request<sp/>version<sp/>report<sp/>(0xF9)<sp/>(MIDI<sp/>Undefined)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sysex<sp/>Message<sp/>Format</highlight></codeline>
+<codeline><highlight class="normal">===</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">System<sp/>exclusive<sp/>(sysex)<sp/>messages<sp/>are<sp/>used<sp/>to<sp/>define<sp/>sets<sp/>of<sp/>core<sp/>and<sp/>optional<sp/>firmata<sp/>features.<sp/>Core<sp/>features<sp/>are<sp/>related<sp/>to<sp/>functionality<sp/>such<sp/>as<sp/>digital<sp/>and<sp/>analog<sp/>I/O,<sp/>querying<sp/>information<sp/>about<sp/>the<sp/>state<sp/>and<sp/>capabilities<sp/>of<sp/>the<sp/>microcontroller<sp/>board<sp/>and<sp/>the<sp/>firmware<sp/>running<sp/>on<sp/>the<sp/>board.<sp/>All<sp/>core<sp/>features<sp/>are<sp/>documented<sp/>in<sp/>this<sp/>protocol.md<sp/>file.<sp/>Optional<sp/>features<sp/>extend<sp/>the<sp/>hardware<sp/>capabilities<sp/>beyond<sp/>basic<sp/>digital<sp/>I/O<sp/>and<sp/>analog<sp/>I/O<sp/>and<sp/>also<sp/>provide<sp/>APIs<sp/>to<sp/>interface<sp/>with<sp/>general<sp/>and<sp/>specific<sp/>components<sp/>and<sp/>system<sp/>services.<sp/>Optional<sp/>features<sp/>are<sp/>individually<sp/>documented<sp/>in<sp/>separate<sp/>markdown<sp/>files.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>firmata<sp/>sysex<sp/>message<sp/>has<sp/>a<sp/>feature<sp/>ID<sp/>composed<sp/>of<sp/>either<sp/>a<sp/>single<sp/>byte<sp/>or<sp/>an<sp/>extended<sp/>ID<sp/>composed<sp/>of<sp/>3<sp/>bytes<sp/>where<sp/>the<sp/>first<sp/>byte<sp/>is<sp/>always<sp/>0<sp/>to<sp/>indicate<sp/>it&apos;s<sp/>an<sp/>extended<sp/>ID.<sp/>The<sp/>following<sp/>table<sp/>illustrates<sp/>the<sp/>structure.<sp/>The<sp/>most<sp/>significant<sp/>bit<sp/>must<sp/>be<sp/>set<sp/>to<sp/>0<sp/>in<sp/>each<sp/>byte<sp/>between<sp/>the<sp/>`START_SYSEX`<sp/>and<sp/>`END_SYSEX`<sp/>which<sp/>frame<sp/>the<sp/>message.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>byte<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>byte<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>bytes<sp/>2<sp/>-<sp/>N-1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>byte<sp/>N<sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>-----------<sp/>|<sp/>------------<sp/>|<sp/>-----------------------------------------<sp/>|<sp/>---------<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>START_SYSEX<sp/>|<sp/>ID<sp/>(01H-7DH)<sp/>|<sp/>PAYLOAD<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>END_SYSEX<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>START_SYSEX<sp/>|<sp/>ID<sp/>(00H)<sp/><sp/><sp/><sp/><sp/>|<sp/>EXTENDED_ID<sp/>(00H<sp/>00H<sp/>-<sp/>7FH<sp/>7FH)<sp/>+<sp/>PAYLOAD<sp/>|<sp/>END_SYSEX<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Following<sp/>are<sp/>SysEx<sp/>commands<sp/>used<sp/>for<sp/>core<sp/>features<sp/>defined<sp/>in<sp/>this<sp/>version<sp/>of<sp/>the<sp/>protocol:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">EXTENDED_ID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00<sp/>//<sp/>A<sp/>value<sp/>of<sp/>0x00<sp/>indicates<sp/>the<sp/>next<sp/>2<sp/>bytes<sp/>define<sp/>the<sp/>extended<sp/>ID</highlight></codeline>
+<codeline><highlight class="normal">RESERVED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x01-0x0F<sp/>//<sp/>IDs<sp/>0x01<sp/>-<sp/>0x0F<sp/>are<sp/>reserved<sp/>for<sp/>user<sp/>defined<sp/>commands</highlight></codeline>
+<codeline><highlight class="normal">ANALOG_MAPPING_QUERY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x69<sp/>//<sp/>ask<sp/>for<sp/>mapping<sp/>of<sp/>analog<sp/>to<sp/>pin<sp/>numbers</highlight></codeline>
+<codeline><highlight class="normal">ANALOG_MAPPING_RESPONSE<sp/><sp/><sp/><sp/><sp/>0x6A<sp/>//<sp/>reply<sp/>with<sp/>mapping<sp/>info</highlight></codeline>
+<codeline><highlight class="normal">CAPABILITY_QUERY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x6B<sp/>//<sp/>ask<sp/>for<sp/>supported<sp/>modes<sp/>and<sp/>resolution<sp/>of<sp/>all<sp/>pins</highlight></codeline>
+<codeline><highlight class="normal">CAPABILITY_RESPONSE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x6C<sp/>//<sp/>reply<sp/>with<sp/>supported<sp/>modes<sp/>and<sp/>resolution</highlight></codeline>
+<codeline><highlight class="normal">PIN_STATE_QUERY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x6D<sp/>//<sp/>ask<sp/>for<sp/>a<sp/>pin&apos;s<sp/>current<sp/>mode<sp/>and<sp/>state<sp/>(different<sp/>than<sp/>value)</highlight></codeline>
+<codeline><highlight class="normal">PIN_STATE_RESPONSE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x6E<sp/>//<sp/>reply<sp/>with<sp/>a<sp/>pin&apos;s<sp/>current<sp/>mode<sp/>and<sp/>state<sp/>(different<sp/>than<sp/>value)</highlight></codeline>
+<codeline><highlight class="normal">EXTENDED_ANALOG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x6F<sp/>//<sp/>analog<sp/>write<sp/>(PWM,<sp/>Servo,<sp/>etc)<sp/>to<sp/>any<sp/>pin</highlight></codeline>
+<codeline><highlight class="normal">STRING_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x71<sp/>//<sp/>a<sp/>string<sp/>message<sp/>with<sp/>14-bits<sp/>per<sp/>char</highlight></codeline>
+<codeline><highlight class="normal">REPORT_FIRMWARE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x79<sp/>//<sp/>report<sp/>name<sp/>and<sp/>version<sp/>of<sp/>the<sp/>firmware</highlight></codeline>
+<codeline><highlight class="normal">SAMPLING_INTERVAL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x7A<sp/>//<sp/>the<sp/>interval<sp/>at<sp/>which<sp/>analog<sp/>input<sp/>is<sp/>sampled<sp/>(default<sp/>=<sp/>19ms)</highlight></codeline>
+<codeline><highlight class="normal">SYSEX_NON_REALTIME<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x7E<sp/>//<sp/>MIDI<sp/>Reserved<sp/>for<sp/>non-realtime<sp/>messages</highlight></codeline>
+<codeline><highlight class="normal">SYSEX_REALTIME<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0X7F<sp/>//<sp/>MIDI<sp/>Reserved<sp/>for<sp/>realtime<sp/>messages</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>full<sp/>set<sp/>of<sp/>core<sp/>and<sp/>optional<sp/>Firmata<sp/>feature<sp/>IDs<sp/>is<sp/>defined<sp/>in<sp/>the<sp/>[firmata-registry.md](https://github.com/firmata/protocol/blob/master/feature-registry.md)<sp/>file.<sp/>See<sp/>the<sp/>registry<sp/>for<sp/>more<sp/>info<sp/>on<sp/>proposing<sp/>a<sp/>new<sp/>feature<sp/>and<sp/>obtaining<sp/>an<sp/>feature<sp/>ID.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Query<sp/>Firmware<sp/>Name<sp/>and<sp/>Version</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>firmware<sp/>name<sp/>to<sp/>be<sp/>reported<sp/>should<sp/>be<sp/>exactly<sp/>the<sp/>same<sp/>as<sp/>the<sp/>name<sp/>of<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">Firmata<sp/>client<sp/>file,<sp/>minus<sp/>the<sp/>file<sp/>extension.<sp/>So<sp/>for<sp/>StandardFirmata.ino,<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">firmware<sp/>name<sp/>is:<sp/>StandardFirmata.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Query<sp/>firmware<sp/>Name<sp/>and<sp/>Version</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>queryFirmware<sp/><sp/><sp/><sp/><sp/>(0x79)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Receive<sp/>Firmware<sp/>Name<sp/>and<sp/>Version<sp/>(after<sp/>query)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>queryFirmware<sp/><sp/><sp/><sp/><sp/>(0x79)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>major<sp/>version<sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>minor<sp/>version<sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>first<sp/>char<sp/>of<sp/>firmware<sp/>name<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>first<sp/>char<sp/>of<sp/>firmware<sp/>name<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>second<sp/>char<sp/>of<sp/>firmware<sp/>name<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>second<sp/>char<sp/>of<sp/>firmware<sp/>name<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>for<sp/>as<sp/>many<sp/>bytes<sp/>as<sp/>it<sp/>needs</highlight></codeline>
+<codeline><highlight class="normal">N<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Extended<sp/>Analog</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">As<sp/>an<sp/>alternative<sp/>to<sp/>the<sp/>normal<sp/>analog<sp/>message,<sp/>this<sp/>extended<sp/>version<sp/>allows</highlight></codeline>
+<codeline><highlight class="normal">addressing<sp/>beyond<sp/>pin<sp/>15<sp/>and<sp/>supports<sp/>sending<sp/>analog<sp/>values<sp/>with<sp/>any<sp/>number<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">bits.<sp/>The<sp/>number<sp/>of<sp/>data<sp/>bits<sp/>is<sp/>inferred<sp/>by<sp/>the<sp/>length<sp/>of<sp/>the<sp/>message.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>extended<sp/>analog<sp/>message<sp/><sp/>(0x6F)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>bits<sp/>0-6<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(least<sp/>significant<sp/>byte)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>bits<sp/>7-13<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(most<sp/>significant<sp/>byte)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>additional<sp/>bytes<sp/>may<sp/>be<sp/>sent<sp/>if<sp/>more<sp/>bits<sp/>are<sp/>needed</highlight></codeline>
+<codeline><highlight class="normal">N<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Capability<sp/>Query</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>capability<sp/>query<sp/>provides<sp/>a<sp/>list<sp/>of<sp/>all<sp/>modes<sp/>supported<sp/>by<sp/>each<sp/>pin.<sp/>Each<sp/>mode<sp/>is<sp/>described<sp/>by<sp/>2<sp/>bytes<sp/>where<sp/>the<sp/>first<sp/>byte<sp/>is<sp/>the<sp/>pin<sp/>mode<sp/>(such<sp/>as<sp/>digital<sp/>input,<sp/>digital<sp/>output,<sp/>PWM)<sp/>and<sp/>the<sp/>second<sp/>byte<sp/>is<sp/>the<sp/>resolution<sp/>(or<sp/>sometimes<sp/>the<sp/>type<sp/>of<sp/>pin<sp/>such<sp/>as<sp/>RX<sp/>or<sp/>TX<sp/>for<sp/>a<sp/>UART<sp/>pin).<sp/>A<sp/>value<sp/>of<sp/>`0x7F`<sp/>is<sp/>used<sp/>as<sp/>a<sp/>separator<sp/>to<sp/>mark<sp/>the<sp/>end<sp/>each<sp/>pin&apos;s<sp/>list<sp/>of<sp/>modes.<sp/>The<sp/>number<sp/>of<sp/>pins<sp/>supported<sp/>is<sp/>inferred<sp/>by<sp/>the<sp/>message<sp/>length.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Capabilities<sp/>query</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>CAPABILITY_QUERY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x6B)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Capabilities<sp/>response</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>CAPABILITY_RESPONSE<sp/><sp/><sp/><sp/><sp/><sp/>(0x6C)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>1st<sp/>supported<sp/>mode<sp/>of<sp/>pin<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>1st<sp/>mode&apos;s<sp/>resolution<sp/>of<sp/>pin<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>2nd<sp/>supported<sp/>mode<sp/>of<sp/>pin<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>2nd<sp/>mode&apos;s<sp/>resolution<sp/>of<sp/>pin<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>additional<sp/>modes/resolutions,<sp/>followed<sp/>by<sp/>`0x7F`,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>to<sp/>mark<sp/>the<sp/>end<sp/>of<sp/>the<sp/>pin&apos;s<sp/>modes.<sp/>Subsequently,<sp/>each<sp/>pin</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>follows<sp/>with<sp/>its<sp/>modes/resolutions<sp/>and<sp/>`0x7F`,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>until<sp/>all<sp/>pins<sp/>are<sp/>defined.</highlight></codeline>
+<codeline><highlight class="normal">N<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Supported<sp/>Modes</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>modes<sp/>in<sp/>the<sp/>following<sp/>list<sp/>are<sp/>the<sp/>modes<sp/>of<sp/>operation<sp/>that<sp/>can<sp/>be<sp/>returned<sp/>during<sp/>the<sp/>capability<sp/>response:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">DIGITAL_INPUT<sp/><sp/><sp/><sp/><sp/><sp/>(0x00)</highlight></codeline>
+<codeline><highlight class="normal">DIGITAL_OUTPUT<sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">ANALOG_INPUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="normal">PWM<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x03)</highlight></codeline>
+<codeline><highlight class="normal">SERVO<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x04)</highlight></codeline>
+<codeline><highlight class="normal">SHIFT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x05)</highlight></codeline>
+<codeline><highlight class="normal">I2C<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x06)</highlight></codeline>
+<codeline><highlight class="normal">ONEWIRE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x07)</highlight></codeline>
+<codeline><highlight class="normal">STEPPER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x08)</highlight></codeline>
+<codeline><highlight class="normal">ENCODER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x09)</highlight></codeline>
+<codeline><highlight class="normal">SERIAL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x0A)</highlight></codeline>
+<codeline><highlight class="normal">INPUT_PULLUP<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x0B)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*If<sp/>no<sp/>modes<sp/>are<sp/>defined<sp/>for<sp/>a<sp/>pin,<sp/>no<sp/>values<sp/>are<sp/>returned<sp/>(other<sp/>than<sp/>the<sp/>separator<sp/>value<sp/>`0x7F`)<sp/>and<sp/>it<sp/>should<sp/>be<sp/>assumed<sp/>that<sp/>pin<sp/>is<sp/>unsupported<sp/>by<sp/>Firmata.*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Mode<sp/>Resolution</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>resolution<sp/>byte<sp/>serves<sp/>a<sp/>couple<sp/>of<sp/>different<sp/>purpose:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>The<sp/>original<sp/>purpose<sp/>was<sp/>to<sp/>define<sp/>the<sp/>resolution<sp/>for<sp/>analog<sp/>input,<sp/>pwm,<sp/>servo<sp/>and<sp/>other<sp/>modes<sp/>that<sp/>define<sp/>a<sp/>specific<sp/>resolution<sp/>(such<sp/>as<sp/>10-bit<sp/>for<sp/>analog).</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>The<sp/>resolution<sp/>byte<sp/>has<sp/>been<sp/>adapted<sp/>for<sp/>another<sp/>purpose<sp/>for<sp/>Serial/UART<sp/>pins,<sp/>it<sp/>defines<sp/>if<sp/>the<sp/>pin<sp/>is<sp/>RX<sp/>or<sp/>TX<sp/>and<sp/>which<sp/>UART<sp/>it<sp/>belongs<sp/>to.<sp/>[RX0](https://github.com/firmata/protocol/blob/master/serial.md#serial-pin-capability-response)<sp/>is<sp/>the<sp/>RX<sp/>pin<sp/>of<sp/>UART0<sp/>(Serial<sp/>on<sp/>an<sp/>Arduino<sp/>for<sp/>example),<sp/>TX1<sp/>if<sp/>the<sp/>TX<sp/>pin<sp/>of<sp/>UART1<sp/>(Serial1<sp/>on<sp/>an<sp/>Arduino).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Modes<sp/>utilizing<sp/>the<sp/>resolution<sp/>byte<sp/>as<sp/>resolution<sp/>data:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">DIGITAL_INPUT<sp/><sp/><sp/><sp/><sp/><sp/>(0x00)<sp/>//<sp/>resolution<sp/>is<sp/>1<sp/>(binary)</highlight></codeline>
+<codeline><highlight class="normal">DIGITAL_OUTPUT<sp/><sp/><sp/><sp/><sp/>(0x01)<sp/>//<sp/>resolution<sp/>is<sp/>1<sp/>(binary)</highlight></codeline>
+<codeline><highlight class="normal">ANALOG_INPUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)<sp/>//<sp/>analog<sp/>input<sp/>resolution<sp/>in<sp/>number<sp/>of<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal">PWM<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x03)<sp/>//<sp/>pwm<sp/>resolution<sp/>in<sp/>number<sp/>of<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal">SERVO<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x04)<sp/>//<sp/>servo<sp/>resolution<sp/>in<sp/>number<sp/>of<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal">STEPPER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x08)<sp/>//<sp/>resolution<sp/>is<sp/>number<sp/>number<sp/>of<sp/>bits<sp/>in<sp/>max<sp/>number<sp/>of<sp/>steps</highlight></codeline>
+<codeline><highlight class="normal">INPUT_PULLUP<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x0B)<sp/>//<sp/>resolution<sp/>is<sp/>1<sp/>(binary)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Modes<sp/>utilizing<sp/>the<sp/>resolution<sp/>byte<sp/>to<sp/>define<sp/>type<sp/>of<sp/>pin:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">SERIAL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x0A)<sp/>//<sp/>See<sp/>description<sp/>in<sp/>[serial.md](https://github.com/firmata/protocol/blob/master/serial.md#serial-pin-capability-response)</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>also<sp/>to<sp/>be<sp/>added<sp/>to<sp/>I2C<sp/>in<sp/>the<sp/>future<sp/>to<sp/>define<sp/>SCL<sp/>and<sp/>SDA<sp/>pins</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*For<sp/>other<sp/>features<sp/>(including<sp/>I2C<sp/>until<sp/>updated)<sp/>the<sp/>resolution<sp/>information<sp/>is<sp/>less<sp/>important<sp/>so<sp/>a<sp/>value<sp/>of<sp/>1<sp/>is<sp/>used.*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Analog<sp/>Mapping<sp/>Query</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Analog<sp/>messages<sp/>are<sp/>numbered<sp/>0<sp/>to<sp/>15,<sp/>which<sp/>traditionally<sp/>refer<sp/>to<sp/>the<sp/>Arduino</highlight></codeline>
+<codeline><highlight class="normal">pins<sp/>labeled<sp/>A0,<sp/>A1,<sp/>A2,<sp/>etc.<sp/>However,<sp/>these<sp/>pins<sp/>are<sp/>actually<sp/>configured<sp/>using</highlight></codeline>
+<codeline><highlight class="normal">&quot;normal&quot;<sp/>pin<sp/>numbers<sp/>in<sp/>the<sp/>pin<sp/>mode<sp/>message,<sp/>and<sp/>when<sp/>those<sp/>pins<sp/>are<sp/>used<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">non-analog<sp/>functions.<sp/>The<sp/>analog<sp/>mapping<sp/>query<sp/>provides<sp/>the<sp/>information<sp/>about</highlight></codeline>
+<codeline><highlight class="normal">which<sp/>pins<sp/>(as<sp/>used<sp/>with<sp/>Firmata&apos;s<sp/>pin<sp/>mode<sp/>message)<sp/>correspond<sp/>to<sp/>the<sp/>analog</highlight></codeline>
+<codeline><highlight class="normal">channels.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Analog<sp/>mapping<sp/>query</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>analog<sp/>mapping<sp/>query<sp/><sp/><sp/><sp/><sp/>(0x69)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Analog<sp/>mapping<sp/>response</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>analog<sp/>mapping<sp/>response<sp/><sp/>(0x6A)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>analog<sp/>channel<sp/>corresponding<sp/>to<sp/>pin<sp/>0,<sp/>or<sp/>127<sp/>if<sp/>pin<sp/>0<sp/>does<sp/>not<sp/>support<sp/>analog</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>analog<sp/>channel<sp/>corresponding<sp/>to<sp/>pin<sp/>1,<sp/>or<sp/>127<sp/>if<sp/>pin<sp/>1<sp/>does<sp/>not<sp/>support<sp/>analog</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>analog<sp/>channel<sp/>corresponding<sp/>to<sp/>pin<sp/>2,<sp/>or<sp/>127<sp/>if<sp/>pin<sp/>2<sp/>does<sp/>not<sp/>support<sp/>analog</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>etc,<sp/>one<sp/>byte<sp/>for<sp/>each<sp/>pin</highlight></codeline>
+<codeline><highlight class="normal">N<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*The<sp/>above<sp/>2<sp/>queries<sp/>provide<sp/>static<sp/>data<sp/>(should<sp/>never<sp/>change<sp/>for<sp/>a<sp/>particular</highlight></codeline>
+<codeline><highlight class="normal">board).<sp/>Because<sp/>this<sp/>information<sp/>is<sp/>fixed<sp/>and<sp/>should<sp/>only<sp/>need<sp/>to<sp/>be<sp/>read<sp/>once,</highlight></codeline>
+<codeline><highlight class="normal">these<sp/>messages<sp/>are<sp/>designed<sp/>for<sp/>a<sp/>simple<sp/>implementation<sp/>in<sp/>StandardFirmata,</highlight></codeline>
+<codeline><highlight class="normal">rather<sp/>that<sp/>bandwidth<sp/>savings<sp/>(eg,<sp/>using<sp/>packed<sp/>bit<sp/>fields).*</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Pin<sp/>State<sp/>Query</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>pin<sp/>**state**<sp/>is<sp/>any<sp/>data<sp/>written<sp/>to<sp/>the<sp/>pin<sp/>(*it<sp/>is<sp/>important<sp/>to<sp/>note<sp/>that</highlight></codeline>
+<codeline><highlight class="normal">pin<sp/>state<sp/>!=<sp/>pin<sp/>value*).<sp/>For<sp/>output<sp/>modes<sp/>(digital<sp/>output,</highlight></codeline>
+<codeline><highlight class="normal">PWM,<sp/>and<sp/>Servo),<sp/>the<sp/>state<sp/>is<sp/>any<sp/>value<sp/>that<sp/>has<sp/>been<sp/>previously<sp/>written<sp/>to<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">pin.<sp/>For<sp/>input<sp/>modes,<sp/>typically<sp/>the<sp/>state<sp/>is<sp/>zero.<sp/>However,<sp/>for<sp/>digital<sp/>inputs,</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>state<sp/>is<sp/>the<sp/>status<sp/>of<sp/>the<sp/>pull-up<sp/>resistor<sp/>which<sp/>is<sp/>1<sp/>if<sp/>enabled,<sp/>0<sp/>if<sp/>disabled.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>pin<sp/>state<sp/>query<sp/>can<sp/>also<sp/>be<sp/>used<sp/>as<sp/>a<sp/>verification<sp/>after<sp/>sending<sp/>pin<sp/>modes</highlight></codeline>
+<codeline><highlight class="normal">or<sp/>data<sp/>messages.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Pin<sp/>state<sp/>query</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>pin<sp/>state<sp/>query<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x6D)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Pin<sp/>state<sp/>response</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>pin<sp/>state<sp/>response<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x6E)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>pin<sp/>mode<sp/>(the<sp/>currently<sp/>configured<sp/>mode)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>pin<sp/>state,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>(optional)<sp/>pin<sp/>state,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>(optional)<sp/>pin<sp/>state,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>additional<sp/>optional<sp/>bytes,<sp/>as<sp/>many<sp/>as<sp/>needed</highlight></codeline>
+<codeline><highlight class="normal">N<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">String</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Send<sp/>short<sp/>string<sp/>messages<sp/>between<sp/>the<sp/>board<sp/>and<sp/>the<sp/>client<sp/>application.<sp/>String<sp/>length<sp/>is<sp/>limited</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>half<sp/>the<sp/>buffer<sp/>size<sp/>-<sp/>3<sp/>(for<sp/>Arduino<sp/>this<sp/>limits<sp/>strings<sp/>to<sp/>30<sp/>chars).<sp/>Commonly<sp/>used<sp/>to<sp/>report</highlight></codeline>
+<codeline><highlight class="normal">error<sp/>messages<sp/>to<sp/>the<sp/>client.</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>STRING_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x71)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>first<sp/>char<sp/>LSB</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>first<sp/>char<sp/>MSB</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>second<sp/>char<sp/>LSB</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>second<sp/>char<sp/>MSB</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>additional<sp/>bytes<sp/>up<sp/>to<sp/>half<sp/>the<sp/>buffer<sp/>size<sp/>-<sp/>3<sp/>(START_SYSEX,<sp/>STRING_DATA,<sp/>END_SYSEX)</highlight></codeline>
+<codeline><highlight class="normal">N<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sampling<sp/>Interval</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>sampling<sp/>interval<sp/>sets<sp/>how<sp/>often<sp/>analog<sp/>data<sp/>and<sp/>i2c<sp/>data<sp/>is<sp/>reported<sp/>to<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">client.<sp/>The<sp/>default<sp/>for<sp/>the<sp/>arduino<sp/>implementation<sp/>is<sp/>19ms.<sp/>This<sp/>means<sp/>that<sp/>every</highlight></codeline>
+<codeline><highlight class="normal">19ms<sp/>analog<sp/>data<sp/>will<sp/>be<sp/>reported<sp/>and<sp/>any<sp/>i2c<sp/>devices<sp/>with<sp/>read<sp/>continuous<sp/>mode</highlight></codeline>
+<codeline><highlight class="normal">will<sp/>be<sp/>read.</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SAMPLING_INTERVAL<sp/><sp/>(0x7A)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>sampling<sp/>interval<sp/>on<sp/>the<sp/>millisecond<sp/>time<sp/>scale<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>sampling<sp/>interval<sp/>on<sp/>the<sp/>millisecond<sp/>time<sp/>scale<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+    </programlisting>
+    <location file="protocol/protocol.md"/>
+  </compounddef>
+</doxygen>

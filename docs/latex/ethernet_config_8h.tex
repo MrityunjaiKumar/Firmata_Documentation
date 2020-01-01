@@ -1,0 +1,107 @@
+\hypertarget{ethernet_config_8h}{}\doxysection{ethernet\+Config.\+h File Reference}
+\label{ethernet_config_8h}\index{ethernetConfig.h@{ethernetConfig.h}}
+{\ttfamily \#include $<$S\+P\+I.\+h$>$}\newline
+{\ttfamily \#include $<$Ethernet.\+h$>$}\newline
+Include dependency graph for ethernet\+Config.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{ethernet_config_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ethernet_config_8h_a04edf8e622c7ef8aa46a70ae5ecd0dd6}{W\+I\+Z5100\+\_\+\+E\+T\+H\+E\+R\+N\+ET}}
+\item 
+\#define \mbox{\hyperlink{ethernet_config_8h_a1773420c3b93bb8386484fb91849835a}{remote\+\_\+ip}}~I\+P\+Address(10, 0, 0, 3)
+\item 
+\#define \mbox{\hyperlink{ethernet_config_8h_aa34d8e4c1b72f7cb87c80ff9fa2e6dda}{network\+\_\+port}}~3030
+\item 
+\#define \mbox{\hyperlink{ethernet_config_8h_a2b4b74058584a3b553398a5e5e2f21c8}{local\+\_\+ip}}~I\+P\+Address(10, 0, 0, 15)
+\item 
+\#define \mbox{\hyperlink{ethernet_config_8h_ad5ca2bf3cb6dc465bb1fba6bd8b86a65}{I\+S\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+P\+IN}}(p)~((\mbox{\hyperlink{_boards_8h_a10c780ba47d61f0be8d59cf1c79dfff8}{I\+S\+\_\+\+P\+I\+N\+\_\+\+S\+PI}}(p) $\vert$$\vert$ (p) == 4) $\vert$$\vert$ (p) == 10)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Ethernet\+Client \mbox{\hyperlink{ethernet_config_8h_a058da3453d064890d1eb0a5e2f730807}{client}}
+\item 
+const byte \mbox{\hyperlink{ethernet_config_8h_ac678069a2c8ce2ddc5026707bebe34b4}{mac}} \mbox{[}$\,$\mbox{]} = \{0x90, 0x\+A2, 0x\+DA, 0x00, 0x53, 0x\+E5\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ethernet_config_8h_ad5ca2bf3cb6dc465bb1fba6bd8b86a65}\label{ethernet_config_8h_ad5ca2bf3cb6dc465bb1fba6bd8b86a65}} 
+\index{ethernetConfig.h@{ethernetConfig.h}!IS\_IGNORE\_PIN@{IS\_IGNORE\_PIN}}
+\index{IS\_IGNORE\_PIN@{IS\_IGNORE\_PIN}!ethernetConfig.h@{ethernetConfig.h}}
+\doxysubsubsection{\texorpdfstring{IS\_IGNORE\_PIN}{IS\_IGNORE\_PIN}}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+P\+IN(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~((\mbox{\hyperlink{_boards_8h_a10c780ba47d61f0be8d59cf1c79dfff8}{I\+S\+\_\+\+P\+I\+N\+\_\+\+S\+PI}}(p) $\vert$$\vert$ (p) == 4) $\vert$$\vert$ (p) == 10)}
+
+
+
+Definition at line 92 of file ethernet\+Config.\+h.
+
+\mbox{\Hypertarget{ethernet_config_8h_a2b4b74058584a3b553398a5e5e2f21c8}\label{ethernet_config_8h_a2b4b74058584a3b553398a5e5e2f21c8}} 
+\index{ethernetConfig.h@{ethernetConfig.h}!local\_ip@{local\_ip}}
+\index{local\_ip@{local\_ip}!ethernetConfig.h@{ethernetConfig.h}}
+\doxysubsubsection{\texorpdfstring{local\_ip}{local\_ip}}
+{\footnotesize\ttfamily \#define local\+\_\+ip~I\+P\+Address(10, 0, 0, 15)}
+
+
+
+Definition at line 67 of file ethernet\+Config.\+h.
+
+\mbox{\Hypertarget{ethernet_config_8h_aa34d8e4c1b72f7cb87c80ff9fa2e6dda}\label{ethernet_config_8h_aa34d8e4c1b72f7cb87c80ff9fa2e6dda}} 
+\index{ethernetConfig.h@{ethernetConfig.h}!network\_port@{network\_port}}
+\index{network\_port@{network\_port}!ethernetConfig.h@{ethernetConfig.h}}
+\doxysubsubsection{\texorpdfstring{network\_port}{network\_port}}
+{\footnotesize\ttfamily \#define network\+\_\+port~3030}
+
+
+
+Definition at line 62 of file ethernet\+Config.\+h.
+
+\mbox{\Hypertarget{ethernet_config_8h_a1773420c3b93bb8386484fb91849835a}\label{ethernet_config_8h_a1773420c3b93bb8386484fb91849835a}} 
+\index{ethernetConfig.h@{ethernetConfig.h}!remote\_ip@{remote\_ip}}
+\index{remote\_ip@{remote\_ip}!ethernetConfig.h@{ethernetConfig.h}}
+\doxysubsubsection{\texorpdfstring{remote\_ip}{remote\_ip}}
+{\footnotesize\ttfamily \#define remote\+\_\+ip~I\+P\+Address(10, 0, 0, 3)}
+
+
+
+Definition at line 55 of file ethernet\+Config.\+h.
+
+\mbox{\Hypertarget{ethernet_config_8h_a04edf8e622c7ef8aa46a70ae5ecd0dd6}\label{ethernet_config_8h_a04edf8e622c7ef8aa46a70ae5ecd0dd6}} 
+\index{ethernetConfig.h@{ethernetConfig.h}!WIZ5100\_ETHERNET@{WIZ5100\_ETHERNET}}
+\index{WIZ5100\_ETHERNET@{WIZ5100\_ETHERNET}!ethernetConfig.h@{ethernetConfig.h}}
+\doxysubsubsection{\texorpdfstring{WIZ5100\_ETHERNET}{WIZ5100\_ETHERNET}}
+{\footnotesize\ttfamily \#define W\+I\+Z5100\+\_\+\+E\+T\+H\+E\+R\+N\+ET}
+
+
+
+Definition at line 20 of file ethernet\+Config.\+h.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ethernet_config_8h_a058da3453d064890d1eb0a5e2f730807}\label{ethernet_config_8h_a058da3453d064890d1eb0a5e2f730807}} 
+\index{ethernetConfig.h@{ethernetConfig.h}!client@{client}}
+\index{client@{client}!ethernetConfig.h@{ethernetConfig.h}}
+\doxysubsubsection{\texorpdfstring{client}{client}}
+{\footnotesize\ttfamily Ethernet\+Client client}
+
+
+
+Definition at line 25 of file ethernet\+Config.\+h.
+
+\mbox{\Hypertarget{ethernet_config_8h_ac678069a2c8ce2ddc5026707bebe34b4}\label{ethernet_config_8h_ac678069a2c8ce2ddc5026707bebe34b4}} 
+\index{ethernetConfig.h@{ethernetConfig.h}!mac@{mac}}
+\index{mac@{mac}!ethernetConfig.h@{ethernetConfig.h}}
+\doxysubsubsection{\texorpdfstring{mac}{mac}}
+{\footnotesize\ttfamily const byte mac\mbox{[}$\,$\mbox{]} = \{0x90, 0x\+A2, 0x\+DA, 0x00, 0x53, 0x\+E5\}}
+
+
+
+Definition at line 71 of file ethernet\+Config.\+h.
+

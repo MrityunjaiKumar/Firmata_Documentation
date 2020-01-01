@@ -1,0 +1,196 @@
+A proposal for a S\+PI protocol for Firmata.
+
+S\+PI is tricky to add to Firmata in a generic way since it is a fairly loose standard. There are variations in number of bits written and read, how the CS pin is used (if at all), use of other pins, etc. This proposal attempts to accommodate uses cases beyond the common sequence of\+:
+
+
+\begin{DoxyEnumerate}
+\item set cs pin L\+OW
+\item write/read 1 or more words
+\item set cs Pin H\+I\+GH
+\item return data read
+\end{DoxyEnumerate}\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md79}{}\doxysubsection{Overview}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md79}
+A {\ttfamily S\+P\+I\+\_\+\+B\+E\+G\+IN} command is used to initialize the S\+PI bus. Up to 8 S\+PI ports are supported using the {\ttfamily channel} parameter.
+
+The {\ttfamily S\+P\+I\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+C\+O\+N\+F\+IG} command is used to configure each attached S\+PI device.
+
+There are 3 ways to send and receive data from the S\+PI slave device\+:
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily S\+P\+I\+\_\+\+T\+R\+A\+N\+S\+F\+ER} For each word written a word is read simultaneously.
+\item {\ttfamily S\+P\+I\+\_\+\+W\+R\+I\+TE} Only write data (ignore any data returned by the slave device).
+\item {\ttfamily S\+P\+I\+\_\+\+R\+E\+AD} Only read data, writing {\ttfamily 0} for each word to be read.
+\end{DoxyEnumerate}
+
+A {\ttfamily S\+P\+I\+\_\+\+R\+E\+P\+LY} is used to send requested data back to the client application when either a {\ttfamily S\+P\+I\+\_\+\+T\+R\+A\+N\+S\+F\+ER} mode or {\ttfamily S\+P\+I\+\_\+\+R\+E\+AD} command is sent.
+
+A {\ttfamily S\+P\+I\+\_\+\+E\+ND} command disables the S\+PI bus for the specified channel.\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md80}{}\doxysubsection{S\+P\+I\+\_\+\+B\+E\+G\+IN}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md80}
+Required for platforms that require S\+PI bus initialization, such as Arduino. Optional if initialization is automatic (some Linux-\/based platforms for example).
+
+Use {\ttfamily S\+P\+I\+\_\+\+B\+E\+G\+IN} to initialize the S\+PI bus. Up to 8 S\+PI ports are supported, where each port is identified by a {\ttfamily channel} number (0-\/7).
+
+{\ttfamily S\+P\+I\+\_\+\+B\+E\+G\+IN} must be called at least once before sending any of the other commands.
+
+{\ttfamily channel} is used to identify which S\+PI bus is used in the case that a board has multiple ports (S\+PI, S\+P\+I1, S\+P\+I2, etc). Many boards only have one port so the {\ttfamily channel} value will most often be {\ttfamily 0}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0:  START\_SYSEX}
+\DoxyCodeLine{1:  SPI\_DATA              (0x68)}
+\DoxyCodeLine{2:  SPI\_BEGIN             (0x00)}
+\DoxyCodeLine{3:  channel               (HW supports multiple SPI ports. range = 0-\/7, default = 0)}
+\DoxyCodeLine{4:  END\_SYSEX}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md81}{}\doxysubsection{S\+P\+I\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+C\+O\+N\+F\+IG}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md81}
+Send this command once for each attached S\+PI device to initialize it before use. See parameter descriptions below.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0:  START\_SYSEX}
+\DoxyCodeLine{1:  SPI\_DATA              (0x68)}
+\DoxyCodeLine{2:  SPI\_DEVICE\_CONFIG     (0x01)}
+\DoxyCodeLine{3:  deviceId | channel    (bits 3-\/6: deviceId, bits 0-\/2: channel)}
+\DoxyCodeLine{4:  dataMode | bitOrder   (bits 1-\/2: dataMode (0-\/3), bit 0: bitOrder)}
+\DoxyCodeLine{5:  maxSpeed              (bits 0 -\/ 6)}
+\DoxyCodeLine{6:  maxSpeed              (bits 7 -\/ 14)}
+\DoxyCodeLine{7:  maxSpeed              (bits 15 -\/ 21)}
+\DoxyCodeLine{8:  maxSpeed              (bits 22 -\/ 28)}
+\DoxyCodeLine{9:  maxSpeed              (bits 29 -\/ 32)}
+\DoxyCodeLine{10: wordSize              (0 = DEFAULT = 8-\/bits, 1 = 1-\/bit, 2 = 2 bits, etc)}
+\DoxyCodeLine{11: csPinOptions          bit 0: CS\_PIN\_CONTROL (0 = disable}
+\DoxyCodeLine{                                                 1 = enable (default))}
+\DoxyCodeLine{                          bit 1: CS\_ACTIVE\_STATE (0 = Active LOW (default)}
+\DoxyCodeLine{                                                  1 = Active HIGH)}
+\DoxyCodeLine{                          bits 2-\/6: reserved for future options}
+\DoxyCodeLine{12: csPin                 (0-\/127) The chip select pin number (ignored if}
+\DoxyCodeLine{                          CS\_PIN\_CONTROL set to 0)}
+\DoxyCodeLine{13: END\_SYSEX}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md82}{}\doxysubsubsection{device\+Id}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md82}
+The {\ttfamily device\+Id} may either be used as a specific identifier (Linux) or as an arbitrary identifier (Arduino). The {\ttfamily device\+Id} value range is from 0 to 15 and can be specified separately for each S\+PI channel. The {\ttfamily device\+Id} will also be returned with the channel for each {\ttfamily S\+P\+I\+\_\+\+R\+E\+P\+LY} command so it is clear which device the data corresponds to.\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md83}{}\doxysubsubsection{bit\+Order}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md83}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{LSBFIRST = 0}
+\DoxyCodeLine{MSBFIRST = 1 (default)}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md84}{}\doxysubsubsection{data\+Mode}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md84}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ mode  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ clock polarity (C\+P\+OL)  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ clock phase (C\+P\+HA)   }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ mode  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ clock polarity (C\+P\+OL)  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ clock phase (C\+P\+HA)   }\\\cline{1-3}
+\endhead
+0  &0  &0   \\\cline{1-3}
+1  &0  &1   \\\cline{1-3}
+2  &1  &0   \\\cline{1-3}
+3  &1  &1   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md85}{}\doxysubsubsection{max\+Speed}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md85}
+The maximum speed of communication with the S\+PI device. For a S\+PI device rated up to 5 M\+Hz, use 5000000.
+
+{\itshape For platforms that use a clock divider instead of a speed, pass the clock divider value instead.}\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md86}{}\doxysubsubsection{word\+Size}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md86}
+The size of a {\ttfamily word} in bits. Typically 8-\/bits (default). 0 = D\+E\+F\+A\+U\+LT = 8-\/bits, 1 = 1 bit, 2 = 2 bits, etc (limit is T\+BD).\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md87}{}\doxysubsubsection{cs\+Pin\+Options / cs\+Pin}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md87}
+Use {\ttfamily C\+S\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+S\+T\+A\+TE} to set the active state (typically L\+OW) for the CS pin. If the platform\textquotesingle{}s S\+PI implementation does not already automatically handle the CS pin (it\textquotesingle{}s handled automatically on Raspberry Pi, but not Arduino boards for example), then set {\ttfamily C\+S\+\_\+\+P\+I\+N\+\_\+\+C\+O\+N\+T\+R\+OL} to {\ttfamily enable} and specify the {\ttfamily cs\+Pin} number in byte 12. If the platform already handles the cs\+Pin then set {\ttfamily C\+S\+\_\+\+P\+I\+N\+\_\+\+C\+O\+N\+T\+R\+OL} to {\ttfamily disable} and the {\ttfamily cs\+Pin} number will be ignored (set to zero). For non-\/\+Linux platforms such as Arduino, to enable manual control of the CS pin using {\ttfamily D\+I\+G\+I\+T\+A\+L\+\_\+\+M\+E\+S\+S\+A\+GE} commands, set {\ttfamily C\+S\+\_\+\+P\+I\+N\+\_\+\+C\+O\+N\+T\+R\+OL} to {\ttfamily disable}.\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md88}{}\doxysubsection{S\+P\+I\+\_\+\+T\+R\+A\+N\+S\+F\+ER}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md88}
+Full-\/duplex write/read transfer. This is the normal S\+PI transfer mode, a word must be written for every word read. Reply is sent via {\ttfamily S\+P\+I\+\_\+\+R\+E\+P\+LY}.
+
+Since transport (Serial, Ethernet, Wi-\/\+Fi, etc) buffers tend to be small on microcontroller platforms, it may be necessary to send several {\ttfamily S\+P\+I\+\_\+\+T\+R\+A\+N\+S\+F\+ER} commmands to complete a single S\+PI transaction. Use the {\ttfamily deselect\+Cs\+Pin} parameter to ensure the CS pin is not deselected in between {\ttfamily S\+P\+I\+\_\+\+T\+R\+A\+N\+S\+F\+ER} commands until the transaction is complete.
+
+{\ttfamily request\+Id} is used in the request messages {\ttfamily S\+P\+I\+\_\+\+T\+R\+A\+N\+S\+F\+ER}, {\ttfamily S\+P\+I\+\_\+\+W\+R\+I\+TE} and {\ttfamily S\+P\+I\+\_\+\+R\+E\+AD} and in the reply message {\ttfamily S\+P\+I\+\_\+\+R\+E\+P\+LY}. Its purpose is to ensure that the S\+P\+I\+\_\+\+R\+E\+P\+LY message matches the request. For each request message, increment a single 7-\/bit request\+Id value, rolling it over to 0 when $>$ 127.
+
+{\ttfamily deselect\+Cs\+Pin} is used to control the cs\+Pin at the end of the transfer. By default the cs\+Pin will be deselected at the end of every transfer. However, to prevent deselection to enable back-\/to-\/back transfers for example, set {\ttfamily deselect\+Cs\+Pin} to {\ttfamily 0} and the pin state won\textquotesingle{}t be affected at the end of the transfer.
+
+If {\ttfamily C\+S\+\_\+\+P\+I\+N\+\_\+\+C\+O\+N\+T\+R\+OL} is enabled, then the CS pin active state will be set when the {\ttfamily S\+P\+I\+\_\+\+T\+R\+A\+N\+S\+F\+ER} command is received. It will only be deselected at the end of the transfer if {\ttfamily deselect\+Cs\+Pin} is set to 1.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0:  START\_SYSEX}
+\DoxyCodeLine{1:  SPI\_DATA              (0x68)}
+\DoxyCodeLine{2:  SPI\_TRANSFER          (0x02)}
+\DoxyCodeLine{3:  deviceId | channel    (bits 3-\/6: deviceId, bits 0-\/2: channel)}
+\DoxyCodeLine{4:  requestId             (0-\/127) // increment for each call}
+\DoxyCodeLine{5:  deselectCsPin         (0 = don't deselect csPin}
+\DoxyCodeLine{                          1 = deselect csPin (default))}
+\DoxyCodeLine{6.  numWords              (0-\/127: number of words to transfer)}
+\DoxyCodeLine{7:  data 0                (bits 0-\/6)}
+\DoxyCodeLine{8:  data 0                (bits 7-\/14 if word size if word size > 7 \&\& < 15)}
+\DoxyCodeLine{9:  data 0                (if word size > 14)}
+\DoxyCodeLine{...                       up to numWords * (wordSize / 7)}
+\DoxyCodeLine{N:  END\_SYSEX}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md89}{}\doxysubsection{S\+P\+I\+\_\+\+W\+R\+I\+TE}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md89}
+Only write data, ignoring any data returned by the slave device.
+
+Provided as a convenience. The same can be accomplished using {\ttfamily S\+P\+I\+\_\+\+T\+R\+A\+N\+S\+F\+ER} and ignoring the {\ttfamily S\+P\+I\+\_\+\+R\+E\+P\+LY} command.
+
+If {\ttfamily C\+S\+\_\+\+P\+I\+N\+\_\+\+C\+O\+N\+T\+R\+OL} is enabled, then the CS pin active state will be set when the {\ttfamily S\+P\+I\+\_\+\+W\+R\+I\+TE} command is received. It will only be deselected at the end of the write if {\ttfamily deselect\+Cs\+Pin} is set to 1.
+
+A {\ttfamily S\+P\+I\+\_\+\+W\+R\+I\+TE} command should return a {\ttfamily S\+P\+I\+\_\+\+R\+E\+P\+LY} with a value of {\ttfamily 1} if the write was successful or a value of {\ttfamily 0} if the write failed.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0:  START\_SYSEX}
+\DoxyCodeLine{1:  SPI\_DATA              (0x68)}
+\DoxyCodeLine{2:  SPI\_WRITE             (0x03)}
+\DoxyCodeLine{3:  deviceId | channel    (bits 3-\/6: deviceId, bits 0-\/2: channel)}
+\DoxyCodeLine{4:  requestId             (0-\/127) // increment for each call}
+\DoxyCodeLine{5:  deselectCsPin         (0 = don't deselect csPin}
+\DoxyCodeLine{                          1 = deselect csPin (default))}
+\DoxyCodeLine{6.  numWords              (0-\/127: number of words to write)}
+\DoxyCodeLine{7:  data 0                (bits 0-\/6)}
+\DoxyCodeLine{8:  data 0                (bits 7-\/14 if word size if word size > 7 \&\& < 15)}
+\DoxyCodeLine{9:  data 0                (if word size > 14)}
+\DoxyCodeLine{...                       up to numWords * (wordSize / 7)}
+\DoxyCodeLine{N:  END\_SYSEX}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md90}{}\doxysubsection{S\+P\+I\+\_\+\+R\+E\+AD}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md90}
+Only read data, writing {\ttfamily 0} for each word to be read. Reply is sent via {\ttfamily S\+P\+I\+\_\+\+R\+E\+P\+LY}.
+
+Provided as a convenience. The same can be accomplished using {\ttfamily S\+P\+I\+\_\+\+T\+R\+A\+N\+S\+F\+ER} and sending a {\ttfamily 0} for each byte to be read.
+
+If {\ttfamily C\+S\+\_\+\+P\+I\+N\+\_\+\+C\+O\+N\+T\+R\+OL} is enabled, then the CS pin active state will be set when the {\ttfamily S\+P\+I\+\_\+\+R\+E\+AD} command is received. It will only be deselected at the end of the read if {\ttfamily deselect\+Cs\+Pin} is set to 1.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0:  START\_SYSEX}
+\DoxyCodeLine{1:  SPI\_DATA              (0x68)}
+\DoxyCodeLine{2:  SPI\_WRITE             (0x04)}
+\DoxyCodeLine{3:  deviceId | channel    (bits 3-\/6: deviceId, bits 0-\/2: channel)}
+\DoxyCodeLine{4:  requestId             (0-\/127)  // increment for each call}
+\DoxyCodeLine{5:  deselectCsPin         (0 = don't deselect csPin}
+\DoxyCodeLine{                          1 = deselect csPin (default))}
+\DoxyCodeLine{6.  numWords              (0-\/127: number of words to read)}
+\DoxyCodeLine{7:  END\_SYSEX}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md91}{}\doxysubsection{S\+P\+I\+\_\+\+R\+E\+P\+LY}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md91}
+An array of data received from the S\+PI slave device in response to a {\ttfamily S\+P\+I\+\_\+\+T\+R\+A\+N\+S\+F\+ER} or {\ttfamily S\+P\+I\+\_\+\+R\+E\+AD} command. The {\ttfamily request\+Id} should match the ID from the transfer, read or write command.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0:  START\_SYSEX}
+\DoxyCodeLine{1:  SPI\_DATA              (0x68)}
+\DoxyCodeLine{2:  SPI\_REPLY             (0x05)}
+\DoxyCodeLine{3:  deviceId | channel    (bits 3-\/6: deviceId, bits 0-\/2: channel)}
+\DoxyCodeLine{4:  requestId             (0-\/127) // must match the ID from the request}
+\DoxyCodeLine{5:  numWords              (0-\/127: number of words in the reply)}
+\DoxyCodeLine{6:  data 0                (bits 0-\/6)}
+\DoxyCodeLine{7:  data 0                (bits 7-\/14 if word size if word size > 7 \&\& < 15)}
+\DoxyCodeLine{8:  data 0                (if word size > 14)}
+\DoxyCodeLine{...                       up to numWords * (wordSize / 7)}
+\DoxyCodeLine{N:  END\_SYSEX}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md92}{}\doxysubsection{S\+P\+I\+\_\+\+E\+ND}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_spi-proposal_autotoc_md92}
+Call to release S\+PI hardware send before quitting a Firmata client application.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0:  START\_SYSEX}
+\DoxyCodeLine{1:  SPI\_DATA              (0x68)}
+\DoxyCodeLine{2:  SPI\_END               (0x06)}
+\DoxyCodeLine{3:  channel               (HW supports multiple SPI ports. range = 0-\/7, default = 0)}
+\DoxyCodeLine{4:  END\_SYSEX}
+\end{DoxyCode}
+ 

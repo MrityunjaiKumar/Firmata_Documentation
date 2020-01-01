@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="_firmata_parser_8h" kind="file" language="C++">
+    <compoundname>FirmataParser.h</compoundname>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includedby refid="_firmata_8h" local="yes">Firmata.h</includedby>
+    <includedby refid="_firmata_parser_8cpp" local="yes">FirmataParser.cpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="2">
+        <label>stddef.h</label>
+      </node>
+      <node id="1">
+        <label>FirmataParser.h</label>
+        <link refid="_firmata_parser_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>FirmataParser.cpp</label>
+        <link refid="_firmata_parser_8cpp"/>
+      </node>
+      <node id="5">
+        <label>SerialFirmata.h</label>
+        <link refid="_serial_firmata_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>SerialFirmata.cpp</label>
+        <link refid="_serial_firmata_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Firmata.cpp</label>
+        <link refid="_firmata_8cpp"/>
+      </node>
+      <node id="4">
+        <label>FirmataFeature.h</label>
+        <link refid="_firmata_feature_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Firmata.h</label>
+        <link refid="_firmata_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>FirmataParser.h</label>
+        <link refid="_firmata_parser_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classfirmata_1_1_firmata_parser" prot="public">firmata::FirmataParser</innerclass>
+    <innernamespace refid="namespacefirmata">firmata</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>FirmataParser.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>Copyright<sp/>(c)<sp/>2006-2008<sp/>Hans-Christoph<sp/>Steiner.<sp/><sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>Copyright<sp/>(C)<sp/>2009-2016<sp/>Jeff<sp/>Hoefs.<sp/><sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"></highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/>This<sp/>library<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/>modify<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/><sp/>License<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/>version<sp/>2.1<sp/>of<sp/>the<sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/>See<sp/>file<sp/>LICENSE.txt<sp/>for<sp/>further<sp/>informations<sp/>on<sp/>licensing<sp/>terms.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FirmataParser_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FirmataParser_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)<sp/>&amp;&amp;<sp/>!defined(ARDUINO)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#include<sp/>&lt;cstddef&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacefirmata" kindref="compound">firmata</ref><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="classfirmata_1_1_firmata_parser" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classfirmata_1_1_firmata_parser" kindref="compound">FirmataParser</ref></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>callback<sp/>function<sp/>types<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="classfirmata_1_1_firmata_parser_1a40cc69b4997fad3335a34cc083894ea1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context,<sp/>uint8_t<sp/>command,<sp/>uint16_t<sp/>value);</highlight></codeline>
+<codeline lineno="32" refid="classfirmata_1_1_firmata_parser_1a7ba04f2773f1052fc014c93d309fe069" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="classfirmata_1_1_firmata_parser_1a7ba04f2773f1052fc014c93d309fe069" kindref="member">dataBufferOverflowCallbackFunction</ref>)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context);</highlight></codeline>
+<codeline lineno="33" refid="classfirmata_1_1_firmata_parser_1a6cee4285d9cd5cdba702b720ae10a9b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref>)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>c_str);</highlight></codeline>
+<codeline lineno="34" refid="classfirmata_1_1_firmata_parser_1a9f1b158e9366cdca7f9f743011359b13" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref>)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context,<sp/>uint8_t<sp/>command,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>argc,<sp/>uint8_t<sp/>*<sp/>argv);</highlight></codeline>
+<codeline lineno="35" refid="classfirmata_1_1_firmata_parser_1ad0655dab3f791c7c46c8412ae13f0d3a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref>)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context);</highlight></codeline>
+<codeline lineno="36" refid="classfirmata_1_1_firmata_parser_1a6be4a3c92941c1de63b44918bbbda545" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="classfirmata_1_1_firmata_parser_1a6be4a3c92941c1de63b44918bbbda545" kindref="member">versionCallbackFunction</ref>)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>sv_major,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>sv_minor,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>firmware);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classfirmata_1_1_firmata_parser_1ac8c388b593a00e88856646712beae68b" kindref="member">FirmataParser</ref>(uint8_t<sp/>*<sp/>dataBuffer<sp/>=<sp/>(uint8_t<sp/>*)NULL,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dataBufferSize<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>serial<sp/>receive<sp/>handling<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" kindref="member">parse</ref>(uint8_t<sp/>value);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a67902b70695eaf0cf8f7b06175ca3902" kindref="member">isParsingMessage</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a8fbe143ddb428a97c00a15993c31a516" kindref="member">setDataBufferOfSize</ref>(uint8_t<sp/>*<sp/>dataBuffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dataBufferSize);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>attach<sp/>&amp;<sp/>detach<sp/>callback<sp/>functions<sp/>to<sp/>messages<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">attach</ref>(uint8_t<sp/>command,<sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>newFunction,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">attach</ref>(<ref refid="classfirmata_1_1_firmata_parser_1a7ba04f2773f1052fc014c93d309fe069" kindref="member">dataBufferOverflowCallbackFunction</ref><sp/>newFunction,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">attach</ref>(uint8_t<sp/>command,<sp/><ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref><sp/>newFunction,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">attach</ref>(uint8_t<sp/>command,<sp/><ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref><sp/>newFunction,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">attach</ref>(uint8_t<sp/>command,<sp/><ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref><sp/>newFunction,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">attach</ref>(uint8_t<sp/>command,<sp/><ref refid="classfirmata_1_1_firmata_parser_1a6be4a3c92941c1de63b44918bbbda545" kindref="member">versionCallbackFunction</ref><sp/>newFunction,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context<sp/>=<sp/>NULL);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a7cd707386c0807bee733a3e27d161c7d" kindref="member">detach</ref>(uint8_t<sp/>command);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a7cd707386c0807bee733a3e27d161c7d" kindref="member">detach</ref>(<ref refid="classfirmata_1_1_firmata_parser_1a7ba04f2773f1052fc014c93d309fe069" kindref="member">dataBufferOverflowCallbackFunction</ref>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>input<sp/>message<sp/>handling<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>allowBufferUpdate;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>*<sp/>dataBuffer;<sp/></highlight><highlight class="comment">//<sp/>multi-byte<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dataBufferSize;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>executeMultiByteCommand;<sp/></highlight><highlight class="comment">//<sp/>execute<sp/>this<sp/>after<sp/>getting<sp/>multi-byte<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>multiByteChannel;<sp/></highlight><highlight class="comment">//<sp/>channel<sp/>data<sp/>for<sp/>multiByteCommands</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>waitForData;<sp/></highlight><highlight class="comment">//<sp/>this<sp/>flag<sp/>says<sp/>the<sp/>next<sp/>serial<sp/>input<sp/>will<sp/>be<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>sysex<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>parsingSysex;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>sysexBytesRead;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>callback<sp/>context<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>currentAnalogCallbackContext;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>currentDigitalCallbackContext;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>currentReportAnalogCallbackContext;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>currentReportDigitalCallbackContext;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>currentPinModeCallbackContext;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>currentPinValueCallbackContext;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>currentReportFirmwareCallbackContext;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>currentReportVersionCallbackContext;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>currentDataBufferOverflowCallbackContext;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>currentStringCallbackContext;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>currentSysexCallbackContext;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>currentSystemResetCallbackContext;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>callback<sp/>functions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>currentAnalogCallback;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>currentDigitalCallback;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>currentReportAnalogCallback;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>currentReportDigitalCallback;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>currentPinModeCallback;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>currentPinValueCallback;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classfirmata_1_1_firmata_parser_1a7ba04f2773f1052fc014c93d309fe069" kindref="member">dataBufferOverflowCallbackFunction</ref><sp/>currentDataBufferOverflowCallback;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref><sp/>currentStringCallback;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref><sp/>currentSysexCallback;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classfirmata_1_1_firmata_parser_1a6be4a3c92941c1de63b44918bbbda545" kindref="member">versionCallbackFunction</ref><sp/>currentReportFirmwareCallback;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref><sp/>currentReportVersionCallback;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref><sp/>currentSystemResetCallback;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>private<sp/>methods<sp/>------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bufferDataAtPosition(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>data,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>pos);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>decodeByteStream(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bytec,<sp/>uint8_t<sp/>*<sp/>bytev);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>processSysexMessage(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>systemReset(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>firmata</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>FirmataParser_h<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="arduino/FirmataParser.h"/>
+  </compounddef>
+</doxygen>

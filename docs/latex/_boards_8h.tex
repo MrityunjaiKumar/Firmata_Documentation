@@ -1,0 +1,211 @@
+\hypertarget{_boards_8h}{}\doxysection{Boards.\+h File Reference}
+\label{_boards_8h}\index{Boards.h@{Boards.h}}
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}W\+Program.\+h\char`\"{}}\newline
+Include dependency graph for Boards.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{_boards_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{_boards_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_boards_8h_a4259c40a55e489ed25c9f3cbb3be05ab}{M\+A\+X\+\_\+\+S\+E\+R\+V\+OS}}~0
+\item 
+\#define \mbox{\hyperlink{_boards_8h_afaede01afebc78aa04e0c28dc85bcbd5}{digital\+Pin\+Has\+P\+WM}}(p)~I\+S\+\_\+\+P\+I\+N\+\_\+\+D\+I\+G\+I\+T\+AL(p)
+\item 
+\#define \mbox{\hyperlink{_boards_8h_a10c780ba47d61f0be8d59cf1c79dfff8}{I\+S\+\_\+\+P\+I\+N\+\_\+\+S\+PI}}(p)~0
+\item 
+\#define \mbox{\hyperlink{_boards_8h_ab2657321c413fc4a1cf71524ed393cfe}{I\+S\+\_\+\+P\+I\+N\+\_\+\+S\+E\+R\+I\+AL}}(p)~0
+\item 
+\#define \mbox{\hyperlink{_boards_8h_a8a23467a2dc1293fa6f5d2c636504567}{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+W\+M\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+ON}}~8
+\item 
+\#define \mbox{\hyperlink{_boards_8h_ac09e90aa2c3b346c4b2be2346c4550db}{T\+O\+T\+A\+L\+\_\+\+P\+O\+R\+TS}}~((T\+O\+T\+A\+L\+\_\+\+P\+I\+NS + 7) / 8)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static unsigned char \mbox{\hyperlink{_boards_8h_ac95f08e7e967b198a0b67ab1926fd884}{read\+Port}} (byte, byte) \+\_\+\+\_\+attribute\+\_\+\+\_\+((always\+\_\+inline
+\item 
+static unsigned char \mbox{\hyperlink{_boards_8h_a6aa7f860c21192d4f30fbee577db003f}{write\+Port}} (byte, byte, byte) \+\_\+\+\_\+attribute\+\_\+\+\_\+((always\+\_\+inline
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static unsigned char \mbox{\hyperlink{_boards_8h_a753371ccf3e1bf98d7fdba9bffc5bf46}{unused}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_boards_8h_a8a23467a2dc1293fa6f5d2c636504567}\label{_boards_8h_a8a23467a2dc1293fa6f5d2c636504567}} 
+\index{Boards.h@{Boards.h}!DEFAULT\_PWM\_RESOLUTION@{DEFAULT\_PWM\_RESOLUTION}}
+\index{DEFAULT\_PWM\_RESOLUTION@{DEFAULT\_PWM\_RESOLUTION}!Boards.h@{Boards.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_PWM\_RESOLUTION}{DEFAULT\_PWM\_RESOLUTION}}
+{\footnotesize\ttfamily \#define D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+W\+M\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+ON~8}
+
+
+
+Definition at line 933 of file Boards.\+h.
+
+\mbox{\Hypertarget{_boards_8h_afaede01afebc78aa04e0c28dc85bcbd5}\label{_boards_8h_afaede01afebc78aa04e0c28dc85bcbd5}} 
+\index{Boards.h@{Boards.h}!digitalPinHasPWM@{digitalPinHasPWM}}
+\index{digitalPinHasPWM@{digitalPinHasPWM}!Boards.h@{Boards.h}}
+\doxysubsubsection{\texorpdfstring{digitalPinHasPWM}{digitalPinHasPWM}}
+{\footnotesize\ttfamily \#define digital\+Pin\+Has\+P\+WM(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~I\+S\+\_\+\+P\+I\+N\+\_\+\+D\+I\+G\+I\+T\+AL(p)}
+
+
+
+Definition at line 141 of file Boards.\+h.
+
+\mbox{\Hypertarget{_boards_8h_ab2657321c413fc4a1cf71524ed393cfe}\label{_boards_8h_ab2657321c413fc4a1cf71524ed393cfe}} 
+\index{Boards.h@{Boards.h}!IS\_PIN\_SERIAL@{IS\_PIN\_SERIAL}}
+\index{IS\_PIN\_SERIAL@{IS\_PIN\_SERIAL}!Boards.h@{Boards.h}}
+\doxysubsubsection{\texorpdfstring{IS\_PIN\_SERIAL}{IS\_PIN\_SERIAL}}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+P\+I\+N\+\_\+\+S\+E\+R\+I\+AL(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~0}
+
+
+
+Definition at line 929 of file Boards.\+h.
+
+\mbox{\Hypertarget{_boards_8h_a10c780ba47d61f0be8d59cf1c79dfff8}\label{_boards_8h_a10c780ba47d61f0be8d59cf1c79dfff8}} 
+\index{Boards.h@{Boards.h}!IS\_PIN\_SPI@{IS\_PIN\_SPI}}
+\index{IS\_PIN\_SPI@{IS\_PIN\_SPI}!Boards.h@{Boards.h}}
+\doxysubsubsection{\texorpdfstring{IS\_PIN\_SPI}{IS\_PIN\_SPI}}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+P\+I\+N\+\_\+\+S\+PI(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~0}
+
+
+
+Definition at line 925 of file Boards.\+h.
+
+\mbox{\Hypertarget{_boards_8h_a4259c40a55e489ed25c9f3cbb3be05ab}\label{_boards_8h_a4259c40a55e489ed25c9f3cbb3be05ab}} 
+\index{Boards.h@{Boards.h}!MAX\_SERVOS@{MAX\_SERVOS}}
+\index{MAX\_SERVOS@{MAX\_SERVOS}!Boards.h@{Boards.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_SERVOS}{MAX\_SERVOS}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+S\+E\+R\+V\+OS~0}
+
+
+
+Definition at line 32 of file Boards.\+h.
+
+\mbox{\Hypertarget{_boards_8h_ac09e90aa2c3b346c4b2be2346c4550db}\label{_boards_8h_ac09e90aa2c3b346c4b2be2346c4550db}} 
+\index{Boards.h@{Boards.h}!TOTAL\_PORTS@{TOTAL\_PORTS}}
+\index{TOTAL\_PORTS@{TOTAL\_PORTS}!Boards.h@{Boards.h}}
+\doxysubsubsection{\texorpdfstring{TOTAL\_PORTS}{TOTAL\_PORTS}}
+{\footnotesize\ttfamily \#define T\+O\+T\+A\+L\+\_\+\+P\+O\+R\+TS~((T\+O\+T\+A\+L\+\_\+\+P\+I\+NS + 7) / 8)}
+
+
+
+Definition at line 1013 of file Boards.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_boards_8h_ac95f08e7e967b198a0b67ab1926fd884}\label{_boards_8h_ac95f08e7e967b198a0b67ab1926fd884}} 
+\index{Boards.h@{Boards.h}!readPort@{readPort}}
+\index{readPort@{readPort}!Boards.h@{Boards.h}}
+\doxysubsubsection{\texorpdfstring{readPort()}{readPort()}}
+{\footnotesize\ttfamily static unsigned char read\+Port (\begin{DoxyParamCaption}\item[{byte}]{port,  }\item[{byte}]{bitmask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 941 of file Boards.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{942 \{}
+\DoxyCodeLine{943 \textcolor{preprocessor}{\#if defined(ARDUINO\_PINOUT\_OPTIMIZE)}}
+\DoxyCodeLine{944   \textcolor{keywordflow}{if} (port == 0) \textcolor{keywordflow}{return} (PIND \& 0xFC) \& bitmask; \textcolor{comment}{// ignore Rx/Tx 0/1}}
+\DoxyCodeLine{945   \textcolor{keywordflow}{if} (port == 1) \textcolor{keywordflow}{return} ((PINB \& 0x3F) | ((PINC \& 0x03) << 6)) \& bitmask;}
+\DoxyCodeLine{946   \textcolor{keywordflow}{if} (port == 2) \textcolor{keywordflow}{return} ((PINC \& 0x3C) >> 2) \& bitmask;}
+\DoxyCodeLine{947   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{948 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{949   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} out = 0, pin = port * 8;}
+\DoxyCodeLine{950   \textcolor{keywordflow}{if} (IS\_PIN\_DIGITAL(pin + 0) \&\& (bitmask \& 0x01) \&\& digitalRead(PIN\_TO\_DIGITAL(pin + 0))) out |= 0x01;}
+\DoxyCodeLine{951   \textcolor{keywordflow}{if} (IS\_PIN\_DIGITAL(pin + 1) \&\& (bitmask \& 0x02) \&\& digitalRead(PIN\_TO\_DIGITAL(pin + 1))) out |= 0x02;}
+\DoxyCodeLine{952   \textcolor{keywordflow}{if} (IS\_PIN\_DIGITAL(pin + 2) \&\& (bitmask \& 0x04) \&\& digitalRead(PIN\_TO\_DIGITAL(pin + 2))) out |= 0x04;}
+\DoxyCodeLine{953   \textcolor{keywordflow}{if} (IS\_PIN\_DIGITAL(pin + 3) \&\& (bitmask \& 0x08) \&\& digitalRead(PIN\_TO\_DIGITAL(pin + 3))) out |= 0x08;}
+\DoxyCodeLine{954   \textcolor{keywordflow}{if} (IS\_PIN\_DIGITAL(pin + 4) \&\& (bitmask \& 0x10) \&\& digitalRead(PIN\_TO\_DIGITAL(pin + 4))) out |= 0x10;}
+\DoxyCodeLine{955   \textcolor{keywordflow}{if} (IS\_PIN\_DIGITAL(pin + 5) \&\& (bitmask \& 0x20) \&\& digitalRead(PIN\_TO\_DIGITAL(pin + 5))) out |= 0x20;}
+\DoxyCodeLine{956   \textcolor{keywordflow}{if} (IS\_PIN\_DIGITAL(pin + 6) \&\& (bitmask \& 0x40) \&\& digitalRead(PIN\_TO\_DIGITAL(pin + 6))) out |= 0x40;}
+\DoxyCodeLine{957   \textcolor{keywordflow}{if} (IS\_PIN\_DIGITAL(pin + 7) \&\& (bitmask \& 0x80) \&\& digitalRead(PIN\_TO\_DIGITAL(pin + 7))) out |= 0x80;}
+\DoxyCodeLine{958   \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{959 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{960 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_boards_8h_a6aa7f860c21192d4f30fbee577db003f}\label{_boards_8h_a6aa7f860c21192d4f30fbee577db003f}} 
+\index{Boards.h@{Boards.h}!writePort@{writePort}}
+\index{writePort@{writePort}!Boards.h@{Boards.h}}
+\doxysubsubsection{\texorpdfstring{writePort()}{writePort()}}
+{\footnotesize\ttfamily static unsigned char write\+Port (\begin{DoxyParamCaption}\item[{byte}]{port,  }\item[{byte}]{value,  }\item[{byte}]{bitmask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 967 of file Boards.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{968 \{}
+\DoxyCodeLine{969 \textcolor{preprocessor}{\#if defined(ARDUINO\_PINOUT\_OPTIMIZE)}}
+\DoxyCodeLine{970   \textcolor{keywordflow}{if} (port == 0) \{}
+\DoxyCodeLine{971     bitmask = bitmask \& 0xFC;  \textcolor{comment}{// do not touch Tx \& Rx pins}}
+\DoxyCodeLine{972     \textcolor{keywordtype}{byte} valD = value \& bitmask;}
+\DoxyCodeLine{973     \textcolor{keywordtype}{byte} maskD = ~bitmask;}
+\DoxyCodeLine{974     cli();}
+\DoxyCodeLine{975     PORTD = (PORTD \& maskD) | valD;}
+\DoxyCodeLine{976     sei();}
+\DoxyCodeLine{977   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (port == 1) \{}
+\DoxyCodeLine{978     \textcolor{keywordtype}{byte} valB = (value \& bitmask) \& 0x3F;}
+\DoxyCodeLine{979     \textcolor{keywordtype}{byte} valC = (value \& bitmask) >> 6;}
+\DoxyCodeLine{980     \textcolor{keywordtype}{byte} maskB = ~(bitmask \& 0x3F);}
+\DoxyCodeLine{981     \textcolor{keywordtype}{byte} maskC = ~((bitmask \& 0xC0) >> 6);}
+\DoxyCodeLine{982     cli();}
+\DoxyCodeLine{983     PORTB = (PORTB \& maskB) | valB;}
+\DoxyCodeLine{984     PORTC = (PORTC \& maskC) | valC;}
+\DoxyCodeLine{985     sei();}
+\DoxyCodeLine{986   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (port == 2) \{}
+\DoxyCodeLine{987     bitmask = bitmask \& 0x0F;}
+\DoxyCodeLine{988     \textcolor{keywordtype}{byte} valC = (value \& bitmask) << 2;}
+\DoxyCodeLine{989     \textcolor{keywordtype}{byte} maskC = ~(bitmask << 2);}
+\DoxyCodeLine{990     cli();}
+\DoxyCodeLine{991     PORTC = (PORTC \& maskC) | valC;}
+\DoxyCodeLine{992     sei();}
+\DoxyCodeLine{993   \}}
+\DoxyCodeLine{994   \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{995 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{996   \textcolor{keywordtype}{byte} pin = port * 8;}
+\DoxyCodeLine{997   \textcolor{keywordflow}{if} ((bitmask \& 0x01)) digitalWrite(PIN\_TO\_DIGITAL(pin + 0), (value \& 0x01));}
+\DoxyCodeLine{998   \textcolor{keywordflow}{if} ((bitmask \& 0x02)) digitalWrite(PIN\_TO\_DIGITAL(pin + 1), (value \& 0x02));}
+\DoxyCodeLine{999   \textcolor{keywordflow}{if} ((bitmask \& 0x04)) digitalWrite(PIN\_TO\_DIGITAL(pin + 2), (value \& 0x04));}
+\DoxyCodeLine{1000   \textcolor{keywordflow}{if} ((bitmask \& 0x08)) digitalWrite(PIN\_TO\_DIGITAL(pin + 3), (value \& 0x08));}
+\DoxyCodeLine{1001   \textcolor{keywordflow}{if} ((bitmask \& 0x10)) digitalWrite(PIN\_TO\_DIGITAL(pin + 4), (value \& 0x10));}
+\DoxyCodeLine{1002   \textcolor{keywordflow}{if} ((bitmask \& 0x20)) digitalWrite(PIN\_TO\_DIGITAL(pin + 5), (value \& 0x20));}
+\DoxyCodeLine{1003   \textcolor{keywordflow}{if} ((bitmask \& 0x40)) digitalWrite(PIN\_TO\_DIGITAL(pin + 6), (value \& 0x40));}
+\DoxyCodeLine{1004   \textcolor{keywordflow}{if} ((bitmask \& 0x80)) digitalWrite(PIN\_TO\_DIGITAL(pin + 7), (value \& 0x80));}
+\DoxyCodeLine{1005   \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{1006 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1007 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_boards_8h_a753371ccf3e1bf98d7fdba9bffc5bf46}\label{_boards_8h_a753371ccf3e1bf98d7fdba9bffc5bf46}} 
+\index{Boards.h@{Boards.h}!unused@{unused}}
+\index{unused@{unused}!Boards.h@{Boards.h}}
+\doxysubsubsection{\texorpdfstring{unused}{unused}}
+{\footnotesize\ttfamily static unsigned char unused}
+
+
+
+Definition at line 940 of file Boards.\+h.
+

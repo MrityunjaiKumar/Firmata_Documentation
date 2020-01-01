@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="shift-proposal_8md" kind="file" language="Markdown">
+    <compoundname>shift-proposal.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">shift<sp/>in/out<sp/>proposal</highlight></codeline>
+<codeline><highlight class="normal">===</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">There<sp/>are<sp/>a<sp/>few<sp/>different<sp/>ways<sp/>to<sp/>approach<sp/>shift<sp/>in/out<sp/>support.<sp/>It&apos;s<sp/>complicated</highlight></codeline>
+<codeline><highlight class="normal">since<sp/>different<sp/>hardware<sp/>handles<sp/>shift<sp/>in/out<sp/>in<sp/>different<sp/>ways.<sp/>For<sp/>example,</highlight></codeline>
+<codeline><highlight class="normal">not<sp/>all<sp/>hardware<sp/>requires<sp/>a<sp/>latch<sp/>pin<sp/>and<sp/>those<sp/>that<sp/>use<sp/>some<sp/>sort<sp/>of<sp/>a<sp/>latch</highlight></codeline>
+<codeline><highlight class="normal">don&apos;t<sp/>always<sp/>use<sp/>it<sp/>the<sp/>same<sp/>way.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">There<sp/>has<sp/>also<sp/>been<sp/>some<sp/>discussion<sp/>around<sp/>supporting<sp/>fractional<sp/>byte<sp/>devices.<sp/>The<sp/>proposals<sp/>below<sp/>do<sp/>not<sp/>include<sp/>such<sp/>functionality.<sp/>I&apos;m<sp/>not<sp/>sure<sp/>how<sp/>popular</highlight></codeline>
+<codeline><highlight class="normal">such<sp/>devices<sp/>are.<sp/>If<sp/>someone<sp/>has<sp/>a<sp/>proposal<sp/>that<sp/>includes<sp/>support<sp/>for<sp/>shifting<sp/></highlight></codeline>
+<codeline><highlight class="normal">fractional<sp/>bytes,<sp/>please<sp/>submit<sp/>a<sp/>pull<sp/>request<sp/>to<sp/>add<sp/>the<sp/>proposal<sp/>to<sp/>this<sp/>document.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Propoasl<sp/>A:<sp/>shift<sp/>in/out<sp/>with<sp/>no<sp/>config<sp/>or<sp/>latch<sp/>support</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>this<sp/>version<sp/>it<sp/>the<sp/>user<sp/>must<sp/>configure<sp/>the<sp/>pin<sp/>(input<sp/>/<sp/>output)<sp/>separately.</highlight></codeline>
+<codeline><highlight class="normal">If<sp/>the<sp/>hardware<sp/>they<sp/>are<sp/>using<sp/>requires<sp/>a<sp/>latch,<sp/>the<sp/>latch<sp/>pin<sp/>must<sp/>be<sp/>managed</highlight></codeline>
+<codeline><highlight class="normal">separately.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>shift<sp/>out</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SHIFT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x75)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SHIFT_OUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>dataPin</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>clockPin</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>bitOrder<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(MSBFIRST<sp/>or<sp/>LSBFIRST)</highlight></codeline>
+<codeline><highlight class="normal">n<sp/>...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(shift<sp/>out<sp/>data)</highlight></codeline>
+<codeline><highlight class="normal">n+1<sp/>END_SYSEX</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>shift<sp/>in<sp/>(for<sp/>client<sp/>application<sp/>to<sp/>request<sp/>shift-in<sp/>data<sp/>from<sp/>microcontroller)</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SHIFT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x75)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SHIFT_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>dataPin</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>clockPin</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>bitOrder<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(MSBFIRST<sp/>or<sp/>LSBFIRST)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>numBytes<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(number<sp/>of<sp/>bytes<sp/>to<sp/>shift<sp/>in.<sp/>Default<sp/>to<sp/>1)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/>END_SYSEX</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>shift<sp/>in<sp/>reply<sp/>(for<sp/>sending<sp/>shift-in<sp/>data<sp/>to<sp/>client<sp/>application)</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SHIFT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x75)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SHIFT_IN_REPLY<sp/><sp/><sp/><sp/><sp/><sp/>(0x03)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>dataPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(so<sp/>you<sp/>know<sp/>which<sp/>data<sp/>pin<sp/>the<sp/>reply<sp/>corresponds<sp/>to)</highlight></codeline>
+<codeline><highlight class="normal">n<sp/>...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(shift<sp/>in<sp/>data)</highlight></codeline>
+<codeline><highlight class="normal">n+1<sp/>END_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Proposal<sp/>B:<sp/>shift<sp/>in/out<sp/>with<sp/>config<sp/>and<sp/>latch<sp/>support</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>advantages<sp/>with<sp/>this<sp/>version<sp/>over<sp/>the<sp/>one<sp/>above<sp/>is<sp/>that<sp/>pin<sp/>modes<sp/>are<sp/>handled<sp/>by<sp/>the<sp/>implementation<sp/>(in<sp/>the<sp/>other<sp/>version<sp/>you<sp/>have<sp/>to<sp/>handle<sp/>them<sp/>manually).<sp/>You<sp/>also<sp/>send<sp/>fewer<sp/>bytes<sp/>when<sp/>shifting<sp/>out<sp/>or<sp/>in<sp/>data<sp/>(since<sp/>only<sp/>have<sp/>to<sp/>specify<sp/>clock,<sp/>bitOrder<sp/>and<sp/>optional<sp/>latch<sp/>pin<sp/>once<sp/>when<sp/>sending<sp/>the<sp/>config).<sp/>The<sp/>disadvantage<sp/>is<sp/>that<sp/>memory<sp/>must<sp/>be<sp/>allocated<sp/>to<sp/>store<sp/>pin<sp/>information.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Another<sp/>advantage<sp/>with<sp/>this<sp/>version<sp/>is<sp/>that<sp/>you<sp/>can<sp/>rely<sp/>on<sp/>the<sp/>firmware<sp/>to<sp/>do</highlight></codeline>
+<codeline><highlight class="normal">more<sp/>of<sp/>the<sp/>work.<sp/>For<sp/>example<sp/>you<sp/>can<sp/>shift<sp/>in<sp/>multiple<sp/>bytes<sp/>at<sp/>a<sp/>time<sp/>and<sp/>send<sp/>them<sp/>to<sp/>the<sp/>client<sp/>in<sp/>a<sp/>single<sp/>packet<sp/>rather<sp/>than<sp/>a<sp/>single<sp/>byte<sp/>at<sp/>at<sp/>time<sp/>(if</highlight></codeline>
+<codeline><highlight class="normal">your<sp/>hardware<sp/>requires<sp/>a<sp/>latch/load<sp/>pin).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>version<sp/>uses<sp/>a<sp/>SHIFT_CONFIG<sp/>command<sp/>to<sp/>set<sp/>the<sp/>clock<sp/>pin,<sp/>bitOrder<sp/>and<sp/>optional<sp/>latchPin<sp/>(or<sp/>load<sp/>for<sp/>some<sp/>shift-in<sp/>hardware).<sp/>There<sp/>are<sp/>a<sp/>few<sp/>different<sp/>shift<sp/>types<sp/>/<sp/>latch<sp/>configurations:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>shift<sp/>types<sp/>(specified<sp/>in<sp/>bits<sp/>3:5<sp/>of<sp/>byte<sp/>2)</highlight></codeline>
+<codeline><highlight class="normal">SHIFT_OUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>shift<sp/>out<sp/>with<sp/>no<sp/>latch</highlight></codeline>
+<codeline><highlight class="normal">SHIFT_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>shift<sp/>out<sp/>with<sp/>no<sp/>latch/load</highlight></codeline>
+<codeline><highlight class="normal">LATCH_L_SHIFT_OUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>set<sp/>latch<sp/>low<sp/>then<sp/>shift<sp/>out</highlight></codeline>
+<codeline><highlight class="normal">LATCH_L_SHIFT_OUT_LATCH_H<sp/><sp/><sp/><sp/><sp/>//<sp/>set<sp/>latch<sp/>low,<sp/>shift<sp/>out,<sp/>then<sp/>set<sp/>latch<sp/>high</highlight></codeline>
+<codeline><highlight class="normal">SHIFT_OUT_LATCH_H<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>shift<sp/>out<sp/>then<sp/>set<sp/>latch<sp/>high</highlight></codeline>
+<codeline><highlight class="normal">TOGGLE_LOAD_SHIFT_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>toggle<sp/>load<sp/>pin<sp/>low,<sp/>then<sp/>high<sp/>and<sp/>shift<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>protocol<sp/>is<sp/>as<sp/>follows:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>shift<sp/>config<sp/>(send<sp/>when<sp/>instantiating<sp/>a<sp/>new<sp/>shift-based<sp/>hardware<sp/>module)</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SHIFT_DATA<sp/><sp/><sp/><sp/>(0x75)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SHIFT_CONFIG<sp/><sp/>(bits<sp/>0:2<sp/>shift<sp/>command,<sp/>bits<sp/>3:5<sp/>shift<sp/>type,<sp/>bit<sp/>6<sp/>unused)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>dataPin</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>clockPin</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>bitOrder</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>latchPin<sp/><sp/><sp/><sp/><sp/><sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">7<sp/>END_SYSEX</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>shift<sp/>out</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SHIFT_DATA<sp/><sp/><sp/><sp/>(0x75)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SHIFT_OUT<sp/><sp/><sp/><sp/><sp/>(bits<sp/>0:2<sp/>shift<sp/>command,<sp/>bits<sp/>3:5<sp/>shift<sp/>type,<sp/>bit<sp/>6<sp/>unused)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>dataPin</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(shift<sp/>out<sp/>data)</highlight></codeline>
+<codeline><highlight class="normal">n+1<sp/>END_SYSEX</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>shift<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SHIFT_DATA<sp/><sp/><sp/><sp/>(0x75)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SHIFT_IN<sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>0:2<sp/>shift<sp/>command,<sp/>bits<sp/>3:5<sp/>shift<sp/>type,<sp/>bit<sp/>6<sp/>unused)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>dataPin</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>numBytes<sp/><sp/><sp/><sp/><sp/><sp/>(number<sp/>of<sp/>bytes<sp/>to<sp/>shift<sp/>in.<sp/>Default<sp/>to<sp/>1)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>END_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+    </programlisting>
+    <location file="protocol/proposals/shift-proposal.md"/>
+  </compounddef>
+</doxygen>

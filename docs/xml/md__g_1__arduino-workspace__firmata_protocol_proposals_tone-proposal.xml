@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md__g_1__arduino-workspace__firmata_protocol_proposals_tone-proposal" kind="page">
+    <compoundname>md_G:_Arduino-workspace_Firmata_protocol_proposals_tone-proposal</compoundname>
+    <title>tone proposal</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Add ability to call Arduino <computeroutput>tone</computeroutput> and <computeroutput>noTone</computeroutput> functions. For non-Arduino architectures, similar functions to <computeroutput>tone</computeroutput> and <computeroutput>noTone</computeroutput> would need to be implemented.</para>
+<para>The duration could be extended if necessary. Duration could also be optional. If left out, the user would need to send the NO_TONE command to stop the tone.</para>
+<para>An implementation of this proposal is currently available <ulink url="https://github.com/firmata/arduino/compare/configurable...tone">here</ulink>.</para>
+<para><programlisting><codeline><highlight class="normal">//<sp/>wrapper<sp/>for<sp/>tone<sp/>function</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>TONE_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5F)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>TONE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>pinNumber</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>frequency<sp/>LSB<sp/><sp/><sp/><sp/><sp/><sp/>(in<sp/>HZ)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>frequency<sp/>MSB<sp/><sp/><sp/><sp/><sp/><sp/>(in<sp/>HZ)<sp/>(audible<sp/>range<sp/>is<sp/>20<sp/>HZ<sp/>to<sp/>15,000<sp/>HZ<sp/>so<sp/>14<sp/>bits<sp/>is<sp/>sufficient)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>duration<sp/>bits<sp/>0-6<sp/><sp/>(in<sp/>ms)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>duration<sp/>bits<sp/>7-14<sp/>(in<sp/>ms)<sp/>(max<sp/>duration<sp/>is<sp/>16,383<sp/>milliseconds)</highlight></codeline>
+<codeline><highlight class="normal">11<sp/><sp/>END_SYSEX<sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para><programlisting><codeline><highlight class="normal">//<sp/>wrapper<sp/>for<sp/>noTone<sp/>function</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>TONE_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5F)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>NO_TONE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>pinNumber</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,706 @@
+\hypertarget{classfirmata_1_1_firmata_parser}{}\doxysection{firmata\+::Firmata\+Parser Class Reference}
+\label{classfirmata_1_1_firmata_parser}\index{firmata::FirmataParser@{firmata::FirmataParser}}
+
+
+{\ttfamily \#include $<$Firmata\+Parser.\+h$>$}
+
+
+
+Collaboration diagram for firmata\+::Firmata\+Parser\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{classfirmata_1_1_firmata_parser__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a40cc69b4997fad3335a34cc083894ea1}{callback\+Function}}) (void $\ast$context, uint8\+\_\+t command, uint16\+\_\+t value)
+\item 
+typedef void($\ast$ \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a7ba04f2773f1052fc014c93d309fe069}{data\+Buffer\+Overflow\+Callback\+Function}}) (void $\ast$context)
+\item 
+typedef void($\ast$ \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a6cee4285d9cd5cdba702b720ae10a9b8}{string\+Callback\+Function}}) (void $\ast$context, const char $\ast$c\+\_\+str)
+\item 
+typedef void($\ast$ \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a9f1b158e9366cdca7f9f743011359b13}{sysex\+Callback\+Function}}) (void $\ast$context, uint8\+\_\+t command, size\+\_\+t argc, uint8\+\_\+t $\ast$argv)
+\item 
+typedef void($\ast$ \mbox{\hyperlink{classfirmata_1_1_firmata_parser_ad0655dab3f791c7c46c8412ae13f0d3a}{system\+Callback\+Function}}) (void $\ast$context)
+\item 
+typedef void($\ast$ \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a6be4a3c92941c1de63b44918bbbda545}{version\+Callback\+Function}}) (void $\ast$context, size\+\_\+t sv\+\_\+major, size\+\_\+t sv\+\_\+minor, const char $\ast$firmware)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfirmata_1_1_firmata_parser_ac8c388b593a00e88856646712beae68b}{Firmata\+Parser}} (uint8\+\_\+t $\ast$data\+Buffer=(uint8\+\_\+t $\ast$) N\+U\+LL, size\+\_\+t data\+Buffer\+Size=0)
+\item 
+void \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a754c97b890b7fd66c8d953a3e615acbf}{parse}} (uint8\+\_\+t value)
+\item 
+bool \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a67902b70695eaf0cf8f7b06175ca3902}{is\+Parsing\+Message}} (void) const
+\item 
+int \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a8fbe143ddb428a97c00a15993c31a516}{set\+Data\+Buffer\+Of\+Size}} (uint8\+\_\+t $\ast$data\+Buffer, size\+\_\+t data\+Buffer\+Size)
+\item 
+void \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a2a472a925ed7e626ed36dee94ceae45e}{attach}} (uint8\+\_\+t command, \mbox{\hyperlink{_firmata_8h_ac1d919f56c49d2e9559967b3b950e504}{callback\+Function}} new\+Function, void $\ast$context=N\+U\+LL)
+\item 
+void \mbox{\hyperlink{classfirmata_1_1_firmata_parser_ae176414892a2d240b921c2b8037a8ade}{attach}} (\mbox{\hyperlink{classfirmata_1_1_firmata_parser_a7ba04f2773f1052fc014c93d309fe069}{data\+Buffer\+Overflow\+Callback\+Function}} new\+Function, void $\ast$context=N\+U\+LL)
+\item 
+void \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a239b37e09dea042d229fc2171d3a1979}{attach}} (uint8\+\_\+t command, \mbox{\hyperlink{_firmata_8h_ae8cc4d167596bda9460991674389d15c}{string\+Callback\+Function}} new\+Function, void $\ast$context=N\+U\+LL)
+\item 
+void \mbox{\hyperlink{classfirmata_1_1_firmata_parser_aaa1d755b20b21e528bfa62d6a7c2dc0f}{attach}} (uint8\+\_\+t command, \mbox{\hyperlink{_firmata_8h_a21b9d98a7bff8ee5e96a9ee521618c8c}{sysex\+Callback\+Function}} new\+Function, void $\ast$context=N\+U\+LL)
+\item 
+void \mbox{\hyperlink{classfirmata_1_1_firmata_parser_affc821e7742d889965e61b248c204842}{attach}} (uint8\+\_\+t command, \mbox{\hyperlink{_firmata_8h_a3edf3f3c181d5ec58c3deb3e5eb7a933}{system\+Callback\+Function}} new\+Function, void $\ast$context=N\+U\+LL)
+\item 
+void \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a876105f2203f5e8f1fb06c8236a96933}{attach}} (uint8\+\_\+t command, \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a6be4a3c92941c1de63b44918bbbda545}{version\+Callback\+Function}} new\+Function, void $\ast$context=N\+U\+LL)
+\item 
+void \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a7cd707386c0807bee733a3e27d161c7d}{detach}} (uint8\+\_\+t command)
+\item 
+void \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a280ac17e428f8374afd30bce75e9a861}{detach}} (\mbox{\hyperlink{classfirmata_1_1_firmata_parser_a7ba04f2773f1052fc014c93d309fe069}{data\+Buffer\+Overflow\+Callback\+Function}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 27 of file Firmata\+Parser.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_a40cc69b4997fad3335a34cc083894ea1}\label{classfirmata_1_1_firmata_parser_a40cc69b4997fad3335a34cc083894ea1}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!callbackFunction@{callbackFunction}}
+\index{callbackFunction@{callbackFunction}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{callbackFunction}{callbackFunction}}
+{\footnotesize\ttfamily typedef void($\ast$ firmata\+::\+Firmata\+Parser\+::callback\+Function) (void $\ast$context, uint8\+\_\+t command, uint16\+\_\+t value)}
+
+
+
+Definition at line 31 of file Firmata\+Parser.\+h.
+
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_a7ba04f2773f1052fc014c93d309fe069}\label{classfirmata_1_1_firmata_parser_a7ba04f2773f1052fc014c93d309fe069}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!dataBufferOverflowCallbackFunction@{dataBufferOverflowCallbackFunction}}
+\index{dataBufferOverflowCallbackFunction@{dataBufferOverflowCallbackFunction}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{dataBufferOverflowCallbackFunction}{dataBufferOverflowCallbackFunction}}
+{\footnotesize\ttfamily typedef void($\ast$ firmata\+::\+Firmata\+Parser\+::data\+Buffer\+Overflow\+Callback\+Function) (void $\ast$context)}
+
+
+
+Definition at line 32 of file Firmata\+Parser.\+h.
+
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_a6cee4285d9cd5cdba702b720ae10a9b8}\label{classfirmata_1_1_firmata_parser_a6cee4285d9cd5cdba702b720ae10a9b8}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!stringCallbackFunction@{stringCallbackFunction}}
+\index{stringCallbackFunction@{stringCallbackFunction}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{stringCallbackFunction}{stringCallbackFunction}}
+{\footnotesize\ttfamily typedef void($\ast$ firmata\+::\+Firmata\+Parser\+::string\+Callback\+Function) (void $\ast$context, const char $\ast$c\+\_\+str)}
+
+
+
+Definition at line 33 of file Firmata\+Parser.\+h.
+
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_a9f1b158e9366cdca7f9f743011359b13}\label{classfirmata_1_1_firmata_parser_a9f1b158e9366cdca7f9f743011359b13}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!sysexCallbackFunction@{sysexCallbackFunction}}
+\index{sysexCallbackFunction@{sysexCallbackFunction}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{sysexCallbackFunction}{sysexCallbackFunction}}
+{\footnotesize\ttfamily typedef void($\ast$ firmata\+::\+Firmata\+Parser\+::sysex\+Callback\+Function) (void $\ast$context, uint8\+\_\+t command, size\+\_\+t argc, uint8\+\_\+t $\ast$argv)}
+
+
+
+Definition at line 34 of file Firmata\+Parser.\+h.
+
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_ad0655dab3f791c7c46c8412ae13f0d3a}\label{classfirmata_1_1_firmata_parser_ad0655dab3f791c7c46c8412ae13f0d3a}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!systemCallbackFunction@{systemCallbackFunction}}
+\index{systemCallbackFunction@{systemCallbackFunction}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{systemCallbackFunction}{systemCallbackFunction}}
+{\footnotesize\ttfamily typedef void($\ast$ firmata\+::\+Firmata\+Parser\+::system\+Callback\+Function) (void $\ast$context)}
+
+
+
+Definition at line 35 of file Firmata\+Parser.\+h.
+
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_a6be4a3c92941c1de63b44918bbbda545}\label{classfirmata_1_1_firmata_parser_a6be4a3c92941c1de63b44918bbbda545}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!versionCallbackFunction@{versionCallbackFunction}}
+\index{versionCallbackFunction@{versionCallbackFunction}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{versionCallbackFunction}{versionCallbackFunction}}
+{\footnotesize\ttfamily typedef void($\ast$ firmata\+::\+Firmata\+Parser\+::version\+Callback\+Function) (void $\ast$context, size\+\_\+t sv\+\_\+major, size\+\_\+t sv\+\_\+minor, const char $\ast$firmware)}
+
+
+
+Definition at line 36 of file Firmata\+Parser.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_ac8c388b593a00e88856646712beae68b}\label{classfirmata_1_1_firmata_parser_ac8c388b593a00e88856646712beae68b}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!FirmataParser@{FirmataParser}}
+\index{FirmataParser@{FirmataParser}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{FirmataParser()}{FirmataParser()}}
+{\footnotesize\ttfamily Firmata\+Parser\+::\+Firmata\+Parser (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data\+Buffer = {\ttfamily (uint8\+\_\+t~$\ast$)NULL},  }\item[{size\+\_\+t}]{data\+Buffer\+Size = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+The \mbox{\hyperlink{classfirmata_1_1_firmata_parser}{Firmata\+Parser}} class. 
+\begin{DoxyParams}{Parameters}
+{\em data\+Buffer} & A pointer to an external buffer used to store parsed data \\
+\hline
+{\em data\+Buffer\+Size} & The size of the external buffer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file Firmata\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34 :}
+\DoxyCodeLine{35   dataBuffer(dataBuffer),}
+\DoxyCodeLine{36   dataBufferSize(dataBufferSize),}
+\DoxyCodeLine{37   executeMultiByteCommand(0),}
+\DoxyCodeLine{38   multiByteChannel(0),}
+\DoxyCodeLine{39   waitForData(0),}
+\DoxyCodeLine{40   parsingSysex(\textcolor{keyword}{false}),}
+\DoxyCodeLine{41   sysexBytesRead(0),}
+\DoxyCodeLine{42   currentAnalogCallbackContext((\textcolor{keywordtype}{void} *)NULL),}
+\DoxyCodeLine{43   currentDigitalCallbackContext((\textcolor{keywordtype}{void} *)NULL),}
+\DoxyCodeLine{44   currentReportAnalogCallbackContext((\textcolor{keywordtype}{void} *)NULL),}
+\DoxyCodeLine{45   currentReportDigitalCallbackContext((\textcolor{keywordtype}{void} *)NULL),}
+\DoxyCodeLine{46   currentPinModeCallbackContext((\textcolor{keywordtype}{void} *)NULL),}
+\DoxyCodeLine{47   currentPinValueCallbackContext((\textcolor{keywordtype}{void} *)NULL),}
+\DoxyCodeLine{48   currentReportFirmwareCallbackContext((\textcolor{keywordtype}{void} *)NULL),}
+\DoxyCodeLine{49   currentReportVersionCallbackContext((\textcolor{keywordtype}{void} *)NULL),}
+\DoxyCodeLine{50   currentDataBufferOverflowCallbackContext((\textcolor{keywordtype}{void} *)NULL),}
+\DoxyCodeLine{51   currentStringCallbackContext((\textcolor{keywordtype}{void} *)NULL),}
+\DoxyCodeLine{52   currentSysexCallbackContext((\textcolor{keywordtype}{void} *)NULL),}
+\DoxyCodeLine{53   currentSystemResetCallbackContext((\textcolor{keywordtype}{void} *)NULL),}
+\DoxyCodeLine{54   currentAnalogCallback((\mbox{\hyperlink{_firmata_8h_ac1d919f56c49d2e9559967b3b950e504}{callbackFunction}})NULL),}
+\DoxyCodeLine{55   currentDigitalCallback((\mbox{\hyperlink{_firmata_8h_ac1d919f56c49d2e9559967b3b950e504}{callbackFunction}})NULL),}
+\DoxyCodeLine{56   currentReportAnalogCallback((\mbox{\hyperlink{_firmata_8h_ac1d919f56c49d2e9559967b3b950e504}{callbackFunction}})NULL),}
+\DoxyCodeLine{57   currentReportDigitalCallback((\mbox{\hyperlink{_firmata_8h_ac1d919f56c49d2e9559967b3b950e504}{callbackFunction}})NULL),}
+\DoxyCodeLine{58   currentPinModeCallback((\mbox{\hyperlink{_firmata_8h_ac1d919f56c49d2e9559967b3b950e504}{callbackFunction}})NULL),}
+\DoxyCodeLine{59   currentPinValueCallback((\mbox{\hyperlink{_firmata_8h_ac1d919f56c49d2e9559967b3b950e504}{callbackFunction}})NULL),}
+\DoxyCodeLine{60   currentDataBufferOverflowCallback((\mbox{\hyperlink{classfirmata_1_1_firmata_parser_a7ba04f2773f1052fc014c93d309fe069}{dataBufferOverflowCallbackFunction}})NULL),}
+\DoxyCodeLine{61   currentStringCallback((\mbox{\hyperlink{_firmata_8h_ae8cc4d167596bda9460991674389d15c}{stringCallbackFunction}})NULL),}
+\DoxyCodeLine{62   currentSysexCallback((\mbox{\hyperlink{_firmata_8h_a21b9d98a7bff8ee5e96a9ee521618c8c}{sysexCallbackFunction}})NULL),}
+\DoxyCodeLine{63   currentReportFirmwareCallback((\mbox{\hyperlink{classfirmata_1_1_firmata_parser_a6be4a3c92941c1de63b44918bbbda545}{versionCallbackFunction}})NULL),}
+\DoxyCodeLine{64   currentReportVersionCallback((\mbox{\hyperlink{_firmata_8h_a3edf3f3c181d5ec58c3deb3e5eb7a933}{systemCallbackFunction}})NULL),}
+\DoxyCodeLine{65   currentSystemResetCallback((\mbox{\hyperlink{_firmata_8h_a3edf3f3c181d5ec58c3deb3e5eb7a933}{systemCallbackFunction}})NULL)}
+\DoxyCodeLine{66 \{}
+\DoxyCodeLine{67     allowBufferUpdate = ((uint8\_t *)NULL == dataBuffer);}
+\DoxyCodeLine{68 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_ae176414892a2d240b921c2b8037a8ade}\label{classfirmata_1_1_firmata_parser_ae176414892a2d240b921c2b8037a8ade}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!attach@{attach}}
+\index{attach@{attach}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily void Firmata\+Parser\+::attach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classfirmata_1_1_firmata_parser_a7ba04f2773f1052fc014c93d309fe069}{data\+Buffer\+Overflow\+Callback\+Function}}}]{new\+Function,  }\item[{void $\ast$}]{context = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Attach a buffer overflow callback 
+\begin{DoxyParams}{Parameters}
+{\em new\+Function} & A reference to the buffer overflow callback function to attach. \\
+\hline
+{\em context} & An optional context to be provided to the callback function (N\+U\+LL by default). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The context parameter is provided so you can pass a parameter, by reference, to your callback function. 
+\end{DoxyNote}
+
+
+Definition at line 326 of file Firmata\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{327 \{}
+\DoxyCodeLine{328   currentDataBufferOverflowCallback = newFunction;}
+\DoxyCodeLine{329   currentDataBufferOverflowCallbackContext = context;}
+\DoxyCodeLine{330 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_a2a472a925ed7e626ed36dee94ceae45e}\label{classfirmata_1_1_firmata_parser_a2a472a925ed7e626ed36dee94ceae45e}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!attach@{attach}}
+\index{attach@{attach}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily void Firmata\+Parser\+::attach (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command,  }\item[{\mbox{\hyperlink{_firmata_8h_ac1d919f56c49d2e9559967b3b950e504}{callback\+Function}}}]{new\+Function,  }\item[{void $\ast$}]{context = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Attach a generic sysex callback function to a command (options are\+: A\+N\+A\+L\+O\+G\+\_\+\+M\+E\+S\+S\+A\+GE, D\+I\+G\+I\+T\+A\+L\+\_\+\+M\+E\+S\+S\+A\+GE, R\+E\+P\+O\+R\+T\+\_\+\+A\+N\+A\+L\+OG, R\+E\+P\+O\+RT D\+I\+G\+I\+T\+AL, S\+E\+T\+\_\+\+P\+I\+N\+\_\+\+M\+O\+DE and S\+E\+T\+\_\+\+D\+I\+G\+I\+T\+A\+L\+\_\+\+P\+I\+N\+\_\+\+V\+A\+L\+UE). 
+\begin{DoxyParams}{Parameters}
+{\em command} & The ID of the command to attach a callback function to. \\
+\hline
+{\em new\+Function} & A reference to the callback function to attach. \\
+\hline
+{\em context} & An optional context to be provided to the callback function (N\+U\+LL by default). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The context parameter is provided so you can pass a parameter, by reference, to your callback function. 
+\end{DoxyNote}
+
+
+Definition at line 216 of file Firmata\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{217 \{}
+\DoxyCodeLine{218   \textcolor{keywordflow}{switch} (command) \{}
+\DoxyCodeLine{219     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_aea14613546a585cfec72d5b0f79365ef}{ANALOG\_MESSAGE}}:}
+\DoxyCodeLine{220       currentAnalogCallback = newFunction;}
+\DoxyCodeLine{221       currentAnalogCallbackContext = context;}
+\DoxyCodeLine{222       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{223     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a49bf6564630519f4293bd39a71a95b00}{DIGITAL\_MESSAGE}}:}
+\DoxyCodeLine{224       currentDigitalCallback = newFunction;}
+\DoxyCodeLine{225       currentDigitalCallbackContext = context;}
+\DoxyCodeLine{226       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{227     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_aea1b306b1e7d3751bba41f311b755a99}{REPORT\_ANALOG}}:}
+\DoxyCodeLine{228       currentReportAnalogCallback = newFunction;}
+\DoxyCodeLine{229       currentReportAnalogCallbackContext = context;}
+\DoxyCodeLine{230       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{231     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a00a56f93ad64fa08998b7db2054180a6}{REPORT\_DIGITAL}}:}
+\DoxyCodeLine{232       currentReportDigitalCallback = newFunction;}
+\DoxyCodeLine{233       currentReportDigitalCallbackContext = context;}
+\DoxyCodeLine{234       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{235     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a5ecb59a9641299fcaf2e4ce96587c1f8}{SET\_PIN\_MODE}}:}
+\DoxyCodeLine{236       currentPinModeCallback = newFunction;}
+\DoxyCodeLine{237       currentPinModeCallbackContext = context;}
+\DoxyCodeLine{238       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{239     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a0a75e8e1855e7dedbbbfd17711f152af}{SET\_DIGITAL\_PIN\_VALUE}}:}
+\DoxyCodeLine{240       currentPinValueCallback = newFunction;}
+\DoxyCodeLine{241       currentPinValueCallbackContext = context;}
+\DoxyCodeLine{242       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{243   \}}
+\DoxyCodeLine{244 \}}
+
+\end{DoxyCode}
+
+
+References firmata\+::\+A\+N\+A\+L\+O\+G\+\_\+\+M\+E\+S\+S\+A\+GE, firmata\+::\+D\+I\+G\+I\+T\+A\+L\+\_\+\+M\+E\+S\+S\+A\+GE, firmata\+::\+R\+E\+P\+O\+R\+T\+\_\+\+A\+N\+A\+L\+OG, firmata\+::\+R\+E\+P\+O\+R\+T\+\_\+\+D\+I\+G\+I\+T\+AL, firmata\+::\+S\+E\+T\+\_\+\+D\+I\+G\+I\+T\+A\+L\+\_\+\+P\+I\+N\+\_\+\+V\+A\+L\+UE, and firmata\+::\+S\+E\+T\+\_\+\+P\+I\+N\+\_\+\+M\+O\+DE.
+
+
+
+Referenced by detach(), and firmata\+::\+Firmata\+Class\+::\+Firmata\+Class().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classfirmata_1_1_firmata_parser_a2a472a925ed7e626ed36dee94ceae45e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_a239b37e09dea042d229fc2171d3a1979}\label{classfirmata_1_1_firmata_parser_a239b37e09dea042d229fc2171d3a1979}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!attach@{attach}}
+\index{attach@{attach}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily void Firmata\+Parser\+::attach (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command,  }\item[{\mbox{\hyperlink{_firmata_8h_ae8cc4d167596bda9460991674389d15c}{string\+Callback\+Function}}}]{new\+Function,  }\item[{void $\ast$}]{context = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Attach a callback function for the S\+T\+R\+I\+N\+G\+\_\+\+D\+A\+TA command. 
+\begin{DoxyParams}{Parameters}
+{\em command} & Must be set to S\+T\+R\+I\+N\+G\+\_\+\+D\+A\+TA or it will be ignored. \\
+\hline
+{\em new\+Function} & A reference to the string callback function to attach. \\
+\hline
+{\em context} & An optional context to be provided to the callback function (N\+U\+LL by default). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The context parameter is provided so you can pass a parameter, by reference, to your callback function. 
+\end{DoxyNote}
+
+
+Definition at line 294 of file Firmata\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{295 \{}
+\DoxyCodeLine{296   \textcolor{keywordflow}{switch} (command) \{}
+\DoxyCodeLine{297     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_ada4a2133aced1b1051f4663a8365bbc6}{STRING\_DATA}}:}
+\DoxyCodeLine{298       currentStringCallback = newFunction;}
+\DoxyCodeLine{299       currentStringCallbackContext = context;}
+\DoxyCodeLine{300       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{301   \}}
+\DoxyCodeLine{302 \}}
+
+\end{DoxyCode}
+
+
+References firmata\+::\+S\+T\+R\+I\+N\+G\+\_\+\+D\+A\+TA.
+
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_aaa1d755b20b21e528bfa62d6a7c2dc0f}\label{classfirmata_1_1_firmata_parser_aaa1d755b20b21e528bfa62d6a7c2dc0f}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!attach@{attach}}
+\index{attach@{attach}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily void Firmata\+Parser\+::attach (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command,  }\item[{\mbox{\hyperlink{_firmata_8h_a21b9d98a7bff8ee5e96a9ee521618c8c}{sysex\+Callback\+Function}}}]{new\+Function,  }\item[{void $\ast$}]{context = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Attach a generic sysex callback function to sysex command. 
+\begin{DoxyParams}{Parameters}
+{\em command} & The ID of the command to attach a callback function to. \\
+\hline
+{\em new\+Function} & A reference to the sysex callback function to attach. \\
+\hline
+{\em context} & An optional context to be provided to the callback function (N\+U\+LL by default). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The context parameter is provided so you can pass a parameter, by reference, to your callback function. 
+\end{DoxyNote}
+
+
+Definition at line 312 of file Firmata\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{313 \{}
+\DoxyCodeLine{314   (void)command;}
+\DoxyCodeLine{315   currentSysexCallback = newFunction;}
+\DoxyCodeLine{316   currentSysexCallbackContext = context;}
+\DoxyCodeLine{317 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_affc821e7742d889965e61b248c204842}\label{classfirmata_1_1_firmata_parser_affc821e7742d889965e61b248c204842}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!attach@{attach}}
+\index{attach@{attach}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily void Firmata\+Parser\+::attach (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command,  }\item[{\mbox{\hyperlink{_firmata_8h_a3edf3f3c181d5ec58c3deb3e5eb7a933}{system\+Callback\+Function}}}]{new\+Function,  }\item[{void $\ast$}]{context = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Attach a system callback function (supported options are\+: S\+Y\+S\+T\+E\+M\+\_\+\+R\+E\+S\+ET, R\+E\+P\+O\+R\+T\+\_\+\+V\+E\+R\+S\+I\+ON). 
+\begin{DoxyParams}{Parameters}
+{\em command} & The ID of the command to attach a callback function to. \\
+\hline
+{\em new\+Function} & A reference to the callback function to attach. \\
+\hline
+{\em context} & An optional context to be provided to the callback function (N\+U\+LL by default). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The context parameter is provided so you can pass a parameter, by reference, to your callback function. 
+\end{DoxyNote}
+
+
+Definition at line 272 of file Firmata\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{273 \{}
+\DoxyCodeLine{274   \textcolor{keywordflow}{switch} (command) \{}
+\DoxyCodeLine{275     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a7aa955ae4335c171096a0224bf279f5b}{REPORT\_VERSION}}:}
+\DoxyCodeLine{276       currentReportVersionCallback = newFunction;}
+\DoxyCodeLine{277       currentReportVersionCallbackContext = context;}
+\DoxyCodeLine{278       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{279     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_abba911f61c8df9fc6f6ea7bf041a22b5}{SYSTEM\_RESET}}:}
+\DoxyCodeLine{280       currentSystemResetCallback = newFunction;}
+\DoxyCodeLine{281       currentSystemResetCallbackContext = context;}
+\DoxyCodeLine{282       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{283   \}}
+\DoxyCodeLine{284 \}}
+
+\end{DoxyCode}
+
+
+References firmata\+::\+R\+E\+P\+O\+R\+T\+\_\+\+V\+E\+R\+S\+I\+ON, and firmata\+::\+S\+Y\+S\+T\+E\+M\+\_\+\+R\+E\+S\+ET.
+
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_a876105f2203f5e8f1fb06c8236a96933}\label{classfirmata_1_1_firmata_parser_a876105f2203f5e8f1fb06c8236a96933}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!attach@{attach}}
+\index{attach@{attach}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily void Firmata\+Parser\+::attach (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command,  }\item[{\mbox{\hyperlink{classfirmata_1_1_firmata_parser_a6be4a3c92941c1de63b44918bbbda545}{version\+Callback\+Function}}}]{new\+Function,  }\item[{void $\ast$}]{context = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Attach a version callback function (supported option\+: R\+E\+P\+O\+R\+T\+\_\+\+F\+I\+R\+M\+W\+A\+RE). 
+\begin{DoxyParams}{Parameters}
+{\em command} & The ID of the command to attach a callback function to. \\
+\hline
+{\em new\+Function} & A reference to the callback function to attach. \\
+\hline
+{\em context} & An optional context to be provided to the callback function (N\+U\+LL by default). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The context parameter is provided so you can pass a parameter, by reference, to your callback function. 
+\end{DoxyNote}
+
+
+Definition at line 254 of file Firmata\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{255 \{}
+\DoxyCodeLine{256   \textcolor{keywordflow}{switch} (command) \{}
+\DoxyCodeLine{257     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a27aae72a38fab1b0b039d7687e294398}{REPORT\_FIRMWARE}}:}
+\DoxyCodeLine{258       currentReportFirmwareCallback = newFunction;}
+\DoxyCodeLine{259       currentReportFirmwareCallbackContext = context;}
+\DoxyCodeLine{260       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{261   \}}
+\DoxyCodeLine{262 \}}
+
+\end{DoxyCode}
+
+
+References firmata\+::\+R\+E\+P\+O\+R\+T\+\_\+\+F\+I\+R\+M\+W\+A\+RE.
+
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_a280ac17e428f8374afd30bce75e9a861}\label{classfirmata_1_1_firmata_parser_a280ac17e428f8374afd30bce75e9a861}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!detach@{detach}}
+\index{detach@{detach}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{detach()}{detach()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Firmata\+Parser\+::detach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classfirmata_1_1_firmata_parser_a7ba04f2773f1052fc014c93d309fe069}{data\+Buffer\+Overflow\+Callback\+Function}}}]{ }\end{DoxyParamCaption})}
+
+Detach the buffer overflow callback 
+\begin{DoxyParams}{Parameters}
+{\em $<$unused$>$} & Any pointer of type data\+Buffer\+Overflow\+Callback\+Function. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 363 of file Firmata\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{364 \{}
+\DoxyCodeLine{365   currentDataBufferOverflowCallback = (\mbox{\hyperlink{classfirmata_1_1_firmata_parser_a7ba04f2773f1052fc014c93d309fe069}{dataBufferOverflowCallbackFunction}})NULL;}
+\DoxyCodeLine{366   currentDataBufferOverflowCallbackContext = (\textcolor{keywordtype}{void} *)NULL;}
+\DoxyCodeLine{367 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_a7cd707386c0807bee733a3e27d161c7d}\label{classfirmata_1_1_firmata_parser_a7cd707386c0807bee733a3e27d161c7d}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!detach@{detach}}
+\index{detach@{detach}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{detach()}{detach()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Firmata\+Parser\+::detach (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command }\end{DoxyParamCaption})}
+
+Detach a callback function for a specified command (such as S\+Y\+S\+T\+E\+M\+\_\+\+R\+E\+S\+ET, S\+T\+R\+I\+N\+G\+\_\+\+D\+A\+TA, A\+N\+A\+L\+O\+G\+\_\+\+M\+E\+S\+S\+A\+GE, D\+I\+G\+I\+T\+A\+L\+\_\+\+M\+E\+S\+S\+A\+GE, etc). 
+\begin{DoxyParams}{Parameters}
+{\em command} & The ID of the command to detatch the callback function from. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 337 of file Firmata\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{338 \{}
+\DoxyCodeLine{339   \textcolor{keywordflow}{switch} (command) \{}
+\DoxyCodeLine{340     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a27aae72a38fab1b0b039d7687e294398}{REPORT\_FIRMWARE}}:}
+\DoxyCodeLine{341       \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a2a472a925ed7e626ed36dee94ceae45e}{attach}}(command, (\mbox{\hyperlink{classfirmata_1_1_firmata_parser_a6be4a3c92941c1de63b44918bbbda545}{versionCallbackFunction}})NULL, NULL);}
+\DoxyCodeLine{342       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{343     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a7aa955ae4335c171096a0224bf279f5b}{REPORT\_VERSION}}:}
+\DoxyCodeLine{344     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_abba911f61c8df9fc6f6ea7bf041a22b5}{SYSTEM\_RESET}}:}
+\DoxyCodeLine{345       \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a2a472a925ed7e626ed36dee94ceae45e}{attach}}(command, (\mbox{\hyperlink{_firmata_8h_a3edf3f3c181d5ec58c3deb3e5eb7a933}{systemCallbackFunction}})NULL, NULL);}
+\DoxyCodeLine{346       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{347     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_ada4a2133aced1b1051f4663a8365bbc6}{STRING\_DATA}}:}
+\DoxyCodeLine{348       \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a2a472a925ed7e626ed36dee94ceae45e}{attach}}(command, (\mbox{\hyperlink{_firmata_8h_ae8cc4d167596bda9460991674389d15c}{stringCallbackFunction}})NULL, NULL);}
+\DoxyCodeLine{349       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{350     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a8210ab38d9279ef1ea406ff7e1db0893}{START\_SYSEX}}:}
+\DoxyCodeLine{351       \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a2a472a925ed7e626ed36dee94ceae45e}{attach}}(command, (\mbox{\hyperlink{_firmata_8h_a21b9d98a7bff8ee5e96a9ee521618c8c}{sysexCallbackFunction}})NULL, NULL);}
+\DoxyCodeLine{352       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{353     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{354       \mbox{\hyperlink{classfirmata_1_1_firmata_parser_a2a472a925ed7e626ed36dee94ceae45e}{attach}}(command, (\mbox{\hyperlink{_firmata_8h_ac1d919f56c49d2e9559967b3b950e504}{callbackFunction}})NULL, NULL);}
+\DoxyCodeLine{355       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{356   \}}
+\DoxyCodeLine{357 \}}
+
+\end{DoxyCode}
+
+
+References attach(), firmata\+::\+R\+E\+P\+O\+R\+T\+\_\+\+F\+I\+R\+M\+W\+A\+RE, firmata\+::\+R\+E\+P\+O\+R\+T\+\_\+\+V\+E\+R\+S\+I\+ON, firmata\+::\+S\+T\+A\+R\+T\+\_\+\+S\+Y\+S\+EX, firmata\+::\+S\+T\+R\+I\+N\+G\+\_\+\+D\+A\+TA, and firmata\+::\+S\+Y\+S\+T\+E\+M\+\_\+\+R\+E\+S\+ET.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classfirmata_1_1_firmata_parser_a7cd707386c0807bee733a3e27d161c7d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_a67902b70695eaf0cf8f7b06175ca3902}\label{classfirmata_1_1_firmata_parser_a67902b70695eaf0cf8f7b06175ca3902}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!isParsingMessage@{isParsingMessage}}
+\index{isParsingMessage@{isParsingMessage}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{isParsingMessage()}{isParsingMessage()}}
+{\footnotesize\ttfamily bool Firmata\+Parser\+::is\+Parsing\+Message (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Returns true if the parser is actively parsing data. 
+\end{DoxyReturn}
+
+
+Definition at line 176 of file Firmata\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{178 \{}
+\DoxyCodeLine{179   \textcolor{keywordflow}{return} (waitForData > 0 || parsingSysex);}
+\DoxyCodeLine{180 \}}
+
+\end{DoxyCode}
+
+
+Referenced by firmata\+::\+Firmata\+Class\+::is\+Parsing\+Message().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{classfirmata_1_1_firmata_parser_a67902b70695eaf0cf8f7b06175ca3902_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_a754c97b890b7fd66c8d953a3e615acbf}\label{classfirmata_1_1_firmata_parser_a754c97b890b7fd66c8d953a3e615acbf}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!parse@{parse}}
+\index{parse@{parse}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily void Firmata\+Parser\+::parse (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{input\+Data }\end{DoxyParamCaption})}
+
+Parse data from the input stream. 
+\begin{DoxyParams}{Parameters}
+{\em input\+Data} & A single byte to be added to the parser. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 81 of file Firmata\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{82 \{}
+\DoxyCodeLine{83   uint8\_t command;}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85   \textcolor{keywordflow}{if} (parsingSysex) \{}
+\DoxyCodeLine{86     \textcolor{keywordflow}{if} (inputData == \mbox{\hyperlink{namespacefirmata_aa4c7b2c2365334150eff56b64c87e6e0}{END\_SYSEX}}) \{}
+\DoxyCodeLine{87       \textcolor{comment}{//stop sysex byte}}
+\DoxyCodeLine{88       parsingSysex = \textcolor{keyword}{false};}
+\DoxyCodeLine{89       \textcolor{comment}{//fire off handler function}}
+\DoxyCodeLine{90       processSysexMessage();}
+\DoxyCodeLine{91     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{92       \textcolor{comment}{//normal data byte -\/ add to buffer}}
+\DoxyCodeLine{93       bufferDataAtPosition(inputData, sysexBytesRead);}
+\DoxyCodeLine{94       ++sysexBytesRead;}
+\DoxyCodeLine{95     \}}
+\DoxyCodeLine{96   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ( (waitForData > 0) \&\& (inputData < 128) ) \{}
+\DoxyCodeLine{97     -\/-\/waitForData;}
+\DoxyCodeLine{98     bufferDataAtPosition(inputData, waitForData);}
+\DoxyCodeLine{99     \textcolor{keywordflow}{if} ( (waitForData == 0) \&\& executeMultiByteCommand ) \{ \textcolor{comment}{// got the whole message}}
+\DoxyCodeLine{100       \textcolor{keywordflow}{switch} (executeMultiByteCommand) \{}
+\DoxyCodeLine{101         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_aea14613546a585cfec72d5b0f79365ef}{ANALOG\_MESSAGE}}:}
+\DoxyCodeLine{102           \textcolor{keywordflow}{if} (currentAnalogCallback) \{}
+\DoxyCodeLine{103             (*currentAnalogCallback)(currentAnalogCallbackContext,}
+\DoxyCodeLine{104                                      multiByteChannel,}
+\DoxyCodeLine{105                                      (dataBuffer[0] << 7)}
+\DoxyCodeLine{106                                      + dataBuffer[1]);}
+\DoxyCodeLine{107           \}}
+\DoxyCodeLine{108           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{109         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a49bf6564630519f4293bd39a71a95b00}{DIGITAL\_MESSAGE}}:}
+\DoxyCodeLine{110           \textcolor{keywordflow}{if} (currentDigitalCallback) \{}
+\DoxyCodeLine{111             (*currentDigitalCallback)(currentDigitalCallbackContext,}
+\DoxyCodeLine{112                                       multiByteChannel,}
+\DoxyCodeLine{113                                       (dataBuffer[0] << 7)}
+\DoxyCodeLine{114                                       + dataBuffer[1]);}
+\DoxyCodeLine{115           \}}
+\DoxyCodeLine{116           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{117         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a5ecb59a9641299fcaf2e4ce96587c1f8}{SET\_PIN\_MODE}}:}
+\DoxyCodeLine{118           \textcolor{keywordflow}{if} (currentPinModeCallback)}
+\DoxyCodeLine{119             (*currentPinModeCallback)(currentPinModeCallbackContext, dataBuffer[1], dataBuffer[0]);}
+\DoxyCodeLine{120           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{121         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a0a75e8e1855e7dedbbbfd17711f152af}{SET\_DIGITAL\_PIN\_VALUE}}:}
+\DoxyCodeLine{122           \textcolor{keywordflow}{if} (currentPinValueCallback)}
+\DoxyCodeLine{123             (*currentPinValueCallback)(currentPinValueCallbackContext, dataBuffer[1], dataBuffer[0]);}
+\DoxyCodeLine{124           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{125         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_aea1b306b1e7d3751bba41f311b755a99}{REPORT\_ANALOG}}:}
+\DoxyCodeLine{126           \textcolor{keywordflow}{if} (currentReportAnalogCallback)}
+\DoxyCodeLine{127             (*currentReportAnalogCallback)(currentReportAnalogCallbackContext, multiByteChannel, dataBuffer[0]);}
+\DoxyCodeLine{128           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{129         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a00a56f93ad64fa08998b7db2054180a6}{REPORT\_DIGITAL}}:}
+\DoxyCodeLine{130           \textcolor{keywordflow}{if} (currentReportDigitalCallback)}
+\DoxyCodeLine{131             (*currentReportDigitalCallback)(currentReportDigitalCallbackContext, multiByteChannel, dataBuffer[0]);}
+\DoxyCodeLine{132           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{133       \}}
+\DoxyCodeLine{134       executeMultiByteCommand = 0;}
+\DoxyCodeLine{135     \}}
+\DoxyCodeLine{136   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{137     \textcolor{comment}{// remove channel info from command byte if less than 0xF0}}
+\DoxyCodeLine{138     \textcolor{keywordflow}{if} (inputData < 0xF0) \{}
+\DoxyCodeLine{139       command = inputData \& 0xF0;}
+\DoxyCodeLine{140       multiByteChannel = inputData \& 0x0F;}
+\DoxyCodeLine{141     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{142       command = inputData;}
+\DoxyCodeLine{143       \textcolor{comment}{// commands in the 0xF* range don't use channel data}}
+\DoxyCodeLine{144     \}}
+\DoxyCodeLine{145     \textcolor{keywordflow}{switch} (command) \{}
+\DoxyCodeLine{146       \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_aea14613546a585cfec72d5b0f79365ef}{ANALOG\_MESSAGE}}:}
+\DoxyCodeLine{147       \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a49bf6564630519f4293bd39a71a95b00}{DIGITAL\_MESSAGE}}:}
+\DoxyCodeLine{148       \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a5ecb59a9641299fcaf2e4ce96587c1f8}{SET\_PIN\_MODE}}:}
+\DoxyCodeLine{149       \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a0a75e8e1855e7dedbbbfd17711f152af}{SET\_DIGITAL\_PIN\_VALUE}}:}
+\DoxyCodeLine{150         waitForData = 2; \textcolor{comment}{// two data bytes needed}}
+\DoxyCodeLine{151         executeMultiByteCommand = command;}
+\DoxyCodeLine{152         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{153       \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_aea1b306b1e7d3751bba41f311b755a99}{REPORT\_ANALOG}}:}
+\DoxyCodeLine{154       \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a00a56f93ad64fa08998b7db2054180a6}{REPORT\_DIGITAL}}:}
+\DoxyCodeLine{155         waitForData = 1; \textcolor{comment}{// one data byte needed}}
+\DoxyCodeLine{156         executeMultiByteCommand = command;}
+\DoxyCodeLine{157         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{158       \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a8210ab38d9279ef1ea406ff7e1db0893}{START\_SYSEX}}:}
+\DoxyCodeLine{159         parsingSysex = \textcolor{keyword}{true};}
+\DoxyCodeLine{160         sysexBytesRead = 0;}
+\DoxyCodeLine{161         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{162       \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_abba911f61c8df9fc6f6ea7bf041a22b5}{SYSTEM\_RESET}}:}
+\DoxyCodeLine{163         systemReset();}
+\DoxyCodeLine{164         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{165       \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacefirmata_a7aa955ae4335c171096a0224bf279f5b}{REPORT\_VERSION}}:}
+\DoxyCodeLine{166         \textcolor{keywordflow}{if} (currentReportVersionCallback)}
+\DoxyCodeLine{167           (*currentReportVersionCallback)(currentReportVersionCallbackContext);}
+\DoxyCodeLine{168         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{169     \}}
+\DoxyCodeLine{170   \}}
+\DoxyCodeLine{171 \}}
+
+\end{DoxyCode}
+
+
+References firmata\+::\+A\+N\+A\+L\+O\+G\+\_\+\+M\+E\+S\+S\+A\+GE, firmata\+::\+D\+I\+G\+I\+T\+A\+L\+\_\+\+M\+E\+S\+S\+A\+GE, firmata\+::\+E\+N\+D\+\_\+\+S\+Y\+S\+EX, firmata\+::\+R\+E\+P\+O\+R\+T\+\_\+\+A\+N\+A\+L\+OG, firmata\+::\+R\+E\+P\+O\+R\+T\+\_\+\+D\+I\+G\+I\+T\+AL, firmata\+::\+R\+E\+P\+O\+R\+T\+\_\+\+V\+E\+R\+S\+I\+ON, firmata\+::\+S\+E\+T\+\_\+\+D\+I\+G\+I\+T\+A\+L\+\_\+\+P\+I\+N\+\_\+\+V\+A\+L\+UE, firmata\+::\+S\+E\+T\+\_\+\+P\+I\+N\+\_\+\+M\+O\+DE, firmata\+::\+S\+T\+A\+R\+T\+\_\+\+S\+Y\+S\+EX, and firmata\+::\+S\+Y\+S\+T\+E\+M\+\_\+\+R\+E\+S\+ET.
+
+
+
+Referenced by firmata\+::\+Firmata\+Class\+::parse(), and firmata\+::\+Firmata\+Class\+::process\+Input().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{classfirmata_1_1_firmata_parser_a754c97b890b7fd66c8d953a3e615acbf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classfirmata_1_1_firmata_parser_a8fbe143ddb428a97c00a15993c31a516}\label{classfirmata_1_1_firmata_parser_a8fbe143ddb428a97c00a15993c31a516}} 
+\index{firmata::FirmataParser@{firmata::FirmataParser}!setDataBufferOfSize@{setDataBufferOfSize}}
+\index{setDataBufferOfSize@{setDataBufferOfSize}!firmata::FirmataParser@{firmata::FirmataParser}}
+\doxysubsubsection{\texorpdfstring{setDataBufferOfSize()}{setDataBufferOfSize()}}
+{\footnotesize\ttfamily int Firmata\+Parser\+::set\+Data\+Buffer\+Of\+Size (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data\+Buffer,  }\item[{size\+\_\+t}]{data\+Buffer\+Size }\end{DoxyParamCaption})}
+
+Provides a mechanism to either set or update the working buffer of the parser. The method will be enabled when no buffer has been provided, or an overflow condition exists. 
+\begin{DoxyParams}{Parameters}
+{\em data\+Buffer} & A pointer to an external buffer used to store parsed data \\
+\hline
+{\em data\+Buffer\+Size} & The size of the external buffer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 189 of file Firmata\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{190 \{}
+\DoxyCodeLine{191     \textcolor{keywordtype}{int} result;}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193     \textcolor{keywordflow}{if} ( !allowBufferUpdate ) \{}
+\DoxyCodeLine{194       result = \_\_LINE\_\_;}
+\DoxyCodeLine{195     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((uint8\_t *)NULL == dataBuffer) \{}
+\DoxyCodeLine{196       result = \_\_LINE\_\_;}
+\DoxyCodeLine{197     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{198       this-\/>dataBuffer = dataBuffer;}
+\DoxyCodeLine{199       this-\/>dataBufferSize = dataBufferSize;}
+\DoxyCodeLine{200       allowBufferUpdate = \textcolor{keyword}{false};}
+\DoxyCodeLine{201       result = 0;}
+\DoxyCodeLine{202     \}}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{205 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_firmata_parser_8h}{Firmata\+Parser.\+h}}\item 
+\mbox{\hyperlink{_firmata_parser_8cpp}{Firmata\+Parser.\+cpp}}\end{DoxyCompactItemize}

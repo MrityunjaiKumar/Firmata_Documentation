@@ -1,0 +1,383 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="accel_stepper_firmata_8md" kind="file" language="Markdown">
+    <compoundname>accelStepperFirmata.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">AccelStepperFirmata<sp/>(Stepper<sp/>2.0)</highlight></codeline>
+<codeline><highlight class="normal">===</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Provides<sp/>support<sp/>for<sp/>full<sp/>2<sp/>wire,<sp/>full<sp/>3<sp/>wire,<sp/>full<sp/>4<sp/>wire,<sp/>half<sp/>3<sp/>wire,<sp/>and<sp/>half<sp/>4<sp/>wire<sp/>stepper<sp/>motor<sp/>drivers<sp/>(H-bridge,<sp/>darlington<sp/>array,<sp/>etc)<sp/>as<sp/>well<sp/>as<sp/>step<sp/>+<sp/>direction<sp/>drivers<sp/>such<sp/>as<sp/>the<sp/>[EasyDriver](http://www.schmalzhaus.com/EasyDriver/).</highlight></codeline>
+<codeline><highlight class="normal">Current<sp/>implementation<sp/>supports<sp/>10<sp/>stepper<sp/>motors<sp/>at<sp/>the<sp/>same<sp/>time<sp/>(#[0-9]).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Includes<sp/>optional<sp/>support<sp/>for<sp/>acceleration<sp/>and<sp/>deceleration<sp/>of<sp/>the<sp/>motor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Also<sp/>includes<sp/>multiStepper<sp/>support<sp/>which<sp/>allows<sp/>groups<sp/>of<sp/>steppers<sp/>to<sp/>be<sp/>simultaneously<sp/>controlled.<sp/>Up<sp/>to<sp/>five<sp/>multiStepper<sp/>groups<sp/>can<sp/>be<sp/>created.<sp/>The<sp/>total<sp/>number<sp/>of<sp/>steppers<sp/>is<sp/>still<sp/>limited<sp/>to<sp/>10.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">AccelStepperFirmata<sp/>sends<sp/>and<sp/>receives<sp/>floats<sp/>in<sp/>a<sp/>custom<sp/>format<sp/>described<sp/>at<sp/>the<sp/>end</highlight></codeline>
+<codeline><highlight class="normal">of<sp/>this<sp/>document.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example<sp/>files:</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>ConfigurableFirmata<sp/>[AccelStepperFirmata.cpp](https://github.com/firmata/ConfigurableFirmata/blob/master/src/AccelStepperFirmata.cpp).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Added<sp/>in<sp/>Firmata<sp/>protocol<sp/>version<sp/>2.6.0.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Protocol</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Stepper<sp/>configuration**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>message<sp/>is<sp/>required<sp/>and<sp/>must<sp/>be<sp/>sent<sp/>prior<sp/>to<sp/>any<sp/>other<sp/>message.<sp/>The<sp/>device<sp/>number<sp/>is<sp/>arbitrary,<sp/>but<sp/>must<sp/>be<sp/>unique.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>config<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00<sp/>=<sp/>config)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)<sp/>(Supports<sp/>up<sp/>to<sp/>10<sp/>motors)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>interface<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(upper<sp/>3<sp/>bits<sp/>=<sp/>wire<sp/>count:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>001XXXX<sp/>=<sp/>driver</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>010XXXX<sp/>=<sp/>two<sp/>wire</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>011XXXX<sp/>=<sp/>three<sp/>wire</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>100XXXX<sp/>=<sp/>four<sp/>wire)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(4th<sp/>-<sp/>6th<sp/>bits<sp/>=<sp/>step<sp/>type</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>step<sp/>size<sp/>=<sp/>1/2^0bXXX<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Examples:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXX000X<sp/>=<sp/>whole<sp/>step</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXX001X<sp/>=<sp/>half<sp/>step</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXX010X<sp/>=<sp/>quarter<sp/>step<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>etc...)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(lower<sp/>1<sp/>bit<sp/>=<sp/>has<sp/>enable<sp/>pin:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXXXXX0<sp/>=<sp/>no<sp/>enable<sp/>pin</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXXXXX1<sp/>=<sp/>has<sp/>enable<sp/>pin)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>motorPin1<sp/>or<sp/>stepPin<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>motorPin2<sp/>or<sp/>directionPin<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>[when<sp/>interface<sp/>&gt;=<sp/>0x011]<sp/>motorPin3<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>[when<sp/>interface<sp/>&gt;=<sp/>0x100]<sp/>motorPin4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>[when<sp/>interface<sp/>&amp;&amp;<sp/>0x0000001]<sp/>enablePin<sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">10<sp/>[optional]<sp/>pins<sp/>to<sp/>invert<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(lower<sp/>5<sp/>bits<sp/>=<sp/>pins:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXXXXX1<sp/>=<sp/>invert<sp/>motorPin1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXXXX1X<sp/>=<sp/>invert<sp/>motorPin2</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXXX1XX<sp/>=<sp/>invert<sp/>motorPin3</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XXX1XXX<sp/>=<sp/>invert<sp/>motorPin4</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XX1XXXX<sp/>=<sp/>invert<sp/>enablePin)</highlight></codeline>
+<codeline><highlight class="normal">11<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Stepper<sp/>zero**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">accelStepper<sp/>will<sp/>store<sp/>the<sp/>current<sp/>absolute<sp/>position<sp/>of<sp/>the<sp/>stepper<sp/>motor<sp/>(in<sp/>steps).<sp/>Sending<sp/>the<sp/>zero<sp/>command<sp/>will<sp/>reset<sp/>the<sp/>position<sp/>value<sp/>to<sp/>zero<sp/>without<sp/>moving<sp/>the<sp/>stepper.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>zero<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Stepper<sp/>step<sp/>(relative<sp/>move)**</highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal">Steps<sp/>to<sp/>move<sp/>is<sp/>specified<sp/>as<sp/>a<sp/>32-bit<sp/>signed<sp/>long.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>step<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>num<sp/>steps,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>num<sp/>steps,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>num<sp/>steps,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>num<sp/>steps,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>num<sp/>steps,<sp/>bits<sp/>28-32</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Stepper<sp/>to<sp/>(absolute<sp/>move)**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Moves<sp/>a<sp/>stepper<sp/>to<sp/>a<sp/>desired<sp/>position<sp/>based<sp/>on<sp/>the<sp/>number<sp/>of<sp/>steps<sp/>from<sp/>the<sp/>zero<sp/>position.</highlight></codeline>
+<codeline><highlight class="normal">Position<sp/>is<sp/>specified<sp/>as<sp/>a<sp/>32-bit<sp/>signed<sp/>long.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>to<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x03)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>position,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>position,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>position,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>position,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>position,<sp/>bits<sp/>28-32</highlight></codeline>
+<codeline><highlight class="normal">9<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Stepper<sp/>enable**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>stepper<sp/>motor<sp/>controllers<sp/>that<sp/>are<sp/>configured<sp/>with<sp/>an<sp/>enable<sp/>pin,<sp/>the<sp/>enable<sp/>command<sp/>manages<sp/>whether<sp/>the<sp/>controller<sp/>passes<sp/>voltage<sp/>through<sp/>to<sp/>the<sp/>motor.<sp/>When<sp/>a<sp/>stepper<sp/>motor<sp/>is<sp/>idle,<sp/>voltage<sp/>is<sp/>still<sp/>being<sp/>consumed<sp/>so<sp/>if<sp/>the<sp/>stepper<sp/>motor<sp/>does<sp/>not<sp/>need<sp/>to<sp/>hold<sp/>its<sp/>position<sp/>use<sp/>enable<sp/>to<sp/>save<sp/>power.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>enable<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x04)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>device<sp/>state<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HIGH<sp/>:<sp/>enabled<sp/>|<sp/>LOW<sp/>:<sp/>disabled)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Stepper<sp/>stop**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Stops<sp/>a<sp/>stepper<sp/>motor.<sp/>Results<sp/>in<sp/>```STEPPER_MOVE_COMPLETE```<sp/>being<sp/>sent<sp/>to<sp/>the<sp/>client<sp/>with<sp/>the<sp/>position<sp/>of<sp/>the<sp/>motor<sp/>when<sp/>stop<sp/>is<sp/>completed<sp/>note:<sp/>If<sp/>an<sp/>acceleration<sp/>is<sp/>set,<sp/>stop<sp/>will<sp/>not<sp/>be<sp/>immediate.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>stop<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x05)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Stepper<sp/>report<sp/>position<sp/>(request)**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Request<sp/>a<sp/>position<sp/>report.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>report<sp/>position<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x06)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Stepper<sp/>report<sp/>position<sp/>(reply)**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sent<sp/>when<sp/>a<sp/>report<sp/>position<sp/>is<sp/>requested.<sp/>Position<sp/>is<sp/>reported<sp/>as<sp/>a<sp/>32-bit<sp/>signed<sp/>long.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>report<sp/>position<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x06)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>position,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>position,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>position,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>position,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>position,<sp/>bits<sp/>28-31</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Stepper<sp/>move<sp/>complete**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sent<sp/>when<sp/>a<sp/>move<sp/>completes.<sp/>Position<sp/>is<sp/>reported<sp/>as<sp/>a<sp/>32-bit<sp/>signed<sp/>long.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>move<sp/>complete<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x0A)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>position,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>position,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>position,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>position,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>position,<sp/>bits<sp/>28-31</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Stepper<sp/>limit**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*Not<sp/>yet<sp/>implemented*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>a<sp/>limit<sp/>pin<sp/>(digital)<sp/>is<sp/>set<sp/>to<sp/>its<sp/>limit<sp/>state,<sp/>movement<sp/>in<sp/>that<sp/>direction<sp/>is<sp/>disabled.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>stop<sp/>limit<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x07)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>lower<sp/>limit<sp/>pin<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>lower<sp/>limit<sp/>state<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00<sp/>|<sp/>0x01)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>upper<sp/>limit<sp/>pin<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>upper<sp/>limit<sp/>state<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00<sp/>|<sp/>0x01)</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Stepper<sp/>set<sp/>acceleration**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sets<sp/>the<sp/>acceleration/deceleration<sp/>in<sp/>steps/sec^2.<sp/>The<sp/>accel<sp/>value<sp/>is<sp/>passed</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>accelStepperFirmata&apos;s<sp/>custom<sp/>float<sp/>format<sp/>described<sp/>below.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>set<sp/>acceleration<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x08)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)<sp/>(Supports<sp/>up<sp/>to<sp/>10<sp/>motors)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>accel,<sp/>bits<sp/>0-6<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(acceleration<sp/>in<sp/>steps/sec^2)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>accel,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>accel,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>accel,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Stepper<sp/>set<sp/>speed**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>acceleration<sp/>is<sp/>off<sp/>(equal<sp/>to<sp/>zero)<sp/>sets<sp/>the<sp/>speed<sp/>in<sp/>steps<sp/>per<sp/>second.<sp/></highlight></codeline>
+<codeline><highlight class="normal">If<sp/>acceleration<sp/>is<sp/>on<sp/>(non-zero)<sp/>sets<sp/>the<sp/>maximum<sp/>speed<sp/>in<sp/>steps<sp/>per<sp/>second.<sp/></highlight></codeline>
+<codeline><highlight class="normal">The<sp/>speed<sp/>value<sp/>is<sp/>passed<sp/>using<sp/>accelStepperFirmata&apos;s<sp/>custom<sp/>float<sp/>format<sp/>described<sp/>below.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>set<sp/>speed<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x09)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)<sp/>(Supports<sp/>up<sp/>to<sp/>10<sp/>motors)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>maxSpeed,<sp/>bits<sp/>0-6<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(maxSpeed<sp/>in<sp/>steps<sp/>per<sp/>sec)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>maxSpeed,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>maxSpeed,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>maxSpeed,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**MultiStepper<sp/>configuration**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Stepper<sp/>instances<sp/>that<sp/>have<sp/>been<sp/>created<sp/>with<sp/>the<sp/>stepper<sp/>configuration<sp/>command<sp/>above<sp/>can<sp/>be<sp/>added<sp/>to<sp/>a<sp/>multiStepper<sp/>group.<sp/>Groups<sp/>can<sp/>be<sp/>sent<sp/>a<sp/>list<sp/>of<sp/>devices/positions<sp/>in<sp/>a<sp/>single<sp/>command<sp/>and<sp/>their<sp/>movements<sp/>will<sp/>be<sp/>coordinated<sp/>to<sp/>begin<sp/>and<sp/>end<sp/>simultaneously.<sp/>Note<sp/>that<sp/>multiStepper<sp/>does<sp/>not<sp/>support<sp/>acceleration<sp/>or<sp/>deceleration.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>multiConfig<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x20)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>group<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-4)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>member<sp/>0x00<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>member<sp/>0x01<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>[optional]<sp/>member<sp/>0x02<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>[optional]<sp/>member<sp/>0x03<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>[optional]<sp/>member<sp/>0x04<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>[optional]<sp/>member<sp/>0x05<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">10<sp/>[optional]<sp/>member<sp/>0x06<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">11<sp/>[optional]<sp/>member<sp/>0x07<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">12<sp/>[optional]<sp/>member<sp/>0x08<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">13<sp/>[optional]<sp/>member<sp/>0x09<sp/>device<sp/>number<sp/><sp/><sp/><sp/><sp/>(0-9)</highlight></codeline>
+<codeline><highlight class="normal">14<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**MultiStepper<sp/>to**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sets<sp/>each<sp/>stepper<sp/>in<sp/>a<sp/>group<sp/>to<sp/>a<sp/>desired<sp/>position<sp/>based<sp/>on<sp/>the<sp/>number<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">steps<sp/>from<sp/>its<sp/>zero<sp/>position.<sp/>Positions<sp/>are<sp/>specified<sp/>as<sp/>a<sp/>32-bit<sp/>signed<sp/>long.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Stepper<sp/>movements<sp/>will<sp/>be<sp/>coordinated<sp/>so<sp/>that<sp/>all<sp/>arrive<sp/>at<sp/>their<sp/>desired</highlight></codeline>
+<codeline><highlight class="normal">position<sp/>simultaneously.<sp/>The<sp/>duration<sp/>of<sp/>this<sp/>move<sp/>is<sp/>based<sp/>on<sp/>which<sp/>stepper</highlight></codeline>
+<codeline><highlight class="normal">will<sp/>take<sp/>the<sp/>longest<sp/>given<sp/>the<sp/>change<sp/>in<sp/>position<sp/>and<sp/>the<sp/>stepper&apos;s<sp/>max<sp/>speed.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>multi<sp/>to<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x21)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>group<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-4)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>position,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>position,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>position,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>position,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>position,<sp/>bits<sp/>28-31</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*Repeat<sp/>4<sp/>through<sp/>8<sp/>for<sp/>each<sp/>device<sp/>in<sp/>group*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">53<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**MultiStepper<sp/>stop**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Immediately<sp/>stops<sp/>all<sp/>steppers<sp/>in<sp/>the<sp/>group.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>multi<sp/>stop<sp/>command<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x23)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>group<sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-4)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**MultiStepper<sp/>move<sp/>compelte**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sent<sp/>when<sp/>a<sp/>multiStepper<sp/>move<sp/>completes.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>ACCELSTEPPER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x62)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>multi<sp/>stepper<sp/>move<sp/>complete<sp/>command<sp/><sp/><sp/><sp/><sp/>(0x24)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>group<sp/><sp/>number<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-4)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">AccelStepperFirmata&apos;s<sp/>Custom<sp/>Float<sp/>Format</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Floats<sp/>sent<sp/>and<sp/>received<sp/>by<sp/>accelStepperFirmata<sp/>are<sp/>composed<sp/>of<sp/>a<sp/>23-bit<sp/>significand<sp/>(mantissa)</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>a<sp/>4-bit,<sp/>base<sp/>10<sp/>exponent<sp/>(biased<sp/>-11<sp/>with<sp/>an<sp/>explicit<sp/>1&apos;s<sp/>bit)<sp/>and<sp/>a<sp/>sign<sp/>bit.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|0-20<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|21<sp/><sp/><sp/>|22-25<sp/><sp/><sp/>|26-27<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">|----------------------|-----|--------|---------------------</highlight></codeline>
+<codeline><highlight class="normal">|least<sp/>significant<sp/>bits|sign<sp/>|exponent|most<sp/>significant<sp/>bits<sp/></highlight></codeline>
+<codeline><highlight class="normal">|21<sp/>bits<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|1<sp/>bit|4<sp/>bits<sp/><sp/>|2<sp/>bits</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">These<sp/>values<sp/>allow<sp/>a<sp/>range<sp/>from<sp/>8.388608*10^-11<sp/>to<sp/>83886.08.<sp/>Small<sp/>enough<sp/>to<sp/>represent<sp/>one<sp/>step<sp/>per<sp/>year<sp/>and<sp/>large<sp/>enough<sp/>to<sp/>exceed<sp/>our<sp/>max<sp/>achievable<sp/>stepper<sp/>speed.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Example<sp/>1:<sp/>1<sp/>step<sp/>per<sp/>hour**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1<sp/>step<sp/>per<sp/>hour<sp/>=<sp/>1<sp/>step<sp/>/<sp/>60<sp/>minutes<sp/>/<sp/>60<sp/>seconds<sp/>=<sp/>0.000277...<sp/>steps<sp/>per<sp/>second</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>largest<sp/>integer<sp/>that<sp/>can<sp/>be<sp/>represented<sp/>in<sp/>23<sp/>bits<sp/>is<sp/>8388608<sp/>so<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">significand<sp/>will<sp/>be<sp/>limited<sp/>to<sp/>6<sp/>or<sp/>7<sp/>digits.<sp/>In<sp/>this<sp/>case<sp/>2777777<sp/>(note<sp/>the<sp/>value<sp/>truncates).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>exponent<sp/>is<sp/>4<sp/>bits<sp/>which<sp/>limits<sp/>the<sp/>range<sp/>to<sp/>0-15,<sp/>but<sp/>we<sp/>subtract</highlight></codeline>
+<codeline><highlight class="normal">11<sp/>from<sp/>that<sp/>value<sp/>on<sp/>the<sp/>receiving<sp/>end<sp/>to<sp/>give<sp/>us<sp/>a<sp/>range<sp/>from<sp/>-11<sp/>to<sp/>4.<sp/>In</highlight></codeline>
+<codeline><highlight class="normal">this<sp/>example<sp/>we<sp/>are<sp/>passing<sp/>1<sp/>to<sp/>give<sp/>us<sp/>a<sp/>-10<sp/>value<sp/>in<sp/>the<sp/>exponent.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Decimal|<sp/>Binary<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|------------|--------|------------------------|</highlight></codeline>
+<codeline><highlight class="normal">|Significand<sp/>|<sp/>2777777|<sp/>01010100110001010110001|</highlight></codeline>
+<codeline><highlight class="normal">|Exponent<sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0001|</highlight></codeline>
+<codeline><highlight class="normal">|Sign<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0|</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Values<sp/>in<sp/>firmata<sp/>are<sp/>passed<sp/>in<sp/>the<sp/>7<sp/>least<sp/>significant<sp/>bits<sp/>of<sp/>each<sp/>message<sp/>byte</highlight></codeline>
+<codeline><highlight class="normal">so<sp/>we<sp/>will<sp/>be<sp/>passing<sp/>in<sp/>4<sp/>bytes<sp/>in<sp/>this<sp/>order:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Binary<sp/><sp/>|<sp/>Hex<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|-------------------------------------------|---------|-----|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Least<sp/>most<sp/>significant<sp/>bits<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/>0110001|<sp/>0x31|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Next<sp/>most<sp/>significant<sp/>bits<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/>1000101|<sp/>0x45|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Next<sp/>most<sp/>significant<sp/>bits<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/>0101001|<sp/>0x29|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Sign,<sp/>Exponent<sp/>and<sp/>2<sp/>most<sp/>significant<sp/>bits|<sp/><sp/>0000101|<sp/>0x05|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Example<sp/>2:<sp/>100<sp/>steps<sp/>per<sp/>second**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">We<sp/>have<sp/>to<sp/>pad<sp/>our<sp/>significand<sp/>on<sp/>the<sp/>right<sp/>with<sp/>four<sp/>zeros<sp/>to<sp/>get<sp/>our<sp/>full</highlight></codeline>
+<codeline><highlight class="normal">precision.<sp/>That<sp/>makes<sp/>the<sp/>significand<sp/>100000000<sp/>and<sp/>our<sp/>exponent<sp/>value<sp/>will<sp/>be<sp/>2.</highlight></codeline>
+<codeline><highlight class="normal">Since<sp/>the<sp/>value<sp/>we<sp/>send<sp/>will<sp/>be<sp/>biased<sp/>-11<sp/>on<sp/>the<sp/>receiving<sp/>end,<sp/>we<sp/>send<sp/>13<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>exponent.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Decimal|<sp/>Binary<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|------------|--------|------------------------|</highlight></codeline>
+<codeline><highlight class="normal">|Significand<sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1|<sp/>00000000000000000000001|</highlight></codeline>
+<codeline><highlight class="normal">|Exponent<sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/>13|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1101|</highlight></codeline>
+<codeline><highlight class="normal">|Sign<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Values<sp/>in<sp/>firmata<sp/>are<sp/>passed<sp/>in<sp/>the<sp/>7<sp/>least<sp/>significant<sp/>bits<sp/>of<sp/>each<sp/>message<sp/>byte</highlight></codeline>
+<codeline><highlight class="normal">so<sp/>we<sp/>would<sp/>be<sp/>passing<sp/>in<sp/>4<sp/>bytes<sp/>in<sp/>this<sp/>order:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Binary<sp/><sp/>|<sp/>Hex<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|-------------------------------------------|---------|-----|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Least<sp/>most<sp/>significant<sp/>bits<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/>0000001|<sp/>0x01|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Next<sp/>most<sp/>significant<sp/>bits<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/>0000000|<sp/>0x00|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Next<sp/>most<sp/>significant<sp/>bits<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/>0000000|<sp/>0x00|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Sign,<sp/>Exponent<sp/>and<sp/>2<sp/>most<sp/>significant<sp/>bits|<sp/><sp/>0110100|<sp/>0x34|</highlight></codeline>
+    </programlisting>
+    <location file="protocol/accelStepperFirmata.md"/>
+  </compounddef>
+</doxygen>

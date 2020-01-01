@@ -1,0 +1,946 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classfirmata_1_1_firmata_marshaller" kind="class" language="C++" prot="public">
+    <compoundname>firmata::FirmataMarshaller</compoundname>
+    <includes refid="_firmata_marshaller_8h" local="no">FirmataMarshaller.h</includes>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classfirmata_1_1_firmata_marshaller_1a5c93a0c3b726fc5e47058f5ec4853aaa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class FirmataClass</definition>
+        <argsstring></argsstring>
+        <name>FirmataClass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="31" column="5" bodyfile="arduino/FirmataMarshaller.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classfirmata_1_1_firmata_marshaller_1ab2c74445647dfb2ce368bacc646106ce" prot="private" static="no" mutable="no">
+        <type>Stream *</type>
+        <definition>Stream* firmata::FirmataMarshaller::FirmataStream</definition>
+        <argsstring></argsstring>
+        <name>FirmataStream</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="69" column="13" bodyfile="arduino/FirmataMarshaller.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1ad1a42532bdf77088c47c1a62f5a03829" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FirmataMarshaller::FirmataMarshaller</definition>
+        <argsstring>()</argsstring>
+        <name>FirmataMarshaller</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="classfirmata_1_1_firmata_marshaller" kindref="compound">FirmataMarshaller</ref> class. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="35" column="5" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="129" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1a5be18ca3658875dbe5580c2254071c76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::begin</definition>
+        <argsstring>(Stream &amp;s)</argsstring>
+        <name>begin</name>
+        <param>
+          <type>Stream &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reassign the Firmata stream transport. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reference to the Stream transport object. This can be any type of transport that implements the Stream interface. Some examples include Ethernet, WiFi and other UARTs on the board (Serial1, Serial2, etc). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="38" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="145" bodyend="148"/>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a0c7b0e10168e3c5dc6442d77c65a156e" compoundref="_firmata_8cpp" startline="134" endline="142">firmata::FirmataClass::begin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1ab856434fc577b1e069cba51c39daf1de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Closes the <ref refid="classfirmata_1_1_firmata_marshaller" kindref="compound">FirmataMarshaller</ref> stream by setting its stream reference to <computeroutput>(Stream *)NULL</computeroutput> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="39" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="153" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1af954bcf09b77458b3c4f032897d14697" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::queryFirmwareVersion</definition>
+        <argsstring>(void) const</argsstring>
+        <name>queryFirmwareVersion</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Query the target&apos;s firmware name and version </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="42" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="165" bodyend="172"/>
+        <references refid="namespacefirmata_1aa4c7b2c2365334150eff56b64c87e6e0" compoundref="_firmata_constants_8h" startline="50">firmata::END_SYSEX</references>
+        <references refid="namespacefirmata_1a27aae72a38fab1b0b039d7687e294398" compoundref="_firmata_constants_8h" startline="65">firmata::REPORT_FIRMWARE</references>
+        <references refid="namespacefirmata_1a8210ab38d9279ef1ea406ff7e1db0893" compoundref="_firmata_constants_8h" startline="49">firmata::START_SYSEX</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1a488fbbd372c894ec78ebb99e0faf5167" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::queryVersion</definition>
+        <argsstring>(void) const</argsstring>
+        <name>queryVersion</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Query the target&apos;s Firmata protocol version </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="43" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="177" bodyend="182"/>
+        <references refid="namespacefirmata_1a7aa955ae4335c171096a0224bf279f5b" compoundref="_firmata_constants_8h" startline="46">firmata::REPORT_VERSION</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1a2668d1332704bbf9938f386e247a8f30" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::reportAnalogDisable</definition>
+        <argsstring>(uint8_t pin) const</argsstring>
+        <name>reportAnalogDisable</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Halt the stream of analog readings from the Firmata host application. The range of pins is limited to [0..15] when using the REPORT_ANALOG. The maximum result of the REPORT_ANALOG is limited to 14 bits (16384). To increase the pin range or value, see the documentation for the EXTENDED_ANALOG message. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The analog pin for which to request the value (limited to pins 0 - 15). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="44" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="191" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1a67b3db7232143acf63bd48b765fcc4db" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::reportAnalogEnable</definition>
+        <argsstring>(uint8_t pin) const</argsstring>
+        <name>reportAnalogEnable</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Request a stream of analog readings from the Firmata host application. The range of pins is limited to [0..15] when using the REPORT_ANALOG. The maximum result of the REPORT_ANALOG is limited to 14 bits (16384). To increase the pin range or value, see the documentation for the EXTENDED_ANALOG message. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The analog pin for which to request the value (limited to pins 0 - 15). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="45" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="204" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1aa00582e6e014605a65a8953f8275a5ad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::reportDigitalPortDisable</definition>
+        <argsstring>(uint8_t portNumber) const</argsstring>
+        <name>reportDigitalPortDisable</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>portNumber</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Halt an 8-bit port stream from the Firmata host application (protocol v2 and later). Send 14-bits in a single digital message (protocol v1). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>portNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The port number for which to request the value. Note that this is not the same as a &quot;port&quot; on the physical microcontroller. Ports are defined in order per every 8 pins in ascending order of the Arduino digital pin numbering scheme. Port 0 = pins D0 - D7, port 1 = pins D8 - D15, etc. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="46" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="217" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1a608c28cdc966c33d0cc2239d9465ef7c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::reportDigitalPortEnable</definition>
+        <argsstring>(uint8_t portNumber) const</argsstring>
+        <name>reportDigitalPortEnable</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>portNumber</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Request an 8-bit port stream from the Firmata host application (protocol v2 and later). Send 14-bits in a single digital message (protocol v1). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>portNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The port number for which to request the value. Note that this is not the same as a &quot;port&quot; on the physical microcontroller. Ports are defined in order per every 8 pins in ascending order of the Arduino digital pin numbering scheme. Port 0 = pins D0 - D7, port 1 = pins D8 - D15, etc. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="47" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="230" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1a4d9f2d3bb058237404dfe433cfe7571a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::sendAnalog</definition>
+        <argsstring>(uint8_t pin, uint16_t value) const</argsstring>
+        <name>sendAnalog</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>pin</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send an analog message to the Firmata host application. The range of pins is limited to [0..15] when using the ANALOG_MESSAGE. The maximum value of the ANALOG_MESSAGE is limited to 14 bits (16384). To increase the pin range or value, see the documentation for the EXTENDED_ANALOG message. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The analog pin to which the value is sent. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the analog pin (0 - 1024 for 10-bit analog, 0 - 4096 for 12-bit, etc). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The maximum value is 14-bits (16384). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="48" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="245" bodyend="255"/>
+        <references refid="namespacefirmata_1aea14613546a585cfec72d5b0f79365ef" compoundref="_firmata_constants_8h" startline="39">firmata::ANALOG_MESSAGE</references>
+        <referencedby refid="classfirmata_1_1_firmata_class_1ae14e1d8d9bd72068f6e8ca07721e8dda" compoundref="_firmata_8cpp" startline="289" endline="292">firmata::FirmataClass::sendAnalog</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1a1c987a534cc8dd197eb2f2a728bdacb3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::sendAnalogMappingQuery</definition>
+        <argsstring>(void) const</argsstring>
+        <name>sendAnalogMappingQuery</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send an analog mapping query to the Firmata host application. The resulting sysex message will have an ANALOG_MAPPING_RESPONSE command byte, followed by a list of pins [0-n]; where each pin will specify its corresponding analog pin number or 0x7F (127) if not applicable. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="49" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="262" bodyend="266"/>
+        <references refid="namespacefirmata_1a2dafec1845e07af47dca44cfb7c2a845" compoundref="_firmata_constants_8h" startline="71">firmata::ANALOG_MAPPING_QUERY</references>
+        <references refid="classfirmata_1_1_firmata_marshaller_1ade4f4592877ec0b9f8d6c74e909bad8e" compoundref="_firmata_marshaller_8cpp" startline="388" endline="399">sendSysex</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1a1f1c5ce29ba4488306c9a1e3f158b781" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::sendCapabilityQuery</definition>
+        <argsstring>(void) const</argsstring>
+        <name>sendCapabilityQuery</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send a capability query to the Firmata host application. The resulting sysex message will have a CAPABILITY_RESPONSE command byte, followed by a list of byte tuples (mode and mode resolution) for each pin; where each pin list is terminated by 0x7F (127). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="50" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="273" bodyend="277"/>
+        <references refid="namespacefirmata_1a5e9aa179fe2a6f6fc8cf1111dfb10fcc" compoundref="_firmata_constants_8h" startline="69">firmata::CAPABILITY_QUERY</references>
+        <references refid="classfirmata_1_1_firmata_marshaller_1ade4f4592877ec0b9f8d6c74e909bad8e" compoundref="_firmata_marshaller_8cpp" startline="388" endline="399">sendSysex</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1a2d90627f0543b6298be71f7d903399b3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::sendDigital</definition>
+        <argsstring>(uint8_t pin, uint8_t value) const</argsstring>
+        <name>sendDigital</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>pin</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send a single digital pin value to the Firmata host application. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The digital pin to send the value of. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="51" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="284" bodyend="291"/>
+        <references refid="namespacefirmata_1a0a75e8e1855e7dedbbbfd17711f152af" compoundref="_firmata_constants_8h" startline="44">firmata::SET_DIGITAL_PIN_VALUE</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1a346dcb4487a51efaa95de42d292ad951" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::sendDigitalPort</definition>
+        <argsstring>(uint8_t portNumber, uint16_t portData) const</argsstring>
+        <name>sendDigitalPort</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>portNumber</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>portData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send an 8-bit port in a single digital message (protocol v2 and later). Send 14-bits in a single digital message (protocol v1). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>portNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The port number to send. Note that this is not the same as a &quot;port&quot; on the physical microcontroller. Ports are defined in order per every 8 pins in ascending order of the Arduino digital pin numbering scheme. Port 0 = pins D0 - D7, port 1 = pins D8 - D15, etc. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>portData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the port. The value of each pin in the port is represented by a bit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="52" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="302" bodyend="310"/>
+        <references refid="namespacefirmata_1a49bf6564630519f4293bd39a71a95b00" compoundref="_firmata_constants_8h" startline="38">firmata::DIGITAL_MESSAGE</references>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a799b91e5a888dd21b066a2020d8e2b68" compoundref="_firmata_8cpp" startline="330" endline="333">firmata::FirmataClass::sendDigitalPort</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1aed71d62cc41f2e0bf3f161894b91be7c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::sendFirmwareVersion</definition>
+        <argsstring>(uint8_t major, uint8_t minor, size_t bytec, uint8_t *bytev) const</argsstring>
+        <name>sendFirmwareVersion</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>major</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>minor</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bytec</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>bytev</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends the firmware name and version to the Firmata host application. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>major</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The major verison number </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>minor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The minor version number </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length of the firmware name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The firmware name array </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="53" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="319" bodyend="332"/>
+        <references refid="namespacefirmata_1aa4c7b2c2365334150eff56b64c87e6e0" compoundref="_firmata_constants_8h" startline="50">firmata::END_SYSEX</references>
+        <references refid="namespacefirmata_1a27aae72a38fab1b0b039d7687e294398" compoundref="_firmata_constants_8h" startline="65">firmata::REPORT_FIRMWARE</references>
+        <references refid="namespacefirmata_1a8210ab38d9279ef1ea406ff7e1db0893" compoundref="_firmata_constants_8h" startline="49">firmata::START_SYSEX</references>
+        <referencedby refid="classfirmata_1_1_firmata_class_1abe49261eab0bd4892a09fa8b8980b11a" compoundref="_firmata_8cpp" startline="187" endline="192">firmata::FirmataClass::printFirmwareVersion</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1a95d58949e32ad285088705dbe5680b29" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::sendVersion</definition>
+        <argsstring>(uint8_t major, uint8_t minor) const</argsstring>
+        <name>sendVersion</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>major</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>minor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send the Firmata protocol version to the Firmata host application. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>major</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The major verison number </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>minor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The minor version number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="54" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="339" bodyend="346"/>
+        <references refid="namespacefirmata_1a7aa955ae4335c171096a0224bf279f5b" compoundref="_firmata_constants_8h" startline="46">firmata::REPORT_VERSION</references>
+        <referencedby refid="classfirmata_1_1_firmata_class_1abd8a0370db6d9e923e7e3d5836e78d7a" compoundref="_firmata_8cpp" startline="147" endline="150">firmata::FirmataClass::printVersion</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1a36b6cc103609d900cce36149a239f221" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::sendPinMode</definition>
+        <argsstring>(uint8_t pin, uint8_t config) const</argsstring>
+        <name>sendPinMode</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>pin</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send the pin mode/configuration. The pin configuration (or mode) in Firmata represents the current function of the pin. Examples are digital input or output, analog input, pwm, i2c, serial (uart), etc. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pin to configure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The configuration value for the specified pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="55" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="355" bodyend="362"/>
+        <references refid="namespacefirmata_1a5ecb59a9641299fcaf2e4ce96587c1f8" compoundref="_firmata_constants_8h" startline="43">firmata::SET_PIN_MODE</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1afc378ab4a39c843d4419acdee944972b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::sendPinStateQuery</definition>
+        <argsstring>(uint8_t pin) const</argsstring>
+        <name>sendPinStateQuery</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send a pin state query to the Firmata host application. The resulting sysex message will have a PIN_STATE_RESPONSE command byte, followed by the pin number, the pin mode and a stream of bits to indicate any <emphasis>data</emphasis> written to the pin (pin state). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pin to query </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The pin state is any data written to the pin (i.e. pin state != pin value) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="56" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="371" bodyend="379"/>
+        <references refid="namespacefirmata_1aa4c7b2c2365334150eff56b64c87e6e0" compoundref="_firmata_constants_8h" startline="50">firmata::END_SYSEX</references>
+        <references refid="namespacefirmata_1a6a99bd6639cb0c31e495a06299235400" compoundref="_firmata_constants_8h" startline="67">firmata::PIN_STATE_QUERY</references>
+        <references refid="namespacefirmata_1a8210ab38d9279ef1ea406ff7e1db0893" compoundref="_firmata_constants_8h" startline="49">firmata::START_SYSEX</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1a483ac2dea885ab3472dc38b99bfdec2f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::sendString</definition>
+        <argsstring>(const char *string) const</argsstring>
+        <name>sendString</name>
+        <param>
+          <type>const char *</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send a string to the Firmata host application. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the char string </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="57" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="405" bodyend="409"/>
+        <references refid="classfirmata_1_1_firmata_marshaller_1ade4f4592877ec0b9f8d6c74e909bad8e" compoundref="_firmata_marshaller_8cpp" startline="388" endline="399">sendSysex</references>
+        <references refid="namespacefirmata_1ada4a2133aced1b1051f4663a8365bbc6" compoundref="_firmata_constants_8h" startline="58">firmata::STRING_DATA</references>
+        <referencedby refid="classfirmata_1_1_firmata_class_1ab139c0d784e69003c88eb5be8807dcdf" compoundref="_firmata_8cpp" startline="352" endline="357">firmata::FirmataClass::sendString</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1ade4f4592877ec0b9f8d6c74e909bad8e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::sendSysex</definition>
+        <argsstring>(uint8_t command, size_t bytec, uint8_t *bytev) const</argsstring>
+        <name>sendSysex</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bytec</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>bytev</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send a sysex message where all values after the command byte are packet as 2 7-bit bytes (this is not always the case so this function is not always used to send sysex messages). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The sysex command byte. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of data bytes in the message (excludes start, command and end bytes). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the array of data bytes to send in the message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="58" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="388" bodyend="399"/>
+        <references refid="namespacefirmata_1aa4c7b2c2365334150eff56b64c87e6e0" compoundref="_firmata_constants_8h" startline="50">firmata::END_SYSEX</references>
+        <references refid="namespacefirmata_1a8210ab38d9279ef1ea406ff7e1db0893" compoundref="_firmata_constants_8h" startline="49">firmata::START_SYSEX</references>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1a1c987a534cc8dd197eb2f2a728bdacb3" compoundref="_firmata_marshaller_8cpp" startline="262" endline="266">sendAnalogMappingQuery</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1a1f1c5ce29ba4488306c9a1e3f158b781" compoundref="_firmata_marshaller_8cpp" startline="273" endline="277">sendCapabilityQuery</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1a483ac2dea885ab3472dc38b99bfdec2f" compoundref="_firmata_marshaller_8cpp" startline="405" endline="409">sendString</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_class_1a81e2de5b37eb2372c8a3d9a43d5eb0cc" compoundref="_firmata_8cpp" startline="342" endline="345">firmata::FirmataClass::sendSysex</referencedby>
+        <referencedby refid="classfirmata_1_1_firmata_marshaller_1abb8f4c79dd8a0dbee3f5e04c587ae20c" compoundref="_firmata_marshaller_8cpp" startline="416" endline="420">setSamplingInterval</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1abb8f4c79dd8a0dbee3f5e04c587ae20c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::setSamplingInterval</definition>
+        <argsstring>(uint16_t interval_ms) const</argsstring>
+        <name>setSamplingInterval</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>interval_ms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The sampling interval sets how often analog data and i2c data is reported to the client. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>interval_ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The interval (in milliseconds) at which to sample </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The default sampling interval is 19ms </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="59" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="416" bodyend="420"/>
+        <references refid="namespacefirmata_1a10cd53a86cb2598fdd5d451e4262365c" compoundref="_firmata_constants_8h" startline="73">firmata::SAMPLING_INTERVAL</references>
+        <references refid="classfirmata_1_1_firmata_marshaller_1ade4f4592877ec0b9f8d6c74e909bad8e" compoundref="_firmata_marshaller_8cpp" startline="388" endline="399">sendSysex</references>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1a3a585937f94b1f9e51797e5950a33206" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::systemReset</definition>
+        <argsstring>(void) const</argsstring>
+        <name>systemReset</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Perform a software reset on the target. For example, StandardFirmata.ino will initialize everything to a known state and reset the parsing buffer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="60" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="426" bodyend="431"/>
+        <references refid="namespacefirmata_1abba911f61c8df9fc6f6ea7bf041a22b5" compoundref="_firmata_constants_8h" startline="47">firmata::SYSTEM_RESET</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1abb84d92edd91979dd0dc681aeecd1760" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::reportAnalog</definition>
+        <argsstring>(uint8_t pin, bool stream_enable) const</argsstring>
+        <name>reportAnalog</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>pin</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>stream_enable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Request or halt a stream of analog readings from the Firmata host application. The range of pins is limited to [0..15] when using the REPORT_ANALOG. The maximum result of the REPORT_ANALOG is limited to 14 bits (16384). To increase the pin range or value, see the documentation for the EXTENDED_ANALOG message. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The analog pin for which to request the value (limited to pins 0 - 15). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stream_enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A zero value will disable the stream, a non-zero will enable the stream </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The maximum resulting value is 14-bits (16384). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="64" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="43" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1abff3e115d3e2572d5337f265963f6e64" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::reportDigitalPort</definition>
+        <argsstring>(uint8_t portNumber, bool stream_enable) const</argsstring>
+        <name>reportDigitalPort</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>portNumber</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>stream_enable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Request or halt an 8-bit port stream from the Firmata host application (protocol v2 and later). Send 14-bits in a single digital message (protocol v1). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>portNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The port number for which to request the value. Note that this is not the same as a &quot;port&quot; on the physical microcontroller. Ports are defined in order per every 8 pins in ascending order of the Arduino digital pin numbering scheme. Port 0 = pins D0 - D7, port 1 = pins D8 - D15, etc. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stream_enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A zero value will disable the stream, a non-zero will enable the stream </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="65" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="60" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1adc93bde9c679cab6f21d607b611f759c" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::sendExtendedAnalog</definition>
+        <argsstring>(uint8_t pin, size_t bytec, uint8_t *bytev) const</argsstring>
+        <name>sendExtendedAnalog</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>pin</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bytec</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>bytev</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>An alternative to the normal analog message, this extended version allows addressing beyond pin 15 and supports sending analog values with any number of bits. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The analog pin to which the value is sent. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the storage for the analog value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointer to the location of the analog value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="66" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="75" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classfirmata_1_1_firmata_marshaller_1ae91aabec1648491013457772e95b71af" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FirmataMarshaller::encodeByteStream</definition>
+        <argsstring>(size_t bytec, uint8_t *bytev, size_t max_bytes=0) const</argsstring>
+        <name>encodeByteStream</name>
+        <param>
+          <type>size_t</type>
+          <declname>bytec</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>bytev</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>max_bytes</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Transform 8-bit stream into 7-bit message <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bytec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of data bytes in the message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the array of data bytes to send in the message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Force message to be n bytes, regardless of data bits. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/FirmataMarshaller.h" line="67" column="10" bodyfile="arduino/FirmataMarshaller.cpp" bodystart="92" bodyend="120"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>firmata::FirmataMarshaller</label>
+        <link refid="classfirmata_1_1_firmata_marshaller"/>
+      </node>
+    </collaborationgraph>
+    <location file="arduino/FirmataMarshaller.h" line="30" column="1" bodyfile="arduino/FirmataMarshaller.h" bodystart="29" bodyend="70"/>
+    <listofallmembers>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a5be18ca3658875dbe5580c2254071c76" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>begin</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1ae91aabec1648491013457772e95b71af" prot="private" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>encodeByteStream</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1ab856434fc577b1e069cba51c39daf1de" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>end</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a5c93a0c3b726fc5e47058f5ec4853aaa" prot="private" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>FirmataClass</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1ad1a42532bdf77088c47c1a62f5a03829" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>FirmataMarshaller</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1ab2c74445647dfb2ce368bacc646106ce" prot="private" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>FirmataStream</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1af954bcf09b77458b3c4f032897d14697" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>queryFirmwareVersion</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a488fbbd372c894ec78ebb99e0faf5167" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>queryVersion</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1abb84d92edd91979dd0dc681aeecd1760" prot="private" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>reportAnalog</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a2668d1332704bbf9938f386e247a8f30" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>reportAnalogDisable</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a67b3db7232143acf63bd48b765fcc4db" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>reportAnalogEnable</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1abff3e115d3e2572d5337f265963f6e64" prot="private" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>reportDigitalPort</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1aa00582e6e014605a65a8953f8275a5ad" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>reportDigitalPortDisable</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a608c28cdc966c33d0cc2239d9465ef7c" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>reportDigitalPortEnable</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a4d9f2d3bb058237404dfe433cfe7571a" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>sendAnalog</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a1c987a534cc8dd197eb2f2a728bdacb3" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>sendAnalogMappingQuery</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a1f1c5ce29ba4488306c9a1e3f158b781" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>sendCapabilityQuery</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a2d90627f0543b6298be71f7d903399b3" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>sendDigital</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a346dcb4487a51efaa95de42d292ad951" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>sendDigitalPort</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1adc93bde9c679cab6f21d607b611f759c" prot="private" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>sendExtendedAnalog</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1aed71d62cc41f2e0bf3f161894b91be7c" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>sendFirmwareVersion</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a36b6cc103609d900cce36149a239f221" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>sendPinMode</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1afc378ab4a39c843d4419acdee944972b" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>sendPinStateQuery</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a483ac2dea885ab3472dc38b99bfdec2f" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>sendString</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1ade4f4592877ec0b9f8d6c74e909bad8e" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>sendSysex</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a95d58949e32ad285088705dbe5680b29" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>sendVersion</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1abb8f4c79dd8a0dbee3f5e04c587ae20c" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>setSamplingInterval</name></member>
+      <member refid="classfirmata_1_1_firmata_marshaller_1a3a585937f94b1f9e51797e5950a33206" prot="public" virt="non-virtual"><scope>firmata::FirmataMarshaller</scope><name>systemReset</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,147 @@
+\#\+Serial 1.\+0
+
+Enables control of up to 4 software and 4 hardware (U\+A\+RT) serial ports. Multiple ports can be used simultaneously (depending on restrictions of a given microcontroller board\textquotesingle{}s capabilities).
+
+Sample implementation code for Arduino is available \href{https://github.com/firmata/arduino/blob/master/examples/StandardFirmataPlus/StandardFirmataPlus.ino}{\texttt{ here}}.
+
+A client implementation can be found \href{https://github.com/jgautier/firmata/blob/master/lib/firmata.js}{\texttt{ here}}.
+
+Added in Firmata protocol version 2.\+5.\+0\hypertarget{md_protocol_serial-1_80_autotoc_md124}{}\doxysubsection{Constants}\label{md_protocol_serial-1_80_autotoc_md124}
+\hypertarget{md_protocol_serial-1_80_autotoc_md125}{}\doxysubsubsection{Port I\+Ds}\label{md_protocol_serial-1_80_autotoc_md125}
+Use these constants to identify the hardware or software serial port to address for each command.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{HW\_SERIAL0 = 0x00 (for using Serial when another transport is used for the Firmata Stream)}
+\DoxyCodeLine{HW\_SERIAL1 = 0x01}
+\DoxyCodeLine{HW\_SERIAL2 = 0x02}
+\DoxyCodeLine{HW\_SERIAL3 = 0x03}
+\DoxyCodeLine{// extensible up to 8 HW serial ports}
+\DoxyCodeLine{}
+\DoxyCodeLine{SW\_SERIAL0 = 0x08}
+\DoxyCodeLine{SW\_SERIAL1 = 0x09}
+\DoxyCodeLine{SW\_SERIAL2 = 0x0A}
+\DoxyCodeLine{SW\_SERIAL3 = 0x0B}
+\DoxyCodeLine{// extensible up to 8 SW serial ports}
+\end{DoxyCode}
+\hypertarget{md_protocol_serial-1_80_autotoc_md126}{}\doxysubsubsection{Serial pin capability response}\label{md_protocol_serial-1_80_autotoc_md126}
+Use these constants to identify the pin type in a \href{https://github.com/firmata/protocol/blob/master/protocol.md\#capability-query}{\texttt{ capability query response}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{// Where the pin mode = "Serial" and the pin resolution = one of the following:}
+\DoxyCodeLine{RES\_RX0 = 0x00}
+\DoxyCodeLine{RES\_TX0 = 0x01}
+\DoxyCodeLine{RES\_RX1 = 0x02}
+\DoxyCodeLine{RES\_TX1 = 0x03}
+\DoxyCodeLine{RES\_RX2 = 0x04}
+\DoxyCodeLine{RES\_TX2 = 0x05}
+\DoxyCodeLine{RES\_RX3 = 0x06}
+\DoxyCodeLine{RES\_TX3 = 0x07}
+\DoxyCodeLine{// extensible up to 8 HW ports}
+\end{DoxyCode}
+\hypertarget{md_protocol_serial-1_80_autotoc_md127}{}\doxysubsubsection{Serial pin mode}\label{md_protocol_serial-1_80_autotoc_md127}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{PIN\_MODE\_SERIAL = 0x0A}
+\end{DoxyCode}
+\hypertarget{md_protocol_serial-1_80_autotoc_md128}{}\doxysubsection{Commands}\label{md_protocol_serial-1_80_autotoc_md128}
+\hypertarget{md_protocol_serial-1_80_autotoc_md129}{}\doxysubsubsection{Serial Config}\label{md_protocol_serial-1_80_autotoc_md129}
+Configures the specified hardware or software serial port. RX and TX pins are optional and should only be specified if the platform requires them to be set.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX      (0xF0)}
+\DoxyCodeLine{1  SERIAL\_DATA      (0x60)  // command byte}
+\DoxyCodeLine{2  SERIAL\_CONFIG    (0x10)  // OR with port (0x11 = SERIAL\_CONFIG | HW\_SERIAL1)}
+\DoxyCodeLine{3  baud             (bits 0 -\/ 6)}
+\DoxyCodeLine{4  baud             (bits 7 -\/ 13)}
+\DoxyCodeLine{5  baud             (bits 14 -\/ 20) // need to send 3 bytes for baud even if value is < 14 bits}
+\DoxyCodeLine{6  rxPin            (0-\/127) [optional] // only set if platform requires RX pin number}
+\DoxyCodeLine{7  txPin            (0-\/127) [optional] // only set if platform requires TX pin number}
+\DoxyCodeLine{6|8 END\_SYSEX      (0xF7)}
+\end{DoxyCode}
+\hypertarget{md_protocol_serial-1_80_autotoc_md130}{}\doxysubsubsection{Serial Write}\label{md_protocol_serial-1_80_autotoc_md130}
+Firmata client -\/$>$ Board
+
+Receive serial data from Firmata client, reassemble and write for each byte received.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX      (0xF0)}
+\DoxyCodeLine{1  SERIAL\_DATA      (0x60)}
+\DoxyCodeLine{2  SERIAL\_WRITE     (0x20) // OR with port (0x21 = SERIAL\_WRITE | HW\_SERIAL1)}
+\DoxyCodeLine{3  data 0           (LSB)}
+\DoxyCodeLine{4  data 0           (MSB)}
+\DoxyCodeLine{5  data 1           (LSB)}
+\DoxyCodeLine{6  data 1           (MSB)}
+\DoxyCodeLine{...                 // up to max buffer -\/ 5}
+\DoxyCodeLine{n  END\_SYSEX        (0xF7)}
+\end{DoxyCode}
+\hypertarget{md_protocol_serial-1_80_autotoc_md131}{}\doxysubsubsection{Serial Read}\label{md_protocol_serial-1_80_autotoc_md131}
+Board -\/$>$ Firmata client
+
+Read contents of serial buffer and send to Firmata client (send with {\ttfamily S\+E\+R\+I\+A\+L\+\_\+\+R\+E\+P\+LY}).
+
+{\ttfamily max\+Bytes\+To\+Read} optionally specifies how many bytes to read for each iteration. Set to 0 (or do not define) to read all available bytes. If there are less bytes in the buffer than the number of bytes specified by {\ttfamily max\+Bytes\+To\+Read} then the lesser number of bytes will be returned.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX        (0xF0)}
+\DoxyCodeLine{1  SERIAL\_DATA        (0x60)}
+\DoxyCodeLine{2  SERIAL\_READ        (0x30) // OR with port (0x31 = SERIAL\_READ | HW\_SERIAL1)}
+\DoxyCodeLine{3  SERIAL\_READ\_MODE   (0x00) // 0x00 => read continuously, 0x01 => stop reading}
+\DoxyCodeLine{4  maxBytesToRead     (lsb) [optional]}
+\DoxyCodeLine{5  maxBytesToRead     (msb) [optional]}
+\DoxyCodeLine{4|6 END\_SYSEX         (0xF7)}
+\end{DoxyCode}
+\hypertarget{md_protocol_serial-1_80_autotoc_md132}{}\doxysubsubsection{Serial Reply}\label{md_protocol_serial-1_80_autotoc_md132}
+Board -\/$>$ Firmata client
+
+Sent in response to a S\+E\+R\+I\+A\+L\+\_\+\+R\+E\+AD event or on each iteration of the reporting loop if {\ttfamily S\+E\+R\+I\+A\+L\+\_\+\+R\+E\+A\+D\+\_\+\+C\+O\+N\+T\+I\+N\+U\+O\+U\+S\+LY} is set.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX        (0xF0)}
+\DoxyCodeLine{1  SERIAL\_DATA        (0x60)}
+\DoxyCodeLine{2  SERIAL\_REPLY       (0x40) // OR with port (0x41 = SERIAL\_REPLY | HW\_SERIAL1)}
+\DoxyCodeLine{3  data 0             (LSB)}
+\DoxyCodeLine{4  data 0             (MSB)}
+\DoxyCodeLine{3  data 1             (LSB)}
+\DoxyCodeLine{4  data 1             (MSB)}
+\DoxyCodeLine{...                   // up to max buffer -\/ 5}
+\DoxyCodeLine{n  END\_SYSEX          (0xF7)}
+\end{DoxyCode}
+\hypertarget{md_protocol_serial-1_80_autotoc_md133}{}\doxysubsubsection{Serial Close}\label{md_protocol_serial-1_80_autotoc_md133}
+Close the serial port. If you close a port, you will need to send a {\ttfamily S\+E\+R\+I\+A\+L\+\_\+\+C\+O\+N\+F\+IG} message to reopen it.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX        (0xF0)}
+\DoxyCodeLine{1  SERIAL\_DATA        (0x60)}
+\DoxyCodeLine{2  SERIAL\_CLOSE       (0x50) // OR with port (0x51 = SERIAL\_CLOSE | HW\_SERIAL1)}
+\DoxyCodeLine{3  END\_SYSEX          (0xF7)}
+\end{DoxyCode}
+\hypertarget{md_protocol_serial-1_80_autotoc_md134}{}\doxysubsubsection{Serial Flush}\label{md_protocol_serial-1_80_autotoc_md134}
+Flush the serial port. The exact behavior of flush depends on the underlying platform. For example, with Arduino, calling {\ttfamily flush} on a HW serial port will drain the TX output buffer, calling {\ttfamily flush} on a SW serial port will reset the RX buffer to the beginning, abandoning any data in the buffer. Other platforms may define {\ttfamily flush} differently as well so see the documentation of flush for the platform you are working with to understand exactly how it functions.
+
+Generally {\ttfamily flush} is rarely needed so this functionality is primarily provided for advanced use cases.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX        (0xF0)}
+\DoxyCodeLine{1  SERIAL\_DATA        (0x60)}
+\DoxyCodeLine{2  SERIAL\_FLUSH       (0x60) // OR with port (0x61 = SERIAL\_FLUSH | HW\_SERIAL1)}
+\DoxyCodeLine{3  END\_SYSEX          (0xF7)}
+\end{DoxyCode}
+\hypertarget{md_protocol_serial-1_80_autotoc_md135}{}\doxysubsubsection{Serial Listen}\label{md_protocol_serial-1_80_autotoc_md135}
+Enable switching serial ports. Necessary for Arduino Software\+Serial but may not be applicable to other platforms.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX        (0xF0)}
+\DoxyCodeLine{1  SERIAL\_DATA        (0x60)}
+\DoxyCodeLine{2  SERIAL\_LISTEN      (0x70) // OR with port to switch to (0x79 = switch to SW\_SERIAL1)}
+\DoxyCodeLine{3  END\_SYSEX          (0xF7)}
+\end{DoxyCode}
+ 

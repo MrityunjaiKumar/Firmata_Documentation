@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md_protocol_proposals_spi-proposal" kind="page">
+    <compoundname>md_protocol_proposals_spi-proposal</compoundname>
+    <title>SPI (Proposal)</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A proposal for a SPI protocol for Firmata.</para>
+<para>SPI is tricky to add to Firmata in a generic way since it is a fairly loose standard. There are variations in number of bits written and read, how the CS pin is used (if at all), use of other pins, etc. This proposal attempts to accommodate uses cases beyond the common sequence of:</para>
+<para><orderedlist>
+<listitem><para>set cs pin LOW</para>
+</listitem><listitem><para>write/read 1 or more words</para>
+</listitem><listitem><para>set cs Pin HIGH</para>
+</listitem><listitem><para>return data read</para>
+</listitem></orderedlist>
+</para>
+<sect2 id="md_protocol_proposals_spi-proposal_1autotoc_md79">
+<title>Overview</title>
+<para>A <computeroutput>SPI_BEGIN</computeroutput> command is used to initialize the SPI bus. Up to 8 SPI ports are supported using the <computeroutput>channel</computeroutput> parameter.</para>
+<para>The <computeroutput>SPI_DEVICE_CONFIG</computeroutput> command is used to configure each attached SPI device.</para>
+<para>There are 3 ways to send and receive data from the SPI slave device:</para>
+<para><orderedlist>
+<listitem><para><computeroutput>SPI_TRANSFER</computeroutput> For each word written a word is read simultaneously.</para>
+</listitem><listitem><para><computeroutput>SPI_WRITE</computeroutput> Only write data (ignore any data returned by the slave device).</para>
+</listitem><listitem><para><computeroutput>SPI_READ</computeroutput> Only read data, writing <computeroutput>0</computeroutput> for each word to be read.</para>
+</listitem></orderedlist>
+</para>
+<para>A <computeroutput>SPI_REPLY</computeroutput> is used to send requested data back to the client application when either a <computeroutput>SPI_TRANSFER</computeroutput> mode or <computeroutput>SPI_READ</computeroutput> command is sent.</para>
+<para>A <computeroutput>SPI_END</computeroutput> command disables the SPI bus for the specified channel.</para>
+</sect2>
+<sect2 id="md_protocol_proposals_spi-proposal_1autotoc_md80">
+<title>SPI_BEGIN</title>
+<para>Required for platforms that require SPI bus initialization, such as Arduino. Optional if initialization is automatic (some Linux-based platforms for example).</para>
+<para>Use <computeroutput>SPI_BEGIN</computeroutput> to initialize the SPI bus. Up to 8 SPI ports are supported, where each port is identified by a <computeroutput>channel</computeroutput> number (0-7).</para>
+<para><computeroutput>SPI_BEGIN</computeroutput> must be called at least once before sending any of the other commands.</para>
+<para><computeroutput>channel</computeroutput> is used to identify which SPI bus is used in the case that a board has multiple ports (SPI, SPI1, SPI2, etc). Many boards only have one port so the <computeroutput>channel</computeroutput> value will most often be <computeroutput>0</computeroutput>.</para>
+<para><programlisting><codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>SPI_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x68)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>SPI_BEGIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00)</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>channel<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HW<sp/>supports<sp/>multiple<sp/>SPI<sp/>ports.<sp/>range<sp/>=<sp/>0-7,<sp/>default<sp/>=<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>END_SYSEX</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_protocol_proposals_spi-proposal_1autotoc_md81">
+<title>SPI_DEVICE_CONFIG</title>
+<para>Send this command once for each attached SPI device to initialize it before use. See parameter descriptions below.</para>
+<para><programlisting><codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>SPI_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x68)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>SPI_DEVICE_CONFIG<sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>deviceId<sp/>|<sp/>channel<sp/><sp/><sp/><sp/>(bits<sp/>3-6:<sp/>deviceId,<sp/>bits<sp/>0-2:<sp/>channel)</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>dataMode<sp/>|<sp/>bitOrder<sp/><sp/><sp/>(bits<sp/>1-2:<sp/>dataMode<sp/>(0-3),<sp/>bit<sp/>0:<sp/>bitOrder)</highlight></codeline>
+<codeline><highlight class="normal">5:<sp/><sp/>maxSpeed<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>0<sp/>-<sp/>6)</highlight></codeline>
+<codeline><highlight class="normal">6:<sp/><sp/>maxSpeed<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>7<sp/>-<sp/>14)</highlight></codeline>
+<codeline><highlight class="normal">7:<sp/><sp/>maxSpeed<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>15<sp/>-<sp/>21)</highlight></codeline>
+<codeline><highlight class="normal">8:<sp/><sp/>maxSpeed<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>22<sp/>-<sp/>28)</highlight></codeline>
+<codeline><highlight class="normal">9:<sp/><sp/>maxSpeed<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>29<sp/>-<sp/>32)</highlight></codeline>
+<codeline><highlight class="normal">10:<sp/>wordSize<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0<sp/>=<sp/>DEFAULT<sp/>=<sp/>8-bits,<sp/>1<sp/>=<sp/>1-bit,<sp/>2<sp/>=<sp/>2<sp/>bits,<sp/>etc)</highlight></codeline>
+<codeline><highlight class="normal">11:<sp/>csPinOptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bit<sp/>0:<sp/>CS_PIN_CONTROL<sp/>(0<sp/>=<sp/>disable</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>=<sp/>enable<sp/>(default))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bit<sp/>1:<sp/>CS_ACTIVE_STATE<sp/>(0<sp/>=<sp/>Active<sp/>LOW<sp/>(default)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>=<sp/>Active<sp/>HIGH)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bits<sp/>2-6:<sp/>reserved<sp/>for<sp/>future<sp/>options</highlight></codeline>
+<codeline><highlight class="normal">12:<sp/>csPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/>The<sp/>chip<sp/>select<sp/>pin<sp/>number<sp/>(ignored<sp/>if</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CS_PIN_CONTROL<sp/>set<sp/>to<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal">13:<sp/>END_SYSEX</highlight></codeline>
+</programlisting></para>
+<sect3 id="md_protocol_proposals_spi-proposal_1autotoc_md82">
+<title>deviceId</title>
+<para>The <computeroutput>deviceId</computeroutput> may either be used as a specific identifier (Linux) or as an arbitrary identifier (Arduino). The <computeroutput>deviceId</computeroutput> value range is from 0 to 15 and can be specified separately for each SPI channel. The <computeroutput>deviceId</computeroutput> will also be returned with the channel for each <computeroutput>SPI_REPLY</computeroutput> command so it is clear which device the data corresponds to.</para>
+</sect3>
+<sect3 id="md_protocol_proposals_spi-proposal_1autotoc_md83">
+<title>bitOrder</title>
+<para><programlisting><codeline><highlight class="normal">LSBFIRST<sp/>=<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">MSBFIRST<sp/>=<sp/>1<sp/>(default)</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md_protocol_proposals_spi-proposal_1autotoc_md84">
+<title>dataMode</title>
+<para><table rows="5" cols="3"><row>
+<entry thead="yes"><para>mode  </para>
+</entry><entry thead="yes"><para>clock polarity (CPOL)  </para>
+</entry><entry thead="yes"><para>clock phase (CPHA)   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>0  </para>
+</entry><entry thead="no"><para>0  </para>
+</entry><entry thead="no"><para>0   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>1  </para>
+</entry><entry thead="no"><para>0  </para>
+</entry><entry thead="no"><para>1   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>2  </para>
+</entry><entry thead="no"><para>1  </para>
+</entry><entry thead="no"><para>0   </para>
+</entry></row>
+<row>
+<entry thead="no"><para>3  </para>
+</entry><entry thead="no"><para>1  </para>
+</entry><entry thead="no"><para>1   </para>
+</entry></row>
+</table>
+</para>
+</sect3>
+<sect3 id="md_protocol_proposals_spi-proposal_1autotoc_md85">
+<title>maxSpeed</title>
+<para>The maximum speed of communication with the SPI device. For a SPI device rated up to 5 MHz, use 5000000.</para>
+<para><emphasis>For platforms that use a clock divider instead of a speed, pass the clock divider value instead.</emphasis></para>
+</sect3>
+<sect3 id="md_protocol_proposals_spi-proposal_1autotoc_md86">
+<title>wordSize</title>
+<para>The size of a <computeroutput>word</computeroutput> in bits. Typically 8-bits (default). 0 = DEFAULT = 8-bits, 1 = 1 bit, 2 = 2 bits, etc (limit is TBD).</para>
+</sect3>
+<sect3 id="md_protocol_proposals_spi-proposal_1autotoc_md87">
+<title>csPinOptions / csPin</title>
+<para>Use <computeroutput>CS_ACTIVE_STATE</computeroutput> to set the active state (typically LOW) for the CS pin. If the platform&apos;s SPI implementation does not already automatically handle the CS pin (it&apos;s handled automatically on Raspberry Pi, but not Arduino boards for example), then set <computeroutput>CS_PIN_CONTROL</computeroutput> to <computeroutput>enable</computeroutput> and specify the <computeroutput>csPin</computeroutput> number in byte 12. If the platform already handles the csPin then set <computeroutput>CS_PIN_CONTROL</computeroutput> to <computeroutput>disable</computeroutput> and the <computeroutput>csPin</computeroutput> number will be ignored (set to zero). For non-Linux platforms such as Arduino, to enable manual control of the CS pin using <computeroutput>DIGITAL_MESSAGE</computeroutput> commands, set <computeroutput>CS_PIN_CONTROL</computeroutput> to <computeroutput>disable</computeroutput>.</para>
+</sect3>
+</sect2>
+<sect2 id="md_protocol_proposals_spi-proposal_1autotoc_md88">
+<title>SPI_TRANSFER</title>
+<para>Full-duplex write/read transfer. This is the normal SPI transfer mode, a word must be written for every word read. Reply is sent via <computeroutput>SPI_REPLY</computeroutput>.</para>
+<para>Since transport (Serial, Ethernet, Wi-Fi, etc) buffers tend to be small on microcontroller platforms, it may be necessary to send several <computeroutput>SPI_TRANSFER</computeroutput> commmands to complete a single SPI transaction. Use the <computeroutput>deselectCsPin</computeroutput> parameter to ensure the CS pin is not deselected in between <computeroutput>SPI_TRANSFER</computeroutput> commands until the transaction is complete.</para>
+<para><computeroutput>requestId</computeroutput> is used in the request messages <computeroutput>SPI_TRANSFER</computeroutput>, <computeroutput>SPI_WRITE</computeroutput> and <computeroutput>SPI_READ</computeroutput> and in the reply message <computeroutput>SPI_REPLY</computeroutput>. Its purpose is to ensure that the SPI_REPLY message matches the request. For each request message, increment a single 7-bit requestId value, rolling it over to 0 when &gt; 127.</para>
+<para><computeroutput>deselectCsPin</computeroutput> is used to control the csPin at the end of the transfer. By default the csPin will be deselected at the end of every transfer. However, to prevent deselection to enable back-to-back transfers for example, set <computeroutput>deselectCsPin</computeroutput> to <computeroutput>0</computeroutput> and the pin state won&apos;t be affected at the end of the transfer.</para>
+<para>If <computeroutput>CS_PIN_CONTROL</computeroutput> is enabled, then the CS pin active state will be set when the <computeroutput>SPI_TRANSFER</computeroutput> command is received. It will only be deselected at the end of the transfer if <computeroutput>deselectCsPin</computeroutput> is set to 1.</para>
+<para><programlisting><codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>SPI_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x68)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>SPI_TRANSFER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>deviceId<sp/>|<sp/>channel<sp/><sp/><sp/><sp/>(bits<sp/>3-6:<sp/>deviceId,<sp/>bits<sp/>0-2:<sp/>channel)</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>requestId<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/>//<sp/>increment<sp/>for<sp/>each<sp/>call</highlight></codeline>
+<codeline><highlight class="normal">5:<sp/><sp/>deselectCsPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0<sp/>=<sp/>don&apos;t<sp/>deselect<sp/>csPin</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>=<sp/>deselect<sp/>csPin<sp/>(default))</highlight></codeline>
+<codeline><highlight class="normal">6.<sp/><sp/>numWords<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127:<sp/>number<sp/>of<sp/>words<sp/>to<sp/>transfer)</highlight></codeline>
+<codeline><highlight class="normal">7:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>0-6)</highlight></codeline>
+<codeline><highlight class="normal">8:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>7-14<sp/>if<sp/>word<sp/>size<sp/>if<sp/>word<sp/>size<sp/>&gt;<sp/>7<sp/>&amp;&amp;<sp/>&lt;<sp/>15)</highlight></codeline>
+<codeline><highlight class="normal">9:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(if<sp/>word<sp/>size<sp/>&gt;<sp/>14)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>up<sp/>to<sp/>numWords<sp/>*<sp/>(wordSize<sp/>/<sp/>7)</highlight></codeline>
+<codeline><highlight class="normal">N:<sp/><sp/>END_SYSEX</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_protocol_proposals_spi-proposal_1autotoc_md89">
+<title>SPI_WRITE</title>
+<para>Only write data, ignoring any data returned by the slave device.</para>
+<para>Provided as a convenience. The same can be accomplished using <computeroutput>SPI_TRANSFER</computeroutput> and ignoring the <computeroutput>SPI_REPLY</computeroutput> command.</para>
+<para>If <computeroutput>CS_PIN_CONTROL</computeroutput> is enabled, then the CS pin active state will be set when the <computeroutput>SPI_WRITE</computeroutput> command is received. It will only be deselected at the end of the write if <computeroutput>deselectCsPin</computeroutput> is set to 1.</para>
+<para>A <computeroutput>SPI_WRITE</computeroutput> command should return a <computeroutput>SPI_REPLY</computeroutput> with a value of <computeroutput>1</computeroutput> if the write was successful or a value of <computeroutput>0</computeroutput> if the write failed.</para>
+<para><programlisting><codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>SPI_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x68)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>SPI_WRITE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x03)</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>deviceId<sp/>|<sp/>channel<sp/><sp/><sp/><sp/>(bits<sp/>3-6:<sp/>deviceId,<sp/>bits<sp/>0-2:<sp/>channel)</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>requestId<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/>//<sp/>increment<sp/>for<sp/>each<sp/>call</highlight></codeline>
+<codeline><highlight class="normal">5:<sp/><sp/>deselectCsPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0<sp/>=<sp/>don&apos;t<sp/>deselect<sp/>csPin</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>=<sp/>deselect<sp/>csPin<sp/>(default))</highlight></codeline>
+<codeline><highlight class="normal">6.<sp/><sp/>numWords<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127:<sp/>number<sp/>of<sp/>words<sp/>to<sp/>write)</highlight></codeline>
+<codeline><highlight class="normal">7:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>0-6)</highlight></codeline>
+<codeline><highlight class="normal">8:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>7-14<sp/>if<sp/>word<sp/>size<sp/>if<sp/>word<sp/>size<sp/>&gt;<sp/>7<sp/>&amp;&amp;<sp/>&lt;<sp/>15)</highlight></codeline>
+<codeline><highlight class="normal">9:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(if<sp/>word<sp/>size<sp/>&gt;<sp/>14)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>up<sp/>to<sp/>numWords<sp/>*<sp/>(wordSize<sp/>/<sp/>7)</highlight></codeline>
+<codeline><highlight class="normal">N:<sp/><sp/>END_SYSEX</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_protocol_proposals_spi-proposal_1autotoc_md90">
+<title>SPI_READ</title>
+<para>Only read data, writing <computeroutput>0</computeroutput> for each word to be read. Reply is sent via <computeroutput>SPI_REPLY</computeroutput>.</para>
+<para>Provided as a convenience. The same can be accomplished using <computeroutput>SPI_TRANSFER</computeroutput> and sending a <computeroutput>0</computeroutput> for each byte to be read.</para>
+<para>If <computeroutput>CS_PIN_CONTROL</computeroutput> is enabled, then the CS pin active state will be set when the <computeroutput>SPI_READ</computeroutput> command is received. It will only be deselected at the end of the read if <computeroutput>deselectCsPin</computeroutput> is set to 1.</para>
+<para><programlisting><codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>SPI_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x68)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>SPI_WRITE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x04)</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>deviceId<sp/>|<sp/>channel<sp/><sp/><sp/><sp/>(bits<sp/>3-6:<sp/>deviceId,<sp/>bits<sp/>0-2:<sp/>channel)</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>requestId<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/><sp/>//<sp/>increment<sp/>for<sp/>each<sp/>call</highlight></codeline>
+<codeline><highlight class="normal">5:<sp/><sp/>deselectCsPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0<sp/>=<sp/>don&apos;t<sp/>deselect<sp/>csPin</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>=<sp/>deselect<sp/>csPin<sp/>(default))</highlight></codeline>
+<codeline><highlight class="normal">6.<sp/><sp/>numWords<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127:<sp/>number<sp/>of<sp/>words<sp/>to<sp/>read)</highlight></codeline>
+<codeline><highlight class="normal">7:<sp/><sp/>END_SYSEX</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_protocol_proposals_spi-proposal_1autotoc_md91">
+<title>SPI_REPLY</title>
+<para>An array of data received from the SPI slave device in response to a <computeroutput>SPI_TRANSFER</computeroutput> or <computeroutput>SPI_READ</computeroutput> command. The <computeroutput>requestId</computeroutput> should match the ID from the transfer, read or write command.</para>
+<para><programlisting><codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>SPI_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x68)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>SPI_REPLY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x05)</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>deviceId<sp/>|<sp/>channel<sp/><sp/><sp/><sp/>(bits<sp/>3-6:<sp/>deviceId,<sp/>bits<sp/>0-2:<sp/>channel)</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>requestId<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/>//<sp/>must<sp/>match<sp/>the<sp/>ID<sp/>from<sp/>the<sp/>request</highlight></codeline>
+<codeline><highlight class="normal">5:<sp/><sp/>numWords<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127:<sp/>number<sp/>of<sp/>words<sp/>in<sp/>the<sp/>reply)</highlight></codeline>
+<codeline><highlight class="normal">6:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>0-6)</highlight></codeline>
+<codeline><highlight class="normal">7:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>7-14<sp/>if<sp/>word<sp/>size<sp/>if<sp/>word<sp/>size<sp/>&gt;<sp/>7<sp/>&amp;&amp;<sp/>&lt;<sp/>15)</highlight></codeline>
+<codeline><highlight class="normal">8:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(if<sp/>word<sp/>size<sp/>&gt;<sp/>14)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>up<sp/>to<sp/>numWords<sp/>*<sp/>(wordSize<sp/>/<sp/>7)</highlight></codeline>
+<codeline><highlight class="normal">N:<sp/><sp/>END_SYSEX</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_protocol_proposals_spi-proposal_1autotoc_md92">
+<title>SPI_END</title>
+<para>Call to release SPI hardware send before quitting a Firmata client application.</para>
+<para><programlisting><codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>SPI_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x68)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>SPI_END<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x06)</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>channel<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HW<sp/>supports<sp/>multiple<sp/>SPI<sp/>ports.<sp/>range<sp/>=<sp/>0-7,<sp/>default<sp/>=<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>END_SYSEX</highlight></codeline>
+</programlisting> </para>
+</sect2>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

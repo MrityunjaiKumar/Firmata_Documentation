@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md_protocol_encoder" kind="page">
+    <compoundname>md_protocol_encoder</compoundname>
+    <title>encoder</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>#Encoder Feature</para>
+<para>Provide incremental encoders support, for both <ulink url="http://en.wikipedia.org/wiki/Linear_encoder">linear</ulink> and <ulink url="http://en.wikipedia.org/wiki/Rotary_encoder#Incremental_rotary_encoder">rotary</ulink> encoders.</para>
+<para>This feature is based on based on <ulink url="http://www.pjrc.com/teensy/td_libs_Encoder.html">PJRC&apos;s implementation</ulink>. See <ulink url="http://www.pjrc.com/teensy/td_libs_Encoder.html">this article</ulink> for more informations about how it works (well explained!).</para>
+<para>Current implementation supports 5 encoders at the same time (#[0-4]) and you can activate automatic position reports every (SAMPLING_INTERVAL)ms. Reports are disabled by default.</para>
+<para>For best Performances, connect only interrupt pins.</para>
+<para>Added in Firmata protocol version 2.4.0.</para>
+<para>Example files :<itemizedlist>
+<listitem><para>EncoderFeature is a contributed feature for <ulink url="https://github.com/firmata/arduino/blob/configurable/examples/ConfigurableFirmata/ConfigurableFirmata.ino">ConfigurableFirmata.ino</ulink>.</para>
+</listitem><listitem><para>A dedicated example is available. See <ulink url="https://github.com/firmata/FirmataEncoder/tree/master/examples/SimpleFirmataEncoder">SimpleEncoderFirmata.ino</ulink>.</para>
+</listitem></itemizedlist>
+</para>
+<sect2 id="md_protocol_encoder_1autotoc_md15">
+<title>Compatible client librairies</title>
+<para>TODO : Update this</para>
+</sect2>
+<sect2 id="md_protocol_encoder_1autotoc_md16">
+<title>Tested boards</title>
+<para>This feature has been tested on :<itemizedlist>
+<listitem><para>Arduino Uno</para>
+</listitem><listitem><para>Arduino Mega</para>
+</listitem><listitem><para>Arduino Leonardo</para>
+</listitem><listitem><para>Arduino Due</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_protocol_encoder_1autotoc_md17">
+<title>Protocol details</title>
+<para>The protocol below use exclusively SysEx queries and SysEx responses.</para>
+<sect3 id="md_protocol_encoder_1autotoc_md18">
+<title>Attach encoder query</title>
+<para>Query : <programlisting filename=".c"><codeline><highlight class="comment">/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>2<sp/>ENCODER_ATTACH<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>3<sp/>encoder<sp/>#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>([0<sp/>-<sp/>MAX_ENCODERS-1])</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>4<sp/>pin<sp/>A<sp/>#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(first<sp/>pin)<sp/></highlight></codeline>
+<codeline><highlight class="comment">*<sp/>5<sp/>pin<sp/>B<sp/>#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(second<sp/>pin)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>6<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*/</highlight></codeline>
+</programlisting> No response.</para>
+</sect3>
+<sect3 id="md_protocol_encoder_1autotoc_md19">
+<title>Report encoder&apos;s position</title>
+<para>Query <programlisting filename=".c"><codeline><highlight class="comment">/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>2<sp/>ENCODER_REPORT_POSITION<sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>3<sp/>Encoder<sp/>#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>([0<sp/>-<sp/>MAX_ENCODERS-1])</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>4<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*/</highlight></codeline>
+</programlisting></para>
+<para>Response <programlisting filename=".c"><codeline><highlight class="comment">/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>2<sp/>Encoder<sp/>#<sp/><sp/>&amp;<sp/><sp/>DIRECTION<sp/><sp/><sp/><sp/>[=<sp/>(direction<sp/>&lt;&lt;<sp/>6)<sp/>|<sp/>(#)]</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>3<sp/>current<sp/>position,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>4<sp/>current<sp/>position,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>5<sp/>current<sp/>position,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>6<sp/>current<sp/>position,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>7<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*/</highlight></codeline>
+</programlisting> Note : Byte #2 contains both encoder&apos;s number (i.e. channel) and encoder&apos;s direction. Direction is stored on the seventh bit, 0 (LOW) for positive and 1 (HIGH) for negative. <programlisting filename=".c"><codeline><highlight class="normal">directionMask<sp/>=<sp/>0x40;<sp/></highlight><highlight class="comment">//<sp/>B01000000</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">channelMask<sp/><sp/><sp/>=<sp/>0x3F;<sp/></highlight><highlight class="comment">//<sp/>B00111111<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//ex<sp/>direction<sp/>is<sp/>negative<sp/>and<sp/>encoder<sp/>is<sp/>on<sp/>index<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">direction<sp/>=<sp/>1;</highlight></codeline>
+<codeline><highlight class="normal">channel<sp/>=<sp/>2;</highlight></codeline>
+<codeline><highlight class="normal">bytes[2]<sp/>=<sp/><sp/>(direction<sp/>&lt;&lt;<sp/>6)<sp/>|<sp/>(channel);</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md_protocol_encoder_1autotoc_md20">
+<title>Report all encoders positions</title>
+<para>Query <programlisting filename=".c"><codeline><highlight class="comment">/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>2<sp/>ENCODER_REPORT_POSITIONS<sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>3<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*/</highlight></codeline>
+</programlisting></para>
+<para>Response <programlisting filename=".c"><codeline><highlight class="comment">/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>2<sp/>first<sp/>enc.<sp/>#<sp/><sp/>&amp;<sp/>first<sp/>enc.<sp/>dir.<sp/></highlight></codeline>
+<codeline><highlight class="comment">*<sp/>4<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>5<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>6<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>7<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>8<sp/>second<sp/>enc.<sp/>#<sp/><sp/>&amp;<sp/>second<sp/>enc.<sp/>dir.<sp/></highlight></codeline>
+<codeline><highlight class="comment">*<sp/>...</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>N<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*/</highlight></codeline>
+</programlisting> Note : <computeroutput>Report encoder&apos;s position</computeroutput> response is a special case of <computeroutput>Report all encoders positions</computeroutput> response.</para>
+</sect3>
+<sect3 id="md_protocol_encoder_1autotoc_md21">
+<title>Reset encoder position to zero</title>
+<para>Query <programlisting filename=".c"><codeline><highlight class="comment">/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>2<sp/>ENCODER_RESET_POSITION<sp/><sp/><sp/><sp/><sp/>(0x03)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>3<sp/>encoder<sp/>#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>([0<sp/>-<sp/>MAX_ENCODERS-1])</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>4<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*/</highlight></codeline>
+</programlisting></para>
+<para>No response.</para>
+</sect3>
+<sect3 id="md_protocol_encoder_1autotoc_md22">
+<title>Enable/disable reporting</title>
+<para>Query <programlisting filename=".c"><codeline><highlight class="comment">/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>2<sp/>ENCODER_REPORT_AUTO<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x04)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>3<sp/>enable<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00<sp/>=&gt;<sp/>false,<sp/>true<sp/>otherwise)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>4<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*/</highlight></codeline>
+</programlisting></para>
+<para>No response.</para>
+<para>Note : when reports are enabled, EncoderFirmata feature send the message below at every SAMPLING interval (19ms by default) : <programlisting filename=".c"><codeline><highlight class="comment">/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>2<sp/>first<sp/>enc.<sp/>#<sp/><sp/>&amp;<sp/>first<sp/>enc.<sp/>dir.<sp/><sp/><sp/>[=<sp/>(direction<sp/>&lt;&lt;<sp/>6)<sp/>|<sp/>(#)]<sp/></highlight></codeline>
+<codeline><highlight class="comment">*<sp/>4<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>5<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>6<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>7<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>8<sp/>second<sp/>enc.<sp/>#<sp/><sp/>&amp;<sp/>second<sp/>enc.<sp/>dir.<sp/>[=<sp/>(direction<sp/>&lt;&lt;<sp/>6)<sp/>|<sp/>(#)]</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>...</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>N<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*/</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md_protocol_encoder_1autotoc_md23">
+<title>Detach encoder</title>
+<para>Query <programlisting filename=".c"><codeline><highlight class="comment">/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>2<sp/>ENCODER_DETACH<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x05)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>3<sp/>encoder<sp/>#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>([0<sp/>-<sp/>MAX_ENCODERS-1])</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>4<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment">*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment">*/</highlight></codeline>
+</programlisting></para>
+<para>No response. </para>
+</sect3>
+</sect2>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

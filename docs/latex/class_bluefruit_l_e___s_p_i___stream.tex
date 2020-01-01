@@ -1,0 +1,387 @@
+\hypertarget{class_bluefruit_l_e___s_p_i___stream}{}\doxysection{Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream Class Reference}
+\label{class_bluefruit_l_e___s_p_i___stream}\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+
+
+{\ttfamily \#include $<$Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h$>$}
+
+
+
+Inheritance diagram for Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{class_bluefruit_l_e___s_p_i___stream__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{class_bluefruit_l_e___s_p_i___stream__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_ac19a14eae594461685c7789744536630}{Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream}} (int8\+\_\+t cs\+Pin, int8\+\_\+t irq\+Pin, int8\+\_\+t rst\+Pin)
+\item 
+void \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_a1153c170fe43096e881da36384a09a81}{set\+Local\+Name}} (const char $\ast$local\+Name)
+\item 
+void \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_afa82fbf3469f5bebdc4fd38a4026ebac}{set\+Advertising\+Interval}} (unsigned short advertising\+Interval)
+\item 
+void \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_a78d07c321348b200ea7abee1f1875c52}{set\+Connection\+Interval}} (unsigned short min\+Conn\+Interval, unsigned short max\+Conn\+Interval)
+\item 
+void \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_ad8d6ba754217d03bd70f7e0b0b6886e2}{set\+Flush\+Interval}} (int flush\+Interval)
+\item 
+void \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_a42256ec5b06c7bea51d0861ee5271e5e}{begin}} ()
+\item 
+bool \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_aac853db41256e05fec5acd82f1c23b63}{poll}} ()
+\item 
+void \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_a2317ee4a4a96f91114fb1c202f8cfc95}{end}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_aaa7aedd59278e33d6777fdd3748f73e9}{write}} (uint8\+\_\+t byte)
+\item 
+int \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_abc3db6c602232f00c3ff48bf6d4f326c}{available}} ()
+\item 
+int \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_a2ee93c296d49d07f76d93bcdaff1ac9e}{read}} ()
+\item 
+int \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_ab866490cfe5ba0e16c1ab4b6dbaebf9f}{peek}} ()
+\item 
+void \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_aa2be3b49f65f896743b1d2bbf6c47f6c}{flush}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 14 of file Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_bluefruit_l_e___s_p_i___stream_ac19a14eae594461685c7789744536630}\label{class_bluefruit_l_e___s_p_i___stream_ac19a14eae594461685c7789744536630}} 
+\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}!BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}!BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+\doxysubsubsection{\texorpdfstring{BluefruitLE\_SPI\_Stream()}{BluefruitLE\_SPI\_Stream()}}
+{\footnotesize\ttfamily Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+::\+Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{cs\+Pin,  }\item[{int8\+\_\+t}]{irq\+Pin,  }\item[{int8\+\_\+t}]{rst\+Pin }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51                                                                                          :}
+\DoxyCodeLine{52   ble(csPin, irqPin, rstPin),}
+\DoxyCodeLine{53   advertisingInterval(0),}
+\DoxyCodeLine{54   minConnInterval(0),}
+\DoxyCodeLine{55   maxConnInterval(0),}
+\DoxyCodeLine{56   txCount(0)}
+\DoxyCodeLine{57 \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bluefruit_l_e___s_p_i___stream_abc3db6c602232f00c3ff48bf6d4f326c}\label{class_bluefruit_l_e___s_p_i___stream_abc3db6c602232f00c3ff48bf6d4f326c}} 
+\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}!available@{available}}
+\index{available@{available}!BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+\doxysubsubsection{\texorpdfstring{available()}{available()}}
+{\footnotesize\ttfamily int Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+::available (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 145 of file Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{146 \{}
+\DoxyCodeLine{147   \textcolor{keywordflow}{return} ble.available();}
+\DoxyCodeLine{148 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bluefruit_l_e___s_p_i___stream_a42256ec5b06c7bea51d0861ee5271e5e}\label{class_bluefruit_l_e___s_p_i___stream_a42256ec5b06c7bea51d0861ee5271e5e}} 
+\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}!begin@{begin}}
+\index{begin@{begin}!BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+::begin (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 80 of file Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81 \{}
+\DoxyCodeLine{82   \textcolor{comment}{// Initialize the SPI interface}}
+\DoxyCodeLine{83   ble.begin();}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85   \textcolor{comment}{// Perform a factory reset to make sure everything is in a known state}}
+\DoxyCodeLine{86   ble.factoryReset();}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88   \textcolor{comment}{// Disable command echo from Bluefruit}}
+\DoxyCodeLine{89   ble.echo(\textcolor{keyword}{false});}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91   \textcolor{comment}{// Change the MODE LED to indicate BLE UART activity}}
+\DoxyCodeLine{92   ble.println(\textcolor{stringliteral}{"AT+HWMODELED=BLEUART"});}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94   \textcolor{comment}{// Set local name}}
+\DoxyCodeLine{95   \textcolor{keywordflow}{if} (localName.length() > 0) \{}
+\DoxyCodeLine{96     ble.print(\textcolor{stringliteral}{"AT+GAPDEVNAME="});}
+\DoxyCodeLine{97     ble.println(localName);}
+\DoxyCodeLine{98   \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100   \textcolor{comment}{// Set connection and advertising intervals}}
+\DoxyCodeLine{101   ble.print(\textcolor{stringliteral}{"AT+GAPINTERVALS="});}
+\DoxyCodeLine{102   \textcolor{keywordflow}{if} (minConnInterval > 0) ble.print(minConnInterval);}
+\DoxyCodeLine{103   ble.print(\textcolor{stringliteral}{","});}
+\DoxyCodeLine{104   \textcolor{keywordflow}{if} (maxConnInterval > 0) ble.print(maxConnInterval);}
+\DoxyCodeLine{105   ble.print(\textcolor{stringliteral}{","});}
+\DoxyCodeLine{106   \textcolor{keywordflow}{if} (advertisingInterval > 0) ble.print(advertisingInterval);}
+\DoxyCodeLine{107   ble.print(\textcolor{stringliteral}{",,"});  \textcolor{comment}{// Always omit fast advertising timeout, hence two commas}}
+\DoxyCodeLine{108   \textcolor{keywordflow}{if} (advertisingInterval > 0) ble.print(advertisingInterval);}
+\DoxyCodeLine{109   ble.println();}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111   \textcolor{comment}{// Disable real and simulated mode switch (i.e. "+++") command}}
+\DoxyCodeLine{112   ble.println(\textcolor{stringliteral}{"AT+MODESWITCHEN=local,0"});}
+\DoxyCodeLine{113   ble.enableModeSwitchCommand(\textcolor{keyword}{false});}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115   \textcolor{comment}{// Switch to data mode}}
+\DoxyCodeLine{116   ble.setMode(BLUEFRUIT\_MODE\_DATA);}
+\DoxyCodeLine{117 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bluefruit_l_e___s_p_i___stream_a2317ee4a4a96f91114fb1c202f8cfc95}\label{class_bluefruit_l_e___s_p_i___stream_a2317ee4a4a96f91114fb1c202f8cfc95}} 
+\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}!end@{end}}
+\index{end@{end}!BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+::end (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 132 of file Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{133 \{}
+\DoxyCodeLine{134   \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_aa2be3b49f65f896743b1d2bbf6c47f6c}{flush}}();}
+\DoxyCodeLine{135   ble.end();}
+\DoxyCodeLine{136 \}}
+
+\end{DoxyCode}
+
+
+References flush().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_bluefruit_l_e___s_p_i___stream_a2317ee4a4a96f91114fb1c202f8cfc95_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_bluefruit_l_e___s_p_i___stream_aa2be3b49f65f896743b1d2bbf6c47f6c}\label{class_bluefruit_l_e___s_p_i___stream_aa2be3b49f65f896743b1d2bbf6c47f6c}} 
+\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}!flush@{flush}}
+\index{flush@{flush}!BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+\doxysubsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily void Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+::flush (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 160 of file Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{161 \{}
+\DoxyCodeLine{162   ble.write(txBuffer, txCount);}
+\DoxyCodeLine{163   txCount = 0;}
+\DoxyCodeLine{164 \}}
+
+\end{DoxyCode}
+
+
+Referenced by end(), poll(), and write().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_bluefruit_l_e___s_p_i___stream_aa2be3b49f65f896743b1d2bbf6c47f6c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_bluefruit_l_e___s_p_i___stream_ab866490cfe5ba0e16c1ab4b6dbaebf9f}\label{class_bluefruit_l_e___s_p_i___stream_ab866490cfe5ba0e16c1ab4b6dbaebf9f}} 
+\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}!peek@{peek}}
+\index{peek@{peek}!BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+\doxysubsubsection{\texorpdfstring{peek()}{peek()}}
+{\footnotesize\ttfamily int Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+::peek (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 155 of file Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{156 \{}
+\DoxyCodeLine{157   \textcolor{keywordflow}{return} ble.peek();}
+\DoxyCodeLine{158 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bluefruit_l_e___s_p_i___stream_aac853db41256e05fec5acd82f1c23b63}\label{class_bluefruit_l_e___s_p_i___stream_aac853db41256e05fec5acd82f1c23b63}} 
+\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}!poll@{poll}}
+\index{poll@{poll}!BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+\doxysubsubsection{\texorpdfstring{poll()}{poll()}}
+{\footnotesize\ttfamily bool Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+::poll (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 119 of file Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{120 \{}
+\DoxyCodeLine{121   \textcolor{comment}{// If there's outgoing data in the buffer, just send it.  The firmware on}}
+\DoxyCodeLine{122   \textcolor{comment}{// the nRF51822 will decide when to transmit the data in its TX FIFO.}}
+\DoxyCodeLine{123   \textcolor{keywordflow}{if} (txCount) \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_aa2be3b49f65f896743b1d2bbf6c47f6c}{flush}}();}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125   \textcolor{comment}{// In order to check for a connection, we would need to switch from data to}}
+\DoxyCodeLine{126   \textcolor{comment}{// command mode and back again.  However, due to the internal workings of}}
+\DoxyCodeLine{127   \textcolor{comment}{// Adafruit\_BluefruitLE\_SPI, this can lead to unread incoming data being}}
+\DoxyCodeLine{128   \textcolor{comment}{// lost.  Therefore, we always return true.}}
+\DoxyCodeLine{129   \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{130 \}}
+
+\end{DoxyCode}
+
+
+References flush().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_bluefruit_l_e___s_p_i___stream_aac853db41256e05fec5acd82f1c23b63_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_bluefruit_l_e___s_p_i___stream_a2ee93c296d49d07f76d93bcdaff1ac9e}\label{class_bluefruit_l_e___s_p_i___stream_a2ee93c296d49d07f76d93bcdaff1ac9e}} 
+\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}!read@{read}}
+\index{read@{read}!BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily int Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+::read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 150 of file Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{151 \{}
+\DoxyCodeLine{152   \textcolor{keywordflow}{return} ble.read();}
+\DoxyCodeLine{153 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bluefruit_l_e___s_p_i___stream_afa82fbf3469f5bebdc4fd38a4026ebac}\label{class_bluefruit_l_e___s_p_i___stream_afa82fbf3469f5bebdc4fd38a4026ebac}} 
+\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}!setAdvertisingInterval@{setAdvertisingInterval}}
+\index{setAdvertisingInterval@{setAdvertisingInterval}!BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+\doxysubsubsection{\texorpdfstring{setAdvertisingInterval()}{setAdvertisingInterval()}}
+{\footnotesize\ttfamily void Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+::set\+Advertising\+Interval (\begin{DoxyParamCaption}\item[{unsigned short}]{advertising\+Interval }\end{DoxyParamCaption})}
+
+
+
+Definition at line 64 of file Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65 \{}
+\DoxyCodeLine{66   this-\/>advertisingInterval = advertisingInterval;}
+\DoxyCodeLine{67 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bluefruit_l_e___s_p_i___stream_a78d07c321348b200ea7abee1f1875c52}\label{class_bluefruit_l_e___s_p_i___stream_a78d07c321348b200ea7abee1f1875c52}} 
+\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}!setConnectionInterval@{setConnectionInterval}}
+\index{setConnectionInterval@{setConnectionInterval}!BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+\doxysubsubsection{\texorpdfstring{setConnectionInterval()}{setConnectionInterval()}}
+{\footnotesize\ttfamily void Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+::set\+Connection\+Interval (\begin{DoxyParamCaption}\item[{unsigned short}]{min\+Conn\+Interval,  }\item[{unsigned short}]{max\+Conn\+Interval }\end{DoxyParamCaption})}
+
+
+
+Definition at line 69 of file Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{70 \{}
+\DoxyCodeLine{71   this-\/>minConnInterval = minConnInterval;}
+\DoxyCodeLine{72   this-\/>maxConnInterval = maxConnInterval;}
+\DoxyCodeLine{73 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bluefruit_l_e___s_p_i___stream_ad8d6ba754217d03bd70f7e0b0b6886e2}\label{class_bluefruit_l_e___s_p_i___stream_ad8d6ba754217d03bd70f7e0b0b6886e2}} 
+\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}!setFlushInterval@{setFlushInterval}}
+\index{setFlushInterval@{setFlushInterval}!BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+\doxysubsubsection{\texorpdfstring{setFlushInterval()}{setFlushInterval()}}
+{\footnotesize\ttfamily void Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+::set\+Flush\+Interval (\begin{DoxyParamCaption}\item[{int}]{flush\+Interval }\end{DoxyParamCaption})}
+
+
+
+Definition at line 75 of file Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76 \{}
+\DoxyCodeLine{77   \textcolor{comment}{// Not used}}
+\DoxyCodeLine{78 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bluefruit_l_e___s_p_i___stream_a1153c170fe43096e881da36384a09a81}\label{class_bluefruit_l_e___s_p_i___stream_a1153c170fe43096e881da36384a09a81}} 
+\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}!setLocalName@{setLocalName}}
+\index{setLocalName@{setLocalName}!BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+\doxysubsubsection{\texorpdfstring{setLocalName()}{setLocalName()}}
+{\footnotesize\ttfamily void Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+::set\+Local\+Name (\begin{DoxyParamCaption}\item[{const char $\ast$}]{local\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line 59 of file Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60 \{}
+\DoxyCodeLine{61   this-\/>localName = localName;}
+\DoxyCodeLine{62 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bluefruit_l_e___s_p_i___stream_aaa7aedd59278e33d6777fdd3748f73e9}\label{class_bluefruit_l_e___s_p_i___stream_aaa7aedd59278e33d6777fdd3748f73e9}} 
+\index{BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}!write@{write}}
+\index{write@{write}!BluefruitLE\_SPI\_Stream@{BluefruitLE\_SPI\_Stream}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily size\+\_\+t Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{byte }\end{DoxyParamCaption})}
+
+
+
+Definition at line 138 of file Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{139 \{}
+\DoxyCodeLine{140   txBuffer[txCount++] = byte;}
+\DoxyCodeLine{141   \textcolor{keywordflow}{if} (txCount == \textcolor{keyword}{sizeof}(txBuffer)) \mbox{\hyperlink{class_bluefruit_l_e___s_p_i___stream_aa2be3b49f65f896743b1d2bbf6c47f6c}{flush}}();}
+\DoxyCodeLine{142   \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{143 \}}
+
+\end{DoxyCode}
+
+
+References flush().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_bluefruit_l_e___s_p_i___stream_aaa7aedd59278e33d6777fdd3748f73e9_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_bluefruit_l_e___s_p_i___stream_8h}{Bluefruit\+L\+E\+\_\+\+S\+P\+I\+\_\+\+Stream.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="dir_0cbc892fb4b1097edf0e0bd3cfc87486" kind="dir">
+    <compoundname>utility</compoundname>
+    <innerfile refid="_b_l_e_stream_8cpp">BLEStream.cpp</innerfile>
+    <innerfile refid="_b_l_e_stream_8h">BLEStream.h</innerfile>
+    <innerfile refid="_bluefruit_l_e___s_p_i___stream_8cpp">BluefruitLE_SPI_Stream.cpp</innerfile>
+    <innerfile refid="_bluefruit_l_e___s_p_i___stream_8h">BluefruitLE_SPI_Stream.h</innerfile>
+    <innerfile refid="_ethernet_client_stream_8cpp">EthernetClientStream.cpp</innerfile>
+    <innerfile refid="_ethernet_client_stream_8h">EthernetClientStream.h</innerfile>
+    <innerfile refid="_ethernet_server_stream_8cpp">EthernetServerStream.cpp</innerfile>
+    <innerfile refid="_ethernet_server_stream_8h">EthernetServerStream.h</innerfile>
+    <innerfile refid="firmata_debug_8h">firmataDebug.h</innerfile>
+    <innerfile refid="_firmata_feature_8h">FirmataFeature.h</innerfile>
+    <innerfile refid="_serial_firmata_8cpp">SerialFirmata.cpp</innerfile>
+    <innerfile refid="_serial_firmata_8h">SerialFirmata.h</innerfile>
+    <innerfile refid="_wi_fi_client_stream_8h">WiFiClientStream.h</innerfile>
+    <innerfile refid="_wi_fi_server_stream_8h">WiFiServerStream.h</innerfile>
+    <innerfile refid="_wi_fi_stream_8cpp">WiFiStream.cpp</innerfile>
+    <innerfile refid="_wi_fi_stream_8h">WiFiStream.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="arduino/utility/"/>
+  </compounddef>
+</doxygen>

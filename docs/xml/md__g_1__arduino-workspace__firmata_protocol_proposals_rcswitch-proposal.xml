@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal" kind="page">
+    <compoundname>md_G:_Arduino-workspace_Firmata_protocol_proposals_rcswitch-proposal</compoundname>
+    <title>RCSwitchFirmata Feature</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ulink url="https://github.com/git-developer/RCSwitchFirmata">RCSwitchFirmata</ulink> is an adapter between <ulink url="https://github.com/firmata/ConfigurableFirmata">ConfigurableFirmata</ulink> and the <ulink url="https://github.com/sui77/rc-switch">RCSwitch</ulink> library.</para>
+<para>RCSwitch is a library to send and receive messages to/from radio controlled devices. Sender and receiver are referred to as <emphasis>devices</emphasis> within the context of this document. Multiple devices may be used at the same time; the only requirement is a pin per device. All devices may be used and configured independently. Thus, this document separates the main functions <emphasis>send</emphasis> and <emphasis>receive</emphasis>. RCSwitchFirmata is subdivided into <emphasis>RCOutputFirmata</emphasis> implementing the send function and <emphasis>RCInputFirmata</emphasis> implementing the receive function.</para>
+<sect1 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md45">
+<title>Protocol details</title>
+<para>A common pattern of all queries is that they echo the query message as response. This pattern allows for detection of unsupported or wrong messages.</para>
+<sect2 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md46">
+<title>Tristate bits</title>
+<para>RCSwitch supports - besides the types <computeroutput>long</computeroutput> and <computeroutput>char[]</computeroutput> - so-called <emphasis>tristate</emphasis> bits. A tristate bit has one of the values 0, 1, or F. Each tristate bit is coded as 2 bits as follows: <programlisting><codeline><highlight class="normal">TRISTATE_0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00</highlight></codeline>
+<codeline><highlight class="normal">TRISTATE_F<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x01</highlight></codeline>
+<codeline><highlight class="normal">TRISTATE_RESERVED<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x02</highlight></codeline>
+<codeline><highlight class="normal">TRISTATE_1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x03</highlight></codeline>
+</programlisting> Thus, 1 byte consisting of 8 bits ABCDEFGH may hold up to 4 tristate bits AB, CD, EF and GH. The leftmost 2 bits represent the first tristate bit, the rightmost 2 bits represent the fourth tristate bit. If less than 4 tristate bits are used, the byte is filled with the reserved value <computeroutput>0x02</computeroutput>.</para>
+</sect2>
+<sect2 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md47">
+<title>Send</title>
+<sect3 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md48">
+<title>Attach sender</title>
+<para>Query: <programlisting filename=".c"><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>1<sp/>RCOUTPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5C)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>2<sp/>RCOUTPUT_ATTACH<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>3<sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pin<sp/>number)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>4<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight></codeline>
+</programlisting></para>
+<para>Response: the query message</para>
+</sect3>
+<sect3 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md49">
+<title>Detach sender</title>
+<para>Query: <programlisting filename=".c"><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>1<sp/>RCOUTPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5C)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>2<sp/>RCOUTPUT_DETACH<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>3<sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pin<sp/>number)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>4<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight></codeline>
+</programlisting></para>
+<para>Response: the query message</para>
+</sect3>
+<sect3 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md50">
+<title>Configuration of rcswitch parameter &lt;tt&gt;protocol&lt;/tt&gt;</title>
+<para>Query: <programlisting filename=".c"><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>1<sp/>RCOUTPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5C)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>2<sp/>RCOUTPUT_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x11)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>3<sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pin<sp/>number)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>4<sp/>protocol<sp/>(int),<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>5<sp/>protocol<sp/>(int),<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>6<sp/>protocol<sp/>(int),<sp/>bits<sp/>14-15</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>7<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight></codeline>
+</programlisting></para>
+<para>Response: the query message</para>
+</sect3>
+<sect3 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md51">
+<title>Configuration of rcswitch parameter &lt;tt&gt;pulse length&lt;/tt&gt;</title>
+<para>Query: <programlisting filename=".c"><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>1<sp/>RCOUTPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5C)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>2<sp/>RCOUTPUT_PULSE_LENGTH<sp/><sp/><sp/><sp/><sp/><sp/>(0x12)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>3<sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pin<sp/>number)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>4<sp/>pulse<sp/>length<sp/>(int),<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>5<sp/>pulse<sp/>length<sp/>(int),<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>6<sp/>pulse<sp/>length<sp/>(int),<sp/>bits<sp/>14-15</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>7<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight></codeline>
+</programlisting></para>
+<para>Response: the query message</para>
+</sect3>
+<sect3 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md52">
+<title>Configuration of rcswitch parameter &lt;tt&gt;repeat transmit&lt;/tt&gt;</title>
+<para>Query: <programlisting filename=".c"><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>1<sp/>RCOUTPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5C)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>2<sp/>RCOUTPUT_PULSE_LENGTH<sp/><sp/><sp/><sp/><sp/><sp/>(0x14)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>3<sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pin<sp/>number)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>4<sp/>repeat<sp/>transmit<sp/>(int),<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>5<sp/>repeat<sp/>transmit<sp/>(int),<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>6<sp/>repeat<sp/>transmit<sp/>(int),<sp/>bits<sp/>14-15</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>7<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight></codeline>
+</programlisting></para>
+<para>Response: the query message</para>
+</sect3>
+<sect3 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md53">
+<title>Send tristate code as char array</title>
+<para>Query: <programlisting filename=".c"><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>1<sp/>RCOUTPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5C)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>2<sp/>RCOUTPUT_TRISTATE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x21)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>3<sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pin<sp/>number)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>4..n-1<sp/>RC<sp/>data<sp/>(packed<sp/>as<sp/>7-bit):<sp/>char<sp/>array<sp/>with<sp/>tristate<sp/>bits<sp/>(&apos;0&apos;,<sp/>&apos;1&apos;,<sp/>&apos;F&apos;)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>n<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight></codeline>
+</programlisting></para>
+<para>Response: the query message</para>
+</sect3>
+<sect3 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md54">
+<title>Send long code</title>
+<para>Query: <programlisting filename=".c"><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>1<sp/>RCOUTPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5C)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>2<sp/>RCOUTPUT_CODE_LONG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x22)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>3<sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pin<sp/>number)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>4..n-1<sp/>RC<sp/>data<sp/>(packed<sp/>as<sp/>7-bit):<sp/>2<sp/>bytes<sp/>(int)<sp/>with<sp/>the<sp/>number<sp/>of<sp/>bits<sp/>to<sp/>send,<sp/>4<sp/>bytes<sp/>(long)<sp/>data<sp/>bits</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>n<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight></codeline>
+</programlisting></para>
+<para>Response: the query message</para>
+</sect3>
+<sect3 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md55">
+<title>Send char array</title>
+<para>Query: <programlisting filename=".c"><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>1<sp/>RCOUTPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5C)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>2<sp/>RCOUTPUT_CODE_CHAR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x24)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>3<sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pin<sp/>number)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>4..n-1<sp/>RC<sp/>data<sp/>(packed<sp/>as<sp/>7-bit):<sp/>char<sp/>array<sp/>with<sp/>characters<sp/>to<sp/>send</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>n<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight></codeline>
+</programlisting></para>
+<para>Response: the query message</para>
+</sect3>
+<sect3 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md56">
+<title>Send tristate code as packed tristate bits</title>
+<para>Query: <programlisting filename=".c"><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>1<sp/>RCOUTPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5C)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>2<sp/>RCOUTPUT_CODE_TRISTATE_PACKED<sp/>(0x28)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>3<sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pin<sp/>number)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>4..n-1<sp/>RC<sp/>data<sp/>(packed<sp/>as<sp/>7-bit):<sp/>byte<sp/>array<sp/>with<sp/>4<sp/>tristate<sp/>bits<sp/>per<sp/>byte</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>n<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight></codeline>
+</programlisting></para>
+<para>Response: the query message</para>
+</sect3>
+</sect2>
+<sect2 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md57">
+<title>Receive</title>
+<sect3 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md58">
+<title>Attach receiver</title>
+<para>Query: <programlisting filename=".c"><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>1<sp/>RCINPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5D)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>2<sp/>RCINPUT_ATTACH<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>3<sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pin<sp/>number)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>4<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight></codeline>
+</programlisting></para>
+<para>Response: the query message</para>
+</sect3>
+<sect3 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md59">
+<title>Detach receiver</title>
+<para>Query: <programlisting filename=".c"><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>1<sp/>RCINPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5D)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>2<sp/>RCINPUT_DETACH<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>3<sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pin<sp/>number)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>4<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight></codeline>
+</programlisting></para>
+<para>Response: the query message</para>
+</sect3>
+<sect3 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md60">
+<title>Configuration of rcswitch parameter &lt;tt&gt;receive tolerance&lt;/tt&gt; (in percent)</title>
+<para>Query: <programlisting filename=".c"><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>1<sp/>RCINPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5D)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>2<sp/>RCINPUT_TOLERANCE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x31)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>3<sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pin<sp/>number)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>4<sp/>tolerance<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(percent)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>5<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight></codeline>
+</programlisting></para>
+<para>Response: the query message</para>
+</sect3>
+<sect3 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md61">
+<title>Configuration parameter &lt;tt&gt;enable raw data&lt;/tt&gt;</title>
+<para>Query: <programlisting filename=".c"><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>1<sp/>RCINPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5D)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>2<sp/>RCINPUT_ENABLE_RAW_DATA<sp/><sp/><sp/><sp/>(0x32)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>3<sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pin<sp/>number)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>4<sp/>rawdataEnabled<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0<sp/>for<sp/>disabled,<sp/>1<sp/>for<sp/>enabled)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>5<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md__g_1__arduino-workspace__firmata_protocol_proposals_rcswitch-proposal_1autotoc_md62">
+<title>Receive a RF message</title>
+<para>Query: none</para>
+<para>Response: <programlisting filename=".c"><codeline><highlight class="comment">/*</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/><sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/><sp/>1<sp/>RCINPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5D)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/><sp/>2<sp/>RCINPUT_MESSAGE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x41)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/><sp/>3<sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pin<sp/>number)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/><sp/>4<sp/>message<sp/>value<sp/>(long),<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/><sp/>5<sp/>message<sp/>value<sp/>(long),<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/><sp/>6<sp/>message<sp/>value<sp/>(long),<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/><sp/>7<sp/>message<sp/>value<sp/>(long),<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/><sp/>8<sp/>message<sp/>value<sp/>(long),<sp/>bits<sp/>28-32</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/><sp/>9<sp/>bitlength<sp/>(int),<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>10<sp/>bitlength<sp/>(int),<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>11<sp/>bitlength<sp/>(int),<sp/>bits<sp/>14-15</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>12<sp/>delay<sp/>(int),<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>13<sp/>delay<sp/>(int),<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>14<sp/>delay<sp/>(int),<sp/>bits<sp/>14-15</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>15<sp/>protocol<sp/>(int),<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>16<sp/>protocol<sp/>(int),<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>17<sp/>protocol<sp/>(int),<sp/>bits<sp/>14-15</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>18..n-1<sp/>raw<sp/>data<sp/>(int[]);<sp/>optional:<sp/>only<sp/>if<sp/>rawdata<sp/>was<sp/>enabled</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>n<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="comment"><sp/>*/</highlight></codeline>
+</programlisting> </para>
+</sect3>
+</sect2>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

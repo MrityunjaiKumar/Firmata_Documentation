@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="ble_config_8h" kind="file" language="C++">
+    <compoundname>bleConfig.h</compoundname>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="ble_config_8h_1a332d00444b78547464ea3e09d1a3dfb5" prot="public" static="no">
+        <name>FIRMATA_BLE_LOCAL_NAME</name>
+        <initializer>&quot;FIRMATA&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/examples/StandardFirmataBLE/bleConfig.h" line="21" column="9" bodyfile="arduino/examples/StandardFirmataBLE/bleConfig.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ble_config_8h_1afd18e7d91d82f67afd1174142c2abf17" prot="public" static="no">
+        <name>FIRMATA_BLE_MIN_INTERVAL</name>
+        <initializer>0x0006</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/examples/StandardFirmataBLE/bleConfig.h" line="97" column="9" bodyfile="arduino/examples/StandardFirmataBLE/bleConfig.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ble_config_8h_1a027a3d230427b32c588e6e196c5e0d3c" prot="public" static="no">
+        <name>FIRMATA_BLE_MAX_INTERVAL</name>
+        <initializer>0x0018</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/examples/StandardFirmataBLE/bleConfig.h" line="98" column="9" bodyfile="arduino/examples/StandardFirmataBLE/bleConfig.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ble_config_8h_1a1d6d5b7ce1eb7404b531fc2e9e1b397c" prot="public" static="no">
+        <name>FIRMATA_BLE_TXBUFFER_FLUSH_INTERVAL</name>
+        <initializer>30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/examples/StandardFirmataBLE/bleConfig.h" line="102" column="9" bodyfile="arduino/examples/StandardFirmataBLE/bleConfig.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*==================================================================================================</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>BLE<sp/>CONFIGURATION</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>If<sp/>you<sp/>are<sp/>using<sp/>an<sp/>Arduino<sp/>101,<sp/>you<sp/>do<sp/>not<sp/>need<sp/>to<sp/>make<sp/>any<sp/>changes<sp/>to<sp/>this<sp/>file<sp/>(unless<sp/>you</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>need<sp/>a<sp/>unique<sp/>ble<sp/>local<sp/>name<sp/>(see<sp/>below).<sp/>If<sp/>you<sp/>are<sp/>using<sp/>another<sp/>supported<sp/>BLE<sp/>board<sp/>or<sp/>shield,</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>follow<sp/>the<sp/>instructions<sp/>for<sp/>the<sp/>specific<sp/>board<sp/>or<sp/>shield<sp/>below.</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>Make<sp/>sure<sp/>you<sp/>have<sp/>the<sp/>Intel<sp/>Curie<sp/>Boards<sp/>package<sp/>v2.0.2<sp/>or<sp/>higher<sp/>installed<sp/>via<sp/>the<sp/>Arduino</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>Boards<sp/>Manager.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>Supported<sp/>boards<sp/>and<sp/>shields:</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>-<sp/>Arduino<sp/>101<sp/>(recommended)</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>-<sp/>RedBearLab<sp/>BLE<sp/>Shield<sp/>(v2)<sp/><sp/>**<sp/>to<sp/>be<sp/>verified<sp/>**</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>-<sp/>RedBearLab<sp/>BLE<sp/>Nano<sp/>**<sp/>works<sp/>with<sp/>modifications<sp/>**</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>-<sp/>Adafruit<sp/>Feather<sp/>M0<sp/>Bluefruit<sp/>LE</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*================================================================================================*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>change<sp/>this<sp/>to<sp/>a<sp/>unique<sp/>name<sp/>per<sp/>board<sp/>if<sp/>running<sp/>StandardFirmataBLE<sp/>on<sp/>multiple<sp/>boards</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>within<sp/>the<sp/>same<sp/>physical<sp/>space</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="ble_config_8h_1a332d00444b78547464ea3e09d1a3dfb5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FIRMATA_BLE_LOCAL_NAME<sp/>&quot;FIRMATA&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>Arduino<sp/>101</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>Make<sp/>sure<sp/>you<sp/>have<sp/>the<sp/>Intel<sp/>Curie<sp/>Boards<sp/>package<sp/>v2.0.2<sp/>or<sp/>higher<sp/>installed<sp/>via<sp/>the<sp/>Arduino</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>Boards<sp/>Manager.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>Test<sp/>script:<sp/>https://gist.github.com/soundanalogous/927360b797574ed50e27</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_VARIANT_ARDUINO_101_X_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/>After<sp/>conversion<sp/>to<sp/>units<sp/>of<sp/>1.25ms,<sp/>both<sp/>values<sp/>must<sp/>be<sp/>between</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/>0x0006<sp/>(7.5ms)<sp/>and<sp/>0x0c80<sp/>(4s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FIRMATA_BLE_MIN_INTERVAL<sp/>8<sp/><sp/>//<sp/>(<sp/>8<sp/>*<sp/>1000)<sp/>/<sp/>1250<sp/>==<sp/>0x06<sp/>-&gt;<sp/>7.5ms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FIRMATA_BLE_MAX_INTERVAL<sp/>30<sp/>//<sp/>(30<sp/>*<sp/>1000)<sp/>/<sp/>1250<sp/>==<sp/>0x18<sp/>-&gt;<sp/>30ms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>RedBearLab<sp/>BLE<sp/>Shield</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>If<sp/>you<sp/>are<sp/>using<sp/>a<sp/>RedBearLab<sp/>BLE<sp/>shield,<sp/>uncomment<sp/>the<sp/>define<sp/>below.</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>Also,<sp/>change<sp/>the<sp/>define<sp/>for<sp/>BLE_RST<sp/>if<sp/>you<sp/>have<sp/>the<sp/>jumper<sp/>set<sp/>to<sp/>pin<sp/>7<sp/>rather<sp/>than<sp/>pin<sp/>4.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>You<sp/>will<sp/>need<sp/>to<sp/>use<sp/>the<sp/>shield<sp/>with<sp/>an<sp/>Arduino<sp/>Zero,<sp/>Due,<sp/>Mega,<sp/>or<sp/>other<sp/>board<sp/>with<sp/>sufficient</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>Flash<sp/>and<sp/>RAM.<sp/>Arduino<sp/>Uno,<sp/>Leonardo<sp/>and<sp/>other<sp/>ATmega328p<sp/>and<sp/>Atmega32u4<sp/>boards<sp/>to<sp/>not<sp/>have</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>enough<sp/>memory<sp/>to<sp/>run<sp/>StandardFirmataBLE.</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>TODO:<sp/>verify<sp/>if<sp/>this<sp/>works<sp/>and<sp/>with<sp/>which<sp/>boards<sp/>it<sp/>works.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>Test<sp/>script:<sp/>https://gist.github.com/soundanalogous/927360b797574ed50e27</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//#define<sp/>REDBEAR_BLE_SHIELD</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>REDBEAR_BLE_SHIELD</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLE_REQ<sp/><sp/>9</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLE_RDY<sp/><sp/>8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLE_RST<sp/><sp/>4<sp/>//<sp/>4<sp/>or<sp/>7<sp/>via<sp/>jumper<sp/>on<sp/>shield</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>Adafruit<sp/>Feather<sp/>M0<sp/>Bluefruit<sp/>LE</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>If<sp/>you<sp/>are<sp/>using<sp/>an<sp/>Adafruit<sp/>Feather<sp/>M0<sp/>Bluefruit<sp/>LE,<sp/>uncomment<sp/>the<sp/>define<sp/>below.</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>This<sp/>configuration<sp/>should<sp/>also<sp/>work<sp/>with<sp/>other<sp/>Bluefruit<sp/>LE<sp/>boards/modules<sp/>that<sp/>communicate</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*<sp/>with<sp/>the<sp/>nRF51822<sp/>via<sp/>SPI<sp/>(e.g.<sp/>Bluefruit<sp/>LE<sp/>SPI<sp/>Friend,<sp/>Bluefruit<sp/>LE<sp/>Shield),<sp/>although</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>you<sp/>may<sp/>need<sp/>to<sp/>change<sp/>the<sp/>values<sp/>of<sp/>BLE_SPI_CS,<sp/>BLE_SPI_IRQ,<sp/>and/or<sp/>BLE_SPI_RST<sp/>below.</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*<sp/>You<sp/>will<sp/>need<sp/>to<sp/>install<sp/>the<sp/>latest<sp/>version<sp/>of<sp/>the<sp/>Adafruit<sp/>BluefruitLE<sp/>nRF51<sp/>package,</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>available<sp/>at:</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/>https://github.com/adafruit/Adafruit_BluefruitLE_nRF51/archive/master.zip</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//#define<sp/>BLUEFRUIT_LE_SPI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>BLUEFRUIT_LE_SPI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Value<sp/>must<sp/>be<sp/>between<sp/>20ms<sp/>and<sp/>10.24s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FIRMATA_BLE_ADVERTISING_INTERVAL<sp/>20<sp/>//<sp/>20ms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Both<sp/>values<sp/>must<sp/>be<sp/>between<sp/>10ms<sp/>and<sp/>4s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FIRMATA_BLE_MIN_INTERVAL<sp/>15<sp/>//<sp/>15ms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FIRMATA_BLE_MAX_INTERVAL<sp/>30<sp/>//<sp/>30ms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLE_SPI_CS<sp/><sp/><sp/>8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLE_SPI_IRQ<sp/><sp/>7</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLE_SPI_RST<sp/><sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*<sp/>Generic<sp/>settings</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!defined(FIRMATA_BLE_MIN_INTERVAL)<sp/>&amp;&amp;<sp/>!defined(FIRMATA_BLE_MAX_INTERVAL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//<sp/>These<sp/>values<sp/>apply<sp/>to<sp/>all<sp/>devices<sp/>using<sp/>the<sp/>Arduino<sp/>BLEPeripheral<sp/>library</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment">//<sp/>with<sp/>a<sp/>Nordic<sp/>nRF8001<sp/>or<sp/>nRF51822.<sp/><sp/>Both<sp/>values<sp/>must<sp/>be<sp/>between</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">//<sp/>0x0006<sp/>(7.5ms)<sp/>and<sp/>0x0c80<sp/>(4s).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="ble_config_8h_1afd18e7d91d82f67afd1174142c2abf17" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FIRMATA_BLE_MIN_INTERVAL<sp/>0x0006<sp/>//<sp/>7.5ms<sp/>(7.5<sp/>/<sp/>1.25)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="ble_config_8h_1a027a3d230427b32c588e6e196c5e0d3c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FIRMATA_BLE_MAX_INTERVAL<sp/>0x0018<sp/>//<sp/>30ms<sp/>(30<sp/>/<sp/>1.25)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!defined(FIRMATA_BLE_TXBUFFER_FLUSH_INTERVAL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="ble_config_8h_1a1d6d5b7ce1eb7404b531fc2e9e1b397c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FIRMATA_BLE_TXBUFFER_FLUSH_INTERVAL<sp/>30<sp/>//<sp/>30ms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="comment">/*==================================================================================================</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*<sp/>END<sp/>BLE<sp/>CONFIGURATION<sp/>-<sp/>you<sp/>should<sp/>not<sp/>need<sp/>to<sp/>change<sp/>anything<sp/>below<sp/>this<sp/>line</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*================================================================================================*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_VARIANT_ARDUINO_101_X_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_b_l_e_stream_8h" kindref="compound">utility/BLEStream.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><ref refid="class_b_l_e_stream" kindref="compound">BLEStream</ref><sp/><ref refid="wifi_config_8h_1a77a9d2319914e80a4858a3c76ec39113" kindref="member">stream</ref>;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>REDBEAR_BLE_SHIELD</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SPI.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_b_l_e_stream_8h" kindref="compound">utility/BLEStream.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><ref refid="class_b_l_e_stream" kindref="compound">BLEStream</ref><sp/><ref refid="wifi_config_8h_1a77a9d2319914e80a4858a3c76ec39113" kindref="member">stream</ref>(BLE_REQ,<sp/>BLE_RDY,<sp/>BLE_RST);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>BLUEFRUIT_LE_SPI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_bluefruit_l_e___s_p_i___stream_8h" kindref="compound">utility/BluefruitLE_SPI_Stream.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><ref refid="class_bluefruit_l_e___s_p_i___stream" kindref="compound">BluefruitLE_SPI_Stream</ref><sp/><ref refid="wifi_config_8h_1a77a9d2319914e80a4858a3c76ec39113" kindref="member">stream</ref>(BLE_SPI_CS,<sp/>BLE_SPI_IRQ,<sp/>BLE_SPI_RST);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/>*<sp/>RedBearLab<sp/>BLE<sp/>Nano<sp/>(with<sp/>default<sp/>switch<sp/>settings)</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/>*<sp/>Blocked<sp/>on<sp/>this<sp/>issue:<sp/>https://github.com/RedBearLab/nRF51822-Arduino/issues/46</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*<sp/>Works<sp/>with<sp/>modifications.<sp/>See<sp/>comments<sp/>at<sp/>top<sp/>of<sp/>the<sp/>test<sp/>script<sp/>referenced<sp/>below.</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*<sp/>When<sp/>the<sp/>RBL<sp/>nRF51822-Arduino<sp/>library<sp/>issue<sp/>is<sp/>resolved,<sp/>this<sp/>should<sp/>work<sp/>witout</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*<sp/>any<sp/>modifications.</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/>Test<sp/>script:<sp/>https://gist.github.com/soundanalogous/d39bb3eb36333a0906df</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/>Note:<sp/>If<sp/>you<sp/>have<sp/>changed<sp/>the<sp/>solder<sp/>jumpers<sp/>on<sp/>the<sp/>Nano<sp/>you<sp/>may<sp/>encounter<sp/>issues<sp/>since</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*<sp/>the<sp/>pins<sp/>are<sp/>currently<sp/>mapped<sp/>in<sp/>Firmata<sp/>only<sp/>for<sp/>the<sp/>default<sp/>(factory)<sp/>jumper<sp/>settings.</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#ifdef<sp/>BLE_NANO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&quot;utility/BLEStream.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="comment">//<sp/>BLEStream<sp/>stream;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*<sp/>RedBearLab<sp/>Blend<sp/>and<sp/>Blend<sp/>Micro</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/>*<sp/>StandardFirmataBLE<sp/>requires<sp/>too<sp/>much<sp/>Flash<sp/>and<sp/>RAM<sp/>to<sp/>run<sp/>on<sp/>the<sp/>ATmega32u4-based<sp/>Blend</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/>*<sp/>and<sp/>Blend<sp/>Micro<sp/>boards.<sp/>It<sp/>may<sp/>work<sp/>with<sp/>ConfigurableFirmata<sp/>selecting<sp/>only<sp/>analog<sp/>and/or</highlight></codeline>
+<codeline lineno="153"><highlight class="comment"><sp/>*<sp/>digital<sp/>I/O.</highlight></codeline>
+<codeline lineno="154"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#if<sp/>defined(BLEND_MICRO)<sp/>||<sp/>defined(BLEND)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&lt;SPI.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&quot;utility/BLEStream.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#define<sp/>BLE_REQ<sp/><sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#define<sp/>BLE_RDY<sp/><sp/>7</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#define<sp/>BLE_RST<sp/><sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="comment">//<sp/>BLEStream<sp/>stream(BLE_REQ,<sp/>BLE_RDY,<sp/>BLE_RST);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(BLE_REQ)<sp/>&amp;&amp;<sp/>defined(BLE_RDY)<sp/>&amp;&amp;<sp/>defined(BLE_RST)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IS_IGNORE_BLE_PINS(p)<sp/>((p)<sp/>==<sp/>BLE_REQ<sp/>||<sp/>(p)<sp/>==<sp/>BLE_RDY<sp/>||<sp/>(p)<sp/>==<sp/>BLE_RST)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(BLE_SPI_CS)<sp/>&amp;&amp;<sp/>defined(BLE_SPI_IRQ)<sp/>&amp;&amp;<sp/>defined(BLE_SPI_RST)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IS_IGNORE_BLE_PINS(p)<sp/>((p)<sp/>==<sp/>BLE_SPI_CS<sp/>||<sp/>(p)<sp/>==<sp/>BLE_SPI_IRQ<sp/>||<sp/>(p)<sp/>==<sp/>BLE_SPI_RST)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="arduino/examples/StandardFirmataBLE/bleConfig.h"/>
+  </compounddef>
+</doxygen>

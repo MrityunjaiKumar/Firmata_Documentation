@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md_protocol_proposals_serial-2_80-proposal" kind="page">
+    <compoundname>md_protocol_proposals_serial-2.0-proposal</compoundname>
+    <title>serial-2</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>#Serial 2.0 (Proposal)</para>
+<para>Current version: 2.0.0</para>
+<para>Enables control of up to 4 software and 4 hardware (UART) serial ports. Multiple ports can be used simultaneously (depending on restrictions of a given microcontroller board&apos;s capabilities).</para>
+<para>Example files:<itemizedlist>
+<listitem><para>Version 2.0 of the Serial feature has not yet been implemented.</para>
+</listitem></itemizedlist>
+</para>
+<sect2 id="md_protocol_proposals_serial-2_80-proposal_1autotoc_md63">
+<title>Constants</title>
+<sect3 id="md_protocol_proposals_serial-2_80-proposal_1autotoc_md64">
+<title>Port IDs</title>
+<para>Use these constants to identify the hardware or software serial port to address for each command.</para>
+<para><programlisting><codeline><highlight class="normal">HW_SERIAL0<sp/>=<sp/>0x00<sp/>(for<sp/>using<sp/>Serial<sp/>when<sp/>another<sp/>transport<sp/>is<sp/>used<sp/>for<sp/>the<sp/>Firmata<sp/>Stream)</highlight></codeline>
+<codeline><highlight class="normal">HW_SERIAL1<sp/>=<sp/>0x01</highlight></codeline>
+<codeline><highlight class="normal">HW_SERIAL2<sp/>=<sp/>0x02</highlight></codeline>
+<codeline><highlight class="normal">HW_SERIAL3<sp/>=<sp/>0x03</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">SW_SERIAL0<sp/>=<sp/>0x08</highlight></codeline>
+<codeline><highlight class="normal">SW_SERIAL1<sp/>=<sp/>0x09</highlight></codeline>
+<codeline><highlight class="normal">SW_SERIAL2<sp/>=<sp/>0x0A</highlight></codeline>
+<codeline><highlight class="normal">SW_SERIAL3<sp/>=<sp/>0x0B</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md_protocol_proposals_serial-2_80-proposal_1autotoc_md65">
+<title>Serial pin capability response</title>
+<para>Use these constants to identify the pin type in a <ulink url="https://github.com/firmata/protocol/blob/master/protocol.md#capability-query">capability query response</ulink>.</para>
+<para><programlisting><codeline><highlight class="normal">//<sp/>Where<sp/>the<sp/>pin<sp/>mode<sp/>=<sp/>&quot;Serial&quot;<sp/>and<sp/>the<sp/>pin<sp/>resolution<sp/>=<sp/>one<sp/>of<sp/>the<sp/>following:</highlight></codeline>
+<codeline><highlight class="normal">RES_RX0<sp/>=<sp/>0x00</highlight></codeline>
+<codeline><highlight class="normal">RES_TX0<sp/>=<sp/>0x01</highlight></codeline>
+<codeline><highlight class="normal">RES_RX1<sp/>=<sp/>0x02</highlight></codeline>
+<codeline><highlight class="normal">RES_TX1<sp/>=<sp/>0x03</highlight></codeline>
+<codeline><highlight class="normal">RES_RX2<sp/>=<sp/>0x04</highlight></codeline>
+<codeline><highlight class="normal">RES_TX2<sp/>=<sp/>0x05</highlight></codeline>
+<codeline><highlight class="normal">RES_RX3<sp/>=<sp/>0x06</highlight></codeline>
+<codeline><highlight class="normal">RES_TX3<sp/>=<sp/>0x07</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>extensible<sp/>up<sp/>to<sp/>8<sp/>HW<sp/>ports</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md_protocol_proposals_serial-2_80-proposal_1autotoc_md66">
+<title>Serial pin mode</title>
+<para><programlisting><codeline><highlight class="normal">PIN_MODE_SERIAL<sp/>=<sp/>0x0A</highlight></codeline>
+</programlisting></para>
+</sect3>
+</sect2>
+<sect2 id="md_protocol_proposals_serial-2_80-proposal_1autotoc_md67">
+<title>Commands</title>
+<sect3 id="md_protocol_proposals_serial-2_80-proposal_1autotoc_md68">
+<title>Serial Config</title>
+<para>Configures the specified hardware or software serial port. RX and TX pins are optional and should only be specified if the platform requires them to be set.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/>(0x67)<sp/><sp/>//<sp/>command<sp/>byte</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_CONFIG<sp/><sp/><sp/><sp/>(0x00)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>port<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HW_SERIALn<sp/>OR<sp/>SW_SERIALn)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>baud<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>0<sp/>-<sp/>6)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>baud<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>7<sp/>-<sp/>13)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>baud<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>14<sp/>-<sp/>20)<sp/>//<sp/>need<sp/>to<sp/>send<sp/>3<sp/>bytes<sp/>for<sp/>baud<sp/>even<sp/>if<sp/>value<sp/>is<sp/>&lt;<sp/>14<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>rxPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/>[optional]<sp/>//<sp/>only<sp/>set<sp/>if<sp/>platform<sp/>requires<sp/>RX<sp/>pin<sp/>number</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>txPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/>[optional]<sp/>//<sp/>only<sp/>set<sp/>if<sp/>platform<sp/>requires<sp/>TX<sp/>pin<sp/>number</highlight></codeline>
+<codeline><highlight class="normal">7|9<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md_protocol_proposals_serial-2_80-proposal_1autotoc_md69">
+<title>Serial Write</title>
+<para>Firmata client -&gt; Board</para>
+<para>Receive serial data from Firmata client, reassemble and write for each byte received.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/>(0x67)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_WRITE<sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>port<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HW_SERIALn<sp/>OR<sp/>SW_SERIALn)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>data<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>data<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>up<sp/>to<sp/>max<sp/>buffer<sp/>-<sp/>5</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md_protocol_proposals_serial-2_80-proposal_1autotoc_md70">
+<title>Serial Read</title>
+<para>Board -&gt; Firmata client</para>
+<para>Read contents of serial buffer and send to Firmata client (send with <computeroutput>SERIAL_REPLY</computeroutput>).</para>
+<para><computeroutput>maxBytesToRead</computeroutput> optionally specifies how many bytes to read for each iteration. Set to 0 (or do not define) to read all available bytes. If there are less bytes in the buffer than the number of bytes specified by <computeroutput>maxBytesToRead</computeroutput> then the lesser number of bytes will be returned.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x67)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_READ<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>port<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HW_SERIALn<sp/>OR<sp/>SW_SERIALn)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>SERIAL_READ_MODE<sp/><sp/><sp/>(0x00)<sp/>//<sp/>0x00<sp/>=&gt;<sp/>read<sp/>continuously,<sp/>0x01<sp/>=&gt;<sp/>stop<sp/>reading</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>maxBytesToRead<sp/><sp/><sp/><sp/><sp/>(lsb)<sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>maxBytesToRead<sp/><sp/><sp/><sp/><sp/>(msb)<sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">5|7<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md_protocol_proposals_serial-2_80-proposal_1autotoc_md71">
+<title>Serial Reply</title>
+<para>Board -&gt; Firmata client</para>
+<para>Sent in response to a SERIAL_READ event or on each iteration of the reporting loop if <computeroutput>SERIAL_READ_CONTINUOUSLY</computeroutput> is set.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x67)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_REPLY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x03)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>port<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HW_SERIALn<sp/>OR<sp/>SW_SERIALn)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>data<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>data<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>up<sp/>to<sp/>max<sp/>buffer<sp/>-<sp/>5</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md_protocol_proposals_serial-2_80-proposal_1autotoc_md72">
+<title>Serial Close</title>
+<para>Close the serial port. If you close a port, you will need to send a <computeroutput>SERIAL_CONFIG</computeroutput> message to reopen it.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x67)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_CLOSE<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x04)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>port<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HW_SERIALn<sp/>OR<sp/>SW_SERIALn)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md_protocol_proposals_serial-2_80-proposal_1autotoc_md73">
+<title>Serial Flush</title>
+<para>Flush the serial port. The exact behavior of flush depends on the underlying platform. For example, with Arduino, calling <computeroutput>flush</computeroutput> on a HW serial port will drain the TX output buffer, calling <computeroutput>flush</computeroutput> on a SW serial port will reset the RX buffer to the beginning, abandoning any data in the buffer. Other platforms may define <computeroutput>flush</computeroutput> differently as well so see the documentation of flush for the platform you are working with to understand exactly how it functions.</para>
+<para>Generally <computeroutput>flush</computeroutput> is rarely needed so this functionality is primarily provided for advanced use cases.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x67)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_FLUSH<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x05)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>port<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HW_SERIALn<sp/>OR<sp/>SW_SERIALn)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md_protocol_proposals_serial-2_80-proposal_1autotoc_md74">
+<title>Serial Listen</title>
+<para>Enable switching serial ports. Necessary for Arduino SoftwareSerial but may not be applicable to other platforms.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x67)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_LISTEN<sp/><sp/><sp/><sp/><sp/><sp/>(0x06)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>port<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HW_SERIALn<sp/>OR<sp/>SW_SERIALn)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md_protocol_proposals_serial-2_80-proposal_1autotoc_md75">
+<title>Serial Update Baud</title>
+<para>Update the baud rate on a configured serial port.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x67)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_UPDATE_BAUD<sp/>(0x07)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>port<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HW_SERIALn<sp/>OR<sp/>SW_SERIALn)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>baud<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>0<sp/>-<sp/>6)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>baud<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>7<sp/>-<sp/>13)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>baud<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>14<sp/>-<sp/>20)<sp/>//<sp/>need<sp/>to<sp/>send<sp/>3<sp/>bytes<sp/>for<sp/>baud<sp/>even<sp/>if<sp/>value<sp/>is<sp/>&lt;<sp/>14<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="md_protocol_proposals_serial-2_80-proposal_1autotoc_md76">
+<title>Serial Max Char Delay</title>
+<para>Set to collect bytes received by serial port until the receive buffer is filled or a data gap is detected to avoid forwarding single bytes at baud rates below 50000.</para>
+<para>To set a delay value, specify the number of bits, where the delay is calculated by the following:</para>
+<para>numBits * 1000 / baudRate</para>
+<para>For example, if the baud is 9600, and 50 bits is specified (5 chars since 8N1 = 10 bits/char), then 50 * 1000 / 9600 = 5.2 which is a delay of 5 milliseconds (value is char or int). This means approximately 5 chars will be sent every 5 milliseconds if the baud is 9600.</para>
+<para>Ensure that numBits * 1000 / baud is &gt;= 1.0 or serial data will be sent on every iteration.</para>
+<para>A value of 0 = no delay (default behavior), results in single byte transfers to the host with baud rates below approximately 56k (varies with CPU speed).</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SERIAL_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x67)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SERIAL_MAX_CHAR_DELAY<sp/>(0x08)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>port<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HW_SERIALn<sp/>OR<sp/>SW_SERIALn)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>numBits<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0<sp/>-<sp/>127)<sp/>//<sp/>50<sp/>is<sp/>a<sp/>good<sp/>value<sp/>for<sp/>baud<sp/>rates<sp/>&lt;<sp/>56k</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting> </para>
+</sect3>
+</sect2>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

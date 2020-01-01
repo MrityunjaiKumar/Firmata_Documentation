@@ -1,0 +1,167 @@
+The idea is to store a stream of messages on a microcontroller which is replayed later (either once or repeated). A task is created by sending a create\+\_\+task message. The time-\/to-\/run is initialized with 0 (which means the task is not yet ready to run). After filling up the taskdata with messages (using add\+\_\+to\+\_\+task command messages) a final schedule\+\_\+task request is sent, that sets the time-\/to-\/run (in milliseconds after \textquotesingle{}now\textquotesingle{}). If a task itself contains delay\+\_\+task or schedule\+\_\+task-\/messages these cause the execution of the task to pause and resume after the amount of time given in such message has elapsed. If the last message in a task is a delay\+\_\+task message the task is scheduled for reexecution after the amount of time specified. If there\textquotesingle{}s no delay\+\_\+task message at the end of the task (so the time-\/to-\/run is not updated during the run) the task gets deleted after execution.
+
+Added in Firmata protocol version 2.\+4.\+0.\hypertarget{md_protocol_scheduler_autotoc_md120}{}\doxysubsection{Example files\+:}\label{md_protocol_scheduler_autotoc_md120}
+
+\begin{DoxyItemize}
+\item One\+Wire is include by default in \href{https://github.com/firmata/ConfigurableFirmata/blob/master/examples/ConfigurableFirmata/ConfigurableFirmata.ino}{\texttt{ Configurable\+Firmata.\+ino}}.
+\item \href{https://github.com/firmata/ConfigurableFirmata/blob/master/src/FirmataScheduler.cpp}{\texttt{ Example implementation}} as a configurable Firmata feature class.
+\end{DoxyItemize}\hypertarget{md_protocol_scheduler_autotoc_md121}{}\doxysubsection{Compatible host implementations}\label{md_protocol_scheduler_autotoc_md121}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/firmata/ConfigurableFirmata}{\texttt{ Configurable\+Firmata}}
+\end{DoxyItemize}\hypertarget{md_protocol_scheduler_autotoc_md122}{}\doxysubsection{Compatible client librairies}\label{md_protocol_scheduler_autotoc_md122}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/ntruchsess/perl-firmata}{\texttt{ perl-\/firmata}}
+\end{DoxyItemize}\hypertarget{md_protocol_scheduler_autotoc_md123}{}\doxysubsection{Protocol details}\label{md_protocol_scheduler_autotoc_md123}
+Scheduler C\+R\+E\+A\+T\+E\+\_\+\+T\+A\+SK request 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX          (0xF0)}
+\DoxyCodeLine{1  Scheduler Command    (0x7B)}
+\DoxyCodeLine{2  create\_task command  (0x00)}
+\DoxyCodeLine{3  task id              (0-\/127)}
+\DoxyCodeLine{4  length LSB           (bit 0-\/6)}
+\DoxyCodeLine{5  length MSB           (bit 7-\/13)}
+\DoxyCodeLine{6  END\_SYSEX            (0xF7)}
+\end{DoxyCode}
+
+
+Scheduler D\+E\+L\+E\+T\+E\+\_\+\+T\+A\+SK request 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX          (0xF0)}
+\DoxyCodeLine{1  Scheduler Command    (0x7B)}
+\DoxyCodeLine{2  delete\_task command  (0x01)}
+\DoxyCodeLine{3  task id              (0-\/127)}
+\DoxyCodeLine{4  END\_SYSEX            (0xF7)}
+\end{DoxyCode}
+
+
+Scheduler A\+D\+D\+\_\+\+T\+O\+\_\+\+T\+A\+SK request 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX          (0xF0)}
+\DoxyCodeLine{1  Scheduler Command    (0x7B)}
+\DoxyCodeLine{2  add\_to\_task command  (0x02)}
+\DoxyCodeLine{3  task id              (0-\/127)}
+\DoxyCodeLine{4  taskdata bit 0-\/6     [optional] task bytes encoded using 8 times 7 bit}
+\DoxyCodeLine{                                   for 7 bytes of 8 bit}
+\DoxyCodeLine{5  taskdata bit 7-\/13    [optional]}
+\DoxyCodeLine{6  taskdata bit 14-\/20   [optional]}
+\DoxyCodeLine{n  ... as many bytes as needed (don't exceed MAX\_DATA\_BYTES though)}
+\DoxyCodeLine{n+1  END\_SYSEX          (0xF7)}
+\end{DoxyCode}
+
+
+Scheduler D\+E\+L\+A\+Y\+\_\+\+T\+A\+SK request 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX          (0xF0)}
+\DoxyCodeLine{1  Scheduler Command    (0x7B)}
+\DoxyCodeLine{2  delay\_task command   (0x03)}
+\DoxyCodeLine{3  time\_ms bit 0-\/6      time\_ms is of type long, requires 32 bit.}
+\DoxyCodeLine{4  time\_ms bit 7-\/13}
+\DoxyCodeLine{5  time\_ms bit 14-\/20}
+\DoxyCodeLine{6  time\_ms bit 21-\/27}
+\DoxyCodeLine{7  time\_ms bit 28-\/31}
+\DoxyCodeLine{8  END\_SYSEX            (0xF7)}
+\end{DoxyCode}
+
+
+Scheduler S\+C\+H\+E\+D\+U\+L\+E\+\_\+\+T\+A\+SK request 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX              (0xF0)}
+\DoxyCodeLine{1  Scheduler Command        (0x7B)}
+\DoxyCodeLine{2  schedule\_task command    (0x04)}
+\DoxyCodeLine{3  task id                  (0-\/127)}
+\DoxyCodeLine{4  time\_ms bit 0-\/6          time\_ms is of type long, requires 32 bit.}
+\DoxyCodeLine{5  time\_ms bit 7-\/13}
+\DoxyCodeLine{6  time\_ms bit 14-\/20}
+\DoxyCodeLine{7  time\_ms bit 21-\/27}
+\DoxyCodeLine{8  time\_ms bit 28-\/31}
+\DoxyCodeLine{9  END\_SYSEX                (0xF7)}
+\end{DoxyCode}
+
+
+Scheduler Q\+U\+E\+R\+Y\+\_\+\+A\+L\+L\+\_\+\+T\+A\+S\+KS request 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX              (0xF0)}
+\DoxyCodeLine{1  Scheduler Command        (0x7B)}
+\DoxyCodeLine{2  query\_all\_tasks command  (0x05)}
+\DoxyCodeLine{3  END\_SYSEX                (0xF7)}
+\end{DoxyCode}
+
+
+Scheduler Q\+U\+E\+R\+Y\+\_\+\+A\+L\+L\+\_\+\+T\+A\+S\+KS reply 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX          (0xF0)}
+\DoxyCodeLine{1  Scheduler Command    (0x7B)}
+\DoxyCodeLine{2  query\_all\_tasks Reply Command (0x09)}
+\DoxyCodeLine{3  taskid\_1             (0-\/127) [optional]}
+\DoxyCodeLine{4  taskid\_2             (0-\/127) [optional]}
+\DoxyCodeLine{n  ... as many bytes as needed (don't exceed MAX\_DATA\_BYTES though)}
+\DoxyCodeLine{n+1  END\_SYSEX (0xF7)}
+\end{DoxyCode}
+
+
+Scheduler Q\+U\+E\+R\+Y\+\_\+\+T\+A\+SK request 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX              (0xF0)}
+\DoxyCodeLine{1  Scheduler Command        (0x7B)}
+\DoxyCodeLine{2  query\_task command       (0x06)}
+\DoxyCodeLine{3  task id                  (0-\/127)}
+\DoxyCodeLine{4  END\_SYSEX                (0xF7)}
+\end{DoxyCode}
+
+
+Scheduler Q\+U\+E\+R\+Y\+\_\+\+T\+A\+SK reply 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX          (0xF0)}
+\DoxyCodeLine{1  Scheduler Command    (0x7B)}
+\DoxyCodeLine{2  query\_task Reply Commandc (0x0A)}
+\DoxyCodeLine{3  task id              (0-\/127)}
+\DoxyCodeLine{4  time\_ms bit 0-\/6}
+\DoxyCodeLine{5  time\_ms bit 7-\/13}
+\DoxyCodeLine{6  time\_ms bit 14-\/20}
+\DoxyCodeLine{7  time\_ms bit 21-\/27}
+\DoxyCodeLine{8  time\_ms bit 28-\/31 | (length bit 0-\/2) << 4}
+\DoxyCodeLine{9  length bit 3-\/9}
+\DoxyCodeLine{10 length bit 10-\/15 | (position bit 0) << 7}
+\DoxyCodeLine{11 position bit 1-\/7}
+\DoxyCodeLine{12 position bit 8-\/14}
+\DoxyCodeLine{13 position bit 15 | taskdata bit 0-\/5 << 1 [taskdata is optional]}
+\DoxyCodeLine{14 taskdata bit 6-\/12  [optional]}
+\DoxyCodeLine{15 taskdata bit 13-\/19 [optional]}
+\DoxyCodeLine{n  ... as many bytes as needed (don't exceed MAX\_DATA\_BYTES though)}
+\DoxyCodeLine{n+1  END\_SYSEX          (0xF7)}
+\end{DoxyCode}
+
+
+Scheduler R\+E\+S\+ET request 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX              (0xF0)}
+\DoxyCodeLine{1  Scheduler Command        (0x7B)}
+\DoxyCodeLine{2  scheduler reset command  (0x07)}
+\DoxyCodeLine{3  END\_SYSEX                (0xF7)}
+\end{DoxyCode}
+
+
+Scheduler E\+R\+R\+O\+R\+\_\+\+F\+I\+R\+M\+A\+T\+A\+\_\+\+T\+A\+SK reply 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0  START\_SYSEX              (0xF0)}
+\DoxyCodeLine{1  Scheduler Command        (0x7B)}
+\DoxyCodeLine{2  error\_task Reply Command (0x08)}
+\DoxyCodeLine{3  task id                  (0-\/127)}
+\DoxyCodeLine{4  time\_ms bit 0-\/6}
+\DoxyCodeLine{5  time\_ms bit 7-\/13}
+\DoxyCodeLine{6  time\_ms bit 14-\/20}
+\DoxyCodeLine{7  time\_ms bit 21-\/27}
+\DoxyCodeLine{8  time\_ms bit 28-\/31 | (length bit 0-\/2) << 4}
+\DoxyCodeLine{9  length bit 3-\/9}
+\DoxyCodeLine{10 length bit 10-\/15 | (position bit 0) << 7}
+\DoxyCodeLine{11 position bit 1-\/7}
+\DoxyCodeLine{12 position bit 8-\/14}
+\DoxyCodeLine{13 position bit 15 | taskdata bit 0-\/5 << 1 [taskdata is optional]}
+\DoxyCodeLine{14 taskdata bit 6-\/12  [optional]}
+\DoxyCodeLine{15 taskdata bit 13-\/19 [optional]}
+\DoxyCodeLine{n  ... as many bytes as needed (don't exceed MAX\_DATA\_BYTES though)}
+\DoxyCodeLine{n+1  END\_SYSEX              (0xF7)}
+\end{DoxyCode}
+ 

@@ -1,0 +1,463 @@
+\hypertarget{class_serial_firmata}{}\doxysection{Serial\+Firmata Class Reference}
+\label{class_serial_firmata}\index{SerialFirmata@{SerialFirmata}}
+
+
+{\ttfamily \#include $<$Serial\+Firmata.\+h$>$}
+
+
+
+Inheritance diagram for Serial\+Firmata\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{class_serial_firmata__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Serial\+Firmata\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{class_serial_firmata__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_serial_firmata_a9d8947b656970f9dc87c9aa34aeec6a0}{Serial\+Firmata}} ()
+\item 
+boolean \mbox{\hyperlink{class_serial_firmata_ace960dd7d082caf65f1f3488a7486ef5}{handle\+Pin\+Mode}} (byte pin, int mode)
+\item 
+void \mbox{\hyperlink{class_serial_firmata_af383474fc3a6d1d372489046bbcabc3b}{handle\+Capability}} (byte pin)
+\item 
+boolean \mbox{\hyperlink{class_serial_firmata_a0e13bbb12bd52762cfe2f949bda161ee}{handle\+Sysex}} (byte command, byte argc, byte $\ast$argv)
+\item 
+void \mbox{\hyperlink{class_serial_firmata_a1095729d80e0b18340d6d6d5baca10fc}{update}} ()
+\item 
+void \mbox{\hyperlink{class_serial_firmata_a71cefdb678d792338c2fbc0ba46cfb3d}{reset}} ()
+\item 
+void \mbox{\hyperlink{class_serial_firmata_ab31a76a596ce2430ee3feac525da59f2}{check\+Serial}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 181 of file Serial\+Firmata.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_serial_firmata_a9d8947b656970f9dc87c9aa34aeec6a0}\label{class_serial_firmata_a9d8947b656970f9dc87c9aa34aeec6a0}} 
+\index{SerialFirmata@{SerialFirmata}!SerialFirmata@{SerialFirmata}}
+\index{SerialFirmata@{SerialFirmata}!SerialFirmata@{SerialFirmata}}
+\doxysubsubsection{\texorpdfstring{SerialFirmata()}{SerialFirmata()}}
+{\footnotesize\ttfamily Serial\+Firmata\+::\+Serial\+Firmata (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file Serial\+Firmata.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#if defined(SoftwareSerial\_h)}}
+\DoxyCodeLine{25   swSerial0 = NULL;}
+\DoxyCodeLine{26   swSerial1 = NULL;}
+\DoxyCodeLine{27   swSerial2 = NULL;}
+\DoxyCodeLine{28   swSerial3 = NULL;}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31   serialIndex = -\/1;}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_serial_firmata_ab31a76a596ce2430ee3feac525da59f2}\label{class_serial_firmata_ab31a76a596ce2430ee3feac525da59f2}} 
+\index{SerialFirmata@{SerialFirmata}!checkSerial@{checkSerial}}
+\index{checkSerial@{checkSerial}!SerialFirmata@{SerialFirmata}}
+\doxysubsubsection{\texorpdfstring{checkSerial()}{checkSerial()}}
+{\footnotesize\ttfamily void Serial\+Firmata\+::check\+Serial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 296 of file Serial\+Firmata.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{297 \{}
+\DoxyCodeLine{298   \textcolor{keywordtype}{byte} portId, serialData;}
+\DoxyCodeLine{299   \textcolor{keywordtype}{int} bytesToRead = 0;}
+\DoxyCodeLine{300   \textcolor{keywordtype}{int} numBytesToRead = 0;}
+\DoxyCodeLine{301   Stream* serialPort;}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{303   \textcolor{keywordflow}{if} (serialIndex > -\/1) \{}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305     \textcolor{comment}{// loop through all reporting (READ\_CONTINUOUS) serial ports}}
+\DoxyCodeLine{306     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte} i = 0; i < serialIndex + 1; i++) \{}
+\DoxyCodeLine{307       portId = reportSerial[i];}
+\DoxyCodeLine{308       bytesToRead = serialBytesToRead[portId];}
+\DoxyCodeLine{309       serialPort = getPortFromId(portId);}
+\DoxyCodeLine{310       \textcolor{keywordflow}{if} (serialPort == NULL) \{}
+\DoxyCodeLine{311         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{312       \}}
+\DoxyCodeLine{313 \textcolor{preprocessor}{\#if defined(SoftwareSerial\_h)}}
+\DoxyCodeLine{314       \textcolor{comment}{// only the SoftwareSerial port that is "listening" can read data}}
+\DoxyCodeLine{315       \textcolor{keywordflow}{if} (portId > 7 \&\& !((SoftwareSerial*)serialPort)-\/>isListening()) \{}
+\DoxyCodeLine{316         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{317       \}}
+\DoxyCodeLine{318 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{319       \textcolor{keywordflow}{if} (serialPort-\/>available() > 0) \{}
+\DoxyCodeLine{320         \mbox{\hyperlink{_firmata_8cpp_a986c68fac4f21302213e609c277710d7}{Firmata}}.write(\mbox{\hyperlink{_firmata_defines_8h_a59347abb8dbf9faf06194cce640f59b6}{START\_SYSEX}});}
+\DoxyCodeLine{321         \mbox{\hyperlink{_firmata_8cpp_a986c68fac4f21302213e609c277710d7}{Firmata}}.write(\mbox{\hyperlink{_firmata_defines_8h_ab36390a5dc093b72f4923bc0417fef24}{SERIAL\_MESSAGE}});}
+\DoxyCodeLine{322         \mbox{\hyperlink{_firmata_8cpp_a986c68fac4f21302213e609c277710d7}{Firmata}}.write(\mbox{\hyperlink{_serial_firmata_8h_a21271d6f9809fc3b6cc2599e53a545b1}{SERIAL\_REPLY}} | portId);}
+\DoxyCodeLine{323 }
+\DoxyCodeLine{324         \textcolor{keywordflow}{if} (bytesToRead == 0 || (serialPort-\/>available() <= bytesToRead)) \{}
+\DoxyCodeLine{325           numBytesToRead = serialPort-\/>available();}
+\DoxyCodeLine{326         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{327           numBytesToRead = bytesToRead;}
+\DoxyCodeLine{328         \}}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330         \textcolor{comment}{// relay serial data to the serial device}}
+\DoxyCodeLine{331         \textcolor{keywordflow}{while} (numBytesToRead > 0) \{}
+\DoxyCodeLine{332           serialData = serialPort-\/>read();}
+\DoxyCodeLine{333           \mbox{\hyperlink{_firmata_8cpp_a986c68fac4f21302213e609c277710d7}{Firmata}}.write(serialData \& 0x7F);}
+\DoxyCodeLine{334           \mbox{\hyperlink{_firmata_8cpp_a986c68fac4f21302213e609c277710d7}{Firmata}}.write((serialData >> 7) \& 0x7F);}
+\DoxyCodeLine{335           numBytesToRead-\/-\/;}
+\DoxyCodeLine{336         \}}
+\DoxyCodeLine{337         \mbox{\hyperlink{_firmata_8cpp_a986c68fac4f21302213e609c277710d7}{Firmata}}.write(\mbox{\hyperlink{_firmata_defines_8h_a59b17efb4e682f59d0f8179aea08474f}{END\_SYSEX}});}
+\DoxyCodeLine{338       \}}
+\DoxyCodeLine{339 }
+\DoxyCodeLine{340     \}}
+\DoxyCodeLine{341   \}}
+\DoxyCodeLine{342 \}}
+
+\end{DoxyCode}
+
+
+References E\+N\+D\+\_\+\+S\+Y\+S\+EX, Firmata, S\+E\+R\+I\+A\+L\+\_\+\+M\+E\+S\+S\+A\+GE, S\+E\+R\+I\+A\+L\+\_\+\+R\+E\+P\+LY, and S\+T\+A\+R\+T\+\_\+\+S\+Y\+S\+EX.
+
+
+
+Referenced by update().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_serial_firmata_ab31a76a596ce2430ee3feac525da59f2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_serial_firmata_af383474fc3a6d1d372489046bbcabc3b}\label{class_serial_firmata_af383474fc3a6d1d372489046bbcabc3b}} 
+\index{SerialFirmata@{SerialFirmata}!handleCapability@{handleCapability}}
+\index{handleCapability@{handleCapability}!SerialFirmata@{SerialFirmata}}
+\doxysubsubsection{\texorpdfstring{handleCapability()}{handleCapability()}}
+{\footnotesize\ttfamily void Serial\+Firmata\+::handle\+Capability (\begin{DoxyParamCaption}\item[{byte}]{pin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_firmata_feature_aa865c5a740a429805855ca1a4576a6f4}{Firmata\+Feature}}.
+
+
+
+Definition at line 44 of file Serial\+Firmata.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45 \{}
+\DoxyCodeLine{46   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_boards_8h_ab2657321c413fc4a1cf71524ed393cfe}{IS\_PIN\_SERIAL}}(pin)) \{}
+\DoxyCodeLine{47     \mbox{\hyperlink{_firmata_8cpp_a986c68fac4f21302213e609c277710d7}{Firmata}}.write(\mbox{\hyperlink{_firmata_defines_8h_aa3f71832c389f7ed6c263af7e097b4ef}{PIN\_MODE\_SERIAL}});}
+\DoxyCodeLine{48     \mbox{\hyperlink{_firmata_8cpp_a986c68fac4f21302213e609c277710d7}{Firmata}}.write(getSerialPinType(pin));}
+\DoxyCodeLine{49   \}}
+\DoxyCodeLine{50 \}}
+
+\end{DoxyCode}
+
+
+References Firmata, I\+S\+\_\+\+P\+I\+N\+\_\+\+S\+E\+R\+I\+AL, and P\+I\+N\+\_\+\+M\+O\+D\+E\+\_\+\+S\+E\+R\+I\+AL.
+
+\mbox{\Hypertarget{class_serial_firmata_ace960dd7d082caf65f1f3488a7486ef5}\label{class_serial_firmata_ace960dd7d082caf65f1f3488a7486ef5}} 
+\index{SerialFirmata@{SerialFirmata}!handlePinMode@{handlePinMode}}
+\index{handlePinMode@{handlePinMode}!SerialFirmata@{SerialFirmata}}
+\doxysubsubsection{\texorpdfstring{handlePinMode()}{handlePinMode()}}
+{\footnotesize\ttfamily boolean Serial\+Firmata\+::handle\+Pin\+Mode (\begin{DoxyParamCaption}\item[{byte}]{pin,  }\item[{int}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_firmata_feature_a6ef5569de60bb31c9eb55f5ebd16d88f}{Firmata\+Feature}}.
+
+
+
+Definition at line 34 of file Serial\+Firmata.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36   \textcolor{comment}{// used for both HW and SW serial}}
+\DoxyCodeLine{37   \textcolor{keywordflow}{if} (mode == \mbox{\hyperlink{_firmata_defines_8h_aa3f71832c389f7ed6c263af7e097b4ef}{PIN\_MODE\_SERIAL}}) \{}
+\DoxyCodeLine{38     \mbox{\hyperlink{_firmata_8cpp_a986c68fac4f21302213e609c277710d7}{Firmata}}.setPinMode(pin, \mbox{\hyperlink{_firmata_defines_8h_aa3f71832c389f7ed6c263af7e097b4ef}{PIN\_MODE\_SERIAL}});}
+\DoxyCodeLine{39     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{40   \}}
+\DoxyCodeLine{41   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{42 \}}
+
+\end{DoxyCode}
+
+
+References Firmata, and P\+I\+N\+\_\+\+M\+O\+D\+E\+\_\+\+S\+E\+R\+I\+AL.
+
+\mbox{\Hypertarget{class_serial_firmata_a0e13bbb12bd52762cfe2f949bda161ee}\label{class_serial_firmata_a0e13bbb12bd52762cfe2f949bda161ee}} 
+\index{SerialFirmata@{SerialFirmata}!handleSysex@{handleSysex}}
+\index{handleSysex@{handleSysex}!SerialFirmata@{SerialFirmata}}
+\doxysubsubsection{\texorpdfstring{handleSysex()}{handleSysex()}}
+{\footnotesize\ttfamily boolean Serial\+Firmata\+::handle\+Sysex (\begin{DoxyParamCaption}\item[{byte}]{command,  }\item[{byte}]{argc,  }\item[{byte $\ast$}]{argv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_firmata_feature_a0ce860a9345c81cbe959733e88b188be}{Firmata\+Feature}}.
+
+
+
+Definition at line 52 of file Serial\+Firmata.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53 \{}
+\DoxyCodeLine{54   \textcolor{keywordflow}{if} (command == \mbox{\hyperlink{_firmata_defines_8h_ab36390a5dc093b72f4923bc0417fef24}{SERIAL\_MESSAGE}}) \{}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     Stream *serialPort;}
+\DoxyCodeLine{57     \textcolor{keywordtype}{byte} mode = argv[0] \& \mbox{\hyperlink{_serial_firmata_8h_afa10f200a03d8c4555555c63d8eb1ea6}{SERIAL\_MODE\_MASK}};}
+\DoxyCodeLine{58     \textcolor{keywordtype}{byte} portId = argv[0] \& \mbox{\hyperlink{_serial_firmata_8h_a6c61795269e38acfe6638b96ee14d605}{SERIAL\_PORT\_ID\_MASK}};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordflow}{switch} (mode) \{}
+\DoxyCodeLine{61       \textcolor{keywordflow}{case} \mbox{\hyperlink{_serial_firmata_8h_a76e6fb108715443df6d7a5f85975731a}{SERIAL\_CONFIG}}:}
+\DoxyCodeLine{62         \{}
+\DoxyCodeLine{63           \textcolor{keywordtype}{long} baud = (long)argv[1] | ((\textcolor{keywordtype}{long})argv[2] << 7) | ((\textcolor{keywordtype}{long})argv[3] << 14);}
+\DoxyCodeLine{64           serial\_pins pins;}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66           \textcolor{keywordflow}{if} (portId < 8) \{}
+\DoxyCodeLine{67             serialPort = getPortFromId(portId);}
+\DoxyCodeLine{68             \textcolor{keywordflow}{if} (serialPort != NULL) \{}
+\DoxyCodeLine{69               pins = getSerialPinNumbers(portId);}
+\DoxyCodeLine{70               \textcolor{keywordflow}{if} (pins.rx != 0 \&\& pins.tx != 0) \{}
+\DoxyCodeLine{71                 \mbox{\hyperlink{_firmata_8cpp_a986c68fac4f21302213e609c277710d7}{Firmata}}.setPinMode(pins.rx, \mbox{\hyperlink{_firmata_defines_8h_aa3f71832c389f7ed6c263af7e097b4ef}{PIN\_MODE\_SERIAL}});}
+\DoxyCodeLine{72                 \mbox{\hyperlink{_firmata_8cpp_a986c68fac4f21302213e609c277710d7}{Firmata}}.setPinMode(pins.tx, \mbox{\hyperlink{_firmata_defines_8h_aa3f71832c389f7ed6c263af7e097b4ef}{PIN\_MODE\_SERIAL}});}
+\DoxyCodeLine{73                 \textcolor{comment}{// Fixes an issue where some serial devices would not work properly with Arduino Due}}
+\DoxyCodeLine{74                 \textcolor{comment}{// because all Arduino pins are set to OUTPUT by default in StandardFirmata.}}
+\DoxyCodeLine{75                 pinMode(pins.rx, INPUT);}
+\DoxyCodeLine{76               \}}
+\DoxyCodeLine{77               ((HardwareSerial*)serialPort)-\/>begin(baud);}
+\DoxyCodeLine{78             \}}
+\DoxyCodeLine{79           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#if defined(SoftwareSerial\_h)}}
+\DoxyCodeLine{81             \textcolor{keywordtype}{byte} swTxPin, swRxPin;}
+\DoxyCodeLine{82             \textcolor{keywordflow}{if} (argc > 4) \{}
+\DoxyCodeLine{83               swRxPin = argv[4];}
+\DoxyCodeLine{84               swTxPin = argv[5];}
+\DoxyCodeLine{85             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{86               \textcolor{comment}{// RX and TX pins must be specified when using SW serial}}
+\DoxyCodeLine{87               \mbox{\hyperlink{_firmata_8cpp_a986c68fac4f21302213e609c277710d7}{Firmata}}.sendString(\textcolor{stringliteral}{"Specify serial RX and TX pins"});}
+\DoxyCodeLine{88               \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{89             \}}
+\DoxyCodeLine{90             \textcolor{keywordflow}{switch} (portId) \{}
+\DoxyCodeLine{91               \textcolor{keywordflow}{case} \mbox{\hyperlink{_serial_firmata_8h_a669dd72611e460ea21388f62bb7ea713}{SW\_SERIAL0}}:}
+\DoxyCodeLine{92                 \textcolor{keywordflow}{if} (swSerial0 == NULL) \{}
+\DoxyCodeLine{93                   swSerial0 = \textcolor{keyword}{new} SoftwareSerial(swRxPin, swTxPin);}
+\DoxyCodeLine{94                 \}}
+\DoxyCodeLine{95                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{96               \textcolor{keywordflow}{case} \mbox{\hyperlink{_serial_firmata_8h_ae85c489fafeab0f8d4cf63866876eeca}{SW\_SERIAL1}}:}
+\DoxyCodeLine{97                 \textcolor{keywordflow}{if} (swSerial1 == NULL) \{}
+\DoxyCodeLine{98                   swSerial1 = \textcolor{keyword}{new} SoftwareSerial(swRxPin, swTxPin);}
+\DoxyCodeLine{99                 \}}
+\DoxyCodeLine{100                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{101               \textcolor{keywordflow}{case} \mbox{\hyperlink{_serial_firmata_8h_ac11cf9c5a36937c5357b112ec776d4cb}{SW\_SERIAL2}}:}
+\DoxyCodeLine{102                 \textcolor{keywordflow}{if} (swSerial2 == NULL) \{}
+\DoxyCodeLine{103                   swSerial2 = \textcolor{keyword}{new} SoftwareSerial(swRxPin, swTxPin);}
+\DoxyCodeLine{104                 \}}
+\DoxyCodeLine{105                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{106               \textcolor{keywordflow}{case} \mbox{\hyperlink{_serial_firmata_8h_aa8d8df1e8ad118cc64bbe18e8e8a3628}{SW\_SERIAL3}}:}
+\DoxyCodeLine{107                 \textcolor{keywordflow}{if} (swSerial3 == NULL) \{}
+\DoxyCodeLine{108                   swSerial3 = \textcolor{keyword}{new} SoftwareSerial(swRxPin, swTxPin);}
+\DoxyCodeLine{109                 \}}
+\DoxyCodeLine{110                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{111             \}}
+\DoxyCodeLine{112             serialPort = getPortFromId(portId);}
+\DoxyCodeLine{113             \textcolor{keywordflow}{if} (serialPort != NULL) \{}
+\DoxyCodeLine{114               \mbox{\hyperlink{_firmata_8cpp_a986c68fac4f21302213e609c277710d7}{Firmata}}.setPinMode(swRxPin, \mbox{\hyperlink{_firmata_defines_8h_aa3f71832c389f7ed6c263af7e097b4ef}{PIN\_MODE\_SERIAL}});}
+\DoxyCodeLine{115               \mbox{\hyperlink{_firmata_8cpp_a986c68fac4f21302213e609c277710d7}{Firmata}}.setPinMode(swTxPin, \mbox{\hyperlink{_firmata_defines_8h_aa3f71832c389f7ed6c263af7e097b4ef}{PIN\_MODE\_SERIAL}});}
+\DoxyCodeLine{116               ((SoftwareSerial*)serialPort)-\/>begin(baud);}
+\DoxyCodeLine{117             \}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{119           \}}
+\DoxyCodeLine{120           \textcolor{keywordflow}{break}; \textcolor{comment}{// SERIAL\_CONFIG}}
+\DoxyCodeLine{121         \}}
+\DoxyCodeLine{122       \textcolor{keywordflow}{case} \mbox{\hyperlink{_serial_firmata_8h_afb8ec1cba0a522c04f925bad0b2f3d9b}{SERIAL\_WRITE}}:}
+\DoxyCodeLine{123         \{}
+\DoxyCodeLine{124           \textcolor{keywordtype}{byte} data;}
+\DoxyCodeLine{125           serialPort = getPortFromId(portId);}
+\DoxyCodeLine{126           \textcolor{keywordflow}{if} (serialPort == NULL) \{}
+\DoxyCodeLine{127             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{128           \}}
+\DoxyCodeLine{129           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte} i = 1; i < argc; i += 2) \{}
+\DoxyCodeLine{130             data = argv[i] + (argv[i + 1] << 7);}
+\DoxyCodeLine{131             serialPort-\/>write(data);}
+\DoxyCodeLine{132           \}}
+\DoxyCodeLine{133           \textcolor{keywordflow}{break}; \textcolor{comment}{// SERIAL\_WRITE}}
+\DoxyCodeLine{134         \}}
+\DoxyCodeLine{135       \textcolor{keywordflow}{case} \mbox{\hyperlink{_serial_firmata_8h_ad8fc4f648b97f1a183f242b6c63daab1}{SERIAL\_READ}}:}
+\DoxyCodeLine{136         \textcolor{keywordflow}{if} (argv[1] == \mbox{\hyperlink{_serial_firmata_8h_aae7d93ba6f6cf4b484f1ca7e49a69b01}{SERIAL\_READ\_CONTINUOUSLY}}) \{}
+\DoxyCodeLine{137           \textcolor{keywordflow}{if} (serialIndex + 1 >= \mbox{\hyperlink{_serial_firmata_8h_a5111e506db798f016bf509d7909a5c65}{MAX\_SERIAL\_PORTS}}) \{}
+\DoxyCodeLine{138             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{139           \}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141           \textcolor{keywordflow}{if} (argc > 2) \{}
+\DoxyCodeLine{142             \textcolor{comment}{// maximum number of bytes to read from buffer per iteration of loop()}}
+\DoxyCodeLine{143             serialBytesToRead[portId] = (int)argv[2] | ((\textcolor{keywordtype}{int})argv[3] << 7);}
+\DoxyCodeLine{144           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{145             \textcolor{comment}{// read all available bytes per iteration of loop()}}
+\DoxyCodeLine{146             serialBytesToRead[portId] = 0;}
+\DoxyCodeLine{147           \}}
+\DoxyCodeLine{148           serialIndex++;}
+\DoxyCodeLine{149           reportSerial[serialIndex] = portId;}
+\DoxyCodeLine{150         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (argv[1] == \mbox{\hyperlink{_serial_firmata_8h_a2a5c705ec3a399c9930260003f008af7}{SERIAL\_STOP\_READING}}) \{}
+\DoxyCodeLine{151           \textcolor{keywordtype}{byte} serialIndexToSkip = 0;}
+\DoxyCodeLine{152           \textcolor{keywordflow}{if} (serialIndex <= 0) \{}
+\DoxyCodeLine{153             serialIndex = -\/1;}
+\DoxyCodeLine{154           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{155             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte} i = 0; i < serialIndex + 1; i++) \{}
+\DoxyCodeLine{156               \textcolor{keywordflow}{if} (reportSerial[i] == portId) \{}
+\DoxyCodeLine{157                 serialIndexToSkip = i;}
+\DoxyCodeLine{158                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{159               \}}
+\DoxyCodeLine{160             \}}
+\DoxyCodeLine{161             \textcolor{comment}{// shift elements over to fill space left by removed element}}
+\DoxyCodeLine{162             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte} i = serialIndexToSkip; i < serialIndex + 1; i++) \{}
+\DoxyCodeLine{163               \textcolor{keywordflow}{if} (i < \mbox{\hyperlink{_serial_firmata_8h_a5111e506db798f016bf509d7909a5c65}{MAX\_SERIAL\_PORTS}}) \{}
+\DoxyCodeLine{164                 reportSerial[i] = reportSerial[i + 1];}
+\DoxyCodeLine{165               \}}
+\DoxyCodeLine{166             \}}
+\DoxyCodeLine{167             serialIndex-\/-\/;}
+\DoxyCodeLine{168           \}}
+\DoxyCodeLine{169         \}}
+\DoxyCodeLine{170         \textcolor{keywordflow}{break}; \textcolor{comment}{// SERIAL\_READ}}
+\DoxyCodeLine{171       \textcolor{keywordflow}{case} \mbox{\hyperlink{_serial_firmata_8h_ad304b125713f3450cafd0de4da26f006}{SERIAL\_CLOSE}}:}
+\DoxyCodeLine{172         serialPort = getPortFromId(portId);}
+\DoxyCodeLine{173         \textcolor{keywordflow}{if} (serialPort != NULL) \{}
+\DoxyCodeLine{174           \textcolor{keywordflow}{if} (portId < 8) \{}
+\DoxyCodeLine{175             ((HardwareSerial*)serialPort)-\/>end();}
+\DoxyCodeLine{176           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#if defined(SoftwareSerial\_h)}}
+\DoxyCodeLine{178             ((SoftwareSerial*)serialPort)-\/>end();}
+\DoxyCodeLine{179             \textcolor{keywordflow}{if} (serialPort != NULL) \{}
+\DoxyCodeLine{180               free(serialPort);}
+\DoxyCodeLine{181               serialPort = NULL;}
+\DoxyCodeLine{182             \}}
+\DoxyCodeLine{183 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{184           \}}
+\DoxyCodeLine{185         \}}
+\DoxyCodeLine{186         \textcolor{keywordflow}{break}; \textcolor{comment}{// SERIAL\_CLOSE}}
+\DoxyCodeLine{187       \textcolor{keywordflow}{case} \mbox{\hyperlink{_serial_firmata_8h_a6789a06a5b32fae47375237d2353d1ca}{SERIAL\_FLUSH}}:}
+\DoxyCodeLine{188         serialPort = getPortFromId(portId);}
+\DoxyCodeLine{189         \textcolor{keywordflow}{if} (serialPort != NULL) \{}
+\DoxyCodeLine{190           getPortFromId(portId)-\/>flush();}
+\DoxyCodeLine{191         \}}
+\DoxyCodeLine{192         \textcolor{keywordflow}{break}; \textcolor{comment}{// SERIAL\_FLUSH}}
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#if defined(SoftwareSerial\_h)}}
+\DoxyCodeLine{194       \textcolor{keywordflow}{case} \mbox{\hyperlink{_serial_firmata_8h_aded602187eefbcd6c33fdde9c5ed80e5}{SERIAL\_LISTEN}}:}
+\DoxyCodeLine{195         \textcolor{comment}{// can only call listen() on software serial ports}}
+\DoxyCodeLine{196         \textcolor{keywordflow}{if} (portId > 7) \{}
+\DoxyCodeLine{197           serialPort = getPortFromId(portId);}
+\DoxyCodeLine{198           \textcolor{keywordflow}{if} (serialPort != NULL) \{}
+\DoxyCodeLine{199             ((SoftwareSerial*)serialPort)-\/>listen();}
+\DoxyCodeLine{200           \}}
+\DoxyCodeLine{201         \}}
+\DoxyCodeLine{202         \textcolor{keywordflow}{break}; \textcolor{comment}{// SERIAL\_LISTEN}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{204     \} \textcolor{comment}{// end switch}}
+\DoxyCodeLine{205     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{206   \}}
+\DoxyCodeLine{207   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{208 \}}
+
+\end{DoxyCode}
+
+
+References Firmata, M\+A\+X\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+P\+O\+R\+TS, P\+I\+N\+\_\+\+M\+O\+D\+E\+\_\+\+S\+E\+R\+I\+AL, S\+E\+R\+I\+A\+L\+\_\+\+C\+L\+O\+SE, S\+E\+R\+I\+A\+L\+\_\+\+C\+O\+N\+F\+IG, S\+E\+R\+I\+A\+L\+\_\+\+F\+L\+U\+SH, S\+E\+R\+I\+A\+L\+\_\+\+L\+I\+S\+T\+EN, S\+E\+R\+I\+A\+L\+\_\+\+M\+E\+S\+S\+A\+GE, S\+E\+R\+I\+A\+L\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK, S\+E\+R\+I\+A\+L\+\_\+\+P\+O\+R\+T\+\_\+\+I\+D\+\_\+\+M\+A\+SK, S\+E\+R\+I\+A\+L\+\_\+\+R\+E\+AD, S\+E\+R\+I\+A\+L\+\_\+\+R\+E\+A\+D\+\_\+\+C\+O\+N\+T\+I\+N\+U\+O\+U\+S\+LY, S\+E\+R\+I\+A\+L\+\_\+\+S\+T\+O\+P\+\_\+\+R\+E\+A\+D\+I\+NG, S\+E\+R\+I\+A\+L\+\_\+\+W\+R\+I\+TE, S\+W\+\_\+\+S\+E\+R\+I\+A\+L0, S\+W\+\_\+\+S\+E\+R\+I\+A\+L1, S\+W\+\_\+\+S\+E\+R\+I\+A\+L2, and S\+W\+\_\+\+S\+E\+R\+I\+A\+L3.
+
+\mbox{\Hypertarget{class_serial_firmata_a71cefdb678d792338c2fbc0ba46cfb3d}\label{class_serial_firmata_a71cefdb678d792338c2fbc0ba46cfb3d}} 
+\index{SerialFirmata@{SerialFirmata}!reset@{reset}}
+\index{reset@{reset}!SerialFirmata@{SerialFirmata}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Serial\+Firmata\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_firmata_feature_a511a8cc9f0e33b392ca729cab0f6e899}{Firmata\+Feature}}.
+
+
+
+Definition at line 215 of file Serial\+Firmata.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{216 \{}
+\DoxyCodeLine{217 \textcolor{preprocessor}{\#if defined(SoftwareSerial\_h)}}
+\DoxyCodeLine{218   Stream *serialPort;}
+\DoxyCodeLine{219   \textcolor{comment}{// free memory allocated for SoftwareSerial ports}}
+\DoxyCodeLine{220   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte} i = \mbox{\hyperlink{_serial_firmata_8h_a669dd72611e460ea21388f62bb7ea713}{SW\_SERIAL0}}; i < \mbox{\hyperlink{_serial_firmata_8h_aa8d8df1e8ad118cc64bbe18e8e8a3628}{SW\_SERIAL3}} + 1; i++) \{}
+\DoxyCodeLine{221     serialPort = getPortFromId(i);}
+\DoxyCodeLine{222     \textcolor{keywordflow}{if} (serialPort != NULL) \{}
+\DoxyCodeLine{223       free(serialPort);}
+\DoxyCodeLine{224       serialPort = NULL;}
+\DoxyCodeLine{225     \}}
+\DoxyCodeLine{226   \}}
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229   serialIndex = -\/1;}
+\DoxyCodeLine{230   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte} i = 0; i < \mbox{\hyperlink{_serial_firmata_8h_a446255494bac53f4def0f97794935102}{SERIAL\_READ\_ARR\_LEN}}; i++) \{}
+\DoxyCodeLine{231     serialBytesToRead[i] = 0;}
+\DoxyCodeLine{232   \}}
+\DoxyCodeLine{233 \}}
+
+\end{DoxyCode}
+
+
+References S\+E\+R\+I\+A\+L\+\_\+\+R\+E\+A\+D\+\_\+\+A\+R\+R\+\_\+\+L\+EN, S\+W\+\_\+\+S\+E\+R\+I\+A\+L0, and S\+W\+\_\+\+S\+E\+R\+I\+A\+L3.
+
+\mbox{\Hypertarget{class_serial_firmata_a1095729d80e0b18340d6d6d5baca10fc}\label{class_serial_firmata_a1095729d80e0b18340d6d6d5baca10fc}} 
+\index{SerialFirmata@{SerialFirmata}!update@{update}}
+\index{update@{update}!SerialFirmata@{SerialFirmata}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Serial\+Firmata\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 210 of file Serial\+Firmata.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{211 \{}
+\DoxyCodeLine{212   \mbox{\hyperlink{class_serial_firmata_ab31a76a596ce2430ee3feac525da59f2}{checkSerial}}();}
+\DoxyCodeLine{213 \}}
+
+\end{DoxyCode}
+
+
+References check\+Serial().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_serial_firmata_a1095729d80e0b18340d6d6d5baca10fc_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_serial_firmata_8h}{Serial\+Firmata.\+h}}\item 
+\mbox{\hyperlink{_serial_firmata_8cpp}{Serial\+Firmata.\+cpp}}\end{DoxyCompactItemize}

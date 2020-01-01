@@ -1,0 +1,83 @@
+There are a few different ways to approach shift in/out support. It\textquotesingle{}s complicated since different hardware handles shift in/out in different ways. For example, not all hardware requires a latch pin and those that use some sort of a latch don\textquotesingle{}t always use it the same way.
+
+There has also been some discussion around supporting fractional byte devices. The proposals below do not include such functionality. I\textquotesingle{}m not sure how popular such devices are. If someone has a proposal that includes support for shifting fractional bytes, please submit a pull request to add the proposal to this document.\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_shift-proposal_autotoc_md77}{}\doxysection{Propoasl A\+: shift in/out with no config or latch support}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_shift-proposal_autotoc_md77}
+In this version it the user must configure the pin (input / output) separately. If the hardware they are using requires a latch, the latch pin must be managed separately.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{// shift out}
+\DoxyCodeLine{0  START\_SYSEX}
+\DoxyCodeLine{1  SHIFT\_DATA          (0x75)}
+\DoxyCodeLine{2  SHIFT\_OUT           (0x01)}
+\DoxyCodeLine{3  dataPin}
+\DoxyCodeLine{4  clockPin}
+\DoxyCodeLine{5  bitOrder            (MSBFIRST or LSBFIRST)}
+\DoxyCodeLine{n ...                  (shift out data)}
+\DoxyCodeLine{n+1 END\_SYSEX}
+\DoxyCodeLine{}
+\DoxyCodeLine{// shift in (for client application to request shift-\/in data from microcontroller)}
+\DoxyCodeLine{0  START\_SYSEX}
+\DoxyCodeLine{1  SHIFT\_DATA          (0x75)}
+\DoxyCodeLine{2  SHIFT\_IN            (0x02)}
+\DoxyCodeLine{3  dataPin}
+\DoxyCodeLine{4  clockPin}
+\DoxyCodeLine{5  bitOrder            (MSBFIRST or LSBFIRST)}
+\DoxyCodeLine{6  numBytes            (number of bytes to shift in. Default to 1)}
+\DoxyCodeLine{7 END\_SYSEX}
+\DoxyCodeLine{}
+\DoxyCodeLine{// shift in reply (for sending shift-\/in data to client application)}
+\DoxyCodeLine{0  START\_SYSEX}
+\DoxyCodeLine{1  SHIFT\_DATA          (0x75)}
+\DoxyCodeLine{2  SHIFT\_IN\_REPLY      (0x03)}
+\DoxyCodeLine{3  dataPin             (so you know which data pin the reply corresponds to)}
+\DoxyCodeLine{n ...                  (shift in data)}
+\DoxyCodeLine{n+1 END\_SYSEX}
+\end{DoxyCode}
+\hypertarget{md__g_1__arduino-workspace__firmata_protocol_proposals_shift-proposal_autotoc_md78}{}\doxysection{Proposal B\+: shift in/out with config and latch support}\label{md__g_1__arduino-workspace__firmata_protocol_proposals_shift-proposal_autotoc_md78}
+The advantages with this version over the one above is that pin modes are handled by the implementation (in the other version you have to handle them manually). You also send fewer bytes when shifting out or in data (since only have to specify clock, bit\+Order and optional latch pin once when sending the config). The disadvantage is that memory must be allocated to store pin information.
+
+Another advantage with this version is that you can rely on the firmware to do more of the work. For example you can shift in multiple bytes at a time and send them to the client in a single packet rather than a single byte at at time (if your hardware requires a latch/load pin).
+
+This version uses a S\+H\+I\+F\+T\+\_\+\+C\+O\+N\+F\+IG command to set the clock pin, bit\+Order and optional latch\+Pin (or load for some shift-\/in hardware). There are a few different shift types / latch configurations\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{// shift types (specified in bits 3:5 of byte 2)}
+\DoxyCodeLine{SHIFT\_OUT                     // shift out with no latch}
+\DoxyCodeLine{SHIFT\_IN                      // shift out with no latch/load}
+\DoxyCodeLine{LATCH\_L\_SHIFT\_OUT             // set latch low then shift out}
+\DoxyCodeLine{LATCH\_L\_SHIFT\_OUT\_LATCH\_H     // set latch low, shift out, then set latch high}
+\DoxyCodeLine{SHIFT\_OUT\_LATCH\_H             // shift out then set latch high}
+\DoxyCodeLine{TOGGLE\_LOAD\_SHIFT\_IN          // toggle load pin low, then high and shift in}
+\end{DoxyCode}
+
+
+The protocol is as follows\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{// shift config (send when instantiating a new shift-\/based hardware module)}
+\DoxyCodeLine{0  START\_SYSEX}
+\DoxyCodeLine{1  SHIFT\_DATA    (0x75)}
+\DoxyCodeLine{2  SHIFT\_CONFIG  (bits 0:2 shift command, bits 3:5 shift type, bit 6 unused)}
+\DoxyCodeLine{3  dataPin}
+\DoxyCodeLine{4  clockPin}
+\DoxyCodeLine{5  bitOrder}
+\DoxyCodeLine{6  latchPin      [optional]}
+\DoxyCodeLine{7 END\_SYSEX}
+\DoxyCodeLine{}
+\DoxyCodeLine{// shift out}
+\DoxyCodeLine{0  START\_SYSEX}
+\DoxyCodeLine{1  SHIFT\_DATA    (0x75)}
+\DoxyCodeLine{2  SHIFT\_OUT     (bits 0:2 shift command, bits 3:5 shift type, bit 6 unused)}
+\DoxyCodeLine{3  dataPin}
+\DoxyCodeLine{n  ...           (shift out data)}
+\DoxyCodeLine{n+1 END\_SYSEX}
+\DoxyCodeLine{}
+\DoxyCodeLine{// shift in}
+\DoxyCodeLine{0  START\_SYSEX}
+\DoxyCodeLine{1  SHIFT\_DATA    (0x75)}
+\DoxyCodeLine{2  SHIFT\_IN      (bits 0:2 shift command, bits 3:5 shift type, bit 6 unused)}
+\DoxyCodeLine{3  dataPin}
+\DoxyCodeLine{4  numBytes      (number of bytes to shift in. Default to 1)}
+\DoxyCodeLine{5  END\_SYSEX}
+\end{DoxyCode}
+ 

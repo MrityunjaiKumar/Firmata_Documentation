@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="encoder_8md" kind="file" language="Markdown">
+    <compoundname>encoder.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#Encoder<sp/>Feature</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Provide<sp/>incremental<sp/>encoders<sp/>support,<sp/>for<sp/>both<sp/>[linear](http://en.wikipedia.org/wiki/Linear_encoder)<sp/>and<sp/>[rotary](http://en.wikipedia.org/wiki/Rotary_encoder#Incremental_rotary_encoder)<sp/>encoders.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>feature<sp/>is<sp/>based<sp/>on<sp/>based<sp/>on<sp/>[PJRC&apos;s<sp/>implementation](http://www.pjrc.com/teensy/td_libs_Encoder.html).<sp/>See<sp/>[this<sp/>article](http://www.pjrc.com/teensy/td_libs_Encoder.html)<sp/>for<sp/>more<sp/>informations<sp/>about<sp/>how<sp/>it<sp/>works<sp/>(well<sp/>explained!).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Current<sp/>implementation<sp/>supports<sp/>5<sp/>encoders<sp/>at<sp/>the<sp/>same<sp/>time<sp/>(#[0-4])<sp/>and<sp/>you<sp/>can<sp/>activate<sp/>automatic<sp/>position<sp/>reports<sp/>every<sp/>(SAMPLING_INTERVAL)ms.<sp/>Reports<sp/>are<sp/>disabled<sp/>by<sp/>default.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>best<sp/>Performances,<sp/>connect<sp/>only<sp/>interrupt<sp/>pins.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Added<sp/>in<sp/>Firmata<sp/>protocol<sp/>version<sp/>2.4.0.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example<sp/>files<sp/>:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>EncoderFeature<sp/>is<sp/>a<sp/>contributed<sp/>feature<sp/>for<sp/>[ConfigurableFirmata.ino](https://github.com/firmata/arduino/blob/configurable/examples/ConfigurableFirmata/ConfigurableFirmata.ino).<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>A<sp/>dedicated<sp/>example<sp/>is<sp/>available.<sp/>See<sp/>[SimpleEncoderFirmata.ino](https://github.com/firmata/FirmataEncoder/tree/master/examples/SimpleFirmataEncoder).<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Compatible<sp/>client<sp/>librairies</highlight></codeline>
+<codeline><highlight class="normal">TODO<sp/>:<sp/>Update<sp/>this</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Tested<sp/>boards</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>feature<sp/>has<sp/>been<sp/>tested<sp/>on<sp/>:</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>Arduino<sp/>Uno</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>Arduino<sp/>Mega</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>Arduino<sp/>Leonardo</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>Arduino<sp/>Due</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Protocol<sp/>details</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>protocol<sp/>below<sp/>use<sp/>exclusively<sp/>SysEx<sp/>queries<sp/>and<sp/>SysEx<sp/>responses.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Attach<sp/>encoder<sp/>query</highlight></codeline>
+<codeline><highlight class="normal">Query<sp/>:</highlight></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal"><sp/>/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>2<sp/>ENCODER_ATTACH<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>3<sp/>encoder<sp/>#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>([0<sp/>-<sp/>MAX_ENCODERS-1])</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>4<sp/>pin<sp/>A<sp/>#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(first<sp/>pin)<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>5<sp/>pin<sp/>B<sp/>#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(second<sp/>pin)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>6<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">No<sp/>response.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Report<sp/>encoder&apos;s<sp/>position</highlight></codeline>
+<codeline><highlight class="normal">Query</highlight></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal"><sp/>/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>2<sp/>ENCODER_REPORT_POSITION<sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>3<sp/>Encoder<sp/>#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>([0<sp/>-<sp/>MAX_ENCODERS-1])</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>4<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal">Response<sp/></highlight></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal"><sp/>/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>2<sp/>Encoder<sp/>#<sp/><sp/>&amp;<sp/><sp/>DIRECTION<sp/><sp/><sp/><sp/>[=<sp/>(direction<sp/>&lt;&lt;<sp/>6)<sp/>|<sp/>(#)]</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>3<sp/>current<sp/>position,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>4<sp/>current<sp/>position,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>5<sp/>current<sp/>position,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>6<sp/>current<sp/>position,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>7<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Note<sp/>:<sp/></highlight></codeline>
+<codeline><highlight class="normal">Byte<sp/>#2<sp/>contains<sp/>both<sp/>encoder&apos;s<sp/>number<sp/>(i.e.<sp/>channel)<sp/>and<sp/>encoder&apos;s<sp/>direction.</highlight></codeline>
+<codeline><highlight class="normal">Direction<sp/>is<sp/>stored<sp/>on<sp/>the<sp/>seventh<sp/>bit,<sp/><sp/>0<sp/>(LOW)<sp/>for<sp/>positive<sp/>and<sp/>1<sp/>(HIGH)<sp/>for<sp/>negative.</highlight></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">directionMask<sp/>=<sp/>0x40;<sp/>//<sp/>B01000000</highlight></codeline>
+<codeline><highlight class="normal">channelMask<sp/><sp/><sp/>=<sp/>0x3F;<sp/>//<sp/>B00111111<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//ex<sp/>direction<sp/>is<sp/>negative<sp/>and<sp/>encoder<sp/>is<sp/>on<sp/>index<sp/>2</highlight></codeline>
+<codeline><highlight class="normal">direction<sp/>=<sp/>1;</highlight></codeline>
+<codeline><highlight class="normal">channel<sp/>=<sp/>2;</highlight></codeline>
+<codeline><highlight class="normal">bytes[2]<sp/>=<sp/><sp/>(direction<sp/>&lt;&lt;<sp/>6)<sp/>|<sp/>(channel);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Report<sp/>all<sp/>encoders<sp/>positions</highlight></codeline>
+<codeline><highlight class="normal">Query</highlight></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal"><sp/>/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>2<sp/>ENCODER_REPORT_POSITIONS<sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>3<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal">Response<sp/></highlight></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal"><sp/>/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>2<sp/>first<sp/>enc.<sp/>#<sp/><sp/>&amp;<sp/>first<sp/>enc.<sp/>dir.<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>4<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>5<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>6<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>7<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>8<sp/>second<sp/>enc.<sp/>#<sp/><sp/>&amp;<sp/>second<sp/>enc.<sp/>dir.<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>...</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>N<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Note<sp/>:<sp/>`Report<sp/>encoder&apos;s<sp/>position`<sp/>response<sp/>is<sp/>a<sp/>special<sp/>case<sp/>of<sp/>`Report<sp/>all<sp/>encoders<sp/>positions`<sp/>response.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Reset<sp/>encoder<sp/>position<sp/>to<sp/>zero<sp/></highlight></codeline>
+<codeline><highlight class="normal">Query</highlight></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal"><sp/>/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>2<sp/>ENCODER_RESET_POSITION<sp/><sp/><sp/><sp/><sp/>(0x03)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>3<sp/>encoder<sp/>#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>([0<sp/>-<sp/>MAX_ENCODERS-1])</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>4<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal">No<sp/>response.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Enable/disable<sp/>reporting<sp/></highlight></codeline>
+<codeline><highlight class="normal">Query</highlight></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal"><sp/>/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>2<sp/>ENCODER_REPORT_AUTO<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x04)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>3<sp/>enable<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00<sp/>=&gt;<sp/>false,<sp/>true<sp/>otherwise)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>4<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal">No<sp/>response.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Note<sp/>:<sp/>when<sp/>reports<sp/>are<sp/>enabled,<sp/>EncoderFirmata<sp/>feature<sp/>send<sp/>the<sp/>message<sp/>below<sp/>at<sp/>every<sp/>SAMPLING<sp/>interval<sp/>(19ms<sp/>by<sp/>default)<sp/>:</highlight></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal"><sp/>/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>2<sp/>first<sp/>enc.<sp/>#<sp/><sp/>&amp;<sp/>first<sp/>enc.<sp/>dir.<sp/><sp/><sp/>[=<sp/>(direction<sp/>&lt;&lt;<sp/>6)<sp/>|<sp/>(#)]<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>4<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>0-6</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>5<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>7-13</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>6<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>14-20</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>7<sp/>first<sp/>enc.<sp/>position,<sp/>bits<sp/>21-27</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>8<sp/>second<sp/>enc.<sp/>#<sp/><sp/>&amp;<sp/>second<sp/>enc.<sp/>dir.<sp/>[=<sp/>(direction<sp/>&lt;&lt;<sp/>6)<sp/>|<sp/>(#)]</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>...</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>N<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Detach<sp/>encoder</highlight></codeline>
+<codeline><highlight class="normal">Query</highlight></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal"><sp/>/*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>0<sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>1<sp/>ENCODER_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x61)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>2<sp/>ENCODER_DETACH<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x05)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>3<sp/>encoder<sp/>#<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>([0<sp/>-<sp/>MAX_ENCODERS-1])</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>4<sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>-----------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal">No<sp/>response.</highlight></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="protocol/encoder.md"/>
+  </compounddef>
+</doxygen>

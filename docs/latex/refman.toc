@@ -1,0 +1,661 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Firmata}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Contents}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Usage}{1}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Firmata Client Libraries}{2}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Updating Firmata in the Arduino I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E -\/ Arduino 1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}6.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}4 and higher}{3}{subsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.3.1}Cloning Firmata}{4}{subsubsection.1.1.3.1}%
+\contentsline {subsection}{\numberline {1.1.4}Updating Firmata in the Arduino I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E -\/ older versions ($<$= 1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}6.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}3 or 1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}0.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}x)}{4}{subsection.1.1.4}%
+\contentsline {subsubsection}{\numberline {1.1.4.1}Mac O\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}X\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:}{4}{subsubsection.1.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.1.4.2}Windows\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:}{4}{subsubsection.1.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.1.4.3}Linux\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:}{4}{subsubsection.1.1.4.3}%
+\contentsline {subsubsection}{\numberline {1.1.4.4}Using the Source code rather than release archive (only for versions older than Arduino 1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}6.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}3)}{5}{subsubsection.1.1.4.4}%
+\contentsline {subsection}{\numberline {1.1.5}Contributing}{5}{subsection.1.1.5}%
+\contentsline {chapter}{\numberline {2}Accel\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stepper\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Firmata (Stepper 2.0)}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Protocol}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Accel\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stepper\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Firmata\textquotesingle {}s Custom Float Format}{10}{section.2.2}%
+\contentsline {chapter}{\numberline {3}encoder}{13}{chapter.3}%
+\contentsline {subsection}{\numberline {3.0.1}Compatible client librairies}{13}{subsection.3.0.1}%
+\contentsline {subsection}{\numberline {3.0.2}Tested boards}{13}{subsection.3.0.2}%
+\contentsline {subsection}{\numberline {3.0.3}Protocol details}{14}{subsection.3.0.3}%
+\contentsline {subsubsection}{\numberline {3.0.3.1}Attach encoder query}{14}{subsubsection.3.0.3.1}%
+\contentsline {subsubsection}{\numberline {3.0.3.2}Report encoder\textquotesingle {}s position}{14}{subsubsection.3.0.3.2}%
+\contentsline {subsubsection}{\numberline {3.0.3.3}Report all encoders positions}{14}{subsubsection.3.0.3.3}%
+\contentsline {subsubsection}{\numberline {3.0.3.4}Reset encoder position to zero}{15}{subsubsection.3.0.3.4}%
+\contentsline {subsubsection}{\numberline {3.0.3.5}Enable/disable reporting}{15}{subsubsection.3.0.3.5}%
+\contentsline {subsubsection}{\numberline {3.0.3.6}Detach encoder}{15}{subsubsection.3.0.3.6}%
+\contentsline {chapter}{\numberline {4}Firmata sysex feature registry}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Proposing a new feature}{17}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Core feature set}{17}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Optional feature set}{18}{section.4.3}%
+\contentsline {chapter}{\numberline {5}I2C}{21}{chapter.5}%
+\contentsline {subsection}{\numberline {5.0.1}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C read/write request}{21}{subsection.5.0.1}%
+\contentsline {subsection}{\numberline {5.0.2}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C reply}{21}{subsection.5.0.2}%
+\contentsline {subsection}{\numberline {5.0.3}I2\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C config}{22}{subsection.5.0.3}%
+\contentsline {chapter}{\numberline {6}One\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Wire}{23}{chapter.6}%
+\contentsline {subsection}{\numberline {6.0.1}Example files\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:}{23}{subsection.6.0.1}%
+\contentsline {subsection}{\numberline {6.0.2}Compatible host implementations}{23}{subsection.6.0.2}%
+\contentsline {subsection}{\numberline {6.0.3}Compatible client librairies}{24}{subsection.6.0.3}%
+\contentsline {subsection}{\numberline {6.0.4}Protocol details}{24}{subsection.6.0.4}%
+\contentsline {chapter}{\numberline {7}Digital Pin Groups (Proposal)}{27}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Requirements}{27}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Protocol}{27}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Digital Pin Group commands}{27}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Configuration}{28}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Clear}{28}{subsection.7.2.3}%
+\contentsline {subsection}{\numberline {7.2.4}State set}{28}{subsection.7.2.4}%
+\contentsline {subsection}{\numberline {7.2.5}State request and reply}{28}{subsection.7.2.5}%
+\contentsline {chapter}{\numberline {8}R\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Switch\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Firmata Feature}{29}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Protocol details}{29}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Tristate bits}{29}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Send}{29}{subsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8.1.2.1}Attach sender}{29}{subsubsection.8.1.2.1}%
+\contentsline {subsubsection}{\numberline {8.1.2.2}Detach sender}{30}{subsubsection.8.1.2.2}%
+\contentsline {subsubsection}{\numberline {8.1.2.3}Configuration of rcswitch parameter $<$tt$>$protocol$<$/tt$>$}{30}{subsubsection.8.1.2.3}%
+\contentsline {subsubsection}{\numberline {8.1.2.4}Configuration of rcswitch parameter $<$tt$>$pulse length$<$/tt$>$}{30}{subsubsection.8.1.2.4}%
+\contentsline {subsubsection}{\numberline {8.1.2.5}Configuration of rcswitch parameter $<$tt$>$repeat transmit$<$/tt$>$}{30}{subsubsection.8.1.2.5}%
+\contentsline {subsubsection}{\numberline {8.1.2.6}Send tristate code as char array}{31}{subsubsection.8.1.2.6}%
+\contentsline {subsubsection}{\numberline {8.1.2.7}Send long code}{31}{subsubsection.8.1.2.7}%
+\contentsline {subsubsection}{\numberline {8.1.2.8}Send char array}{31}{subsubsection.8.1.2.8}%
+\contentsline {subsubsection}{\numberline {8.1.2.9}Send tristate code as packed tristate bits}{31}{subsubsection.8.1.2.9}%
+\contentsline {subsection}{\numberline {8.1.3}Receive}{32}{subsection.8.1.3}%
+\contentsline {subsubsection}{\numberline {8.1.3.1}Attach receiver}{32}{subsubsection.8.1.3.1}%
+\contentsline {subsubsection}{\numberline {8.1.3.2}Detach receiver}{32}{subsubsection.8.1.3.2}%
+\contentsline {subsubsection}{\numberline {8.1.3.3}Configuration of rcswitch parameter $<$tt$>$receive tolerance$<$/tt$>$ (in percent)}{32}{subsubsection.8.1.3.3}%
+\contentsline {subsubsection}{\numberline {8.1.3.4}Configuration parameter $<$tt$>$enable raw data$<$/tt$>$}{32}{subsubsection.8.1.3.4}%
+\contentsline {subsubsection}{\numberline {8.1.3.5}Receive a R\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}F message}{33}{subsubsection.8.1.3.5}%
+\contentsline {chapter}{\numberline {9}serial-\/2}{35}{chapter.9}%
+\contentsline {subsection}{\numberline {9.0.1}Constants}{35}{subsection.9.0.1}%
+\contentsline {subsubsection}{\numberline {9.0.1.1}Port I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ds}{35}{subsubsection.9.0.1.1}%
+\contentsline {subsubsection}{\numberline {9.0.1.2}Serial pin capability response}{35}{subsubsection.9.0.1.2}%
+\contentsline {subsubsection}{\numberline {9.0.1.3}Serial pin mode}{35}{subsubsection.9.0.1.3}%
+\contentsline {subsection}{\numberline {9.0.2}Commands}{36}{subsection.9.0.2}%
+\contentsline {subsubsection}{\numberline {9.0.2.1}Serial Config}{36}{subsubsection.9.0.2.1}%
+\contentsline {subsubsection}{\numberline {9.0.2.2}Serial Write}{36}{subsubsection.9.0.2.2}%
+\contentsline {subsubsection}{\numberline {9.0.2.3}Serial Read}{36}{subsubsection.9.0.2.3}%
+\contentsline {subsubsection}{\numberline {9.0.2.4}Serial Reply}{36}{subsubsection.9.0.2.4}%
+\contentsline {subsubsection}{\numberline {9.0.2.5}Serial Close}{37}{subsubsection.9.0.2.5}%
+\contentsline {subsubsection}{\numberline {9.0.2.6}Serial Flush}{37}{subsubsection.9.0.2.6}%
+\contentsline {subsubsection}{\numberline {9.0.2.7}Serial Listen}{37}{subsubsection.9.0.2.7}%
+\contentsline {subsubsection}{\numberline {9.0.2.8}Serial Update Baud}{37}{subsubsection.9.0.2.8}%
+\contentsline {subsubsection}{\numberline {9.0.2.9}Serial Max Char Delay}{37}{subsubsection.9.0.2.9}%
+\contentsline {chapter}{\numberline {10}shift in/out proposal}{39}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Propoasl A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}: shift in/out with no config or latch support}{39}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Proposal B\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}: shift in/out with config and latch support}{39}{section.10.2}%
+\contentsline {chapter}{\numberline {11}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}PI (Proposal)}{41}{chapter.11}%
+\contentsline {subsection}{\numberline {11.0.1}Overview}{41}{subsection.11.0.1}%
+\contentsline {subsection}{\numberline {11.0.2}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}B\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}G\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}IN}{42}{subsection.11.0.2}%
+\contentsline {subsection}{\numberline {11.0.3}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}V\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}O\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}N\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}F\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}IG}{42}{subsection.11.0.3}%
+\contentsline {subsubsection}{\numberline {11.0.3.1}device\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Id}{42}{subsubsection.11.0.3.1}%
+\contentsline {subsubsection}{\numberline {11.0.3.2}bit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Order}{42}{subsubsection.11.0.3.2}%
+\contentsline {subsubsection}{\numberline {11.0.3.3}data\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mode}{42}{subsubsection.11.0.3.3}%
+\contentsline {subsubsection}{\numberline {11.0.3.4}max\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Speed}{43}{subsubsection.11.0.3.4}%
+\contentsline {subsubsection}{\numberline {11.0.3.5}word\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Size}{43}{subsubsection.11.0.3.5}%
+\contentsline {subsubsection}{\numberline {11.0.3.6}cs\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Pin\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Options / cs\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Pin}{43}{subsubsection.11.0.3.6}%
+\contentsline {subsection}{\numberline {11.0.4}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}T\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}R\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}N\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}F\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ER}{43}{subsection.11.0.4}%
+\contentsline {subsection}{\numberline {11.0.5}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}W\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}R\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}TE}{44}{subsection.11.0.5}%
+\contentsline {subsection}{\numberline {11.0.6}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}R\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}AD}{44}{subsection.11.0.6}%
+\contentsline {subsection}{\numberline {11.0.7}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}R\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}LY}{44}{subsection.11.0.7}%
+\contentsline {subsection}{\numberline {11.0.8}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ND}{44}{subsection.11.0.8}%
+\contentsline {chapter}{\numberline {12}tone proposal}{45}{chapter.12}%
+\contentsline {chapter}{\numberline {13}protocol}{47}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Message Types}{47}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Data Message Expansion}{48}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Control Messages Expansion}{48}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Sysex Message Format}{48}{section.13.4}%
+\contentsline {subsection}{\numberline {13.4.1}Query Firmware Name and Version}{49}{subsection.13.4.1}%
+\contentsline {subsection}{\numberline {13.4.2}Extended Analog}{49}{subsection.13.4.2}%
+\contentsline {subsection}{\numberline {13.4.3}Capability Query}{49}{subsection.13.4.3}%
+\contentsline {subsubsection}{\numberline {13.4.3.1}Capabilities query}{50}{subsubsection.13.4.3.1}%
+\contentsline {subsubsection}{\numberline {13.4.3.2}Capabilities response}{50}{subsubsection.13.4.3.2}%
+\contentsline {paragraph}{\numberline {13.4.3.2.1}Supported Modes}{50}{paragraph.13.4.3.2.1}%
+\contentsline {paragraph}{\numberline {13.4.3.2.2}Mode Resolution}{50}{paragraph.13.4.3.2.2}%
+\contentsline {subsection}{\numberline {13.4.4}Analog Mapping Query}{51}{subsection.13.4.4}%
+\contentsline {subsection}{\numberline {13.4.5}Pin State Query}{51}{subsection.13.4.5}%
+\contentsline {subsection}{\numberline {13.4.6}String}{51}{subsection.13.4.6}%
+\contentsline {subsection}{\numberline {13.4.7}Sampling Interval}{52}{subsection.13.4.7}%
+\contentsline {chapter}{\numberline {14}Firmata Protocol Documentation}{53}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Firmata client libraries}{53}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Contributing}{55}{section.14.2}%
+\contentsline {chapter}{\numberline {15}Version 2.6.0 -\/ September 16th, 2017}{57}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Version 2.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}5.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}1 -\/ December 21st, 2015}{57}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Version 2.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}5.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}0 -\/ November 7th, 2015}{57}{section.15.2}%
+\contentsline {section}{\numberline {15.3}Version 2.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}4.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}0 -\/ December 2014}{57}{section.15.3}%
+\contentsline {section}{\numberline {15.4}Version 2.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}3.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}0 -\/ February 2013}{58}{section.15.4}%
+\contentsline {section}{\numberline {15.5}Version 2.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}2.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}0 -\/ January 2011}{58}{section.15.5}%
+\contentsline {section}{\numberline {15.6}Version 2.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}0 -\/ March 2010}{58}{section.15.6}%
+\contentsline {section}{\numberline {15.7}Version 2.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}0.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}0 -\/ September 2008}{58}{section.15.7}%
+\contentsline {section}{\numberline {15.8}Version 1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}0.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}0}{58}{section.15.8}%
+\contentsline {chapter}{\numberline {16}Scheduler}{59}{chapter.16}%
+\contentsline {subsection}{\numberline {16.0.1}Example files\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:}{59}{subsection.16.0.1}%
+\contentsline {subsection}{\numberline {16.0.2}Compatible host implementations}{59}{subsection.16.0.2}%
+\contentsline {subsection}{\numberline {16.0.3}Compatible client librairies}{59}{subsection.16.0.3}%
+\contentsline {subsection}{\numberline {16.0.4}Protocol details}{60}{subsection.16.0.4}%
+\contentsline {chapter}{\numberline {17}serial-\/1}{63}{chapter.17}%
+\contentsline {subsection}{\numberline {17.0.1}Constants}{63}{subsection.17.0.1}%
+\contentsline {subsubsection}{\numberline {17.0.1.1}Port I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ds}{63}{subsubsection.17.0.1.1}%
+\contentsline {subsubsection}{\numberline {17.0.1.2}Serial pin capability response}{63}{subsubsection.17.0.1.2}%
+\contentsline {subsubsection}{\numberline {17.0.1.3}Serial pin mode}{63}{subsubsection.17.0.1.3}%
+\contentsline {subsection}{\numberline {17.0.2}Commands}{64}{subsection.17.0.2}%
+\contentsline {subsubsection}{\numberline {17.0.2.1}Serial Config}{64}{subsubsection.17.0.2.1}%
+\contentsline {subsubsection}{\numberline {17.0.2.2}Serial Write}{64}{subsubsection.17.0.2.2}%
+\contentsline {subsubsection}{\numberline {17.0.2.3}Serial Read}{64}{subsubsection.17.0.2.3}%
+\contentsline {subsubsection}{\numberline {17.0.2.4}Serial Reply}{64}{subsubsection.17.0.2.4}%
+\contentsline {subsubsection}{\numberline {17.0.2.5}Serial Close}{65}{subsubsection.17.0.2.5}%
+\contentsline {subsubsection}{\numberline {17.0.2.6}Serial Flush}{65}{subsubsection.17.0.2.6}%
+\contentsline {subsubsection}{\numberline {17.0.2.7}Serial Listen}{65}{subsubsection.17.0.2.7}%
+\contentsline {chapter}{\numberline {18}Servo}{67}{chapter.18}%
+\contentsline {chapter}{\numberline {19}Stepper Motor}{69}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Protocol}{69}{section.19.1}%
+\contentsline {chapter}{\numberline {20}Firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Documentation}{71}{chapter.20}%
+\contentsline {chapter}{\numberline {21}Namespace Index}{73}{chapter.21}%
+\contentsline {section}{\numberline {21.1}Namespace List}{73}{section.21.1}%
+\contentsline {chapter}{\numberline {22}Hierarchical Index}{75}{chapter.22}%
+\contentsline {section}{\numberline {22.1}Class Hierarchy}{75}{section.22.1}%
+\contentsline {chapter}{\numberline {23}Data Structure Index}{77}{chapter.23}%
+\contentsline {section}{\numberline {23.1}Data Structures}{77}{section.23.1}%
+\contentsline {chapter}{\numberline {24}File Index}{79}{chapter.24}%
+\contentsline {section}{\numberline {24.1}File List}{79}{section.24.1}%
+\contentsline {chapter}{\numberline {25}Namespace Documentation}{81}{chapter.25}%
+\contentsline {section}{\numberline {25.1}firmata Namespace Reference}{81}{section.25.1}%
+\contentsline {subsection}{\numberline {25.1.1}Variable Documentation}{82}{subsection.25.1.1}%
+\contentsline {subsubsection}{\numberline {25.1.1.1}ANALOG\_MAPPING\_QUERY}{82}{subsubsection.25.1.1.1}%
+\contentsline {subsubsection}{\numberline {25.1.1.2}ANALOG\_MAPPING\_RESPONSE}{82}{subsubsection.25.1.1.2}%
+\contentsline {subsubsection}{\numberline {25.1.1.3}ANALOG\_MESSAGE}{83}{subsubsection.25.1.1.3}%
+\contentsline {subsubsection}{\numberline {25.1.1.4}CAPABILITY\_QUERY}{83}{subsubsection.25.1.1.4}%
+\contentsline {subsubsection}{\numberline {25.1.1.5}CAPABILITY\_RESPONSE}{83}{subsubsection.25.1.1.5}%
+\contentsline {subsubsection}{\numberline {25.1.1.6}DIGITAL\_MESSAGE}{83}{subsubsection.25.1.1.6}%
+\contentsline {subsubsection}{\numberline {25.1.1.7}ENCODER\_DATA}{83}{subsubsection.25.1.1.7}%
+\contentsline {subsubsection}{\numberline {25.1.1.8}END\_SYSEX}{84}{subsubsection.25.1.1.8}%
+\contentsline {subsubsection}{\numberline {25.1.1.9}EXTENDED\_ANALOG}{84}{subsubsection.25.1.1.9}%
+\contentsline {subsubsection}{\numberline {25.1.1.10}FIRMWARE\_BUGFIX\_VERSION}{84}{subsubsection.25.1.1.10}%
+\contentsline {subsubsection}{\numberline {25.1.1.11}FIRMWARE\_MAJOR\_VERSION}{84}{subsubsection.25.1.1.11}%
+\contentsline {subsubsection}{\numberline {25.1.1.12}FIRMWARE\_MINOR\_VERSION}{84}{subsubsection.25.1.1.12}%
+\contentsline {subsubsection}{\numberline {25.1.1.13}I2C\_CONFIG}{84}{subsubsection.25.1.1.13}%
+\contentsline {subsubsection}{\numberline {25.1.1.14}I2C\_REPLY}{85}{subsubsection.25.1.1.14}%
+\contentsline {subsubsection}{\numberline {25.1.1.15}I2C\_REQUEST}{85}{subsubsection.25.1.1.15}%
+\contentsline {subsubsection}{\numberline {25.1.1.16}MAX\_DATA\_BYTES}{85}{subsubsection.25.1.1.16}%
+\contentsline {subsubsection}{\numberline {25.1.1.17}ONEWIRE\_DATA}{85}{subsubsection.25.1.1.17}%
+\contentsline {subsubsection}{\numberline {25.1.1.18}PIN\_MODE\_ANALOG}{85}{subsubsection.25.1.1.18}%
+\contentsline {subsubsection}{\numberline {25.1.1.19}PIN\_MODE\_ENCODER}{85}{subsubsection.25.1.1.19}%
+\contentsline {subsubsection}{\numberline {25.1.1.20}PIN\_MODE\_I2C}{86}{subsubsection.25.1.1.20}%
+\contentsline {subsubsection}{\numberline {25.1.1.21}PIN\_MODE\_IGNORE}{86}{subsubsection.25.1.1.21}%
+\contentsline {subsubsection}{\numberline {25.1.1.22}PIN\_MODE\_INPUT}{86}{subsubsection.25.1.1.22}%
+\contentsline {subsubsection}{\numberline {25.1.1.23}PIN\_MODE\_ONEWIRE}{86}{subsubsection.25.1.1.23}%
+\contentsline {subsubsection}{\numberline {25.1.1.24}PIN\_MODE\_OUTPUT}{86}{subsubsection.25.1.1.24}%
+\contentsline {subsubsection}{\numberline {25.1.1.25}PIN\_MODE\_PULLUP}{86}{subsubsection.25.1.1.25}%
+\contentsline {subsubsection}{\numberline {25.1.1.26}PIN\_MODE\_PWM}{87}{subsubsection.25.1.1.26}%
+\contentsline {subsubsection}{\numberline {25.1.1.27}PIN\_MODE\_SERIAL}{87}{subsubsection.25.1.1.27}%
+\contentsline {subsubsection}{\numberline {25.1.1.28}PIN\_MODE\_SERVO}{87}{subsubsection.25.1.1.28}%
+\contentsline {subsubsection}{\numberline {25.1.1.29}PIN\_MODE\_SHIFT}{87}{subsubsection.25.1.1.29}%
+\contentsline {subsubsection}{\numberline {25.1.1.30}PIN\_MODE\_STEPPER}{87}{subsubsection.25.1.1.30}%
+\contentsline {subsubsection}{\numberline {25.1.1.31}PIN\_STATE\_QUERY}{87}{subsubsection.25.1.1.31}%
+\contentsline {subsubsection}{\numberline {25.1.1.32}PIN\_STATE\_RESPONSE}{88}{subsubsection.25.1.1.32}%
+\contentsline {subsubsection}{\numberline {25.1.1.33}PROTOCOL\_BUGFIX\_VERSION}{88}{subsubsection.25.1.1.33}%
+\contentsline {subsubsection}{\numberline {25.1.1.34}PROTOCOL\_MAJOR\_VERSION}{88}{subsubsection.25.1.1.34}%
+\contentsline {subsubsection}{\numberline {25.1.1.35}PROTOCOL\_MINOR\_VERSION}{88}{subsubsection.25.1.1.35}%
+\contentsline {subsubsection}{\numberline {25.1.1.36}REPORT\_ANALOG}{88}{subsubsection.25.1.1.36}%
+\contentsline {subsubsection}{\numberline {25.1.1.37}REPORT\_DIGITAL}{88}{subsubsection.25.1.1.37}%
+\contentsline {subsubsection}{\numberline {25.1.1.38}REPORT\_FIRMWARE}{89}{subsubsection.25.1.1.38}%
+\contentsline {subsubsection}{\numberline {25.1.1.39}REPORT\_VERSION}{89}{subsubsection.25.1.1.39}%
+\contentsline {subsubsection}{\numberline {25.1.1.40}SAMPLING\_INTERVAL}{89}{subsubsection.25.1.1.40}%
+\contentsline {subsubsection}{\numberline {25.1.1.41}SCHEDULER\_DATA}{89}{subsubsection.25.1.1.41}%
+\contentsline {subsubsection}{\numberline {25.1.1.42}SERIAL\_DATA}{89}{subsubsection.25.1.1.42}%
+\contentsline {subsubsection}{\numberline {25.1.1.43}SERVO\_CONFIG}{90}{subsubsection.25.1.1.43}%
+\contentsline {subsubsection}{\numberline {25.1.1.44}SET\_DIGITAL\_PIN\_VALUE}{90}{subsubsection.25.1.1.44}%
+\contentsline {subsubsection}{\numberline {25.1.1.45}SET\_PIN\_MODE}{90}{subsubsection.25.1.1.45}%
+\contentsline {subsubsection}{\numberline {25.1.1.46}SHIFT\_DATA}{90}{subsubsection.25.1.1.46}%
+\contentsline {subsubsection}{\numberline {25.1.1.47}START\_SYSEX}{90}{subsubsection.25.1.1.47}%
+\contentsline {subsubsection}{\numberline {25.1.1.48}STEPPER\_DATA}{91}{subsubsection.25.1.1.48}%
+\contentsline {subsubsection}{\numberline {25.1.1.49}STRING\_DATA}{91}{subsubsection.25.1.1.49}%
+\contentsline {subsubsection}{\numberline {25.1.1.50}SYSEX\_NON\_REALTIME}{91}{subsubsection.25.1.1.50}%
+\contentsline {subsubsection}{\numberline {25.1.1.51}SYSEX\_REALTIME}{91}{subsubsection.25.1.1.51}%
+\contentsline {subsubsection}{\numberline {25.1.1.52}SYSTEM\_RESET}{91}{subsubsection.25.1.1.52}%
+\contentsline {subsubsection}{\numberline {25.1.1.53}TOTAL\_PIN\_MODES}{91}{subsubsection.25.1.1.53}%
+\contentsline {chapter}{\numberline {26}Data Structure Documentation}{93}{chapter.26}%
+\contentsline {section}{\numberline {26.1}B\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}L\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream Class Reference}{93}{section.26.1}%
+\contentsline {subsection}{\numberline {26.1.1}Detailed Description}{94}{subsection.26.1.1}%
+\contentsline {subsection}{\numberline {26.1.2}Constructor \& Destructor Documentation}{94}{subsection.26.1.2}%
+\contentsline {subsubsection}{\numberline {26.1.2.1}BLEStream()}{95}{subsubsection.26.1.2.1}%
+\contentsline {subsection}{\numberline {26.1.3}Member Function Documentation}{95}{subsection.26.1.3}%
+\contentsline {subsubsection}{\numberline {26.1.3.1}available()}{95}{subsubsection.26.1.3.1}%
+\contentsline {subsubsection}{\numberline {26.1.3.2}begin()}{96}{subsubsection.26.1.3.2}%
+\contentsline {subsubsection}{\numberline {26.1.3.3}end()}{96}{subsubsection.26.1.3.3}%
+\contentsline {subsubsection}{\numberline {26.1.3.4}flush()}{96}{subsubsection.26.1.3.4}%
+\contentsline {subsubsection}{\numberline {26.1.3.5}operator bool()}{97}{subsubsection.26.1.3.5}%
+\contentsline {subsubsection}{\numberline {26.1.3.6}peek()}{97}{subsubsection.26.1.3.6}%
+\contentsline {subsubsection}{\numberline {26.1.3.7}poll()}{98}{subsubsection.26.1.3.7}%
+\contentsline {subsubsection}{\numberline {26.1.3.8}read()}{98}{subsubsection.26.1.3.8}%
+\contentsline {subsubsection}{\numberline {26.1.3.9}setFlushInterval()}{98}{subsubsection.26.1.3.9}%
+\contentsline {subsubsection}{\numberline {26.1.3.10}write()}{99}{subsubsection.26.1.3.10}%
+\contentsline {section}{\numberline {26.2}Bluefruit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}L\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream Class Reference}{99}{section.26.2}%
+\contentsline {subsection}{\numberline {26.2.1}Detailed Description}{101}{subsection.26.2.1}%
+\contentsline {subsection}{\numberline {26.2.2}Constructor \& Destructor Documentation}{102}{subsection.26.2.2}%
+\contentsline {subsubsection}{\numberline {26.2.2.1}BluefruitLE\_SPI\_Stream()}{102}{subsubsection.26.2.2.1}%
+\contentsline {subsection}{\numberline {26.2.3}Member Function Documentation}{102}{subsection.26.2.3}%
+\contentsline {subsubsection}{\numberline {26.2.3.1}available()}{102}{subsubsection.26.2.3.1}%
+\contentsline {subsubsection}{\numberline {26.2.3.2}begin()}{102}{subsubsection.26.2.3.2}%
+\contentsline {subsubsection}{\numberline {26.2.3.3}end()}{103}{subsubsection.26.2.3.3}%
+\contentsline {subsubsection}{\numberline {26.2.3.4}flush()}{103}{subsubsection.26.2.3.4}%
+\contentsline {subsubsection}{\numberline {26.2.3.5}peek()}{104}{subsubsection.26.2.3.5}%
+\contentsline {subsubsection}{\numberline {26.2.3.6}poll()}{104}{subsubsection.26.2.3.6}%
+\contentsline {subsubsection}{\numberline {26.2.3.7}read()}{105}{subsubsection.26.2.3.7}%
+\contentsline {subsubsection}{\numberline {26.2.3.8}setAdvertisingInterval()}{105}{subsubsection.26.2.3.8}%
+\contentsline {subsubsection}{\numberline {26.2.3.9}setConnectionInterval()}{105}{subsubsection.26.2.3.9}%
+\contentsline {subsubsection}{\numberline {26.2.3.10}setFlushInterval()}{105}{subsubsection.26.2.3.10}%
+\contentsline {subsubsection}{\numberline {26.2.3.11}setLocalName()}{106}{subsubsection.26.2.3.11}%
+\contentsline {subsubsection}{\numberline {26.2.3.12}write()}{106}{subsubsection.26.2.3.12}%
+\contentsline {section}{\numberline {26.3}Ethernet\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream Class Reference}{106}{section.26.3}%
+\contentsline {subsection}{\numberline {26.3.1}Detailed Description}{108}{subsection.26.3.1}%
+\contentsline {subsection}{\numberline {26.3.2}Constructor \& Destructor Documentation}{108}{subsection.26.3.2}%
+\contentsline {subsubsection}{\numberline {26.3.2.1}EthernetClientStream()}{108}{subsubsection.26.3.2.1}%
+\contentsline {subsection}{\numberline {26.3.3}Member Function Documentation}{108}{subsection.26.3.3}%
+\contentsline {subsubsection}{\numberline {26.3.3.1}available()}{109}{subsubsection.26.3.3.1}%
+\contentsline {subsubsection}{\numberline {26.3.3.2}flush()}{109}{subsubsection.26.3.3.2}%
+\contentsline {subsubsection}{\numberline {26.3.3.3}maintain()}{110}{subsubsection.26.3.3.3}%
+\contentsline {subsubsection}{\numberline {26.3.3.4}peek()}{111}{subsubsection.26.3.3.4}%
+\contentsline {subsubsection}{\numberline {26.3.3.5}read()}{111}{subsubsection.26.3.3.5}%
+\contentsline {subsubsection}{\numberline {26.3.3.6}write()}{112}{subsubsection.26.3.3.6}%
+\contentsline {section}{\numberline {26.4}Ethernet\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Server\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream Class Reference}{112}{section.26.4}%
+\contentsline {subsection}{\numberline {26.4.1}Detailed Description}{114}{subsection.26.4.1}%
+\contentsline {subsection}{\numberline {26.4.2}Constructor \& Destructor Documentation}{115}{subsection.26.4.2}%
+\contentsline {subsubsection}{\numberline {26.4.2.1}EthernetServerStream()}{115}{subsubsection.26.4.2.1}%
+\contentsline {subsection}{\numberline {26.4.3}Member Function Documentation}{115}{subsection.26.4.3}%
+\contentsline {subsubsection}{\numberline {26.4.3.1}available()}{115}{subsubsection.26.4.3.1}%
+\contentsline {subsubsection}{\numberline {26.4.3.2}connect\_client()}{116}{subsubsection.26.4.3.2}%
+\contentsline {subsubsection}{\numberline {26.4.3.3}flush()}{116}{subsubsection.26.4.3.3}%
+\contentsline {subsubsection}{\numberline {26.4.3.4}maintain()}{117}{subsubsection.26.4.3.4}%
+\contentsline {subsubsection}{\numberline {26.4.3.5}peek()}{118}{subsubsection.26.4.3.5}%
+\contentsline {subsubsection}{\numberline {26.4.3.6}read()}{118}{subsubsection.26.4.3.6}%
+\contentsline {subsubsection}{\numberline {26.4.3.7}write()}{119}{subsubsection.26.4.3.7}%
+\contentsline {subsection}{\numberline {26.4.4}Field Documentation}{119}{subsection.26.4.4}%
+\contentsline {subsubsection}{\numberline {26.4.4.1}listening}{119}{subsubsection.26.4.4.1}%
+\contentsline {subsubsection}{\numberline {26.4.4.2}server}{119}{subsubsection.26.4.4.2}%
+\contentsline {section}{\numberline {26.5}firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Class Class Reference}{120}{section.26.5}%
+\contentsline {subsection}{\numberline {26.5.1}Detailed Description}{121}{subsection.26.5.1}%
+\contentsline {subsection}{\numberline {26.5.2}Member Typedef Documentation}{121}{subsection.26.5.2}%
+\contentsline {subsubsection}{\numberline {26.5.2.1}callbackFunction}{121}{subsubsection.26.5.2.1}%
+\contentsline {subsubsection}{\numberline {26.5.2.2}stringCallbackFunction}{121}{subsubsection.26.5.2.2}%
+\contentsline {subsubsection}{\numberline {26.5.2.3}sysexCallbackFunction}{122}{subsubsection.26.5.2.3}%
+\contentsline {subsubsection}{\numberline {26.5.2.4}systemCallbackFunction}{122}{subsubsection.26.5.2.4}%
+\contentsline {subsection}{\numberline {26.5.3}Constructor \& Destructor Documentation}{122}{subsection.26.5.3}%
+\contentsline {subsubsection}{\numberline {26.5.3.1}FirmataClass()}{122}{subsubsection.26.5.3.1}%
+\contentsline {subsection}{\numberline {26.5.4}Member Function Documentation}{123}{subsection.26.5.4}%
+\contentsline {subsubsection}{\numberline {26.5.4.1}attach()\hspace {0.1cm}{\footnotesize \ttfamily [1/4]}}{123}{subsubsection.26.5.4.1}%
+\contentsline {subsubsection}{\numberline {26.5.4.2}attach()\hspace {0.1cm}{\footnotesize \ttfamily [2/4]}}{123}{subsubsection.26.5.4.2}%
+\contentsline {subsubsection}{\numberline {26.5.4.3}attach()\hspace {0.1cm}{\footnotesize \ttfamily [3/4]}}{124}{subsubsection.26.5.4.3}%
+\contentsline {subsubsection}{\numberline {26.5.4.4}attach()\hspace {0.1cm}{\footnotesize \ttfamily [4/4]}}{124}{subsubsection.26.5.4.4}%
+\contentsline {subsubsection}{\numberline {26.5.4.5}available()}{124}{subsubsection.26.5.4.5}%
+\contentsline {subsubsection}{\numberline {26.5.4.6}begin()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{125}{subsubsection.26.5.4.6}%
+\contentsline {subsubsection}{\numberline {26.5.4.7}begin()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{125}{subsubsection.26.5.4.7}%
+\contentsline {subsubsection}{\numberline {26.5.4.8}begin()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{126}{subsubsection.26.5.4.8}%
+\contentsline {subsubsection}{\numberline {26.5.4.9}blinkVersion()}{127}{subsubsection.26.5.4.9}%
+\contentsline {subsubsection}{\numberline {26.5.4.10}detach()}{128}{subsubsection.26.5.4.10}%
+\contentsline {subsubsection}{\numberline {26.5.4.11}disableBlinkVersion()}{128}{subsubsection.26.5.4.11}%
+\contentsline {subsubsection}{\numberline {26.5.4.12}endSysex()}{129}{subsubsection.26.5.4.12}%
+\contentsline {subsubsection}{\numberline {26.5.4.13}getPinMode()}{129}{subsubsection.26.5.4.13}%
+\contentsline {subsubsection}{\numberline {26.5.4.14}getPinState()}{129}{subsubsection.26.5.4.14}%
+\contentsline {subsubsection}{\numberline {26.5.4.15}isParsingMessage()}{130}{subsubsection.26.5.4.15}%
+\contentsline {subsubsection}{\numberline {26.5.4.16}parse()}{130}{subsubsection.26.5.4.16}%
+\contentsline {subsubsection}{\numberline {26.5.4.17}printFirmwareVersion()}{131}{subsubsection.26.5.4.17}%
+\contentsline {subsubsection}{\numberline {26.5.4.18}printVersion()}{132}{subsubsection.26.5.4.18}%
+\contentsline {subsubsection}{\numberline {26.5.4.19}processInput()}{133}{subsubsection.26.5.4.19}%
+\contentsline {subsubsection}{\numberline {26.5.4.20}sendAnalog()}{133}{subsubsection.26.5.4.20}%
+\contentsline {subsubsection}{\numberline {26.5.4.21}sendDigital()}{134}{subsubsection.26.5.4.21}%
+\contentsline {subsubsection}{\numberline {26.5.4.22}sendDigitalPort()}{134}{subsubsection.26.5.4.22}%
+\contentsline {subsubsection}{\numberline {26.5.4.23}sendString()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{135}{subsubsection.26.5.4.23}%
+\contentsline {subsubsection}{\numberline {26.5.4.24}sendString()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{136}{subsubsection.26.5.4.24}%
+\contentsline {subsubsection}{\numberline {26.5.4.25}sendSysex()}{136}{subsubsection.26.5.4.25}%
+\contentsline {subsubsection}{\numberline {26.5.4.26}sendValueAsTwo7bitBytes()}{137}{subsubsection.26.5.4.26}%
+\contentsline {subsubsection}{\numberline {26.5.4.27}setFirmwareNameAndVersion()}{137}{subsubsection.26.5.4.27}%
+\contentsline {subsubsection}{\numberline {26.5.4.28}setPinMode()}{138}{subsubsection.26.5.4.28}%
+\contentsline {subsubsection}{\numberline {26.5.4.29}setPinState()}{138}{subsubsection.26.5.4.29}%
+\contentsline {subsubsection}{\numberline {26.5.4.30}startSysex()}{140}{subsubsection.26.5.4.30}%
+\contentsline {subsubsection}{\numberline {26.5.4.31}write()}{140}{subsubsection.26.5.4.31}%
+\contentsline {subsection}{\numberline {26.5.5}Friends And Related Function Documentation}{140}{subsection.26.5.5}%
+\contentsline {subsubsection}{\numberline {26.5.5.1}FirmataMarshaller::encodeByteStream}{140}{subsubsection.26.5.5.1}%
+\contentsline {section}{\numberline {26.6}Firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Feature Class Reference}{141}{section.26.6}%
+\contentsline {subsection}{\numberline {26.6.1}Detailed Description}{142}{subsection.26.6.1}%
+\contentsline {subsection}{\numberline {26.6.2}Member Function Documentation}{142}{subsection.26.6.2}%
+\contentsline {subsubsection}{\numberline {26.6.2.1}handleCapability()}{142}{subsubsection.26.6.2.1}%
+\contentsline {subsubsection}{\numberline {26.6.2.2}handlePinMode()}{142}{subsubsection.26.6.2.2}%
+\contentsline {subsubsection}{\numberline {26.6.2.3}handleSysex()}{143}{subsubsection.26.6.2.3}%
+\contentsline {subsubsection}{\numberline {26.6.2.4}reset()}{143}{subsubsection.26.6.2.4}%
+\contentsline {section}{\numberline {26.7}firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Marshaller Class Reference}{143}{section.26.7}%
+\contentsline {subsection}{\numberline {26.7.1}Detailed Description}{144}{subsection.26.7.1}%
+\contentsline {subsection}{\numberline {26.7.2}Constructor \& Destructor Documentation}{144}{subsection.26.7.2}%
+\contentsline {subsubsection}{\numberline {26.7.2.1}FirmataMarshaller()}{144}{subsubsection.26.7.2.1}%
+\contentsline {subsection}{\numberline {26.7.3}Member Function Documentation}{145}{subsection.26.7.3}%
+\contentsline {subsubsection}{\numberline {26.7.3.1}begin()}{145}{subsubsection.26.7.3.1}%
+\contentsline {subsubsection}{\numberline {26.7.3.2}end()}{146}{subsubsection.26.7.3.2}%
+\contentsline {subsubsection}{\numberline {26.7.3.3}queryFirmwareVersion()}{146}{subsubsection.26.7.3.3}%
+\contentsline {subsubsection}{\numberline {26.7.3.4}queryVersion()}{147}{subsubsection.26.7.3.4}%
+\contentsline {subsubsection}{\numberline {26.7.3.5}reportAnalogDisable()}{147}{subsubsection.26.7.3.5}%
+\contentsline {subsubsection}{\numberline {26.7.3.6}reportAnalogEnable()}{147}{subsubsection.26.7.3.6}%
+\contentsline {subsubsection}{\numberline {26.7.3.7}reportDigitalPortDisable()}{148}{subsubsection.26.7.3.7}%
+\contentsline {subsubsection}{\numberline {26.7.3.8}reportDigitalPortEnable()}{148}{subsubsection.26.7.3.8}%
+\contentsline {subsubsection}{\numberline {26.7.3.9}sendAnalog()}{148}{subsubsection.26.7.3.9}%
+\contentsline {subsubsection}{\numberline {26.7.3.10}sendAnalogMappingQuery()}{149}{subsubsection.26.7.3.10}%
+\contentsline {subsubsection}{\numberline {26.7.3.11}sendCapabilityQuery()}{150}{subsubsection.26.7.3.11}%
+\contentsline {subsubsection}{\numberline {26.7.3.12}sendDigital()}{150}{subsubsection.26.7.3.12}%
+\contentsline {subsubsection}{\numberline {26.7.3.13}sendDigitalPort()}{151}{subsubsection.26.7.3.13}%
+\contentsline {subsubsection}{\numberline {26.7.3.14}sendFirmwareVersion()}{152}{subsubsection.26.7.3.14}%
+\contentsline {subsubsection}{\numberline {26.7.3.15}sendPinMode()}{152}{subsubsection.26.7.3.15}%
+\contentsline {subsubsection}{\numberline {26.7.3.16}sendPinStateQuery()}{153}{subsubsection.26.7.3.16}%
+\contentsline {subsubsection}{\numberline {26.7.3.17}sendString()}{153}{subsubsection.26.7.3.17}%
+\contentsline {subsubsection}{\numberline {26.7.3.18}sendSysex()}{154}{subsubsection.26.7.3.18}%
+\contentsline {subsubsection}{\numberline {26.7.3.19}sendVersion()}{155}{subsubsection.26.7.3.19}%
+\contentsline {subsubsection}{\numberline {26.7.3.20}setSamplingInterval()}{156}{subsubsection.26.7.3.20}%
+\contentsline {subsubsection}{\numberline {26.7.3.21}systemReset()}{157}{subsubsection.26.7.3.21}%
+\contentsline {subsection}{\numberline {26.7.4}Friends And Related Function Documentation}{157}{subsection.26.7.4}%
+\contentsline {subsubsection}{\numberline {26.7.4.1}FirmataClass}{157}{subsubsection.26.7.4.1}%
+\contentsline {section}{\numberline {26.8}firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parser Class Reference}{157}{section.26.8}%
+\contentsline {subsection}{\numberline {26.8.1}Detailed Description}{158}{subsection.26.8.1}%
+\contentsline {subsection}{\numberline {26.8.2}Member Typedef Documentation}{158}{subsection.26.8.2}%
+\contentsline {subsubsection}{\numberline {26.8.2.1}callbackFunction}{158}{subsubsection.26.8.2.1}%
+\contentsline {subsubsection}{\numberline {26.8.2.2}dataBufferOverflowCallbackFunction}{158}{subsubsection.26.8.2.2}%
+\contentsline {subsubsection}{\numberline {26.8.2.3}stringCallbackFunction}{159}{subsubsection.26.8.2.3}%
+\contentsline {subsubsection}{\numberline {26.8.2.4}sysexCallbackFunction}{159}{subsubsection.26.8.2.4}%
+\contentsline {subsubsection}{\numberline {26.8.2.5}systemCallbackFunction}{159}{subsubsection.26.8.2.5}%
+\contentsline {subsubsection}{\numberline {26.8.2.6}versionCallbackFunction}{159}{subsubsection.26.8.2.6}%
+\contentsline {subsection}{\numberline {26.8.3}Constructor \& Destructor Documentation}{159}{subsection.26.8.3}%
+\contentsline {subsubsection}{\numberline {26.8.3.1}FirmataParser()}{159}{subsubsection.26.8.3.1}%
+\contentsline {subsection}{\numberline {26.8.4}Member Function Documentation}{160}{subsection.26.8.4}%
+\contentsline {subsubsection}{\numberline {26.8.4.1}attach()\hspace {0.1cm}{\footnotesize \ttfamily [1/6]}}{160}{subsubsection.26.8.4.1}%
+\contentsline {subsubsection}{\numberline {26.8.4.2}attach()\hspace {0.1cm}{\footnotesize \ttfamily [2/6]}}{161}{subsubsection.26.8.4.2}%
+\contentsline {subsubsection}{\numberline {26.8.4.3}attach()\hspace {0.1cm}{\footnotesize \ttfamily [3/6]}}{162}{subsubsection.26.8.4.3}%
+\contentsline {subsubsection}{\numberline {26.8.4.4}attach()\hspace {0.1cm}{\footnotesize \ttfamily [4/6]}}{163}{subsubsection.26.8.4.4}%
+\contentsline {subsubsection}{\numberline {26.8.4.5}attach()\hspace {0.1cm}{\footnotesize \ttfamily [5/6]}}{163}{subsubsection.26.8.4.5}%
+\contentsline {subsubsection}{\numberline {26.8.4.6}attach()\hspace {0.1cm}{\footnotesize \ttfamily [6/6]}}{164}{subsubsection.26.8.4.6}%
+\contentsline {subsubsection}{\numberline {26.8.4.7}detach()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{164}{subsubsection.26.8.4.7}%
+\contentsline {subsubsection}{\numberline {26.8.4.8}detach()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{165}{subsubsection.26.8.4.8}%
+\contentsline {subsubsection}{\numberline {26.8.4.9}isParsingMessage()}{166}{subsubsection.26.8.4.9}%
+\contentsline {subsubsection}{\numberline {26.8.4.10}parse()}{166}{subsubsection.26.8.4.10}%
+\contentsline {subsubsection}{\numberline {26.8.4.11}setDataBufferOfSize()}{168}{subsubsection.26.8.4.11}%
+\contentsline {section}{\numberline {26.9}Serial\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Firmata Class Reference}{169}{section.26.9}%
+\contentsline {subsection}{\numberline {26.9.1}Detailed Description}{170}{subsection.26.9.1}%
+\contentsline {subsection}{\numberline {26.9.2}Constructor \& Destructor Documentation}{170}{subsection.26.9.2}%
+\contentsline {subsubsection}{\numberline {26.9.2.1}SerialFirmata()}{171}{subsubsection.26.9.2.1}%
+\contentsline {subsection}{\numberline {26.9.3}Member Function Documentation}{171}{subsection.26.9.3}%
+\contentsline {subsubsection}{\numberline {26.9.3.1}checkSerial()}{171}{subsubsection.26.9.3.1}%
+\contentsline {subsubsection}{\numberline {26.9.3.2}handleCapability()}{172}{subsubsection.26.9.3.2}%
+\contentsline {subsubsection}{\numberline {26.9.3.3}handlePinMode()}{172}{subsubsection.26.9.3.3}%
+\contentsline {subsubsection}{\numberline {26.9.3.4}handleSysex()}{173}{subsubsection.26.9.3.4}%
+\contentsline {subsubsection}{\numberline {26.9.3.5}reset()}{175}{subsubsection.26.9.3.5}%
+\contentsline {subsubsection}{\numberline {26.9.3.6}update()}{175}{subsubsection.26.9.3.6}%
+\contentsline {section}{\numberline {26.10}Wi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream Class Reference}{176}{section.26.10}%
+\contentsline {subsection}{\numberline {26.10.1}Detailed Description}{178}{subsection.26.10.1}%
+\contentsline {subsection}{\numberline {26.10.2}Constructor \& Destructor Documentation}{178}{subsection.26.10.2}%
+\contentsline {subsubsection}{\numberline {26.10.2.1}WiFiClientStream()}{178}{subsubsection.26.10.2.1}%
+\contentsline {subsection}{\numberline {26.10.3}Member Function Documentation}{178}{subsection.26.10.3}%
+\contentsline {subsubsection}{\numberline {26.10.3.1}connect\_client()}{178}{subsubsection.26.10.3.1}%
+\contentsline {subsubsection}{\numberline {26.10.3.2}maintain()}{180}{subsubsection.26.10.3.2}%
+\contentsline {subsubsection}{\numberline {26.10.3.3}stop()}{180}{subsubsection.26.10.3.3}%
+\contentsline {subsection}{\numberline {26.10.4}Field Documentation}{181}{subsection.26.10.4}%
+\contentsline {subsubsection}{\numberline {26.10.4.1}\_time\_connect}{181}{subsubsection.26.10.4.1}%
+\contentsline {section}{\numberline {26.11}Wi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Server\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream Class Reference}{181}{section.26.11}%
+\contentsline {subsection}{\numberline {26.11.1}Detailed Description}{184}{subsection.26.11.1}%
+\contentsline {subsection}{\numberline {26.11.2}Constructor \& Destructor Documentation}{184}{subsection.26.11.2}%
+\contentsline {subsubsection}{\numberline {26.11.2.1}WiFiServerStream()}{184}{subsubsection.26.11.2.1}%
+\contentsline {subsection}{\numberline {26.11.3}Member Function Documentation}{184}{subsection.26.11.3}%
+\contentsline {subsubsection}{\numberline {26.11.3.1}connect\_client()}{184}{subsubsection.26.11.3.1}%
+\contentsline {subsubsection}{\numberline {26.11.3.2}maintain()}{186}{subsubsection.26.11.3.2}%
+\contentsline {subsubsection}{\numberline {26.11.3.3}stop()}{186}{subsubsection.26.11.3.3}%
+\contentsline {subsection}{\numberline {26.11.4}Field Documentation}{187}{subsection.26.11.4}%
+\contentsline {subsubsection}{\numberline {26.11.4.1}\_listening}{187}{subsubsection.26.11.4.1}%
+\contentsline {subsubsection}{\numberline {26.11.4.2}\_server}{187}{subsubsection.26.11.4.2}%
+\contentsline {section}{\numberline {26.12}Wi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream Class Reference}{188}{section.26.12}%
+\contentsline {subsection}{\numberline {26.12.1}Detailed Description}{190}{subsection.26.12.1}%
+\contentsline {subsection}{\numberline {26.12.2}Constructor \& Destructor Documentation}{190}{subsection.26.12.2}%
+\contentsline {subsubsection}{\numberline {26.12.2.1}WiFiStream()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{190}{subsubsection.26.12.2.1}%
+\contentsline {subsubsection}{\numberline {26.12.2.2}WiFiStream()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{191}{subsubsection.26.12.2.2}%
+\contentsline {subsection}{\numberline {26.12.3}Member Function Documentation}{191}{subsection.26.12.3}%
+\contentsline {subsubsection}{\numberline {26.12.3.1}attach()}{191}{subsubsection.26.12.3.1}%
+\contentsline {subsubsection}{\numberline {26.12.3.2}available()}{191}{subsubsection.26.12.3.2}%
+\contentsline {subsubsection}{\numberline {26.12.3.3}begin()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{191}{subsubsection.26.12.3.3}%
+\contentsline {subsubsection}{\numberline {26.12.3.4}begin()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{192}{subsubsection.26.12.3.4}%
+\contentsline {subsubsection}{\numberline {26.12.3.5}begin()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{192}{subsubsection.26.12.3.5}%
+\contentsline {subsubsection}{\numberline {26.12.3.6}config()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{192}{subsubsection.26.12.3.6}%
+\contentsline {subsubsection}{\numberline {26.12.3.7}config()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{193}{subsubsection.26.12.3.7}%
+\contentsline {subsubsection}{\numberline {26.12.3.8}connect\_client()}{193}{subsubsection.26.12.3.8}%
+\contentsline {subsubsection}{\numberline {26.12.3.9}flush()}{194}{subsubsection.26.12.3.9}%
+\contentsline {subsubsection}{\numberline {26.12.3.10}getLocalIP()}{194}{subsubsection.26.12.3.10}%
+\contentsline {subsubsection}{\numberline {26.12.3.11}maintain()}{194}{subsubsection.26.12.3.11}%
+\contentsline {subsubsection}{\numberline {26.12.3.12}peek()}{195}{subsubsection.26.12.3.12}%
+\contentsline {subsubsection}{\numberline {26.12.3.13}read()}{195}{subsubsection.26.12.3.13}%
+\contentsline {subsubsection}{\numberline {26.12.3.14}stop()}{195}{subsubsection.26.12.3.14}%
+\contentsline {subsubsection}{\numberline {26.12.3.15}write()}{196}{subsubsection.26.12.3.15}%
+\contentsline {subsection}{\numberline {26.12.4}Field Documentation}{196}{subsection.26.12.4}%
+\contentsline {subsubsection}{\numberline {26.12.4.1}\_client}{196}{subsubsection.26.12.4.1}%
+\contentsline {subsubsection}{\numberline {26.12.4.2}\_connected}{196}{subsubsection.26.12.4.2}%
+\contentsline {subsubsection}{\numberline {26.12.4.3}\_currentHostConnectionCallback}{197}{subsubsection.26.12.4.3}%
+\contentsline {subsubsection}{\numberline {26.12.4.4}\_gateway}{197}{subsubsection.26.12.4.4}%
+\contentsline {subsubsection}{\numberline {26.12.4.5}\_key}{197}{subsubsection.26.12.4.5}%
+\contentsline {subsubsection}{\numberline {26.12.4.6}\_key\_idx}{197}{subsubsection.26.12.4.6}%
+\contentsline {subsubsection}{\numberline {26.12.4.7}\_local\_ip}{197}{subsubsection.26.12.4.7}%
+\contentsline {subsubsection}{\numberline {26.12.4.8}\_passphrase}{197}{subsubsection.26.12.4.8}%
+\contentsline {subsubsection}{\numberline {26.12.4.9}\_port}{198}{subsubsection.26.12.4.9}%
+\contentsline {subsubsection}{\numberline {26.12.4.10}\_remote\_ip}{198}{subsubsection.26.12.4.10}%
+\contentsline {subsubsection}{\numberline {26.12.4.11}\_ssid}{198}{subsubsection.26.12.4.11}%
+\contentsline {subsubsection}{\numberline {26.12.4.12}\_subnet}{198}{subsubsection.26.12.4.12}%
+\contentsline {chapter}{\numberline {27}File Documentation}{199}{chapter.27}%
+\contentsline {section}{\numberline {27.1}accel\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stepper\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Firmata.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{199}{section.27.1}%
+\contentsline {section}{\numberline {27.2}ble\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Config.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{199}{section.27.2}%
+\contentsline {subsection}{\numberline {27.2.1}Macro Definition Documentation}{199}{subsection.27.2.1}%
+\contentsline {subsubsection}{\numberline {27.2.1.1}FIRMATA\_BLE\_LOCAL\_NAME}{199}{subsubsection.27.2.1.1}%
+\contentsline {subsubsection}{\numberline {27.2.1.2}FIRMATA\_BLE\_MAX\_INTERVAL}{199}{subsubsection.27.2.1.2}%
+\contentsline {subsubsection}{\numberline {27.2.1.3}FIRMATA\_BLE\_MIN\_INTERVAL}{200}{subsubsection.27.2.1.3}%
+\contentsline {subsubsection}{\numberline {27.2.1.4}FIRMATA\_BLE\_TXBUFFER\_FLUSH\_INTERVAL}{200}{subsubsection.27.2.1.4}%
+\contentsline {section}{\numberline {27.3}B\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}L\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{200}{section.27.3}%
+\contentsline {section}{\numberline {27.4}B\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}L\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{200}{section.27.4}%
+\contentsline {subsection}{\numberline {27.4.1}Macro Definition Documentation}{201}{subsection.27.4.1}%
+\contentsline {subsubsection}{\numberline {27.4.1.1}\_MAX\_ATTR\_DATA\_LEN\_}{201}{subsubsection.27.4.1.1}%
+\contentsline {subsubsection}{\numberline {27.4.1.2}BLESTREAM\_MIN\_FLUSH\_INTERVAL}{201}{subsubsection.27.4.1.2}%
+\contentsline {subsubsection}{\numberline {27.4.1.3}BLESTREAM\_TXBUFFER\_FLUSH\_INTERVAL}{201}{subsubsection.27.4.1.3}%
+\contentsline {section}{\numberline {27.5}Bluefruit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}L\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{201}{section.27.5}%
+\contentsline {section}{\numberline {27.6}Bluefruit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}L\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}S\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}I\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{201}{section.27.6}%
+\contentsline {section}{\numberline {27.7}Boards.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{202}{section.27.7}%
+\contentsline {subsection}{\numberline {27.7.1}Macro Definition Documentation}{203}{subsection.27.7.1}%
+\contentsline {subsubsection}{\numberline {27.7.1.1}DEFAULT\_PWM\_RESOLUTION}{203}{subsubsection.27.7.1.1}%
+\contentsline {subsubsection}{\numberline {27.7.1.2}digitalPinHasPWM}{203}{subsubsection.27.7.1.2}%
+\contentsline {subsubsection}{\numberline {27.7.1.3}IS\_PIN\_SERIAL}{203}{subsubsection.27.7.1.3}%
+\contentsline {subsubsection}{\numberline {27.7.1.4}IS\_PIN\_SPI}{204}{subsubsection.27.7.1.4}%
+\contentsline {subsubsection}{\numberline {27.7.1.5}MAX\_SERVOS}{204}{subsubsection.27.7.1.5}%
+\contentsline {subsubsection}{\numberline {27.7.1.6}TOTAL\_PORTS}{204}{subsubsection.27.7.1.6}%
+\contentsline {subsection}{\numberline {27.7.2}Function Documentation}{204}{subsection.27.7.2}%
+\contentsline {subsubsection}{\numberline {27.7.2.1}readPort()}{204}{subsubsection.27.7.2.1}%
+\contentsline {subsubsection}{\numberline {27.7.2.2}writePort()}{205}{subsubsection.27.7.2.2}%
+\contentsline {subsection}{\numberline {27.7.3}Variable Documentation}{205}{subsection.27.7.3}%
+\contentsline {subsubsection}{\numberline {27.7.3.1}unused}{205}{subsubsection.27.7.3.1}%
+\contentsline {section}{\numberline {27.8}encoder.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{206}{section.27.8}%
+\contentsline {section}{\numberline {27.9}Ethernet\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{206}{section.27.9}%
+\contentsline {section}{\numberline {27.10}Ethernet\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{206}{section.27.10}%
+\contentsline {subsection}{\numberline {27.10.1}Macro Definition Documentation}{206}{subsection.27.10.1}%
+\contentsline {subsubsection}{\numberline {27.10.1.1}MILLIS\_RECONNECT}{206}{subsubsection.27.10.1.1}%
+\contentsline {section}{\numberline {27.11}ethernet\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Config.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{207}{section.27.11}%
+\contentsline {subsection}{\numberline {27.11.1}Macro Definition Documentation}{207}{subsection.27.11.1}%
+\contentsline {subsubsection}{\numberline {27.11.1.1}IS\_IGNORE\_PIN}{207}{subsubsection.27.11.1.1}%
+\contentsline {subsubsection}{\numberline {27.11.1.2}local\_ip}{208}{subsubsection.27.11.1.2}%
+\contentsline {subsubsection}{\numberline {27.11.1.3}network\_port}{208}{subsubsection.27.11.1.3}%
+\contentsline {subsubsection}{\numberline {27.11.1.4}remote\_ip}{208}{subsubsection.27.11.1.4}%
+\contentsline {subsubsection}{\numberline {27.11.1.5}WIZ5100\_ETHERNET}{208}{subsubsection.27.11.1.5}%
+\contentsline {subsection}{\numberline {27.11.2}Variable Documentation}{208}{subsection.27.11.2}%
+\contentsline {subsubsection}{\numberline {27.11.2.1}client}{208}{subsubsection.27.11.2.1}%
+\contentsline {subsubsection}{\numberline {27.11.2.2}mac}{208}{subsubsection.27.11.2.2}%
+\contentsline {section}{\numberline {27.12}Ethernet\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Server\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{209}{section.27.12}%
+\contentsline {section}{\numberline {27.13}Ethernet\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Server\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{209}{section.27.13}%
+\contentsline {section}{\numberline {27.14}feature-\/registry.md File Reference}{209}{section.27.14}%
+\contentsline {section}{\numberline {27.15}Firmata.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{209}{section.27.15}%
+\contentsline {subsection}{\numberline {27.15.1}Variable Documentation}{210}{subsection.27.15.1}%
+\contentsline {subsubsection}{\numberline {27.15.1.1}Firmata}{210}{subsubsection.27.15.1.1}%
+\contentsline {section}{\numberline {27.16}Firmata.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{210}{section.27.16}%
+\contentsline {subsection}{\numberline {27.16.1}Macro Definition Documentation}{212}{subsection.27.16.1}%
+\contentsline {subsubsection}{\numberline {27.16.1.1}ANALOG}{212}{subsubsection.27.16.1.1}%
+\contentsline {subsubsection}{\numberline {27.16.1.2}ENCODER}{212}{subsubsection.27.16.1.2}%
+\contentsline {subsubsection}{\numberline {27.16.1.3}FIRMATA\_BUGFIX\_VERSION}{212}{subsubsection.27.16.1.3}%
+\contentsline {subsubsection}{\numberline {27.16.1.4}FIRMATA\_MAJOR\_VERSION}{212}{subsubsection.27.16.1.4}%
+\contentsline {subsubsection}{\numberline {27.16.1.5}FIRMATA\_MINOR\_VERSION}{213}{subsubsection.27.16.1.5}%
+\contentsline {subsubsection}{\numberline {27.16.1.6}FIRMATA\_STRING}{213}{subsubsection.27.16.1.6}%
+\contentsline {subsubsection}{\numberline {27.16.1.7}I2C}{213}{subsubsection.27.16.1.7}%
+\contentsline {subsubsection}{\numberline {27.16.1.8}IGNORE}{213}{subsubsection.27.16.1.8}%
+\contentsline {subsubsection}{\numberline {27.16.1.9}ONEWIRE}{213}{subsubsection.27.16.1.9}%
+\contentsline {subsubsection}{\numberline {27.16.1.10}PWM}{213}{subsubsection.27.16.1.10}%
+\contentsline {subsubsection}{\numberline {27.16.1.11}SERVO}{214}{subsubsection.27.16.1.11}%
+\contentsline {subsubsection}{\numberline {27.16.1.12}setFirmwareVersion}{214}{subsubsection.27.16.1.12}%
+\contentsline {subsubsection}{\numberline {27.16.1.13}SHIFT}{214}{subsubsection.27.16.1.13}%
+\contentsline {subsubsection}{\numberline {27.16.1.14}STEPPER}{214}{subsubsection.27.16.1.14}%
+\contentsline {subsubsection}{\numberline {27.16.1.15}SYSEX\_I2C\_REPLY}{214}{subsubsection.27.16.1.15}%
+\contentsline {subsubsection}{\numberline {27.16.1.16}SYSEX\_I2C\_REQUEST}{214}{subsubsection.27.16.1.16}%
+\contentsline {subsubsection}{\numberline {27.16.1.17}SYSEX\_SAMPLING\_INTERVAL}{215}{subsubsection.27.16.1.17}%
+\contentsline {subsection}{\numberline {27.16.2}Typedef Documentation}{215}{subsection.27.16.2}%
+\contentsline {subsubsection}{\numberline {27.16.2.1}callbackFunction}{215}{subsubsection.27.16.2.1}%
+\contentsline {subsubsection}{\numberline {27.16.2.2}stringCallbackFunction}{215}{subsubsection.27.16.2.2}%
+\contentsline {subsubsection}{\numberline {27.16.2.3}sysexCallbackFunction}{215}{subsubsection.27.16.2.3}%
+\contentsline {subsubsection}{\numberline {27.16.2.4}systemCallbackFunction}{215}{subsubsection.27.16.2.4}%
+\contentsline {subsection}{\numberline {27.16.3}Variable Documentation}{215}{subsection.27.16.3}%
+\contentsline {subsubsection}{\numberline {27.16.3.1}Firmata}{216}{subsubsection.27.16.3.1}%
+\contentsline {section}{\numberline {27.17}Firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Constants.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{216}{section.27.17}%
+\contentsline {section}{\numberline {27.18}firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{218}{section.27.18}%
+\contentsline {subsection}{\numberline {27.18.1}Macro Definition Documentation}{218}{subsection.27.18.1}%
+\contentsline {subsubsection}{\numberline {27.18.1.1}DEBUG\_BEGIN}{218}{subsubsection.27.18.1.1}%
+\contentsline {subsubsection}{\numberline {27.18.1.2}DEBUG\_PRINT}{218}{subsubsection.27.18.1.2}%
+\contentsline {subsubsection}{\numberline {27.18.1.3}DEBUG\_PRINTLN}{219}{subsubsection.27.18.1.3}%
+\contentsline {section}{\numberline {27.19}Firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Defines.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{219}{section.27.19}%
+\contentsline {subsection}{\numberline {27.19.1}Macro Definition Documentation}{221}{subsection.27.19.1}%
+\contentsline {subsubsection}{\numberline {27.19.1.1}ANALOG\_MAPPING\_QUERY}{221}{subsubsection.27.19.1.1}%
+\contentsline {subsubsection}{\numberline {27.19.1.2}ANALOG\_MAPPING\_RESPONSE}{221}{subsubsection.27.19.1.2}%
+\contentsline {subsubsection}{\numberline {27.19.1.3}ANALOG\_MESSAGE}{221}{subsubsection.27.19.1.3}%
+\contentsline {subsubsection}{\numberline {27.19.1.4}CAPABILITY\_QUERY}{221}{subsubsection.27.19.1.4}%
+\contentsline {subsubsection}{\numberline {27.19.1.5}CAPABILITY\_RESPONSE}{221}{subsubsection.27.19.1.5}%
+\contentsline {subsubsection}{\numberline {27.19.1.6}DIGITAL\_MESSAGE}{222}{subsubsection.27.19.1.6}%
+\contentsline {subsubsection}{\numberline {27.19.1.7}ENCODER\_DATA}{222}{subsubsection.27.19.1.7}%
+\contentsline {subsubsection}{\numberline {27.19.1.8}END\_SYSEX}{222}{subsubsection.27.19.1.8}%
+\contentsline {subsubsection}{\numberline {27.19.1.9}EXTENDED\_ANALOG}{222}{subsubsection.27.19.1.9}%
+\contentsline {subsubsection}{\numberline {27.19.1.10}FIRMATA\_FIRMWARE\_BUGFIX\_VERSION}{222}{subsubsection.27.19.1.10}%
+\contentsline {subsubsection}{\numberline {27.19.1.11}FIRMATA\_FIRMWARE\_MAJOR\_VERSION}{222}{subsubsection.27.19.1.11}%
+\contentsline {subsubsection}{\numberline {27.19.1.12}FIRMATA\_FIRMWARE\_MINOR\_VERSION}{223}{subsubsection.27.19.1.12}%
+\contentsline {subsubsection}{\numberline {27.19.1.13}FIRMATA\_PROTOCOL\_BUGFIX\_VERSION}{223}{subsubsection.27.19.1.13}%
+\contentsline {subsubsection}{\numberline {27.19.1.14}FIRMATA\_PROTOCOL\_MAJOR\_VERSION}{223}{subsubsection.27.19.1.14}%
+\contentsline {subsubsection}{\numberline {27.19.1.15}FIRMATA\_PROTOCOL\_MINOR\_VERSION}{223}{subsubsection.27.19.1.15}%
+\contentsline {subsubsection}{\numberline {27.19.1.16}I2C\_CONFIG}{223}{subsubsection.27.19.1.16}%
+\contentsline {subsubsection}{\numberline {27.19.1.17}I2C\_REPLY}{223}{subsubsection.27.19.1.17}%
+\contentsline {subsubsection}{\numberline {27.19.1.18}I2C\_REQUEST}{224}{subsubsection.27.19.1.18}%
+\contentsline {subsubsection}{\numberline {27.19.1.19}MAX\_DATA\_BYTES}{224}{subsubsection.27.19.1.19}%
+\contentsline {subsubsection}{\numberline {27.19.1.20}ONEWIRE\_DATA}{224}{subsubsection.27.19.1.20}%
+\contentsline {subsubsection}{\numberline {27.19.1.21}PIN\_MODE\_ANALOG}{224}{subsubsection.27.19.1.21}%
+\contentsline {subsubsection}{\numberline {27.19.1.22}PIN\_MODE\_ENCODER}{224}{subsubsection.27.19.1.22}%
+\contentsline {subsubsection}{\numberline {27.19.1.23}PIN\_MODE\_I2C}{224}{subsubsection.27.19.1.23}%
+\contentsline {subsubsection}{\numberline {27.19.1.24}PIN\_MODE\_IGNORE}{225}{subsubsection.27.19.1.24}%
+\contentsline {subsubsection}{\numberline {27.19.1.25}PIN\_MODE\_INPUT}{225}{subsubsection.27.19.1.25}%
+\contentsline {subsubsection}{\numberline {27.19.1.26}PIN\_MODE\_ONEWIRE}{225}{subsubsection.27.19.1.26}%
+\contentsline {subsubsection}{\numberline {27.19.1.27}PIN\_MODE\_OUTPUT}{225}{subsubsection.27.19.1.27}%
+\contentsline {subsubsection}{\numberline {27.19.1.28}PIN\_MODE\_PULLUP}{225}{subsubsection.27.19.1.28}%
+\contentsline {subsubsection}{\numberline {27.19.1.29}PIN\_MODE\_PWM}{225}{subsubsection.27.19.1.29}%
+\contentsline {subsubsection}{\numberline {27.19.1.30}PIN\_MODE\_SERIAL}{226}{subsubsection.27.19.1.30}%
+\contentsline {subsubsection}{\numberline {27.19.1.31}PIN\_MODE\_SERVO}{226}{subsubsection.27.19.1.31}%
+\contentsline {subsubsection}{\numberline {27.19.1.32}PIN\_MODE\_SHIFT}{226}{subsubsection.27.19.1.32}%
+\contentsline {subsubsection}{\numberline {27.19.1.33}PIN\_MODE\_STEPPER}{226}{subsubsection.27.19.1.33}%
+\contentsline {subsubsection}{\numberline {27.19.1.34}PIN\_STATE\_QUERY}{226}{subsubsection.27.19.1.34}%
+\contentsline {subsubsection}{\numberline {27.19.1.35}PIN\_STATE\_RESPONSE}{226}{subsubsection.27.19.1.35}%
+\contentsline {subsubsection}{\numberline {27.19.1.36}REPORT\_ANALOG}{227}{subsubsection.27.19.1.36}%
+\contentsline {subsubsection}{\numberline {27.19.1.37}REPORT\_DIGITAL}{227}{subsubsection.27.19.1.37}%
+\contentsline {subsubsection}{\numberline {27.19.1.38}REPORT\_FIRMWARE}{227}{subsubsection.27.19.1.38}%
+\contentsline {subsubsection}{\numberline {27.19.1.39}REPORT\_VERSION}{227}{subsubsection.27.19.1.39}%
+\contentsline {subsubsection}{\numberline {27.19.1.40}SAMPLING\_INTERVAL}{227}{subsubsection.27.19.1.40}%
+\contentsline {subsubsection}{\numberline {27.19.1.41}SCHEDULER\_DATA}{227}{subsubsection.27.19.1.41}%
+\contentsline {subsubsection}{\numberline {27.19.1.42}SERIAL\_MESSAGE}{228}{subsubsection.27.19.1.42}%
+\contentsline {subsubsection}{\numberline {27.19.1.43}SERVO\_CONFIG}{228}{subsubsection.27.19.1.43}%
+\contentsline {subsubsection}{\numberline {27.19.1.44}SET\_DIGITAL\_PIN\_VALUE}{228}{subsubsection.27.19.1.44}%
+\contentsline {subsubsection}{\numberline {27.19.1.45}SET\_PIN\_MODE}{228}{subsubsection.27.19.1.45}%
+\contentsline {subsubsection}{\numberline {27.19.1.46}SHIFT\_DATA}{228}{subsubsection.27.19.1.46}%
+\contentsline {subsubsection}{\numberline {27.19.1.47}START\_SYSEX}{228}{subsubsection.27.19.1.47}%
+\contentsline {subsubsection}{\numberline {27.19.1.48}STEPPER\_DATA}{229}{subsubsection.27.19.1.48}%
+\contentsline {subsubsection}{\numberline {27.19.1.49}STRING\_DATA}{229}{subsubsection.27.19.1.49}%
+\contentsline {subsubsection}{\numberline {27.19.1.50}SYSEX\_NON\_REALTIME}{229}{subsubsection.27.19.1.50}%
+\contentsline {subsubsection}{\numberline {27.19.1.51}SYSEX\_REALTIME}{229}{subsubsection.27.19.1.51}%
+\contentsline {subsubsection}{\numberline {27.19.1.52}SYSTEM\_RESET}{229}{subsubsection.27.19.1.52}%
+\contentsline {subsubsection}{\numberline {27.19.1.53}TOTAL\_PIN\_MODES}{229}{subsubsection.27.19.1.53}%
+\contentsline {section}{\numberline {27.20}Firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Feature.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{230}{section.27.20}%
+\contentsline {section}{\numberline {27.21}Firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Marshaller.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{230}{section.27.21}%
+\contentsline {section}{\numberline {27.22}Firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Marshaller.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{231}{section.27.22}%
+\contentsline {section}{\numberline {27.23}Firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parser.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{232}{section.27.23}%
+\contentsline {section}{\numberline {27.24}Firmata\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parser.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{233}{section.27.24}%
+\contentsline {section}{\numberline {27.25}i2c.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{235}{section.27.25}%
+\contentsline {section}{\numberline {27.26}onewire.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{235}{section.27.26}%
+\contentsline {section}{\numberline {27.27}pingroups-\/proposal.md File Reference}{235}{section.27.27}%
+\contentsline {section}{\numberline {27.28}protocol.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{235}{section.27.28}%
+\contentsline {section}{\numberline {27.29}rcswitch-\/proposal.md File Reference}{235}{section.27.29}%
+\contentsline {section}{\numberline {27.30}readme.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{235}{section.27.30}%
+\contentsline {section}{\numberline {27.31}readme.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{235}{section.27.31}%
+\contentsline {section}{\numberline {27.32}R\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}M\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{235}{section.27.32}%
+\contentsline {section}{\numberline {27.33}R\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}M\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{235}{section.27.33}%
+\contentsline {section}{\numberline {27.34}revisions.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{235}{section.27.34}%
+\contentsline {section}{\numberline {27.35}scheduler.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{235}{section.27.35}%
+\contentsline {section}{\numberline {27.36}serial-\/1.0.md File Reference}{235}{section.27.36}%
+\contentsline {section}{\numberline {27.37}serial-\/2.0-\/proposal.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{235}{section.27.37}%
+\contentsline {section}{\numberline {27.38}Serial\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Firmata.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{235}{section.27.38}%
+\contentsline {section}{\numberline {27.39}Serial\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Firmata.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{236}{section.27.39}%
+\contentsline {subsection}{\numberline {27.39.1}Macro Definition Documentation}{238}{subsection.27.39.1}%
+\contentsline {subsubsection}{\numberline {27.39.1.1}FIRMATA\_SERIAL\_FEATURE}{238}{subsubsection.27.39.1.1}%
+\contentsline {subsubsection}{\numberline {27.39.1.2}HW\_SERIAL0}{238}{subsubsection.27.39.1.2}%
+\contentsline {subsubsection}{\numberline {27.39.1.3}HW\_SERIAL1}{238}{subsubsection.27.39.1.3}%
+\contentsline {subsubsection}{\numberline {27.39.1.4}HW\_SERIAL2}{238}{subsubsection.27.39.1.4}%
+\contentsline {subsubsection}{\numberline {27.39.1.5}HW\_SERIAL3}{239}{subsubsection.27.39.1.5}%
+\contentsline {subsubsection}{\numberline {27.39.1.6}HW\_SERIAL4}{239}{subsubsection.27.39.1.6}%
+\contentsline {subsubsection}{\numberline {27.39.1.7}HW\_SERIAL5}{239}{subsubsection.27.39.1.7}%
+\contentsline {subsubsection}{\numberline {27.39.1.8}HW\_SERIAL6}{239}{subsubsection.27.39.1.8}%
+\contentsline {subsubsection}{\numberline {27.39.1.9}MAX\_SERIAL\_PORTS}{239}{subsubsection.27.39.1.9}%
+\contentsline {subsubsection}{\numberline {27.39.1.10}RES\_RX1}{239}{subsubsection.27.39.1.10}%
+\contentsline {subsubsection}{\numberline {27.39.1.11}RES\_RX2}{240}{subsubsection.27.39.1.11}%
+\contentsline {subsubsection}{\numberline {27.39.1.12}RES\_RX3}{240}{subsubsection.27.39.1.12}%
+\contentsline {subsubsection}{\numberline {27.39.1.13}RES\_RX4}{240}{subsubsection.27.39.1.13}%
+\contentsline {subsubsection}{\numberline {27.39.1.14}RES\_RX5}{240}{subsubsection.27.39.1.14}%
+\contentsline {subsubsection}{\numberline {27.39.1.15}RES\_RX6}{240}{subsubsection.27.39.1.15}%
+\contentsline {subsubsection}{\numberline {27.39.1.16}RES\_TX1}{240}{subsubsection.27.39.1.16}%
+\contentsline {subsubsection}{\numberline {27.39.1.17}RES\_TX2}{241}{subsubsection.27.39.1.17}%
+\contentsline {subsubsection}{\numberline {27.39.1.18}RES\_TX3}{241}{subsubsection.27.39.1.18}%
+\contentsline {subsubsection}{\numberline {27.39.1.19}RES\_TX4}{241}{subsubsection.27.39.1.19}%
+\contentsline {subsubsection}{\numberline {27.39.1.20}RES\_TX5}{241}{subsubsection.27.39.1.20}%
+\contentsline {subsubsection}{\numberline {27.39.1.21}RES\_TX6}{241}{subsubsection.27.39.1.21}%
+\contentsline {subsubsection}{\numberline {27.39.1.22}SERIAL\_CLOSE}{241}{subsubsection.27.39.1.22}%
+\contentsline {subsubsection}{\numberline {27.39.1.23}SERIAL\_CONFIG}{242}{subsubsection.27.39.1.23}%
+\contentsline {subsubsection}{\numberline {27.39.1.24}SERIAL\_FLUSH}{242}{subsubsection.27.39.1.24}%
+\contentsline {subsubsection}{\numberline {27.39.1.25}SERIAL\_LISTEN}{242}{subsubsection.27.39.1.25}%
+\contentsline {subsubsection}{\numberline {27.39.1.26}SERIAL\_MODE\_MASK}{242}{subsubsection.27.39.1.26}%
+\contentsline {subsubsection}{\numberline {27.39.1.27}SERIAL\_PORT\_ID\_MASK}{242}{subsubsection.27.39.1.27}%
+\contentsline {subsubsection}{\numberline {27.39.1.28}SERIAL\_READ}{242}{subsubsection.27.39.1.28}%
+\contentsline {subsubsection}{\numberline {27.39.1.29}SERIAL\_READ\_ARR\_LEN}{243}{subsubsection.27.39.1.29}%
+\contentsline {subsubsection}{\numberline {27.39.1.30}SERIAL\_READ\_CONTINUOUSLY}{243}{subsubsection.27.39.1.30}%
+\contentsline {subsubsection}{\numberline {27.39.1.31}SERIAL\_REPLY}{243}{subsubsection.27.39.1.31}%
+\contentsline {subsubsection}{\numberline {27.39.1.32}SERIAL\_STOP\_READING}{243}{subsubsection.27.39.1.32}%
+\contentsline {subsubsection}{\numberline {27.39.1.33}SERIAL\_WRITE}{243}{subsubsection.27.39.1.33}%
+\contentsline {subsubsection}{\numberline {27.39.1.34}SW\_SERIAL0}{243}{subsubsection.27.39.1.34}%
+\contentsline {subsubsection}{\numberline {27.39.1.35}SW\_SERIAL1}{244}{subsubsection.27.39.1.35}%
+\contentsline {subsubsection}{\numberline {27.39.1.36}SW\_SERIAL2}{244}{subsubsection.27.39.1.36}%
+\contentsline {subsubsection}{\numberline {27.39.1.37}SW\_SERIAL3}{244}{subsubsection.27.39.1.37}%
+\contentsline {section}{\numberline {27.40}servos.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{244}{section.27.40}%
+\contentsline {section}{\numberline {27.41}shift-\/proposal.md File Reference}{244}{section.27.41}%
+\contentsline {section}{\numberline {27.42}spi-\/proposal.md File Reference}{244}{section.27.42}%
+\contentsline {section}{\numberline {27.43}stepper-\/legacy.md File Reference}{244}{section.27.43}%
+\contentsline {section}{\numberline {27.44}tone-\/proposal.md File Reference}{244}{section.27.44}%
+\contentsline {section}{\numberline {27.45}Wi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Client\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{244}{section.27.45}%
+\contentsline {subsection}{\numberline {27.45.1}Macro Definition Documentation}{245}{subsection.27.45.1}%
+\contentsline {subsubsection}{\numberline {27.45.1.1}MILLIS\_RECONNECT}{245}{subsubsection.27.45.1.1}%
+\contentsline {section}{\numberline {27.46}wifi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Config.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{245}{section.27.46}%
+\contentsline {subsection}{\numberline {27.46.1}Macro Definition Documentation}{245}{subsection.27.46.1}%
+\contentsline {subsubsection}{\numberline {27.46.1.1}SERVER\_PORT}{245}{subsubsection.27.46.1.1}%
+\contentsline {subsubsection}{\numberline {27.46.1.2}WIFI\_WPA\_SECURITY}{246}{subsubsection.27.46.1.2}%
+\contentsline {subsection}{\numberline {27.46.2}Function Documentation}{246}{subsection.27.46.2}%
+\contentsline {subsubsection}{\numberline {27.46.2.1}stream()}{246}{subsubsection.27.46.2.1}%
+\contentsline {subsection}{\numberline {27.46.3}Variable Documentation}{246}{subsection.27.46.3}%
+\contentsline {subsubsection}{\numberline {27.46.3.1}ssid}{246}{subsubsection.27.46.3.1}%
+\contentsline {subsubsection}{\numberline {27.46.3.2}wpa\_passphrase}{246}{subsubsection.27.46.3.2}%
+\contentsline {section}{\numberline {27.47}Wi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Server\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{246}{section.27.47}%
+\contentsline {section}{\numberline {27.48}Wi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{247}{section.27.48}%
+\contentsline {section}{\numberline {27.49}Wi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{247}{section.27.49}%
+\contentsline {subsection}{\numberline {27.49.1}Macro Definition Documentation}{248}{subsection.27.49.1}%
+\contentsline {subsubsection}{\numberline {27.49.1.1}HOST\_CONNECTION\_CONNECTED}{248}{subsubsection.27.49.1.1}%
+\contentsline {subsubsection}{\numberline {27.49.1.2}HOST\_CONNECTION\_DISCONNECTED}{248}{subsubsection.27.49.1.2}%
+\contentsline {subsection}{\numberline {27.49.2}Typedef Documentation}{248}{subsection.27.49.2}%
+\contentsline {subsubsection}{\numberline {27.49.2.1}hostConnectionCallbackFunction}{248}{subsubsection.27.49.2.1}%
+\contentsline {chapter}{Index}{249}{section*.185}%

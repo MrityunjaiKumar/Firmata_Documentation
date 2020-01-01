@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="dir_b31b36d3bcf546d053070948e46006a6" kind="dir">
+    <compoundname>examples</compoundname>
+    <innerdir refid="dir_4408e7f4ddd4bd85ba7db7e9baa319ff">StandardFirmataBLE</innerdir>
+    <innerdir refid="dir_5a167fb8224f5ded352183a1cd476193">StandardFirmataEthernet</innerdir>
+    <innerdir refid="dir_7ab562c43f2f4eba30be3062afd4a4eb">StandardFirmataWiFi</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="examples/"/>
+  </compounddef>
+</doxygen>

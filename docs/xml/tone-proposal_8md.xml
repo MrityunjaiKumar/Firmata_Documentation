@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="tone-proposal_8md" kind="file" language="Markdown">
+    <compoundname>tone-proposal.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">tone<sp/>proposal</highlight></codeline>
+<codeline><highlight class="normal">===</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Add<sp/>ability<sp/>to<sp/>call<sp/>Arduino<sp/>`tone`<sp/>and<sp/>`noTone`<sp/>functions.<sp/>For<sp/>non-Arduino<sp/>architectures,</highlight></codeline>
+<codeline><highlight class="normal">similar<sp/>functions<sp/>to<sp/>`tone`<sp/>and<sp/>`noTone`<sp/>would<sp/>need<sp/>to<sp/>be<sp/>implemented.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>duration<sp/>could<sp/>be<sp/>extended<sp/>if<sp/>necessary.<sp/>Duration<sp/>could<sp/>also<sp/>be<sp/>optional.<sp/>If</highlight></codeline>
+<codeline><highlight class="normal">left<sp/>out,<sp/>the<sp/>user<sp/>would<sp/>need<sp/>to<sp/>send<sp/>the<sp/>NO_TONE<sp/>command<sp/>to<sp/>stop<sp/>the<sp/>tone.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">An<sp/>implementation<sp/>of<sp/>this<sp/>proposal<sp/>is<sp/>currently<sp/>available<sp/>[here](https://github.com/firmata/arduino/compare/configurable...tone).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>wrapper<sp/>for<sp/>tone<sp/>function</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>TONE_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5F)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>TONE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>pinNumber</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>frequency<sp/>LSB<sp/><sp/><sp/><sp/><sp/><sp/>(in<sp/>HZ)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>frequency<sp/>MSB<sp/><sp/><sp/><sp/><sp/><sp/>(in<sp/>HZ)<sp/>(audible<sp/>range<sp/>is<sp/>20<sp/>HZ<sp/>to<sp/>15,000<sp/>HZ<sp/>so<sp/>14<sp/>bits<sp/>is<sp/>sufficient)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>duration<sp/>bits<sp/>0-6<sp/><sp/>(in<sp/>ms)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>duration<sp/>bits<sp/>7-14<sp/>(in<sp/>ms)<sp/>(max<sp/>duration<sp/>is<sp/>16,383<sp/>milliseconds)</highlight></codeline>
+<codeline><highlight class="normal">11<sp/><sp/>END_SYSEX<sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>wrapper<sp/>for<sp/>noTone<sp/>function</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>TONE_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x5F)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>NO_TONE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>pinNumber</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+    </programlisting>
+    <location file="protocol/proposals/tone-proposal.md"/>
+  </compounddef>
+</doxygen>

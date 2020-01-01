@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="spi-proposal_8md" kind="file" language="Markdown">
+    <compoundname>spi-proposal.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">SPI<sp/>(Proposal)</highlight></codeline>
+<codeline><highlight class="normal">===</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>proposal<sp/>for<sp/>a<sp/>SPI<sp/>protocol<sp/>for<sp/>Firmata.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">SPI<sp/>is<sp/>tricky<sp/>to<sp/>add<sp/>to<sp/>Firmata<sp/>in<sp/>a<sp/>generic<sp/>way<sp/>since<sp/>it<sp/>is<sp/>a<sp/>fairly<sp/>loose</highlight></codeline>
+<codeline><highlight class="normal">standard.<sp/>There<sp/>are<sp/>variations<sp/>in<sp/>number<sp/>of<sp/>bits<sp/>written<sp/>and<sp/>read,<sp/>how<sp/>the<sp/>CS</highlight></codeline>
+<codeline><highlight class="normal">pin<sp/>is<sp/>used<sp/>(if<sp/>at<sp/>all),<sp/>use<sp/>of<sp/>other<sp/>pins,<sp/>etc.<sp/>This<sp/>proposal<sp/>attempts<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">accommodate<sp/>uses<sp/>cases<sp/>beyond<sp/>the<sp/>common<sp/>sequence<sp/>of:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>set<sp/>cs<sp/>pin<sp/>LOW</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>write/read<sp/>1<sp/>or<sp/>more<sp/>words</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>set<sp/>cs<sp/>Pin<sp/>HIGH</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>return<sp/>data<sp/>read</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Overview</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>`SPI_BEGIN`<sp/>command<sp/>is<sp/>used<sp/>to<sp/>initialize<sp/>the<sp/>SPI<sp/>bus.<sp/>Up<sp/>to<sp/>8<sp/>SPI<sp/>ports</highlight></codeline>
+<codeline><highlight class="normal">are<sp/>supported<sp/>using<sp/>the<sp/>`channel`<sp/>parameter.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>`SPI_DEVICE_CONFIG`<sp/>command<sp/>is<sp/>used<sp/>to<sp/>configure<sp/>each<sp/>attached<sp/>SPI<sp/>device.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">There<sp/>are<sp/>3<sp/>ways<sp/>to<sp/>send<sp/>and<sp/>receive<sp/>data<sp/>from<sp/>the<sp/>SPI<sp/>slave<sp/>device:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>`SPI_TRANSFER`<sp/>For<sp/>each<sp/>word<sp/>written<sp/>a<sp/>word<sp/>is<sp/>read<sp/>simultaneously.</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>`SPI_WRITE`<sp/>Only<sp/>write<sp/>data<sp/>(ignore<sp/>any<sp/>data<sp/>returned<sp/>by<sp/>the<sp/>slave<sp/>device).</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>`SPI_READ`<sp/>Only<sp/>read<sp/>data,<sp/>writing<sp/>`0`<sp/>for<sp/>each<sp/>word<sp/>to<sp/>be<sp/>read.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>`SPI_REPLY`<sp/>is<sp/>used<sp/>to<sp/>send<sp/>requested<sp/>data<sp/>back<sp/>to<sp/>the<sp/>client<sp/>application<sp/>when</highlight></codeline>
+<codeline><highlight class="normal">either<sp/>a<sp/>`SPI_TRANSFER`<sp/>mode<sp/>or<sp/>`SPI_READ`<sp/>command<sp/>is<sp/>sent.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>`SPI_END`<sp/>command<sp/>disables<sp/>the<sp/>SPI<sp/>bus<sp/>for<sp/>the<sp/>specified<sp/>channel.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>SPI_BEGIN</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Required<sp/>for<sp/>platforms<sp/>that<sp/>require<sp/>SPI<sp/>bus<sp/>initialization,<sp/>such<sp/>as<sp/>Arduino.</highlight></codeline>
+<codeline><highlight class="normal">Optional<sp/>if<sp/>initialization<sp/>is<sp/>automatic<sp/>(some<sp/>Linux-based<sp/>platforms<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">example).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>`SPI_BEGIN`<sp/>to<sp/>initialize<sp/>the<sp/>SPI<sp/>bus.<sp/>Up<sp/>to<sp/>8<sp/>SPI<sp/>ports<sp/>are<sp/>supported,</highlight></codeline>
+<codeline><highlight class="normal">where<sp/>each<sp/>port<sp/>is<sp/>identified<sp/>by<sp/>a<sp/>`channel`<sp/>number<sp/>(0-7).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`SPI_BEGIN`<sp/>must<sp/>be<sp/>called<sp/>at<sp/>least<sp/>once<sp/>before<sp/>sending<sp/>any<sp/>of<sp/>the<sp/>other</highlight></codeline>
+<codeline><highlight class="normal">commands.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`channel`<sp/>is<sp/>used<sp/>to<sp/>identify<sp/>which<sp/>SPI<sp/>bus<sp/>is<sp/>used<sp/>in<sp/>the<sp/>case<sp/>that<sp/>a<sp/>board</highlight></codeline>
+<codeline><highlight class="normal">has<sp/>multiple<sp/>ports<sp/>(SPI,<sp/>SPI1,<sp/>SPI2,<sp/>etc).<sp/>Many<sp/>boards<sp/>only<sp/>have<sp/>one<sp/>port<sp/>so<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">`channel`<sp/>value<sp/>will<sp/>most<sp/>often<sp/>be<sp/>`0`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>SPI_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x68)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>SPI_BEGIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00)</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>channel<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HW<sp/>supports<sp/>multiple<sp/>SPI<sp/>ports.<sp/>range<sp/>=<sp/>0-7,<sp/>default<sp/>=<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>END_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>SPI_DEVICE_CONFIG</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Send<sp/>this<sp/>command<sp/>once<sp/>for<sp/>each<sp/>attached<sp/>SPI<sp/>device<sp/>to<sp/>initialize<sp/>it<sp/>before<sp/>use.</highlight></codeline>
+<codeline><highlight class="normal">See<sp/>parameter<sp/>descriptions<sp/>below.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>SPI_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x68)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>SPI_DEVICE_CONFIG<sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>deviceId<sp/>|<sp/>channel<sp/><sp/><sp/><sp/>(bits<sp/>3-6:<sp/>deviceId,<sp/>bits<sp/>0-2:<sp/>channel)</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>dataMode<sp/>|<sp/>bitOrder<sp/><sp/><sp/>(bits<sp/>1-2:<sp/>dataMode<sp/>(0-3),<sp/>bit<sp/>0:<sp/>bitOrder)</highlight></codeline>
+<codeline><highlight class="normal">5:<sp/><sp/>maxSpeed<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>0<sp/>-<sp/>6)</highlight></codeline>
+<codeline><highlight class="normal">6:<sp/><sp/>maxSpeed<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>7<sp/>-<sp/>14)</highlight></codeline>
+<codeline><highlight class="normal">7:<sp/><sp/>maxSpeed<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>15<sp/>-<sp/>21)</highlight></codeline>
+<codeline><highlight class="normal">8:<sp/><sp/>maxSpeed<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>22<sp/>-<sp/>28)</highlight></codeline>
+<codeline><highlight class="normal">9:<sp/><sp/>maxSpeed<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>29<sp/>-<sp/>32)</highlight></codeline>
+<codeline><highlight class="normal">10:<sp/>wordSize<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0<sp/>=<sp/>DEFAULT<sp/>=<sp/>8-bits,<sp/>1<sp/>=<sp/>1-bit,<sp/>2<sp/>=<sp/>2<sp/>bits,<sp/>etc)</highlight></codeline>
+<codeline><highlight class="normal">11:<sp/>csPinOptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bit<sp/>0:<sp/>CS_PIN_CONTROL<sp/>(0<sp/>=<sp/>disable</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>=<sp/>enable<sp/>(default))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bit<sp/>1:<sp/>CS_ACTIVE_STATE<sp/>(0<sp/>=<sp/>Active<sp/>LOW<sp/>(default)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>=<sp/>Active<sp/>HIGH)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bits<sp/>2-6:<sp/>reserved<sp/>for<sp/>future<sp/>options</highlight></codeline>
+<codeline><highlight class="normal">12:<sp/>csPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/>The<sp/>chip<sp/>select<sp/>pin<sp/>number<sp/>(ignored<sp/>if</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CS_PIN_CONTROL<sp/>set<sp/>to<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal">13:<sp/>END_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>deviceId</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>`deviceId`<sp/>may<sp/>either<sp/>be<sp/>used<sp/>as<sp/>a<sp/>specific<sp/>identifier<sp/>(Linux)<sp/>or<sp/>as<sp/>an</highlight></codeline>
+<codeline><highlight class="normal">arbitrary<sp/>identifier<sp/>(Arduino).<sp/>The<sp/>`deviceId`<sp/>value<sp/>range<sp/>is<sp/>from<sp/>0<sp/>to<sp/>15<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">can<sp/>be<sp/>specified<sp/>separately<sp/>for<sp/>each<sp/>SPI<sp/>channel.<sp/>The<sp/>`deviceId`<sp/>will<sp/>also<sp/>be</highlight></codeline>
+<codeline><highlight class="normal">returned<sp/>with<sp/>the<sp/>channel<sp/>for<sp/>each<sp/>`SPI_REPLY`<sp/>command<sp/>so<sp/>it<sp/>is<sp/>clear<sp/>which</highlight></codeline>
+<codeline><highlight class="normal">device<sp/>the<sp/>data<sp/>corresponds<sp/>to.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>bitOrder</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">LSBFIRST<sp/>=<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">MSBFIRST<sp/>=<sp/>1<sp/>(default)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>dataMode</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>mode<sp/><sp/><sp/><sp/>|<sp/>clock<sp/>polarity<sp/>(CPOL)<sp/>|<sp/>clock<sp/>phase<sp/>(CPHA)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>--------|-----------------------|--------------------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>3<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>maxSpeed</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>maximum<sp/>speed<sp/>of<sp/>communication<sp/>with<sp/>the<sp/>SPI<sp/>device.<sp/>For<sp/>a<sp/>SPI<sp/>device<sp/>rated</highlight></codeline>
+<codeline><highlight class="normal">up<sp/>to<sp/>5<sp/>MHz,<sp/>use<sp/>5000000.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*For<sp/>platforms<sp/>that<sp/>use<sp/>a<sp/>clock<sp/>divider<sp/>instead<sp/>of<sp/>a<sp/>speed,<sp/>pass<sp/>the<sp/>clock</highlight></codeline>
+<codeline><highlight class="normal">divider<sp/>value<sp/>instead.*<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>wordSize</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>size<sp/>of<sp/>a<sp/>`word`<sp/>in<sp/>bits.<sp/>Typically<sp/>8-bits<sp/>(default).<sp/>0<sp/>=<sp/>DEFAULT<sp/>=<sp/>8-bits,</highlight></codeline>
+<codeline><highlight class="normal">1<sp/>=<sp/>1<sp/>bit,<sp/>2<sp/>=<sp/>2<sp/>bits,<sp/>etc<sp/>(limit<sp/>is<sp/>TBD).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>csPinOptions<sp/>/<sp/>csPin</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>`CS_ACTIVE_STATE`<sp/>to<sp/>set<sp/>the<sp/>active<sp/>state<sp/>(typically<sp/>LOW)<sp/>for<sp/>the<sp/>CS<sp/>pin.<sp/>If</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>platform&apos;s<sp/>SPI<sp/>implementation<sp/>does<sp/>not<sp/>already<sp/>automatically<sp/>handle<sp/>the<sp/>CS</highlight></codeline>
+<codeline><highlight class="normal">pin<sp/>(it&apos;s<sp/>handled<sp/>automatically<sp/>on<sp/>Raspberry<sp/>Pi,<sp/>but<sp/>not<sp/>Arduino<sp/>boards<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">example),<sp/>then<sp/>set<sp/>`CS_PIN_CONTROL`<sp/>to<sp/>`enable`<sp/>and<sp/>specify<sp/>the<sp/>`csPin`<sp/>number</highlight></codeline>
+<codeline><highlight class="normal">in<sp/>byte<sp/>12.<sp/>If<sp/>the<sp/>platform<sp/>already<sp/>handles<sp/>the<sp/>csPin<sp/>then<sp/>set</highlight></codeline>
+<codeline><highlight class="normal">`CS_PIN_CONTROL`<sp/>to<sp/>`disable`<sp/>and<sp/>the<sp/>`csPin`<sp/>number<sp/>will<sp/>be<sp/>ignored<sp/>(set<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">zero).<sp/>For<sp/>non-Linux<sp/>platforms<sp/>such<sp/>as<sp/>Arduino,<sp/>to<sp/>enable<sp/>manual<sp/>control<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>CS<sp/>pin<sp/>using<sp/>`DIGITAL_MESSAGE`<sp/>commands,<sp/>set<sp/>`CS_PIN_CONTROL`<sp/>to<sp/>`disable`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>SPI_TRANSFER</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Full-duplex<sp/>write/read<sp/>transfer.<sp/>This<sp/>is<sp/>the<sp/>normal<sp/>SPI<sp/>transfer<sp/>mode,<sp/>a<sp/>word</highlight></codeline>
+<codeline><highlight class="normal">must<sp/>be<sp/>written<sp/>for<sp/>every<sp/>word<sp/>read.<sp/>Reply<sp/>is<sp/>sent<sp/>via<sp/>`SPI_REPLY`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Since<sp/>transport<sp/>(Serial,<sp/>Ethernet,<sp/>Wi-Fi,<sp/>etc)<sp/>buffers<sp/>tend<sp/>to<sp/>be<sp/>small<sp/>on</highlight></codeline>
+<codeline><highlight class="normal">microcontroller<sp/>platforms,<sp/>it<sp/>may<sp/>be<sp/>necessary<sp/>to<sp/>send<sp/>several<sp/>`SPI_TRANSFER`</highlight></codeline>
+<codeline><highlight class="normal">commmands<sp/>to<sp/>complete<sp/>a<sp/>single<sp/>SPI<sp/>transaction.<sp/>Use<sp/>the<sp/>`deselectCsPin`</highlight></codeline>
+<codeline><highlight class="normal">parameter<sp/>to<sp/>ensure<sp/>the<sp/>CS<sp/>pin<sp/>is<sp/>not<sp/>deselected<sp/>in<sp/>between<sp/>`SPI_TRANSFER`</highlight></codeline>
+<codeline><highlight class="normal">commands<sp/>until<sp/>the<sp/>transaction<sp/>is<sp/>complete.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`requestId`<sp/>is<sp/>used<sp/>in<sp/>the<sp/>request<sp/>messages<sp/>`SPI_TRANSFER`,<sp/>`SPI_WRITE`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`SPI_READ`<sp/>and<sp/>in<sp/>the<sp/>reply<sp/>message<sp/>`SPI_REPLY`.<sp/>Its<sp/>purpose<sp/>is<sp/>to<sp/>ensure<sp/>that</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>SPI_REPLY<sp/>message<sp/>matches<sp/>the<sp/>request.<sp/>For<sp/>each<sp/>request<sp/>message,<sp/>increment</highlight></codeline>
+<codeline><highlight class="normal">a<sp/>single<sp/>7-bit<sp/>requestId<sp/>value,<sp/>rolling<sp/>it<sp/>over<sp/>to<sp/>0<sp/>when<sp/>&gt;<sp/>127.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`deselectCsPin`<sp/>is<sp/>used<sp/>to<sp/>control<sp/>the<sp/>csPin<sp/>at<sp/>the<sp/>end<sp/>of<sp/>the<sp/>transfer.<sp/>By</highlight></codeline>
+<codeline><highlight class="normal">default<sp/>the<sp/>csPin<sp/>will<sp/>be<sp/>deselected<sp/>at<sp/>the<sp/>end<sp/>of<sp/>every<sp/>transfer.<sp/>However,<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">prevent<sp/>deselection<sp/>to<sp/>enable<sp/>back-to-back<sp/>transfers<sp/>for<sp/>example,<sp/>set</highlight></codeline>
+<codeline><highlight class="normal">`deselectCsPin`<sp/>to<sp/>`0`<sp/>and<sp/>the<sp/>pin<sp/>state<sp/>won&apos;t<sp/>be<sp/>affected<sp/>at<sp/>the<sp/>end<sp/>of<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">transfer.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>`CS_PIN_CONTROL`<sp/>is<sp/>enabled,<sp/>then<sp/>the<sp/>CS<sp/>pin<sp/>active<sp/>state<sp/>will<sp/>be<sp/>set<sp/>when</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>`SPI_TRANSFER`<sp/>command<sp/>is<sp/>received.<sp/>It<sp/>will<sp/>only<sp/>be<sp/>deselected<sp/>at<sp/>the<sp/>end<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>transfer<sp/>if<sp/>`deselectCsPin`<sp/>is<sp/>set<sp/>to<sp/>1.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>SPI_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x68)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>SPI_TRANSFER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>deviceId<sp/>|<sp/>channel<sp/><sp/><sp/><sp/>(bits<sp/>3-6:<sp/>deviceId,<sp/>bits<sp/>0-2:<sp/>channel)</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>requestId<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/>//<sp/>increment<sp/>for<sp/>each<sp/>call</highlight></codeline>
+<codeline><highlight class="normal">5:<sp/><sp/>deselectCsPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0<sp/>=<sp/>don&apos;t<sp/>deselect<sp/>csPin</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>=<sp/>deselect<sp/>csPin<sp/>(default))</highlight></codeline>
+<codeline><highlight class="normal">6.<sp/><sp/>numWords<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127:<sp/>number<sp/>of<sp/>words<sp/>to<sp/>transfer)</highlight></codeline>
+<codeline><highlight class="normal">7:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>0-6)</highlight></codeline>
+<codeline><highlight class="normal">8:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>7-14<sp/>if<sp/>word<sp/>size<sp/>if<sp/>word<sp/>size<sp/>&gt;<sp/>7<sp/>&amp;&amp;<sp/>&lt;<sp/>15)</highlight></codeline>
+<codeline><highlight class="normal">9:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(if<sp/>word<sp/>size<sp/>&gt;<sp/>14)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>up<sp/>to<sp/>numWords<sp/>*<sp/>(wordSize<sp/>/<sp/>7)</highlight></codeline>
+<codeline><highlight class="normal">N:<sp/><sp/>END_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>SPI_WRITE</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Only<sp/>write<sp/>data,<sp/>ignoring<sp/>any<sp/>data<sp/>returned<sp/>by<sp/>the<sp/>slave<sp/>device.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Provided<sp/>as<sp/>a<sp/>convenience.<sp/>The<sp/>same<sp/>can<sp/>be<sp/>accomplished<sp/>using<sp/>`SPI_TRANSFER`</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>ignoring<sp/>the<sp/>`SPI_REPLY`<sp/>command.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>`CS_PIN_CONTROL`<sp/>is<sp/>enabled,<sp/>then<sp/>the<sp/>CS<sp/>pin<sp/>active<sp/>state<sp/>will<sp/>be<sp/>set<sp/>when</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>`SPI_WRITE`<sp/>command<sp/>is<sp/>received.<sp/>It<sp/>will<sp/>only<sp/>be<sp/>deselected<sp/>at<sp/>the<sp/>end<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>write<sp/>if<sp/>`deselectCsPin`<sp/>is<sp/>set<sp/>to<sp/>1.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>`SPI_WRITE`<sp/>command<sp/>should<sp/>return<sp/>a<sp/>`SPI_REPLY`<sp/>with<sp/>a<sp/>value<sp/>of<sp/>`1`<sp/>if<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">write<sp/>was<sp/>successful<sp/>or<sp/>a<sp/>value<sp/>of<sp/>`0`<sp/>if<sp/>the<sp/>write<sp/>failed.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>SPI_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x68)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>SPI_WRITE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x03)</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>deviceId<sp/>|<sp/>channel<sp/><sp/><sp/><sp/>(bits<sp/>3-6:<sp/>deviceId,<sp/>bits<sp/>0-2:<sp/>channel)</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>requestId<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/>//<sp/>increment<sp/>for<sp/>each<sp/>call</highlight></codeline>
+<codeline><highlight class="normal">5:<sp/><sp/>deselectCsPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0<sp/>=<sp/>don&apos;t<sp/>deselect<sp/>csPin</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>=<sp/>deselect<sp/>csPin<sp/>(default))</highlight></codeline>
+<codeline><highlight class="normal">6.<sp/><sp/>numWords<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127:<sp/>number<sp/>of<sp/>words<sp/>to<sp/>write)</highlight></codeline>
+<codeline><highlight class="normal">7:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>0-6)</highlight></codeline>
+<codeline><highlight class="normal">8:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>7-14<sp/>if<sp/>word<sp/>size<sp/>if<sp/>word<sp/>size<sp/>&gt;<sp/>7<sp/>&amp;&amp;<sp/>&lt;<sp/>15)</highlight></codeline>
+<codeline><highlight class="normal">9:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(if<sp/>word<sp/>size<sp/>&gt;<sp/>14)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>up<sp/>to<sp/>numWords<sp/>*<sp/>(wordSize<sp/>/<sp/>7)</highlight></codeline>
+<codeline><highlight class="normal">N:<sp/><sp/>END_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>SPI_READ</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Only<sp/>read<sp/>data,<sp/>writing<sp/>`0`<sp/>for<sp/>each<sp/>word<sp/>to<sp/>be<sp/>read.<sp/>Reply<sp/>is<sp/>sent<sp/>via</highlight></codeline>
+<codeline><highlight class="normal">`SPI_REPLY`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Provided<sp/>as<sp/>a<sp/>convenience.<sp/>The<sp/>same<sp/>can<sp/>be<sp/>accomplished<sp/>using<sp/>`SPI_TRANSFER`</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>sending<sp/>a<sp/>`0`<sp/>for<sp/>each<sp/>byte<sp/>to<sp/>be<sp/>read.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>`CS_PIN_CONTROL`<sp/>is<sp/>enabled,<sp/>then<sp/>the<sp/>CS<sp/>pin<sp/>active<sp/>state<sp/>will<sp/>be<sp/>set<sp/>when</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>`SPI_READ`<sp/>command<sp/>is<sp/>received.<sp/>It<sp/>will<sp/>only<sp/>be<sp/>deselected<sp/>at<sp/>the<sp/>end<sp/>of<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">read<sp/>if<sp/>`deselectCsPin`<sp/>is<sp/>set<sp/>to<sp/>1.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>SPI_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x68)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>SPI_WRITE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x04)</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>deviceId<sp/>|<sp/>channel<sp/><sp/><sp/><sp/>(bits<sp/>3-6:<sp/>deviceId,<sp/>bits<sp/>0-2:<sp/>channel)</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>requestId<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/><sp/>//<sp/>increment<sp/>for<sp/>each<sp/>call</highlight></codeline>
+<codeline><highlight class="normal">5:<sp/><sp/>deselectCsPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0<sp/>=<sp/>don&apos;t<sp/>deselect<sp/>csPin</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>=<sp/>deselect<sp/>csPin<sp/>(default))</highlight></codeline>
+<codeline><highlight class="normal">6.<sp/><sp/>numWords<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127:<sp/>number<sp/>of<sp/>words<sp/>to<sp/>read)</highlight></codeline>
+<codeline><highlight class="normal">7:<sp/><sp/>END_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>SPI_REPLY</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">An<sp/>array<sp/>of<sp/>data<sp/>received<sp/>from<sp/>the<sp/>SPI<sp/>slave<sp/>device<sp/>in<sp/>response<sp/>to<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`SPI_TRANSFER`<sp/>or<sp/>`SPI_READ`<sp/>command.<sp/>The<sp/>`requestId`<sp/>should<sp/>match<sp/>the<sp/>ID</highlight></codeline>
+<codeline><highlight class="normal">from<sp/>the<sp/>transfer,<sp/>read<sp/>or<sp/>write<sp/>command.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>SPI_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x68)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>SPI_REPLY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x05)</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>deviceId<sp/>|<sp/>channel<sp/><sp/><sp/><sp/>(bits<sp/>3-6:<sp/>deviceId,<sp/>bits<sp/>0-2:<sp/>channel)</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>requestId<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)<sp/>//<sp/>must<sp/>match<sp/>the<sp/>ID<sp/>from<sp/>the<sp/>request</highlight></codeline>
+<codeline><highlight class="normal">5:<sp/><sp/>numWords<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127:<sp/>number<sp/>of<sp/>words<sp/>in<sp/>the<sp/>reply)</highlight></codeline>
+<codeline><highlight class="normal">6:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>0-6)</highlight></codeline>
+<codeline><highlight class="normal">7:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>7-14<sp/>if<sp/>word<sp/>size<sp/>if<sp/>word<sp/>size<sp/>&gt;<sp/>7<sp/>&amp;&amp;<sp/>&lt;<sp/>15)</highlight></codeline>
+<codeline><highlight class="normal">8:<sp/><sp/>data<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(if<sp/>word<sp/>size<sp/>&gt;<sp/>14)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>up<sp/>to<sp/>numWords<sp/>*<sp/>(wordSize<sp/>/<sp/>7)</highlight></codeline>
+<codeline><highlight class="normal">N:<sp/><sp/>END_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>SPI_END</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Call<sp/>to<sp/>release<sp/>SPI<sp/>hardware<sp/>send<sp/>before<sp/>quitting<sp/>a<sp/>Firmata<sp/>client<sp/>application.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>SPI_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x68)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>SPI_END<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x06)</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>channel<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(HW<sp/>supports<sp/>multiple<sp/>SPI<sp/>ports.<sp/>range<sp/>=<sp/>0-7,<sp/>default<sp/>=<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>END_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+    </programlisting>
+    <location file="protocol/proposals/spi-proposal.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,563 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="_firmata_8h" kind="file" language="C++">
+    <compoundname>Firmata.h</compoundname>
+    <includes refid="_boards_8h" local="yes">Boards.h</includes>
+    <includes refid="_firmata_defines_8h" local="yes">FirmataDefines.h</includes>
+    <includes refid="_firmata_marshaller_8h" local="yes">FirmataMarshaller.h</includes>
+    <includes refid="_firmata_parser_8h" local="yes">FirmataParser.h</includes>
+    <includedby refid="_firmata_8cpp" local="yes">Firmata.cpp</includedby>
+    <includedby refid="_firmata_feature_8h" local="no">FirmataFeature.h</includedby>
+    <includedby refid="_serial_firmata_8h" local="no">SerialFirmata.h</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>FirmataConstants.h</label>
+        <link refid="_firmata_constants_8h"/>
+      </node>
+      <node id="9">
+        <label>stdint.h</label>
+      </node>
+      <node id="2">
+        <label>Boards.h</label>
+        <link refid="_boards_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>FirmataDefines.h</label>
+        <link refid="_firmata_defines_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>stddef.h</label>
+      </node>
+      <node id="4">
+        <label>WProgram.h</label>
+      </node>
+      <node id="7">
+        <label>FirmataMarshaller.h</label>
+        <link refid="_firmata_marshaller_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Firmata.h</label>
+        <link refid="_firmata_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>FirmataParser.h</label>
+        <link refid="_firmata_parser_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Stream.h</label>
+      </node>
+      <node id="3">
+        <label>inttypes.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>SerialFirmata.h</label>
+        <link refid="_serial_firmata_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>SerialFirmata.cpp</label>
+        <link refid="_serial_firmata_8cpp"/>
+      </node>
+      <node id="2">
+        <label>Firmata.cpp</label>
+        <link refid="_firmata_8cpp"/>
+      </node>
+      <node id="3">
+        <label>FirmataFeature.h</label>
+        <link refid="_firmata_feature_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Firmata.h</label>
+        <link refid="_firmata_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classfirmata_1_1_firmata_class" prot="public">firmata::FirmataClass</innerclass>
+    <innernamespace refid="namespacefirmata">firmata</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_firmata_8h_1aaf7fe5483ddb14af12856ba8c20fc961" prot="public" static="no">
+        <name>FIRMATA_MAJOR_VERSION</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="25" column="9" bodyfile="arduino/Firmata.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1a4ccbfa7d5df56de079344468949bbe40" prot="public" static="no">
+        <name>FIRMATA_MINOR_VERSION</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="26" column="9" bodyfile="arduino/Firmata.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1a56dcb16cb883b31245ea601962d25e8e" prot="public" static="no">
+        <name>FIRMATA_BUGFIX_VERSION</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="27" column="9" bodyfile="arduino/Firmata.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1ac3e6b2f09a110d8c771267a203bf5d35" prot="public" static="no">
+        <name>FIRMATA_STRING</name>
+        <initializer>0x71</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="32" column="9" bodyfile="arduino/Firmata.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1a7f738d147e4656076db07806682c35b4" prot="public" static="no">
+        <name>SYSEX_I2C_REQUEST</name>
+        <initializer>0x76</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="33" column="9" bodyfile="arduino/Firmata.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1aba37be7c4f8686ba6b923a1205eaa791" prot="public" static="no">
+        <name>SYSEX_I2C_REPLY</name>
+        <initializer>0x77</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="34" column="9" bodyfile="arduino/Firmata.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1a7a8b7eac6d6905920573eb7eb1f905f0" prot="public" static="no">
+        <name>SYSEX_SAMPLING_INTERVAL</name>
+        <initializer>0x7A</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="35" column="9" bodyfile="arduino/Firmata.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1ad42aa2404559d4a465d5d45e857f2881" prot="public" static="no">
+        <name>ANALOG</name>
+        <initializer>0x02</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="41" column="9" bodyfile="arduino/Firmata.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1a538e3ec60828cfabae7e3011d73d2093" prot="public" static="no">
+        <name>PWM</name>
+        <initializer>0x03</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="42" column="9" bodyfile="arduino/Firmata.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1a316d1bbf3dcf9c43e56fe4e25addf626" prot="public" static="no">
+        <name>SERVO</name>
+        <initializer>0x04</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="43" column="9" bodyfile="arduino/Firmata.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1ac179eef68bcc694aa0ef8dd1eb09950b" prot="public" static="no">
+        <name>SHIFT</name>
+        <initializer>0x05</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="44" column="9" bodyfile="arduino/Firmata.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1a457a9aa93dbb216459873a30bdb4d84a" prot="public" static="no">
+        <name>I2C</name>
+        <initializer>0x06</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="45" column="9" bodyfile="arduino/Firmata.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1a37c094d8e1be6ffd310eb63851b2f6b8" prot="public" static="no">
+        <name>ONEWIRE</name>
+        <initializer>0x07</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="46" column="9" bodyfile="arduino/Firmata.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1aabf41ec36ff3dfa5e82c2328e88d8dcf" prot="public" static="no">
+        <name>STEPPER</name>
+        <initializer>0x08</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="47" column="9" bodyfile="arduino/Firmata.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1a4d3ccf6f12fbff52bbb7e35b4d92584f" prot="public" static="no">
+        <name>ENCODER</name>
+        <initializer>0x09</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="48" column="9" bodyfile="arduino/Firmata.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1aabed7f7d1400564ec843acd4dfb72e59" prot="public" static="no">
+        <name>IGNORE</name>
+        <initializer>0x7F</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="49" column="9" bodyfile="arduino/Firmata.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_firmata_8h_1a56c7f5a2d04ee509fa88b772a2bca1fe" prot="public" static="no">
+        <name>setFirmwareVersion</name>
+        <param><defname>x</defname></param>
+        <param><defname>y</defname></param>
+        <initializer>setFirmwareNameAndVersion(__FILE__, x, y)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="178" column="9" bodyfile="arduino/Firmata.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" prot="public" static="no">
+        <type>firmata::FirmataClass::callbackFunction</type>
+        <definition>typedef firmata::FirmataClass::callbackFunction callbackFunction</definition>
+        <argsstring></argsstring>
+        <name>callbackFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="162" column="51" bodyfile="arduino/Firmata.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" prot="public" static="no">
+        <type>firmata::FirmataClass::systemCallbackFunction</type>
+        <definition>typedef firmata::FirmataClass::systemCallbackFunction systemCallbackFunction</definition>
+        <argsstring></argsstring>
+        <name>systemCallbackFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="163" column="57" bodyfile="arduino/Firmata.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" prot="public" static="no">
+        <type>firmata::FirmataClass::stringCallbackFunction</type>
+        <definition>typedef firmata::FirmataClass::stringCallbackFunction stringCallbackFunction</definition>
+        <argsstring></argsstring>
+        <name>stringCallbackFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="164" column="57" bodyfile="arduino/Firmata.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" prot="public" static="no">
+        <type>firmata::FirmataClass::sysexCallbackFunction</type>
+        <definition>typedef firmata::FirmataClass::sysexCallbackFunction sysexCallbackFunction</definition>
+        <argsstring></argsstring>
+        <name>sysexCallbackFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="165" column="56" bodyfile="arduino/Firmata.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_firmata_8h_1a2beb89d5a96aa2faa00dad6768a881f4" prot="public" static="no" mutable="no">
+        <type><ref refid="classfirmata_1_1_firmata_class" kindref="compound">firmata::FirmataClass</ref></type>
+        <definition>firmata::FirmataClass Firmata</definition>
+        <argsstring></argsstring>
+        <name>Firmata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="arduino/Firmata.h" line="168" column="30" bodyfile="arduino/Firmata.cpp" bodystart="30" bodyend="-1" declfile="arduino/Firmata.h" declline="168" declcolumn="30"/>
+        <referencedby refid="class_serial_firmata_1ab31a76a596ce2430ee3feac525da59f2" compoundref="_serial_firmata_8cpp" startline="296" endline="342">SerialFirmata::checkSerial</referencedby>
+        <referencedby refid="class_serial_firmata_1af383474fc3a6d1d372489046bbcabc3b" compoundref="_serial_firmata_8cpp" startline="44" endline="50">SerialFirmata::handleCapability</referencedby>
+        <referencedby refid="class_serial_firmata_1ace960dd7d082caf65f1f3488a7486ef5" compoundref="_serial_firmata_8cpp" startline="34" endline="42">SerialFirmata::handlePinMode</referencedby>
+        <referencedby refid="class_serial_firmata_1a0e13bbb12bd52762cfe2f949bda161ee" compoundref="_serial_firmata_8cpp" startline="52" endline="208">SerialFirmata::handleSysex</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>Firmata.h<sp/>-<sp/>Firmata<sp/>library<sp/>v2.5.8<sp/>-<sp/>2018-04-15</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>Copyright<sp/>(c)<sp/>2006-2008<sp/>Hans-Christoph<sp/>Steiner.<sp/><sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>Copyright<sp/>(C)<sp/>2009-2017<sp/>Jeff<sp/>Hoefs.<sp/><sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"></highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/>This<sp/>library<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/>modify<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/><sp/>License<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/>version<sp/>2.1<sp/>of<sp/>the<sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/>See<sp/>file<sp/>LICENSE.txt<sp/>for<sp/>further<sp/>informations<sp/>on<sp/>licensing<sp/>terms.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>Firmata_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Firmata_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_boards_8h" kindref="compound">Boards.h</ref>&quot;</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Hardware<sp/>Abstraction<sp/>Layer<sp/>+<sp/>Wiring/Arduino<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_firmata_defines_8h" kindref="compound">FirmataDefines.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_firmata_marshaller_8h" kindref="compound">FirmataMarshaller.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_firmata_parser_8h" kindref="compound">FirmataParser.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>DEPRECATED<sp/>as<sp/>of<sp/>Firmata<sp/>v2.5.1.<sp/>As<sp/>of<sp/>2.5.1<sp/>there<sp/>are<sp/>separate<sp/>version<sp/>numbers<sp/>for</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>the<sp/>protocol<sp/>version<sp/>and<sp/>the<sp/>firmware<sp/>version.</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="_firmata_8h_1aaf7fe5483ddb14af12856ba8c20fc961" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FIRMATA_MAJOR_VERSION<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2<sp/>//<sp/>same<sp/>as<sp/>FIRMATA_PROTOCOL_MAJOR_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="_firmata_8h_1a4ccbfa7d5df56de079344468949bbe40" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FIRMATA_MINOR_VERSION<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>5<sp/>//<sp/>same<sp/>as<sp/>FIRMATA_PROTOCOL_MINOR_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="_firmata_8h_1a56dcb16cb883b31245ea601962d25e8e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FIRMATA_BUGFIX_VERSION<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>//<sp/>same<sp/>as<sp/>FIRMATA_PROTOCOL_BUGFIX_VERSION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/>extended<sp/>command<sp/>set<sp/>using<sp/>sysex<sp/>(0-127/0x00-0x7F)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>0x00-0x0F<sp/>reserved<sp/>for<sp/>user-defined<sp/>commands<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/>these<sp/>are<sp/>DEPRECATED<sp/>to<sp/>make<sp/>the<sp/>naming<sp/>more<sp/>consistent</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="_firmata_8h_1ac3e6b2f09a110d8c771267a203bf5d35" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FIRMATA_STRING<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x71<sp/>//<sp/>same<sp/>as<sp/>STRING_DATA</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="_firmata_8h_1a7f738d147e4656076db07806682c35b4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SYSEX_I2C_REQUEST<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x76<sp/>//<sp/>same<sp/>as<sp/>I2C_REQUEST</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="_firmata_8h_1aba37be7c4f8686ba6b923a1205eaa791" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SYSEX_I2C_REPLY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x77<sp/>//<sp/>same<sp/>as<sp/>I2C_REPLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="_firmata_8h_1a7a8b7eac6d6905920573eb7eb1f905f0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SYSEX_SAMPLING_INTERVAL<sp/>0x7A<sp/>//<sp/>same<sp/>as<sp/>SAMPLING_INTERVAL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>pin<sp/>modes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//#define<sp/>INPUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00<sp/>//<sp/>defined<sp/>in<sp/>Arduino.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//#define<sp/>OUTPUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x01<sp/>//<sp/>defined<sp/>in<sp/>Arduino.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//<sp/>DEPRECATED<sp/>as<sp/>of<sp/>Firmata<sp/>v2.5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="_firmata_8h_1ad42aa2404559d4a465d5d45e857f2881" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ANALOG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x02<sp/>//<sp/>same<sp/>as<sp/>PIN_MODE_ANALOG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="_firmata_8h_1a538e3ec60828cfabae7e3011d73d2093" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PWM<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x03<sp/>//<sp/>same<sp/>as<sp/>PIN_MODE_PWM</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="_firmata_8h_1a316d1bbf3dcf9c43e56fe4e25addf626" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SERVO<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x04<sp/>//<sp/>same<sp/>as<sp/>PIN_MODE_SERVO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="_firmata_8h_1ac179eef68bcc694aa0ef8dd1eb09950b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHIFT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x05<sp/>//<sp/>same<sp/>as<sp/>PIN_MODE_SHIFT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="_firmata_8h_1a457a9aa93dbb216459873a30bdb4d84a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>I2C<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x06<sp/>//<sp/>same<sp/>as<sp/>PIN_MODE_I2C</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="_firmata_8h_1a37c094d8e1be6ffd310eb63851b2f6b8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ONEWIRE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x07<sp/>//<sp/>same<sp/>as<sp/>PIN_MODE_ONEWIRE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="_firmata_8h_1aabf41ec36ff3dfa5e82c2328e88d8dcf" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STEPPER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x08<sp/>//<sp/>same<sp/>as<sp/>PIN_MODE_STEPPER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="_firmata_8h_1a4d3ccf6f12fbff52bbb7e35b4d92584f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ENCODER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x09<sp/>//<sp/>same<sp/>as<sp/>PIN_MODE_ENCODER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="_firmata_8h_1aabed7f7d1400564ec843acd4dfb72e59" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IGNORE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x7F<sp/>//<sp/>same<sp/>as<sp/>PIN_MODE_IGNORE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="namespacefirmata" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacefirmata" kindref="compound">firmata</ref><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO<sp/>make<sp/>it<sp/>a<sp/>subclass<sp/>of<sp/>a<sp/>generic<sp/>Serial/Stream<sp/>base<sp/>class</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="classfirmata_1_1_firmata_class" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classfirmata_1_1_firmata_class" kindref="compound">FirmataClass</ref></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="57" refid="classfirmata_1_1_firmata_class_1a3e5ee128a6c5054863dc7718d7a1f285" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)(uint8_t,<sp/>int);</highlight></codeline>
+<codeline lineno="58" refid="classfirmata_1_1_firmata_class_1af0a7eb3dbe1432de1727d9f14b5b1dab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref>)(void);</highlight></codeline>
+<codeline lineno="59" refid="classfirmata_1_1_firmata_class_1afb5aa833e160037296f447ac208c95c1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref>)(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*);</highlight></codeline>
+<codeline lineno="60" refid="classfirmata_1_1_firmata_class_1ab7c5e806cee9fd7dfe3600525f86c595" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref>)(uint8_t<sp/>command,<sp/>uint8_t<sp/>argc,<sp/>uint8_t<sp/>*argv);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" kindref="member">FirmataClass</ref>();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Arduino<sp/>constructors<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a2fddcc643892bec2f4aa7aef6dba70eb" kindref="member">begin</ref>();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a2fddcc643892bec2f4aa7aef6dba70eb" kindref="member">begin</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a2fddcc643892bec2f4aa7aef6dba70eb" kindref="member">begin</ref>(Stream<sp/>&amp;s);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>querying<sp/>functions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1abd8a0370db6d9e923e7e3d5836e78d7a" kindref="member">printVersion</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a9421550f2501fc1df60fd174b154e606" kindref="member">blinkVersion</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1abe49261eab0bd4892a09fa8b8980b11a" kindref="member">printFirmwareVersion</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//void<sp/>setFirmwareVersion(byte<sp/>major,<sp/>byte<sp/>minor);<sp/><sp/>//<sp/>see<sp/>macro<sp/>below</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1ab7aa66b528027566c15b7d64c8cd0f89" kindref="member">setFirmwareNameAndVersion</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*name,<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>major,<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>minor);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a5ddba465c3772f841828ef82c79d4307" kindref="member">disableBlinkVersion</ref>();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>serial<sp/>receive<sp/>handling<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a119734b867186567c1cd011e52e59d2d" kindref="member">available</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1aa698f5f5a234173d5eebb54831350676" kindref="member">processInput</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1aaeaac8b1f8facf070615b0035120c432" kindref="member">parse</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a58e9d787957c3085f22d33b59b1f6ea6" kindref="member">isParsingMessage</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>serial<sp/>send<sp/>handling<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1ae14e1d8d9bd72068f6e8ca07721e8dda" kindref="member">sendAnalog</ref>(</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>pin,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a50a87e8339cf46fb787759603603e225" kindref="member">sendDigital</ref>(</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>pin,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);<sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>implement<sp/>this</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a799b91e5a888dd21b066a2020d8e2b68" kindref="member">sendDigitalPort</ref>(</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>portNumber,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>portData);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1abe11f621154afd308926129de349fc6e" kindref="member">sendString</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1abe11f621154afd308926129de349fc6e" kindref="member">sendString</ref>(</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>command,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a81e2de5b37eb2372c8a3d9a43d5eb0cc" kindref="member">sendSysex</ref>(</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>command,<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>bytec,<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>*bytev);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1ae8f29a829e17379602fcb9fd6a497807" kindref="member">write</ref>(</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>c);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>attach<sp/>&amp;<sp/>detach<sp/>callback<sp/>functions<sp/>to<sp/>messages<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a1ae572e88ec810dd49516e53c5f32d2d" kindref="member">attach</ref>(uint8_t<sp/>command,<sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>newFunction);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a1ae572e88ec810dd49516e53c5f32d2d" kindref="member">attach</ref>(uint8_t<sp/>command,<sp/><ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref><sp/>newFunction);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a1ae572e88ec810dd49516e53c5f32d2d" kindref="member">attach</ref>(uint8_t<sp/>command,<sp/><ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref><sp/>newFunction);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a1ae572e88ec810dd49516e53c5f32d2d" kindref="member">attach</ref>(uint8_t<sp/>command,<sp/><ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref><sp/>newFunction);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a5db0faee74b9291d1b783d2dde0929d1" kindref="member">detach</ref>(uint8_t<sp/>command);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>access<sp/>pin<sp/>state<sp/>and<sp/>config<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a0c434227456ce2ba97b3b1142c329f96" kindref="member">getPinMode</ref>(</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>pin);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a32c41dd94c1d23aa0e6d3d1dbe5c0c04" kindref="member">setPinMode</ref>(</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>pin,<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>config);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>access<sp/>pin<sp/>state<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1acf5d4f460b9a2298653d4a71de918dfe" kindref="member">getPinState</ref>(</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>pin);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1aa9f98ba5069823b4c1d08db9f8999ba8" kindref="member">setPinState</ref>(</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>pin,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>state);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>utility<sp/>methods<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a770e43f26f18204e43acebf9202a6d39" kindref="member">sendValueAsTwo7bitBytes</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a3cc7ea1af348bca3ea0bd570314cada3" kindref="member">startSysex</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a9bb68afbb1d37a7990f59a1d419e64c9" kindref="member">endSysex</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>parserBuffer[<ref refid="namespacefirmata_1ad8f1fd3a3919e434ea4d86ce1a39a77e" kindref="member">MAX_DATA_BYTES</ref>];</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classfirmata_1_1_firmata_marshaller" kindref="compound">FirmataMarshaller</ref><sp/>marshaller;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classfirmata_1_1_firmata_parser" kindref="compound">FirmataParser</ref><sp/>parser;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>Stream<sp/>*FirmataStream;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>firmware<sp/>name<sp/>and<sp/>version<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>firmwareVersionCount;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>*firmwareVersionVector;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>pin<sp/>configuration<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>pinConfig[TOTAL_PINS];</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pinState[TOTAL_PINS];</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>blinkVersionDisabled;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>private<sp/>methods<sp/>------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>strobeBlinkPin(</highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>pin,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>onInterval,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offInterval);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a1d0b7f94cabd839426f49b7ade73ef9f" kindref="member">FirmataMarshaller::encodeByteStream</ref><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bytec,<sp/>uint8_t<sp/>*<sp/>bytev,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>max_bytes)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>callback<sp/>functions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>currentAnalogCallback;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>currentDigitalCallback;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>currentPinModeCallback;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>currentPinValueCallback;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>currentReportAnalogCallback;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>currentReportDigitalCallback;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref><sp/>currentStringCallback;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref><sp/>currentSysexCallback;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref><sp/>currentSystemResetCallback;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>static<sp/>callbacks<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>staticAnalogCallback<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*,<sp/>uint8_t<sp/>command,<sp/>uint16_t<sp/>value)<sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>currentAnalogCallback<sp/>)<sp/>{<sp/>currentAnalogCallback(command,(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)value);<sp/>}<sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>staticDigitalCallback<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*,<sp/>uint8_t<sp/>command,<sp/>uint16_t<sp/>value)<sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>currentDigitalCallback<sp/>)<sp/>{<sp/>currentDigitalCallback(command,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)value);<sp/>}<sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>staticPinModeCallback<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*,<sp/>uint8_t<sp/>command,<sp/>uint16_t<sp/>value)<sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>currentPinModeCallback<sp/>)<sp/>{<sp/>currentPinModeCallback(command,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)value);<sp/>}<sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>staticPinValueCallback<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*,<sp/>uint8_t<sp/>command,<sp/>uint16_t<sp/>value)<sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>currentPinValueCallback<sp/>)<sp/>{<sp/>currentPinValueCallback(command,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)value);<sp/>}<sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>staticReportAnalogCallback<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*,<sp/>uint8_t<sp/>command,<sp/>uint16_t<sp/>value)<sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>currentReportAnalogCallback<sp/>)<sp/>{<sp/>currentReportAnalogCallback(command,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)value);<sp/>}<sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>staticReportDigitalCallback<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*,<sp/>uint8_t<sp/>command,<sp/>uint16_t<sp/>value)<sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>currentReportDigitalCallback<sp/>)<sp/>{<sp/>currentReportDigitalCallback(command,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)value);<sp/>}<sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>staticStringCallback<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>c_str)<sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>currentStringCallback<sp/>)<sp/>{<sp/>currentStringCallback((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*)c_str);<sp/>}<sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>staticSysexCallback<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*,<sp/>uint8_t<sp/>command,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>argc,<sp/>uint8_t<sp/>*argv)<sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>currentSysexCallback<sp/>)<sp/>{<sp/>currentSysexCallback(command,<sp/>(uint8_t)argc,<sp/>argv);<sp/>}<sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>staticReportFirmwareCallback<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*)<sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>context<sp/>)<sp/>{<sp/>((<ref refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" kindref="member">FirmataClass</ref><sp/>*)context)-&gt;printFirmwareVersion();<sp/>}<sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>staticReportVersionCallback<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context)<sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>context<sp/>)<sp/>{<sp/>((<ref refid="classfirmata_1_1_firmata_class_1a75b035ab8d96d87d28deeb87badfe11a" kindref="member">FirmataClass</ref><sp/>*)context)-&gt;printVersion();<sp/>}<sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>staticSystemResetCallback<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)<sp/>{<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>currentSystemResetCallback<sp/>)<sp/>{<sp/>currentSystemResetCallback();<sp/>}<sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>firmata</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>callback<sp/>function<sp/>types</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162" refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1a3e5ee128a6c5054863dc7718d7a1f285" kindref="member">firmata::FirmataClass::callbackFunction</ref><sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>;</highlight></codeline>
+<codeline lineno="163" refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1af0a7eb3dbe1432de1727d9f14b5b1dab" kindref="member">firmata::FirmataClass::systemCallbackFunction</ref><sp/><ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref>;</highlight></codeline>
+<codeline lineno="164" refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1afb5aa833e160037296f447ac208c95c1" kindref="member">firmata::FirmataClass::stringCallbackFunction</ref><sp/><ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref>;</highlight></codeline>
+<codeline lineno="165" refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class_1ab7c5e806cee9fd7dfe3600525f86c595" kindref="member">firmata::FirmataClass::sysexCallbackFunction</ref><sp/><ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref>;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_class" kindref="compound">firmata::FirmataClass</ref><sp/><ref refid="_firmata_8h_1a2beb89d5a96aa2faa00dad6768a881f4" kindref="member">Firmata</ref>;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="comment">/*==============================================================================</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/>*<sp/>MACROS</highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/>*============================================================================*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>shortcut<sp/>for<sp/>setFirmwareNameAndVersion()<sp/>that<sp/>uses<sp/>__FILE__<sp/>to<sp/>set<sp/>the</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/>*<sp/>firmware<sp/>name.<sp/><sp/>It<sp/>needs<sp/>to<sp/>be<sp/>a<sp/>macro<sp/>so<sp/>that<sp/>__FILE__<sp/>is<sp/>included<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/>*<sp/>firmware<sp/>source<sp/>file<sp/>rather<sp/>than<sp/>the<sp/>library<sp/>source<sp/>file.</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178" refid="_firmata_8h_1a56c7f5a2d04ee509fa88b772a2bca1fe" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>setFirmwareVersion(x,<sp/>y)<sp/><sp/><sp/>setFirmwareNameAndVersion(__FILE__,<sp/>x,<sp/>y)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>Firmata_h<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="arduino/Firmata.h"/>
+  </compounddef>
+</doxygen>

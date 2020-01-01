@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md_protocol_onewire" kind="page">
+    <compoundname>md_protocol_onewire</compoundname>
+    <title>OneWire</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The idea is to configure Arduino Pins as OneWire Busmaster. The may be more than one pin configured for OneWire and there may be more than one device connected to such a pin.</para>
+<para>Each one-wire-device has a unique identifier which is 8 bytes long and comes factory-programmed into the the device. To scan all devices connected to a pin configured for onewire a SEARCH-request message is sent. The response contains all addresses of devices found. Having the address of a device OneWire-command-messages may be sent to this device.</para>
+<para>The actual commands executed on the OneWire-bus are &apos;reset&apos;, &apos;skip&apos;, &apos;select&apos;, &apos;read&apos;, &apos;delay&apos; and &apos;write&apos; All these commands may be executed with a single OneWire-command-message. The subcommand-byte contains these commands bit-encoded. The data required to execute each bus-command must only be included in the message when the corresponding bit is set.</para>
+<para>The order of execution of bus commands is: &apos;reset&apos;-&gt;&apos;skip&apos;-&gt;&apos;select&apos;-&gt;&apos;write&apos;-&gt;&apos;read&apos;-&gt;&apos;delay&apos; (remember: each of these steps is optional. Also some combinations don&apos;t make sense and in fact are mutual exclusive in terms of OneWire bus protocol, so you cannot run a &apos;skip&apos; followed by a &apos;select&apos;) The delay is useful for OneWire-commands included into taskdata (see <ulink url="https://github.com/firmata/protocol/blob/master/scheduler.md">Firmata-scheduler proposal</ulink>).</para>
+<para>Some OneWire-devices require some time to carry out e.g. a a/d-conversion after receiving the appropriate command. Including a delay into a OneWire-message saves some bytes in the taskdata (in comparism to the inclusion of a &apos;delay_task&apos; scheduler message). OneWire Read- and ReadReply messages are correlated using a correlationid (16bits). The reply contains the correlationid-value that was sent with the original request.</para>
+<para>Added in Firmata protocol version 2.4.0.</para>
+<sect2 id="md_protocol_onewire_1autotoc_md32">
+<title>Example files:</title>
+<para><itemizedlist>
+<listitem><para>OneWire is include by default in <ulink url="https://github.com/firmata/ConfigurableFirmata/blob/master/examples/ConfigurableFirmata/ConfigurableFirmata.ino">ConfigurableFirmata.ino</ulink>.</para>
+</listitem><listitem><para><ulink url="https://github.com/firmata/ConfigurableFirmata/blob/master/src/OneWireFirmata.cpp">Example implementation</ulink> as a configurable Firmata feature class.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_protocol_onewire_1autotoc_md33">
+<title>Compatible host implementations</title>
+<para><itemizedlist>
+<listitem><para><ulink url="https://github.com/firmata/ConfigurableFirmata">ConfigurableFirmata</ulink></para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_protocol_onewire_1autotoc_md34">
+<title>Compatible client librairies</title>
+<para><itemizedlist>
+<listitem><para><ulink url="https://github.com/ntruchsess/perl-firmata">perl-firmata</ulink></para>
+</listitem><listitem><para><ulink url="https://github.com/jgautier/firmata/blob/master/lib/firmata.js">node-firmata</ulink></para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_protocol_onewire_1autotoc_md35">
+<title>Protocol details</title>
+<para>OneWire SEARCH request <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>OneWire<sp/>Command<sp/><sp/>(0x73)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>search<sp/>command<sp/><sp/><sp/>(0x40|0x44)<sp/>0x40<sp/>normal<sp/>search<sp/>for<sp/>all<sp/>devices<sp/>on<sp/>the<sp/>bus</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x44<sp/>SEARCH_ALARMS<sp/>request<sp/>to<sp/>find<sp/>only<sp/>those</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>devices<sp/>that<sp/>are<sp/>in<sp/>alarmed<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>OneWire SEARCH reply <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>OneWire<sp/>Command<sp/><sp/>(0x73)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>search<sp/>reply<sp/>command<sp/>(0x42|0x45)<sp/>0x42<sp/>normal<sp/>search<sp/>reply</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x45<sp/>reply<sp/>to<sp/>a<sp/>SEARCH_ALARMS<sp/>request</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>bit<sp/>0-6<sp/><sp/><sp/>[optional]<sp/>address<sp/>bytes<sp/>encoded<sp/>using<sp/>8<sp/>times<sp/>7<sp/>bit<sp/>for<sp/>7<sp/>bytes<sp/>of<sp/>8<sp/>bit</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>bit<sp/>7-13<sp/><sp/>[optional]<sp/>1.address[0]<sp/>=<sp/>byte[0]<sp/><sp/><sp/><sp/>+<sp/>byte[1]&lt;&lt;7<sp/>&amp;<sp/>0x7F</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>bit<sp/>14-20<sp/>[optional]<sp/>1.address[1]<sp/>=<sp/>byte[1]&gt;&gt;1<sp/>+<sp/>byte[2]&lt;&lt;6<sp/>&amp;<sp/>0x7F</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>....<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>...</highlight></codeline>
+<codeline><highlight class="normal">11<sp/>bit<sp/>49-55<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.address[6]<sp/>=<sp/>byte[6]&gt;&gt;6<sp/>+<sp/>byte[7]&lt;&lt;1<sp/>&amp;<sp/>0x7F</highlight></codeline>
+<codeline><highlight class="normal">12<sp/>bit<sp/>56-63<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.address[7]<sp/>=<sp/>byte[8]<sp/><sp/><sp/><sp/>+<sp/>byte[9]&lt;&lt;7<sp/>&amp;<sp/>0x7F</highlight></codeline>
+<codeline><highlight class="normal">13<sp/>bit<sp/>64-69<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2.address[0]<sp/>=<sp/>byte[9]&gt;&gt;1<sp/>+<sp/>byte[10]&lt;&lt;6<sp/>&amp;0x7F</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>...<sp/>as<sp/>many<sp/>bytes<sp/>as<sp/>needed<sp/>(don&apos;t<sp/>exceed<sp/>MAX_DATA_BYTES<sp/>though)</highlight></codeline>
+<codeline><highlight class="normal">n+1<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>OneWire CONFIG request <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>OneWire<sp/>Command<sp/><sp/>(0x73)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>config<sp/>command<sp/><sp/><sp/>(0x41)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>power<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00|0x01)<sp/>0x00<sp/>=<sp/>leave<sp/>pin<sp/>on<sp/>state<sp/>high<sp/>after<sp/>write<sp/>to<sp/>support</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parasitic<sp/>power</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x01<sp/>=<sp/>don&apos;t<sp/>leave<sp/>pin<sp/>on<sp/>high<sp/>after<sp/>write</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>END_SYSEX<sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>OneWire COMMAND request <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>OneWire<sp/>Command<sp/><sp/>(0x73)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>command<sp/>bits<sp/><sp/><sp/><sp/><sp/>(0x00-0x2F)<sp/>bit<sp/>0<sp/>=<sp/>reset,<sp/>bit<sp/>1<sp/>=<sp/>skip,<sp/>bit<sp/>2<sp/>=<sp/>select,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bit<sp/>3<sp/>=<sp/>read,<sp/>bit<sp/>4<sp/>=<sp/>delay,<sp/>bit<sp/>5<sp/>=<sp/>write</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>bit<sp/>0-6<sp/><sp/><sp/>[optional]<sp/>data<sp/>bytes<sp/>encoded<sp/>using<sp/>8<sp/>times<sp/>7<sp/>bit<sp/>for<sp/>7<sp/>bytes<sp/>of<sp/>8<sp/>bit</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>bit<sp/>7-13<sp/><sp/>[optional]<sp/>data[0]<sp/>=<sp/>byte[0]<sp/><sp/><sp/>+<sp/>byte[1]&lt;&lt;7<sp/>&amp;<sp/>0x7F</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>bit<sp/>14-20<sp/>[optional]<sp/>data[1]<sp/>=<sp/>byte[1]&gt;1<sp/>+<sp/>byte[2]&lt;&lt;6<sp/>&amp;<sp/>0x7F</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>....<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data[2]<sp/>=<sp/>byte<sp/>=<sp/>byte[2]&gt;2<sp/>+<sp/>byte[3]&lt;&lt;5<sp/>&amp;<sp/>0x7F<sp/>...</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>...<sp/>as<sp/>many<sp/>bytes<sp/>as<sp/>needed<sp/>(don&apos;t<sp/>exceed<sp/>MAX_DATA_BYTES<sp/>though)</highlight></codeline>
+<codeline><highlight class="normal">n+1<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>data<sp/>bytes<sp/>within<sp/>OneWire<sp/>Request<sp/>Command<sp/>message</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>address[0]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[optional,<sp/>if<sp/>bit<sp/>2<sp/>set]</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>address[1]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>address[2]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>address[3]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>address[4]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>address[5]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>address[6]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>address[7]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>number<sp/>of<sp/>bytes<sp/>to<sp/>read<sp/>(LSB)<sp/>[optional,<sp/>if<sp/>bit<sp/>3<sp/>set]</highlight></codeline>
+<codeline><highlight class="normal">9<sp/><sp/>number<sp/>of<sp/>bytes<sp/>to<sp/>read<sp/>(MSB)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">10<sp/>request<sp/>correlationid<sp/>byte<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">11<sp/>request<sp/>correlationid<sp/>byte<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">10<sp/>delay<sp/>in<sp/>ms<sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>0-7)<sp/><sp/><sp/>[optional,<sp/>if<sp/>bit<sp/>4<sp/>set]</highlight></codeline>
+<codeline><highlight class="normal">11<sp/>delay<sp/>in<sp/>ms<sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>8-15)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">12<sp/>delay<sp/>in<sp/>ms<sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>16-23)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">13<sp/>delay<sp/>in<sp/>ms<sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>24-31)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">14<sp/>data<sp/>to<sp/>write<sp/><sp/><sp/><sp/>(bits<sp/>0-7)<sp/><sp/><sp/>[optional,<sp/>if<sp/>bit<sp/>5<sp/>set]</highlight></codeline>
+<codeline><highlight class="normal">15<sp/>data<sp/>to<sp/>write<sp/><sp/><sp/><sp/>(bits<sp/>8-15)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">16<sp/>data<sp/>to<sp/>write<sp/><sp/><sp/><sp/>(bits<sp/>16-23)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>...<sp/>as<sp/>many<sp/>bytes<sp/>as<sp/>needed<sp/>(don&apos;t<sp/>exceed<sp/>MAX_DATA_BYTES<sp/>though)</highlight></codeline>
+</programlisting></para>
+<para>OneWire READ reply <programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>OneWire<sp/>Command<sp/><sp/><sp/><sp/><sp/><sp/>(0x73)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>read<sp/>reply<sp/>command<sp/><sp/><sp/>(0x43)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0-127)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>bit<sp/>0-6<sp/><sp/><sp/>[optional]<sp/>data<sp/>bytes<sp/>encoded<sp/>using<sp/>8<sp/>times<sp/>7<sp/>bit<sp/>for<sp/>7<sp/>bytes<sp/>of<sp/>8<sp/>bit</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>bit<sp/>7-13<sp/><sp/>[optional]<sp/>correlationid[0]<sp/>=<sp/>byte[0]<sp/><sp/><sp/>+<sp/>byte[1]&lt;&lt;7<sp/>&amp;<sp/>0x7F</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>bit<sp/>14-20<sp/>[optional]<sp/>correlationid[1]<sp/>=<sp/>byte[1]&gt;1<sp/>+<sp/>byte[2]&lt;&lt;6<sp/>&amp;<sp/>0x7F</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>bit<sp/>21-27<sp/>[optional]<sp/>data[0]<sp/>=<sp/>byte[2]&gt;2<sp/>+<sp/>byte[3]&lt;&lt;5<sp/>&amp;<sp/>0x7F</highlight></codeline>
+<codeline><highlight class="normal">8<sp/><sp/>....<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data[1]<sp/>=<sp/>byte[3]&gt;3<sp/>+<sp/>byte[4]&lt;&lt;4<sp/>&amp;<sp/>0x7F</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>...<sp/>as<sp/>many<sp/>bytes<sp/>as<sp/>needed<sp/>(don&apos;t<sp/>exceed<sp/>MAX_DATA_BYTES<sp/>though)</highlight></codeline>
+<codeline><highlight class="normal">n+1<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+</programlisting> </para>
+</sect2>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

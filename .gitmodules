@@ -1,0 +1,6 @@
+[submodule "arduino"]
+	path = arduino
+	url = https://github.com/firmata/arduino.git
+[submodule "protocol"]
+	path = protocol
+	url = https://github.com/firmata/protocol.git

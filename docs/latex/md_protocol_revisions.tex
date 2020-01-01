@@ -1,0 +1,50 @@
+
+\begin{DoxyItemize}
+\item Added Accel\+Stepper\+Firmata (Stepper 2.\+0) for improved and more scalable stepper motor support.
+\item Deprecated the old Stepper protocol, now renamed to \char`\"{}stepper-\/legacy.\+md\char`\"{}.
+\end{DoxyItemize}\hypertarget{md_protocol_revisions_autotoc_md112}{}\doxysection{Version 2.\+5.\+1 -\/ December 21st, 2015}\label{md_protocol_revisions_autotoc_md112}
+
+\begin{DoxyItemize}
+\item Enable I2C auto-\/restart by setting \href{https://github.com/firmata/protocol/commit/22cc239b5a527556d82707fe0c540b16ed42f0bc\#diff-ab7ff1e563b418ee1e557d6ece901dc7R17}{\texttt{ bit 6 of byte 3}} of the {\ttfamily I2\+C\+\_\+\+R\+E\+Q\+U\+E\+ST} message.
+\end{DoxyItemize}\hypertarget{md_protocol_revisions_autotoc_md113}{}\doxysection{Version 2.\+5.\+0 -\/ November 7th, 2015}\label{md_protocol_revisions_autotoc_md113}
+
+\begin{DoxyItemize}
+\item Added \href{https://github.com/firmata/protocol/blob/master/serial.md}{\texttt{ Serial feature}} for interfacing with serial devices via hardware or software serial.
+\item Added ability to set the value of a pin by sending a single pin value instead of a port value. See \textquotesingle{}set digital pin value\textquotesingle{} in \href{https://github.com/firmata/protocol/blob/master/protocol.md\#message-types}{\texttt{ protocol.\+md}} for details.
+\end{DoxyItemize}\hypertarget{md_protocol_revisions_autotoc_md114}{}\doxysection{Version 2.\+4.\+0 -\/ December 2014}\label{md_protocol_revisions_autotoc_md114}
+
+\begin{DoxyItemize}
+\item Changed {\ttfamily report digital port} and {\ttfamily report analog pin} definition to return the port (digital) or pin (analog) value upon toggling to {\ttfamily enable}.
+\item Added \href{https://github.com/firmata/protocol/blob/master/onewire.md}{\texttt{ One\+Wire feature}} to interface with 1-\/Wire devices.
+\item Added \href{https://github.com/firmata/protocol/blob/master/encoder.md}{\texttt{ Encoder feature}} to interface with linear and rotary encoders.
+\item Added \href{https://github.com/firmata/protocol/blob/master/scheduler.md}{\texttt{ Scheduler feature}} to enable scheduling Firmata tasks. Useful when you need to send more data than the 64 byte serial buffer can handle.
+\item Added \href{https://github.com/firmata/protocol/blob/master/stepper.md}{\texttt{ Stepper feature}} to enable interfacing with 2 wire and 4 wire stepper motor drivers and step + direction drivers.
+\end{DoxyItemize}
+
+{\itshape Note\+: The above 4 features were initially added for {\ttfamily Configurable\+Firmata} which had a different version number. They have been moved under the {\ttfamily v2.\+4.\+0} release here to get things back on track for the protocol version.}\hypertarget{md_protocol_revisions_autotoc_md115}{}\doxysection{Version 2.\+3.\+0 -\/ February 2013}\label{md_protocol_revisions_autotoc_md115}
+
+\begin{DoxyItemize}
+\item Angle was removed from the {\ttfamily S\+E\+R\+V\+O\+\_\+\+C\+O\+N\+F\+IG} message.
+\end{DoxyItemize}\hypertarget{md_protocol_revisions_autotoc_md116}{}\doxysection{Version 2.\+2.\+0 -\/ January 2011}\label{md_protocol_revisions_autotoc_md116}
+
+\begin{DoxyItemize}
+\item Added \href{https://github.com/firmata/protocol/blob/master/protocol.md\#extended-analog}{\texttt{ Extended Analog}} to allow addressing beyond pin 15 and support analog values with any number of bits.
+\item Added \href{https://github.com/firmata/protocol/blob/master/protocol.md\#capability-query}{\texttt{ Capability Query}} to query the capabilities supported by each pin.
+\item Added \href{https://github.com/firmata/protocol/blob/master/protocol.md\#analog-mapping-query}{\texttt{ Analog Mapping Query}} to map analog pin numbers to their digital pin number equivalent.
+\item Added \href{https://github.com/firmata/protocol/blob/master/protocol.md\#pin-state-query}{\texttt{ Pin State Query}} to query the state of pin (output value or if input pullup enabled).
+\end{DoxyItemize}\hypertarget{md_protocol_revisions_autotoc_md117}{}\doxysection{Version 2.\+1.\+0 -\/ March 2010}\label{md_protocol_revisions_autotoc_md117}
+
+\begin{DoxyItemize}
+\item Added \href{https://github.com/firmata/protocol/blob/master/i2c.md}{\texttt{ I2C feature}} to interface with I2C devices.
+\item Added \href{https://github.com/firmata/protocol/blob/master/servos.md}{\texttt{ Servo feature}} to interface with servo motors.
+\item Added ability to change the \href{https://github.com/firmata/protocol/blob/master/protocol.md\#sampling-interval}{\texttt{ sampling interval}}.
+\end{DoxyItemize}\hypertarget{md_protocol_revisions_autotoc_md118}{}\doxysection{Version 2.\+0.\+0 -\/ September 2008}\label{md_protocol_revisions_autotoc_md118}
+
+\begin{DoxyItemize}
+\item Changed to 8-\/bit port-\/based digital messages (a collection of 8 pins) to mirror ports from previous 14-\/bit ports (a collection of 14 pins) modeled after the standard (A\+Tmega8/168/328) Arduino boards.
+\item Added ability to \href{https://github.com/firmata/protocol/blob/master/protocol.md\#query-firmware-name-and-version}{\texttt{ query firmware name and version}}.
+\end{DoxyItemize}\hypertarget{md_protocol_revisions_autotoc_md119}{}\doxysection{Version 1.\+0.\+0}\label{md_protocol_revisions_autotoc_md119}
+
+\begin{DoxyItemize}
+\item Switched to M\+I\+D\+I-\/compatible packet format (though the message interpretation differs). 
+\end{DoxyItemize}

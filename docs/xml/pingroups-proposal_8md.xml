@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="pingroups-proposal_8md" kind="file" language="Markdown">
+    <compoundname>pingroups-proposal.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Digital<sp/>Pin<sp/>Groups<sp/>(Proposal)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Provides<sp/>support<sp/>for<sp/>the<sp/>situation<sp/>where<sp/>you<sp/>want<sp/>to<sp/>set<sp/>or<sp/>get<sp/>the<sp/>values<sp/>of<sp/></highlight></codeline>
+<codeline><highlight class="normal">an<sp/>arbitrary<sp/>set<sp/>of<sp/>digital<sp/>IO<sp/>pins<sp/>that<sp/>may<sp/>not<sp/>necessarily<sp/>align<sp/>to<sp/>a<sp/>port<sp/>and<sp/></highlight></codeline>
+<codeline><highlight class="normal">do<sp/>all<sp/>of<sp/>this<sp/>in<sp/>one<sp/>operation.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Examples<sp/>of<sp/>this<sp/>behaviour<sp/>would<sp/>include:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Analog<sp/>Multiplexer<sp/>/<sp/>Demultimplexer,<sp/>where<sp/>you<sp/>need<sp/>to<sp/>set<sp/>the<sp/>bit<sp/>value<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">three<sp/>pins<sp/>in<sp/>order<sp/>to<sp/>determine<sp/>which<sp/>analog<sp/>line<sp/>is<sp/>being<sp/>used<sp/>on<sp/>the<sp/>multiplexer.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Keypads<sp/>where<sp/>the<sp/>value<sp/>of<sp/>the<sp/>key<sp/>presses<sp/>are<sp/>expressed<sp/>using<sp/>a<sp/>combination<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">states<sp/>across<sp/>a<sp/>set<sp/>of<sp/>digital<sp/>lines<sp/>(eg:<sp/>[https://www.sparkfun.com/products/8653](https://www.sparkfun.com/products/8653)<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>you<sp/>want<sp/>to<sp/>issue<sp/>an<sp/>equivalent<sp/>of<sp/>a<sp/>digitalWrite<sp/>to<sp/>a<sp/>group<sp/>of<sp/>pins,</highlight></codeline>
+<codeline><highlight class="normal">you&apos;ll<sp/>then<sp/>issue<sp/>a<sp/>sequence<sp/>of<sp/>7-bit<sp/>bytes<sp/>that<sp/>provides<sp/>the<sp/>states<sp/>of<sp/>the<sp/>pins<sp/>collectively.<sp/></highlight></codeline>
+<codeline><highlight class="normal">This<sp/>will<sp/>save<sp/>several<sp/>calls<sp/>to<sp/>digital<sp/>write<sp/>and<sp/>allow<sp/>them<sp/>to<sp/>be<sp/>done<sp/>in<sp/>one<sp/>group.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Reads<sp/>will<sp/>work<sp/>the<sp/>same<sp/>way<sp/>but<sp/>return<sp/>a<sp/>byte<sp/>with<sp/>the<sp/>states<sp/>of<sp/>all<sp/>of<sp/>the<sp/>pins.</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>is<sp/>particularly<sp/>important<sp/>in<sp/>a<sp/>scenario<sp/>like<sp/>a<sp/>keypad<sp/>where<sp/>independent</highlight></codeline>
+<codeline><highlight class="normal">async<sp/>reads<sp/>can<sp/>make<sp/>it<sp/>extremely<sp/>challenging<sp/>to<sp/>get<sp/>the<sp/>state<sp/>of<sp/>the<sp/>keypress<sp/>properly.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Requirements</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Currently<sp/>unimplemented<sp/>(PoC<sp/>to<sp/>come<sp/>shortly)</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>An<sp/>array<sp/>of<sp/>pin<sp/>groups<sp/>(suggest<sp/>8<sp/>groups<sp/>so<sp/>it<sp/>can<sp/>be<sp/>identifed<sp/>with<sp/>3<sp/>bits<sp/></highlight></codeline>
+<codeline><highlight class="normal">each<sp/>with<sp/>up<sp/>to<sp/>14<sp/>pins<sp/>defined<sp/>in<sp/>the<sp/>group)</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Modifications<sp/>to<sp/>firmata<sp/>to<sp/>accept<sp/>the<sp/>new<sp/>protocol.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Protocol</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Digital<sp/>Pin<sp/>Group<sp/>commands</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>order<sp/>to<sp/>save<sp/>space<sp/>in<sp/>the<sp/>protocol,<sp/>the<sp/>Digital<sp/>Pin<sp/>Group<sp/>command<sp/>comprises</highlight></codeline>
+<codeline><highlight class="normal">both<sp/>protocol<sp/>commands<sp/>as<sp/>well<sp/>as<sp/>the<sp/>id<sp/>address<sp/>space<sp/>for<sp/>the<sp/>groups<sp/>as<sp/>below:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">LSB</highlight></codeline>
+<codeline><highlight class="normal">0<sp/>-<sp/>2:<sp/><sp/>3<sp/>bits<sp/>to<sp/>determine<sp/>which<sp/>Pin<sp/>Group<sp/>command<sp/>is<sp/>being<sp/>issued</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/><sp/><sp/>:<sp/><sp/>Reserved<sp/>for<sp/>future<sp/>use<sp/>/<sp/>address<sp/>space<sp/>increases</highlight></codeline>
+<codeline><highlight class="normal">4<sp/>-<sp/>6:<sp/><sp/>3<sp/>bits<sp/>for<sp/>Pin<sp/>Group<sp/>ID<sp/>address<sp/>space<sp/>-<sp/>providing<sp/>up<sp/>to<sp/>8<sp/>distinct<sp/>digital<sp/>pin<sp/>groups</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Command<sp/>values<sp/>are<sp/>provided<sp/>below</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">CONFIG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00)</highlight></codeline>
+<codeline><highlight class="normal">CLEAR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">PIN_STATE_SET<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="normal">PIN_STATE_REQUEST<sp/><sp/><sp/>(0x03)</highlight></codeline>
+<codeline><highlight class="normal">PIN_STATE_REPLY<sp/><sp/><sp/><sp/><sp/>(0x04)</highlight></codeline>
+<codeline><highlight class="normal">future<sp/>reserved<sp/><sp/><sp/><sp/><sp/>(0x05<sp/>-<sp/>0x07)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Configuration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Specifies<sp/>which<sp/>pins<sp/>should<sp/>be<sp/>grouped<sp/>together<sp/>and<sp/>in<sp/>which<sp/>order.<sp/>A<sp/>maximum</highlight></codeline>
+<codeline><highlight class="normal">of<sp/>14<sp/>pins<sp/>can<sp/>be<sp/>grouped<sp/>together<sp/>in<sp/>one<sp/>pin<sp/>group.<sp/>When<sp/>specified<sp/>in<sp/>the<sp/>config</highlight></codeline>
+<codeline><highlight class="normal">message,<sp/>the<sp/>pins<sp/>will<sp/>be<sp/>provided<sp/>in<sp/>little<sp/>endian<sp/>style<sp/>so<sp/>the<sp/>first<sp/>pin<sp/>will</highlight></codeline>
+<codeline><highlight class="normal">then<sp/>be<sp/>configured<sp/>to<sp/>mapped<sp/>to<sp/>the<sp/>Least<sp/>Significant<sp/>Bit<sp/>in<sp/>subsequent<sp/>write</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>read<sp/>messages.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>pin<sp/>group<sp/>command<sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>pin<sp/>group<sp/>id<sp/>(0<sp/>-<sp/>7)<sp/>&lt;&lt;<sp/>4<sp/>|<sp/>CONFIG</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>lowest<sp/>bit<sp/>set<sp/>for<sp/>pinMode<sp/>(0=READ,<sp/>1=WRITE)<sp/>top<sp/>6<sp/>bits<sp/>reserved</highlight></codeline>
+<codeline><highlight class="normal">4:<sp/><sp/>first<sp/>pin<sp/>in<sp/>pin<sp/>group<sp/>(0<sp/>-<sp/>127)</highlight></codeline>
+<codeline><highlight class="normal">5:<sp/><sp/>second<sp/>pin<sp/>in<sp/>pin<sp/>group<sp/>(0<sp/>-<sp/>127)</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>up<sp/>to<sp/>maximum<sp/>of<sp/>14</highlight></codeline>
+<codeline><highlight class="normal">N:<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Clear</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Removes<sp/>any<sp/>pin<sp/>entries<sp/>associated<sp/>to<sp/>a<sp/>pin<sp/>group.<sp/>This<sp/>should<sp/>free<sp/>up<sp/>any</highlight></codeline>
+<codeline><highlight class="normal">memory<sp/>that<sp/>has<sp/>been<sp/>allocted<sp/>and<sp/>remove<sp/>any<sp/>references<sp/>to<sp/>the<sp/>pins<sp/>that<sp/>were</highlight></codeline>
+<codeline><highlight class="normal">configured.<sp/>This<sp/>is<sp/>to<sp/>ensure<sp/>no<sp/>side<sp/>effects<sp/>occur<sp/>if<sp/>a<sp/>pin<sp/>group<sp/>is<sp/>recycled.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>pin<sp/>group<sp/>command<sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>pin<sp/>group<sp/>id<sp/>(0<sp/>-7)<sp/>&lt;&lt;<sp/>4<sp/>|<sp/>CLEAR</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>State<sp/>set</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sets<sp/>the<sp/>states<sp/>of<sp/>the<sp/>pins<sp/>in<sp/>the<sp/>group.<sp/>As<sp/>noted<sp/>above,<sp/>the<sp/>first<sp/>pin<sp/>that</highlight></codeline>
+<codeline><highlight class="normal">is<sp/>supplied<sp/>in<sp/>the<sp/>config<sp/>will<sp/>be<sp/>considered<sp/>the<sp/>least<sp/>significant<sp/>bit<sp/>in<sp/>this</highlight></codeline>
+<codeline><highlight class="normal">message.<sp/>Any<sp/>values<sp/>provided<sp/>that<sp/>don&apos;t<sp/>match<sp/>the<sp/>config<sp/>definition<sp/>should<sp/>simply</highlight></codeline>
+<codeline><highlight class="normal">be<sp/>ignored<sp/>(ie<sp/>a<sp/>value<sp/>comes<sp/>through<sp/>for<sp/>the<sp/>5th<sp/>pin<sp/>in<sp/>the<sp/>group<sp/>but<sp/>none<sp/>was</highlight></codeline>
+<codeline><highlight class="normal">defined<sp/>so<sp/>it<sp/>should<sp/>be<sp/>ignored).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>pin<sp/>group<sp/>command<sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>pin<sp/>group<sp/>id<sp/>(0<sp/>-<sp/>7)<sp/>&lt;&lt;<sp/>4<sp/>|<sp/>PIN_STATE_SET</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>packed<sp/>7<sp/>bit<sp/>array<sp/>as<sp/>single<sp/>byte<sp/>providing<sp/>values<sp/>for<sp/>the<sp/>pin<sp/>group</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>optional<sp/>second<sp/>packed<sp/>7<sp/>bit<sp/>array<sp/>providing<sp/>values<sp/>for<sp/>the<sp/>pin<sp/>group</highlight></codeline>
+<codeline><highlight class="normal">N:<sp/><sp/>END_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF7)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>State<sp/>request<sp/>and<sp/>reply</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Getting<sp/>the<sp/>states<sp/>of<sp/>the<sp/>group<sp/>of<sp/>pins<sp/>(essentially<sp/>a<sp/>group<sp/>digital<sp/>read)</highlight></codeline>
+<codeline><highlight class="normal">comprises<sp/>a<sp/>request<sp/>to<sp/>the<sp/>board<sp/>and<sp/>a<sp/>reply<sp/>back.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Make<sp/>a<sp/>request<sp/>for<sp/>getting<sp/>the<sp/>states<sp/>of<sp/>the<sp/>pin<sp/>group.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>pin<sp/>group<sp/>command<sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>pin<sp/>group<sp/>id<sp/>(0<sp/>-<sp/>7)<sp/>&lt;&lt;<sp/>4<sp/>|<sp/>PIN_STATE_REQUEST</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>END_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Reply<sp/>with<sp/>the<sp/>pin<sp/>states.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">0:<sp/><sp/>START_SYSEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1:<sp/><sp/>pin<sp/>group<sp/>command<sp/><sp/><sp/>(0x60)</highlight></codeline>
+<codeline><highlight class="normal">2:<sp/><sp/>pin<sp/>group<sp/>id<sp/>(0<sp/>-<sp/>7)<sp/>&lt;&lt;<sp/>4<sp/>|<sp/>PIN_STATE_REPLY</highlight></codeline>
+<codeline><highlight class="normal">3:<sp/><sp/>packed<sp/>7<sp/>bit<sp/>array<sp/>representing<sp/>pin<sp/>states,<sp/>LSB<sp/>is<sp/>first<sp/>pin<sp/>defined<sp/>in<sp/>config</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>optional<sp/>second<sp/>7<sp/>bit<sp/>array<sp/>representing<sp/>pin<sp/>states<sp/>for<sp/>additional<sp/>pins<sp/>in<sp/>group</highlight></codeline>
+<codeline><highlight class="normal">N:<sp/><sp/>END_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="protocol/proposals/pingroups-proposal.md"/>
+  </compounddef>
+</doxygen>

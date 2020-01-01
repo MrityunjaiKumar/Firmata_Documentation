@@ -1,0 +1,423 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="_firmata_parser_8cpp" kind="file" language="C++">
+    <compoundname>FirmataParser.cpp</compoundname>
+    <includes refid="_firmata_parser_8h" local="yes">FirmataParser.h</includes>
+    <includes refid="_firmata_constants_8h" local="yes">FirmataConstants.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>FirmataParser.cpp</label>
+        <link refid="_firmata_parser_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>FirmataConstants.h</label>
+        <link refid="_firmata_constants_8h"/>
+      </node>
+      <node id="4">
+        <label>stdint.h</label>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>FirmataParser.h</label>
+        <link refid="_firmata_parser_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>FirmataParser.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>Copyright<sp/>(c)<sp/>2006-2008<sp/>Hans-Christoph<sp/>Steiner.<sp/><sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>Copyright<sp/>(C)<sp/>2009-2016<sp/>Jeff<sp/>Hoefs.<sp/><sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"></highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/>This<sp/>library<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/>modify<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/><sp/>License<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/>version<sp/>2.1<sp/>of<sp/>the<sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/>See<sp/>file<sp/>LICENSE.txt<sp/>for<sp/>further<sp/>informations<sp/>on<sp/>licensing<sp/>terms.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//******************************************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//*<sp/>Includes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//******************************************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_firmata_parser_8h" kindref="compound">FirmataParser.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_firmata_constants_8h" kindref="compound">FirmataConstants.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacefirmata" kindref="compound">firmata</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//******************************************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//*<sp/>Constructors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//******************************************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="classfirmata_1_1_firmata_parser_1ac8c388b593a00e88856646712beae68b" refkind="member"><highlight class="normal"><ref refid="classfirmata_1_1_firmata_parser_1ac8c388b593a00e88856646712beae68b" kindref="member">FirmataParser::FirmataParser</ref>(uint8_t<sp/>*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dataBuffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dataBufferSize)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">:</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>dataBuffer(dataBuffer),</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>dataBufferSize(dataBufferSize),</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>executeMultiByteCommand(0),</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>multiByteChannel(0),</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>waitForData(0),</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>parsingSysex(false),</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>sysexBytesRead(0),</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>currentAnalogCallbackContext((void<sp/>*)NULL),</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>currentDigitalCallbackContext((void<sp/>*)NULL),</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>currentReportAnalogCallbackContext((void<sp/>*)NULL),</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>currentReportDigitalCallbackContext((void<sp/>*)NULL),</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>currentPinModeCallbackContext((void<sp/>*)NULL),</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>currentPinValueCallbackContext((void<sp/>*)NULL),</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>currentReportFirmwareCallbackContext((void<sp/>*)NULL),</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>currentReportVersionCallbackContext((void<sp/>*)NULL),</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>currentDataBufferOverflowCallbackContext((void<sp/>*)NULL),</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>currentStringCallbackContext((void<sp/>*)NULL),</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>currentSysexCallbackContext((void<sp/>*)NULL),</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>currentSystemResetCallbackContext((void<sp/>*)NULL),</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>currentAnalogCallback((<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)NULL),</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>currentDigitalCallback((<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)NULL),</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>currentReportAnalogCallback((<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)NULL),</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>currentReportDigitalCallback((<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)NULL),</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>currentPinModeCallback((<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)NULL),</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>currentPinValueCallback((<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)NULL),</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>currentDataBufferOverflowCallback((dataBufferOverflowCallbackFunction)NULL),</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>currentStringCallback((<ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref>)NULL),</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>currentSysexCallback((<ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref>)NULL),</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>currentReportFirmwareCallback((versionCallbackFunction)NULL),</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>currentReportVersionCallback((<ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref>)NULL),</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>currentSystemResetCallback((<ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref>)NULL)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>allowBufferUpdate<sp/>=<sp/>((uint8_t<sp/>*)NULL<sp/>==<sp/>dataBuffer);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment">//******************************************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//*<sp/>Public<sp/>Methods</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//******************************************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Serial<sp/>Receive<sp/>Handling</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a754c97b890b7fd66c8d953a3e615acbf" kindref="member">FirmataParser::parse</ref>(uint8_t<sp/>inputData)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>uint8_t<sp/>command;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(parsingSysex)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(inputData<sp/>==<sp/><ref refid="namespacefirmata_1aa4c7b2c2365334150eff56b64c87e6e0" kindref="member">END_SYSEX</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//stop<sp/>sysex<sp/>byte</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>parsingSysex<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//fire<sp/>off<sp/>handler<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>processSysexMessage();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//normal<sp/>data<sp/>byte<sp/>-<sp/>add<sp/>to<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>bufferDataAtPosition(inputData,<sp/>sysexBytesRead);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++sysexBytesRead;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>(waitForData<sp/>&gt;<sp/>0)<sp/>&amp;&amp;<sp/>(inputData<sp/>&lt;<sp/>128)<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>--waitForData;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>bufferDataAtPosition(inputData,<sp/>waitForData);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>(waitForData<sp/>==<sp/>0)<sp/>&amp;&amp;<sp/>executeMultiByteCommand<sp/>)<sp/>{<sp/></highlight><highlight class="comment">//<sp/>got<sp/>the<sp/>whole<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(executeMultiByteCommand)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1aea14613546a585cfec72d5b0f79365ef" kindref="member">ANALOG_MESSAGE</ref>:</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentAnalogCallback)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*currentAnalogCallback)(currentAnalogCallbackContext,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>multiByteChannel,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(dataBuffer[0]<sp/>&lt;&lt;<sp/>7)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>dataBuffer[1]);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a49bf6564630519f4293bd39a71a95b00" kindref="member">DIGITAL_MESSAGE</ref>:</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentDigitalCallback)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*currentDigitalCallback)(currentDigitalCallbackContext,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>multiByteChannel,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(dataBuffer[0]<sp/>&lt;&lt;<sp/>7)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>dataBuffer[1]);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a5ecb59a9641299fcaf2e4ce96587c1f8" kindref="member">SET_PIN_MODE</ref>:</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentPinModeCallback)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*currentPinModeCallback)(currentPinModeCallbackContext,<sp/>dataBuffer[1],<sp/>dataBuffer[0]);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a0a75e8e1855e7dedbbbfd17711f152af" kindref="member">SET_DIGITAL_PIN_VALUE</ref>:</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentPinValueCallback)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*currentPinValueCallback)(currentPinValueCallbackContext,<sp/>dataBuffer[1],<sp/>dataBuffer[0]);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1aea1b306b1e7d3751bba41f311b755a99" kindref="member">REPORT_ANALOG</ref>:</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentReportAnalogCallback)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*currentReportAnalogCallback)(currentReportAnalogCallbackContext,<sp/>multiByteChannel,<sp/>dataBuffer[0]);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a00a56f93ad64fa08998b7db2054180a6" kindref="member">REPORT_DIGITAL</ref>:</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentReportDigitalCallback)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*currentReportDigitalCallback)(currentReportDigitalCallbackContext,<sp/>multiByteChannel,<sp/>dataBuffer[0]);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>executeMultiByteCommand<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>remove<sp/>channel<sp/>info<sp/>from<sp/>command<sp/>byte<sp/>if<sp/>less<sp/>than<sp/>0xF0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(inputData<sp/>&lt;<sp/>0xF0)<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>command<sp/>=<sp/>inputData<sp/>&amp;<sp/>0xF0;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>multiByteChannel<sp/>=<sp/>inputData<sp/>&amp;<sp/>0x0F;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>command<sp/>=<sp/>inputData;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>commands<sp/>in<sp/>the<sp/>0xF*<sp/>range<sp/>don&apos;t<sp/>use<sp/>channel<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(command)<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1aea14613546a585cfec72d5b0f79365ef" kindref="member">ANALOG_MESSAGE</ref>:</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a49bf6564630519f4293bd39a71a95b00" kindref="member">DIGITAL_MESSAGE</ref>:</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a5ecb59a9641299fcaf2e4ce96587c1f8" kindref="member">SET_PIN_MODE</ref>:</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a0a75e8e1855e7dedbbbfd17711f152af" kindref="member">SET_DIGITAL_PIN_VALUE</ref>:</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>waitForData<sp/>=<sp/>2;<sp/></highlight><highlight class="comment">//<sp/>two<sp/>data<sp/>bytes<sp/>needed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executeMultiByteCommand<sp/>=<sp/>command;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1aea1b306b1e7d3751bba41f311b755a99" kindref="member">REPORT_ANALOG</ref>:</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a00a56f93ad64fa08998b7db2054180a6" kindref="member">REPORT_DIGITAL</ref>:</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>waitForData<sp/>=<sp/>1;<sp/></highlight><highlight class="comment">//<sp/>one<sp/>data<sp/>byte<sp/>needed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executeMultiByteCommand<sp/>=<sp/>command;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a8210ab38d9279ef1ea406ff7e1db0893" kindref="member">START_SYSEX</ref>:</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parsingSysex<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sysexBytesRead<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1abba911f61c8df9fc6f6ea7bf041a22b5" kindref="member">SYSTEM_RESET</ref>:</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>systemReset();</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a7aa955ae4335c171096a0224bf279f5b" kindref="member">REPORT_VERSION</ref>:</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentReportVersionCallback)</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*currentReportVersionCallback)(currentReportVersionCallbackContext);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176" refid="classfirmata_1_1_firmata_parser_1a67902b70695eaf0cf8f7b06175ca3902" refkind="member"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a67902b70695eaf0cf8f7b06175ca3902" kindref="member">FirmataParser::isParsingMessage</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight><highlight class="keyword"></highlight></codeline>
+<codeline lineno="177"><highlight class="keyword">const</highlight></codeline>
+<codeline lineno="178"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(waitForData<sp/>&gt;<sp/>0<sp/>||<sp/>parsingSysex);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189" refid="classfirmata_1_1_firmata_parser_1a8fbe143ddb428a97c00a15993c31a516" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a8fbe143ddb428a97c00a15993c31a516" kindref="member">FirmataParser::setDataBufferOfSize</ref>(uint8_t<sp/>*<sp/>dataBuffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dataBufferSize)</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!allowBufferUpdate<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>=<sp/>__LINE__;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((uint8_t<sp/>*)NULL<sp/>==<sp/>dataBuffer)<sp/>{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>=<sp/>__LINE__;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;dataBuffer<sp/>=<sp/>dataBuffer;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;dataBufferSize<sp/>=<sp/>dataBufferSize;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>allowBufferUpdate<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216" refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">FirmataParser::attach</ref>(uint8_t<sp/>command,<sp/><ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref><sp/>newFunction,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context)</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(command)<sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1aea14613546a585cfec72d5b0f79365ef" kindref="member">ANALOG_MESSAGE</ref>:</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentAnalogCallback<sp/>=<sp/>newFunction;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentAnalogCallbackContext<sp/>=<sp/>context;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a49bf6564630519f4293bd39a71a95b00" kindref="member">DIGITAL_MESSAGE</ref>:</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentDigitalCallback<sp/>=<sp/>newFunction;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentDigitalCallbackContext<sp/>=<sp/>context;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1aea1b306b1e7d3751bba41f311b755a99" kindref="member">REPORT_ANALOG</ref>:</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentReportAnalogCallback<sp/>=<sp/>newFunction;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentReportAnalogCallbackContext<sp/>=<sp/>context;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a00a56f93ad64fa08998b7db2054180a6" kindref="member">REPORT_DIGITAL</ref>:</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentReportDigitalCallback<sp/>=<sp/>newFunction;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentReportDigitalCallbackContext<sp/>=<sp/>context;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a5ecb59a9641299fcaf2e4ce96587c1f8" kindref="member">SET_PIN_MODE</ref>:</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentPinModeCallback<sp/>=<sp/>newFunction;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentPinModeCallbackContext<sp/>=<sp/>context;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a0a75e8e1855e7dedbbbfd17711f152af" kindref="member">SET_DIGITAL_PIN_VALUE</ref>:</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentPinValueCallback<sp/>=<sp/>newFunction;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentPinValueCallbackContext<sp/>=<sp/>context;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="244"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254" refid="classfirmata_1_1_firmata_parser_1a876105f2203f5e8f1fb06c8236a96933" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">FirmataParser::attach</ref>(uint8_t<sp/>command,<sp/>versionCallbackFunction<sp/>newFunction,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context)</highlight></codeline>
+<codeline lineno="255"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(command)<sp/>{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a27aae72a38fab1b0b039d7687e294398" kindref="member">REPORT_FIRMWARE</ref>:</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentReportFirmwareCallback<sp/>=<sp/>newFunction;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentReportFirmwareCallbackContext<sp/>=<sp/>context;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="262"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272" refid="classfirmata_1_1_firmata_parser_1affc821e7742d889965e61b248c204842" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">FirmataParser::attach</ref>(uint8_t<sp/>command,<sp/><ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref><sp/>newFunction,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context)</highlight></codeline>
+<codeline lineno="273"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(command)<sp/>{</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a7aa955ae4335c171096a0224bf279f5b" kindref="member">REPORT_VERSION</ref>:</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentReportVersionCallback<sp/>=<sp/>newFunction;</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentReportVersionCallbackContext<sp/>=<sp/>context;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1abba911f61c8df9fc6f6ea7bf041a22b5" kindref="member">SYSTEM_RESET</ref>:</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentSystemResetCallback<sp/>=<sp/>newFunction;</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentSystemResetCallbackContext<sp/>=<sp/>context;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="284"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294" refid="classfirmata_1_1_firmata_parser_1a239b37e09dea042d229fc2171d3a1979" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">FirmataParser::attach</ref>(uint8_t<sp/>command,<sp/><ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref><sp/>newFunction,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context)</highlight></codeline>
+<codeline lineno="295"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(command)<sp/>{</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1ada4a2133aced1b1051f4663a8365bbc6" kindref="member">STRING_DATA</ref>:</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentStringCallback<sp/>=<sp/>newFunction;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>currentStringCallbackContext<sp/>=<sp/>context;</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="302"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312" refid="classfirmata_1_1_firmata_parser_1aaa1d755b20b21e528bfa62d6a7c2dc0f" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">FirmataParser::attach</ref>(uint8_t<sp/>command,<sp/><ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref><sp/>newFunction,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context)</highlight></codeline>
+<codeline lineno="313"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/>(void)command;</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/>currentSysexCallback<sp/>=<sp/>newFunction;</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/>currentSysexCallbackContext<sp/>=<sp/>context;</highlight></codeline>
+<codeline lineno="317"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326" refid="classfirmata_1_1_firmata_parser_1ae176414892a2d240b921c2b8037a8ade" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">FirmataParser::attach</ref>(dataBufferOverflowCallbackFunction<sp/>newFunction,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>context)</highlight></codeline>
+<codeline lineno="327"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/>currentDataBufferOverflowCallback<sp/>=<sp/>newFunction;</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/>currentDataBufferOverflowCallbackContext<sp/>=<sp/>context;</highlight></codeline>
+<codeline lineno="330"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight></codeline>
+<codeline lineno="337" refid="classfirmata_1_1_firmata_parser_1a7cd707386c0807bee733a3e27d161c7d" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a7cd707386c0807bee733a3e27d161c7d" kindref="member">FirmataParser::detach</ref>(uint8_t<sp/>command)</highlight></codeline>
+<codeline lineno="338"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(command)<sp/>{</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a27aae72a38fab1b0b039d7687e294398" kindref="member">REPORT_FIRMWARE</ref>:</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">attach</ref>(command,<sp/>(<ref refid="classfirmata_1_1_firmata_parser_1a6be4a3c92941c1de63b44918bbbda545" kindref="member">versionCallbackFunction</ref>)NULL,<sp/>NULL);</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a7aa955ae4335c171096a0224bf279f5b" kindref="member">REPORT_VERSION</ref>:</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1abba911f61c8df9fc6f6ea7bf041a22b5" kindref="member">SYSTEM_RESET</ref>:</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">attach</ref>(command,<sp/>(<ref refid="_firmata_8h_1a3edf3f3c181d5ec58c3deb3e5eb7a933" kindref="member">systemCallbackFunction</ref>)NULL,<sp/>NULL);</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1ada4a2133aced1b1051f4663a8365bbc6" kindref="member">STRING_DATA</ref>:</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">attach</ref>(command,<sp/>(<ref refid="_firmata_8h_1ae8cc4d167596bda9460991674389d15c" kindref="member">stringCallbackFunction</ref>)NULL,<sp/>NULL);</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a8210ab38d9279ef1ea406ff7e1db0893" kindref="member">START_SYSEX</ref>:</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">attach</ref>(command,<sp/>(<ref refid="_firmata_8h_1a21b9d98a7bff8ee5e96a9ee521618c8c" kindref="member">sysexCallbackFunction</ref>)NULL,<sp/>NULL);</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classfirmata_1_1_firmata_parser_1a2a472a925ed7e626ed36dee94ceae45e" kindref="member">attach</ref>(command,<sp/>(<ref refid="_firmata_8h_1ac1d919f56c49d2e9559967b3b950e504" kindref="member">callbackFunction</ref>)NULL,<sp/>NULL);</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="357"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"></highlight></codeline>
+<codeline lineno="363" refid="classfirmata_1_1_firmata_parser_1a280ac17e428f8374afd30bce75e9a861" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classfirmata_1_1_firmata_parser_1a7cd707386c0807bee733a3e27d161c7d" kindref="member">FirmataParser::detach</ref>(dataBufferOverflowCallbackFunction)</highlight></codeline>
+<codeline lineno="364"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/>currentDataBufferOverflowCallback<sp/>=<sp/>(<ref refid="classfirmata_1_1_firmata_parser_1a7ba04f2773f1052fc014c93d309fe069" kindref="member">dataBufferOverflowCallbackFunction</ref>)NULL;</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/>currentDataBufferOverflowCallbackContext<sp/>=<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)NULL;</highlight></codeline>
+<codeline lineno="367"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"></highlight><highlight class="comment">//******************************************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="370"><highlight class="normal"></highlight><highlight class="comment">//*<sp/>Private<sp/>Methods</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal"></highlight><highlight class="comment">//******************************************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight></codeline>
+<codeline lineno="380"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>FirmataParser::bufferDataAtPosition(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>data,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>pos)</highlight></codeline>
+<codeline lineno="381"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bufferOverflow<sp/>=<sp/>(pos<sp/>&gt;=<sp/>dataBufferSize);</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"></highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Notify<sp/>of<sp/>overflow<sp/>condition</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>bufferOverflow</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/>&amp;&amp;<sp/>((<ref refid="classfirmata_1_1_firmata_parser_1a7ba04f2773f1052fc014c93d309fe069" kindref="member">dataBufferOverflowCallbackFunction</ref>)NULL<sp/>!=<sp/>currentDataBufferOverflowCallback)<sp/>)</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/>allowBufferUpdate<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/>currentDataBufferOverflowCallback(currentDataBufferOverflowCallbackContext);</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>overflow<sp/>was<sp/>resolved<sp/>during<sp/>callback</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="391"><highlight class="normal"><sp/><sp/><sp/><sp/>bufferOverflow<sp/>=<sp/>(pos<sp/>&gt;=<sp/>dataBufferSize);</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="393"><highlight class="normal"></highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Write<sp/>data<sp/>to<sp/>buffer<sp/>if<sp/>no<sp/>overflow<sp/>condition<sp/>persist</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!bufferOverflow<sp/>)</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/>dataBuffer[pos]<sp/>=<sp/>data;</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"></highlight></codeline>
+<codeline lineno="400"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bufferOverflow;</highlight></codeline>
+<codeline lineno="401"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="402"><highlight class="normal"></highlight></codeline>
+<codeline lineno="411"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>FirmataParser::decodeByteStream(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bytec,<sp/>uint8_t<sp/>*<sp/>bytev)<sp/>{</highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>decoded_bytes,<sp/>i;</highlight></codeline>
+<codeline lineno="413"><highlight class="normal"></highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>i<sp/>=<sp/>0,<sp/>decoded_bytes<sp/>=<sp/>0<sp/>;<sp/>i<sp/>&lt;<sp/>bytec<sp/>;<sp/>++decoded_bytes,<sp/>++i<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"><sp/><sp/><sp/><sp/>bytev[decoded_bytes]<sp/>=<sp/>bytev[i];</highlight></codeline>
+<codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/>bytev[decoded_bytes]<sp/>|=<sp/>(uint8_t)(bytev[++i]<sp/>&lt;&lt;<sp/>7);</highlight></codeline>
+<codeline lineno="417"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="418"><highlight class="normal"></highlight></codeline>
+<codeline lineno="419"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>decoded_bytes;</highlight></codeline>
+<codeline lineno="420"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="421"><highlight class="normal"></highlight></codeline>
+<codeline lineno="427"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FirmataParser::processSysexMessage(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="428"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="429"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(dataBuffer[0])<sp/>{<sp/></highlight><highlight class="comment">//first<sp/>byte<sp/>in<sp/>buffer<sp/>is<sp/>command</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="430"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1a27aae72a38fab1b0b039d7687e294398" kindref="member">REPORT_FIRMWARE</ref>:</highlight></codeline>
+<codeline lineno="431"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentReportFirmwareCallback)<sp/>{</highlight></codeline>
+<codeline lineno="432"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>major_version_offset<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="433"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>minor_version_offset<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>string_offset<sp/>=<sp/>3;</highlight></codeline>
+<codeline lineno="435"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>for<sp/>malformed<sp/>REPORT_FIRMWARE<sp/>message<sp/>(used<sp/>to<sp/>query<sp/>firmware<sp/>prior<sp/>to<sp/>Firmata<sp/>v3.0.0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="436"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>3<sp/>&gt;<sp/>sysexBytesRead<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="437"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*currentReportFirmwareCallback)(currentReportFirmwareCallbackContext,<sp/>0,<sp/>0,<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*)NULL);</highlight></codeline>
+<codeline lineno="438"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>end_of_string<sp/>=<sp/>(string_offset<sp/>+<sp/>decodeByteStream((sysexBytesRead<sp/>-<sp/>string_offset),<sp/>&amp;dataBuffer[string_offset]));</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bufferDataAtPosition(</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">,<sp/>end_of_string);<sp/></highlight><highlight class="comment">//<sp/>NULL<sp/>terminate<sp/>the<sp/>string</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="441"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*currentReportFirmwareCallback)(currentReportFirmwareCallbackContext,<sp/>(size_t)dataBuffer[major_version_offset],<sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">)dataBuffer[minor_version_offset],<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*)&amp;dataBuffer[string_offset]);</highlight></codeline>
+<codeline lineno="442"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="443"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="444"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacefirmata_1ada4a2133aced1b1051f4663a8365bbc6" kindref="member">STRING_DATA</ref>:</highlight></codeline>
+<codeline lineno="446"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentStringCallback)<sp/>{</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>string_offset<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="448"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>end_of_string<sp/>=<sp/>(string_offset<sp/>+<sp/>decodeByteStream((sysexBytesRead<sp/>-<sp/>string_offset),<sp/>&amp;dataBuffer[string_offset]));</highlight></codeline>
+<codeline lineno="449"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bufferDataAtPosition(</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">,<sp/>end_of_string);<sp/></highlight><highlight class="comment">//<sp/>NULL<sp/>terminate<sp/>the<sp/>string</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="450"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*currentStringCallback)(currentStringCallbackContext,<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*)&amp;dataBuffer[string_offset]);</highlight></codeline>
+<codeline lineno="451"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="452"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="453"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="454"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentSysexCallback)</highlight></codeline>
+<codeline lineno="455"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*currentSysexCallback)(currentSysexCallbackContext,<sp/>dataBuffer[0],<sp/>sysexBytesRead<sp/>-<sp/>1,<sp/>dataBuffer<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="456"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="457"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="458"><highlight class="normal"></highlight></codeline>
+<codeline lineno="463"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FirmataParser::systemReset(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="464"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="465"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="466"><highlight class="normal"></highlight></codeline>
+<codeline lineno="467"><highlight class="normal"><sp/><sp/>waitForData<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>this<sp/>flag<sp/>says<sp/>the<sp/>next<sp/>serial<sp/>input<sp/>will<sp/>be<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="468"><highlight class="normal"><sp/><sp/>executeMultiByteCommand<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>execute<sp/>this<sp/>after<sp/>getting<sp/>multi-byte<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="469"><highlight class="normal"><sp/><sp/>multiByteChannel<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>channel<sp/>data<sp/>for<sp/>multiByteCommands</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="470"><highlight class="normal"></highlight></codeline>
+<codeline lineno="471"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>dataBufferSize;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="472"><highlight class="normal"><sp/><sp/><sp/><sp/>dataBuffer[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="473"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="474"><highlight class="normal"></highlight></codeline>
+<codeline lineno="475"><highlight class="normal"><sp/><sp/>parsingSysex<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="476"><highlight class="normal"><sp/><sp/>sysexBytesRead<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="477"><highlight class="normal"></highlight></codeline>
+<codeline lineno="478"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentSystemResetCallback)</highlight></codeline>
+<codeline lineno="479"><highlight class="normal"><sp/><sp/><sp/><sp/>(*currentSystemResetCallback)(currentSystemResetCallbackContext);</highlight></codeline>
+<codeline lineno="480"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="arduino/FirmataParser.cpp"/>
+  </compounddef>
+</doxygen>

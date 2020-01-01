@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md__g_1__arduino-workspace__firmata_protocol_proposals_shift-proposal" kind="page">
+    <compoundname>md_G:_Arduino-workspace_Firmata_protocol_proposals_shift-proposal</compoundname>
+    <title>shift in/out proposal</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>There are a few different ways to approach shift in/out support. It&apos;s complicated since different hardware handles shift in/out in different ways. For example, not all hardware requires a latch pin and those that use some sort of a latch don&apos;t always use it the same way.</para>
+<para>There has also been some discussion around supporting fractional byte devices. The proposals below do not include such functionality. I&apos;m not sure how popular such devices are. If someone has a proposal that includes support for shifting fractional bytes, please submit a pull request to add the proposal to this document.</para>
+<sect1 id="md__g_1__arduino-workspace__firmata_protocol_proposals_shift-proposal_1autotoc_md77">
+<title>Propoasl A: shift in/out with no config or latch support</title>
+<para>In this version it the user must configure the pin (input / output) separately. If the hardware they are using requires a latch, the latch pin must be managed separately.</para>
+<para><programlisting><codeline><highlight class="normal">//<sp/>shift<sp/>out</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SHIFT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x75)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SHIFT_OUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x01)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>dataPin</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>clockPin</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>bitOrder<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(MSBFIRST<sp/>or<sp/>LSBFIRST)</highlight></codeline>
+<codeline><highlight class="normal">n<sp/>...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(shift<sp/>out<sp/>data)</highlight></codeline>
+<codeline><highlight class="normal">n+1<sp/>END_SYSEX</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>shift<sp/>in<sp/>(for<sp/>client<sp/>application<sp/>to<sp/>request<sp/>shift-in<sp/>data<sp/>from<sp/>microcontroller)</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SHIFT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x75)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SHIFT_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x02)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>dataPin</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>clockPin</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>bitOrder<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(MSBFIRST<sp/>or<sp/>LSBFIRST)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>numBytes<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(number<sp/>of<sp/>bytes<sp/>to<sp/>shift<sp/>in.<sp/>Default<sp/>to<sp/>1)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/>END_SYSEX</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>shift<sp/>in<sp/>reply<sp/>(for<sp/>sending<sp/>shift-in<sp/>data<sp/>to<sp/>client<sp/>application)</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SHIFT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x75)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SHIFT_IN_REPLY<sp/><sp/><sp/><sp/><sp/><sp/>(0x03)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>dataPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(so<sp/>you<sp/>know<sp/>which<sp/>data<sp/>pin<sp/>the<sp/>reply<sp/>corresponds<sp/>to)</highlight></codeline>
+<codeline><highlight class="normal">n<sp/>...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(shift<sp/>in<sp/>data)</highlight></codeline>
+<codeline><highlight class="normal">n+1<sp/>END_SYSEX</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="md__g_1__arduino-workspace__firmata_protocol_proposals_shift-proposal_1autotoc_md78">
+<title>Proposal B: shift in/out with config and latch support</title>
+<para>The advantages with this version over the one above is that pin modes are handled by the implementation (in the other version you have to handle them manually). You also send fewer bytes when shifting out or in data (since only have to specify clock, bitOrder and optional latch pin once when sending the config). The disadvantage is that memory must be allocated to store pin information.</para>
+<para>Another advantage with this version is that you can rely on the firmware to do more of the work. For example you can shift in multiple bytes at a time and send them to the client in a single packet rather than a single byte at at time (if your hardware requires a latch/load pin).</para>
+<para>This version uses a SHIFT_CONFIG command to set the clock pin, bitOrder and optional latchPin (or load for some shift-in hardware). There are a few different shift types / latch configurations:</para>
+<para><programlisting><codeline><highlight class="normal">//<sp/>shift<sp/>types<sp/>(specified<sp/>in<sp/>bits<sp/>3:5<sp/>of<sp/>byte<sp/>2)</highlight></codeline>
+<codeline><highlight class="normal">SHIFT_OUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>shift<sp/>out<sp/>with<sp/>no<sp/>latch</highlight></codeline>
+<codeline><highlight class="normal">SHIFT_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>shift<sp/>out<sp/>with<sp/>no<sp/>latch/load</highlight></codeline>
+<codeline><highlight class="normal">LATCH_L_SHIFT_OUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>set<sp/>latch<sp/>low<sp/>then<sp/>shift<sp/>out</highlight></codeline>
+<codeline><highlight class="normal">LATCH_L_SHIFT_OUT_LATCH_H<sp/><sp/><sp/><sp/><sp/>//<sp/>set<sp/>latch<sp/>low,<sp/>shift<sp/>out,<sp/>then<sp/>set<sp/>latch<sp/>high</highlight></codeline>
+<codeline><highlight class="normal">SHIFT_OUT_LATCH_H<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>shift<sp/>out<sp/>then<sp/>set<sp/>latch<sp/>high</highlight></codeline>
+<codeline><highlight class="normal">TOGGLE_LOAD_SHIFT_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>toggle<sp/>load<sp/>pin<sp/>low,<sp/>then<sp/>high<sp/>and<sp/>shift<sp/>in</highlight></codeline>
+</programlisting></para>
+<para>The protocol is as follows: <programlisting><codeline><highlight class="normal">//<sp/>shift<sp/>config<sp/>(send<sp/>when<sp/>instantiating<sp/>a<sp/>new<sp/>shift-based<sp/>hardware<sp/>module)</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SHIFT_DATA<sp/><sp/><sp/><sp/>(0x75)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SHIFT_CONFIG<sp/><sp/>(bits<sp/>0:2<sp/>shift<sp/>command,<sp/>bits<sp/>3:5<sp/>shift<sp/>type,<sp/>bit<sp/>6<sp/>unused)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>dataPin</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>clockPin</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>bitOrder</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>latchPin<sp/><sp/><sp/><sp/><sp/><sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">7<sp/>END_SYSEX</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>shift<sp/>out</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SHIFT_DATA<sp/><sp/><sp/><sp/>(0x75)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SHIFT_OUT<sp/><sp/><sp/><sp/><sp/>(bits<sp/>0:2<sp/>shift<sp/>command,<sp/>bits<sp/>3:5<sp/>shift<sp/>type,<sp/>bit<sp/>6<sp/>unused)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>dataPin</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>...<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(shift<sp/>out<sp/>data)</highlight></codeline>
+<codeline><highlight class="normal">n+1<sp/>END_SYSEX</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>shift<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">0<sp/><sp/>START_SYSEX</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>SHIFT_DATA<sp/><sp/><sp/><sp/>(0x75)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>SHIFT_IN<sp/><sp/><sp/><sp/><sp/><sp/>(bits<sp/>0:2<sp/>shift<sp/>command,<sp/>bits<sp/>3:5<sp/>shift<sp/>type,<sp/>bit<sp/>6<sp/>unused)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>dataPin</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>numBytes<sp/><sp/><sp/><sp/><sp/><sp/>(number<sp/>of<sp/>bytes<sp/>to<sp/>shift<sp/>in.<sp/>Default<sp/>to<sp/>1)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>END_SYSEX</highlight></codeline>
+</programlisting> </para>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

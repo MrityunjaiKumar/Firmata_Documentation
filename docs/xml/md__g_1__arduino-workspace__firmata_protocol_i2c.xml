@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="md__g_1__arduino-workspace__firmata_protocol_i2c" kind="page">
+    <compoundname>md_G:_Arduino-workspace_Firmata_protocol_i2c</compoundname>
+    <title>I2C</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Enables communication with I2C devices. Currently only supports one I2C port per board.</para>
+<para>Added in Firmata protocol version 2.1.0.</para>
+<sect2 id="md__g_1__arduino-workspace__firmata_protocol_i2c_1autotoc_md29">
+<title>I2C read/write request</title>
+<para>Updated in Firmata 2.5.1 to enable setting auto-restart by setting bit 6 of byte 3.</para>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>I2C_REQUEST<sp/>(0x76)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>slave<sp/>address<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>slave<sp/>address<sp/>(MSB)<sp/>+<sp/>read/write<sp/>and<sp/>address<sp/>mode<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>{bit<sp/>7:<sp/>always<sp/>0}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>{bit<sp/>6:<sp/>auto<sp/>restart<sp/>transmission,<sp/>0<sp/>=<sp/>stop<sp/>(default),<sp/>1<sp/>=<sp/>restart}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>{bit<sp/>5:<sp/>address<sp/>mode,<sp/>1<sp/>=<sp/>10-bit<sp/>mode}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>{bits<sp/>4-3:<sp/>read/write,<sp/>00<sp/>=<sp/>write,<sp/>01<sp/>=<sp/>read<sp/>once,<sp/>10<sp/>=<sp/>read<sp/>continuously,<sp/>11<sp/>=<sp/>stop<sp/>reading}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>{bits<sp/>2-0:<sp/>slave<sp/>address<sp/>MSB<sp/>in<sp/>10-bit<sp/>mode,<sp/>not<sp/>used<sp/>in<sp/>7-bit<sp/>mode}</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>data<sp/>0<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>data<sp/>0<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>data<sp/>1<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>data<sp/>1<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>END_SYSEX<sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>A note about read/write modes (above). The <computeroutput>read continuously</computeroutput> mode indicates that the firmware should continuously read the device at the rate specified by the <ulink url="https://github.com/firmata/protocol/blob/master/protocol.md">sampling interval</ulink>. A firmware implementation should support read continuous mode for several I2C devices simultaneously. Sending the <computeroutput>stop reading</computeroutput> command will end read continuous mode for that particular device.</para>
+<para><emphasis>auto-restart (byte 3, bit 6) is needed by some devices such as the MMA8452Q accelerometer and the MPL3115As altimeter</emphasis></para>
+</sect2>
+<sect2 id="md__g_1__arduino-workspace__firmata_protocol_i2c_1autotoc_md30">
+<title>I2C reply</title>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>I2C_REPLY<sp/>(0x77)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>slave<sp/>address<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>slave<sp/>address<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">4<sp/><sp/>register<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">5<sp/><sp/>register<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">6<sp/><sp/>data<sp/>0<sp/>(LSB)</highlight></codeline>
+<codeline><highlight class="normal">7<sp/><sp/>data<sp/>0<sp/>(MSB)</highlight></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>END_SYSEX<sp/>(0XF7)</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__g_1__arduino-workspace__firmata_protocol_i2c_1autotoc_md31">
+<title>I2C config</title>
+<para><programlisting><codeline><highlight class="normal">0<sp/><sp/>START_SYSEX<sp/>(0xF0)</highlight></codeline>
+<codeline><highlight class="normal">1<sp/><sp/>I2C_CONFIG<sp/>(0x78)</highlight></codeline>
+<codeline><highlight class="normal">2<sp/><sp/>Delay<sp/>in<sp/>microseconds<sp/>(LSB)<sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">3<sp/><sp/>Delay<sp/>in<sp/>microseconds<sp/>(MSB)<sp/>[optional]</highlight></codeline>
+<codeline><highlight class="normal">...<sp/>user<sp/>defined<sp/>for<sp/>special<sp/>cases,<sp/>etc</highlight></codeline>
+<codeline><highlight class="normal">n<sp/><sp/>END_SYSEX<sp/>(0xF7)</highlight></codeline>
+</programlisting></para>
+<para>The optional <computeroutput>Delay</computeroutput> is for I2C devices that require a delay between when the register is written to and the data in that register can be read. </para>
+</sect2>
+    </detaileddescription>
+  </compounddef>
+</doxygen>
